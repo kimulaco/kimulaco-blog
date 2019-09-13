@@ -1,9 +1,9 @@
 <template>
   <div class="PageHome">
-    <post-card
+    <PostCard
       v-for="post in posts"
-      :key="post.id"
       :id="post.id"
+      :key="post.id"
       :title="post.title"
       :content="post.content"
       :tags="post.tags"
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import PostCard from '@/components/common/PostCard.vue'
+import PostCard from '@/components/common/PostCard'
 
 export default {
   name: 'PageHome',

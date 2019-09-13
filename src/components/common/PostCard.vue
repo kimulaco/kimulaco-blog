@@ -1,7 +1,7 @@
 <template>
   <section class="PostCard">
     <div class="PostCard_inner">
-      <h2 class="PostCard_title">
+      <h2 :is="headingTag" class="PostCard_title">
         <nuxt-link :to="href">{{ title }}</nuxt-link>
       </h2>
 
@@ -56,6 +56,10 @@ export default {
     content: {
       type: String,
       default: ''
+    },
+    headingTag: {
+      type: String,
+      default: 'h2'
     }
   },
   computed: {
@@ -66,4 +70,4 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>
