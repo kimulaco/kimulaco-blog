@@ -2,18 +2,19 @@
   <div class="PageHome">
     <PostCard
       v-for="post in posts"
-      :id="post.id"
-      :key="post.id"
-      :title="post.title"
-      :content="post.content"
-      :tags="post.tags"
-      :created-at="post.created_at"
-      :updated-at="post.updated_at"
+      :id="post.fields.id"
+      :key="post.fields.id"
+      :title="post.fields.title"
+      :content="'post.fields.content'"
+      :tags="post.fields.tags.split(',')"
+      :created-at="post.sys.createdAt | date"
+      :updated-at="post.sys.updatedAt | date"
     />
   </div>
 </template>
 
 <script>
+import { createClient } from '@/plugins/contentful'
 import PostCard from '@/components/common/PostCard'
 
 export default {
@@ -23,23 +24,15 @@ export default {
   },
   data() {
     return {
-      posts: [
-        {
-          id: 'first',
-          title: 'テスト記事１',
-          content: 'ほげほげ',
-          tags: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Node.js'],
-          created_at: '2019-10-01',
-          updated_at: '2019-10-01'
-        },
-        {
-          id: 'second',
-          title: 'テスト記事２',
-          content: 'ほげほげ',
-          tags: ['HTML', 'CSS'],
-          created_at: '2019-10-01'
-        }
-      ]
+      posts: []
+    }
+  },
+  async asyncData() {
+    const client = createClient()
+    const entries = await client.getEntries()
+    console.log(entries.items[0])
+    return {
+      posts: entries.items
     }
   }
 }
