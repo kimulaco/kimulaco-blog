@@ -14,12 +14,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: false,
-  css: ['normalize.css', '@/assets/scss/base'],
+  css: ['normalize.css', '@/assets/scss/base.scss'],
   plugins: [],
   buildModules: ['@nuxtjs/eslint-module'],
   modules: ['@nuxtjs/style-resources'],
   styleResources: {
-    scss: ['@/assets/scss/_define', '@/assets/scss/_mixin']
+    scss: ['@/assets/scss/_define.scss', '@/assets/scss/_mixin.scss']
   },
   srcDir: 'src',
   build: {
