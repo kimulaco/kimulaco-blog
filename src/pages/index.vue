@@ -6,7 +6,7 @@
       :key="post.fields.id"
       :title="post.fields.title"
       :content="'post.fields.content'"
-      :tags="post.fields.tags.split(',')"
+      :tags="post.fields.tags"
       :created-at="post.sys.createdAt | date"
       :updated-at="post.sys.updatedAt | date"
     />
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { createClient } from '@/plugins/contentful'
+import { client } from '@/plugins/contentful'
 import PostCard from '@/components/common/PostCard'
 
 export default {
@@ -28,9 +28,8 @@ export default {
     }
   },
   async asyncData() {
-    const client = createClient()
     const entries = await client.getEntries()
-    console.log(entries.items[0])
+    console.log(JSON.stringify(entries.items, null, '  '))
     return {
       posts: entries.items
     }
