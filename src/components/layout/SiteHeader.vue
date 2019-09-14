@@ -30,8 +30,22 @@ export default {
 
 <style lang="scss" scoped>
 .SiteHeader {
+  background: $COLOR_WHITE;
+  margin: 0 0 40px;
+  box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
   &_inner {
     @extend %layout-inner;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  &_title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+    &-text {
+      color: $COLOR_BLACK;
+    }
   }
 }
 </style>

@@ -30,12 +30,12 @@ export default {
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid rgba(#000, 0.1);
+    border: 1px solid rgba($COLOR_BLACK, 0.1);
     color: $COLOR_BLACK;
-    box-shadow: 0 2px 2px rgba(#000, 0.1);
+    box-shadow: 0 2px 2px rgba($COLOR_BLACK, 0.1);
     transition: 0.3s;
     @include active() {
-      box-shadow: 0 2px 4px rgba(#000, 0.2);
+      box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.2);
     }
   }
 }
