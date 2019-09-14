@@ -18,10 +18,18 @@ export default {
 
 <style lang="scss" scoped>
 .SiteFooter {
+  padding: 16px 0;
   &_inner {
     @extend %layout-inner;
+    @include media() {
+      padding: 0 20px;
+    }
   }
   &_copyright {
+    text-align: center;
+    @include media() {
+      text-align: left;
+    }
     &-text {
       font-size: 14px;
     }

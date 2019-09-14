@@ -1,15 +1,26 @@
 <template>
   <div class="PagePostDetail">
-    <h1>{{ post.title }}</h1>
+    <PostDetail
+      :id="post.id"
+      :title="post.title"
+      :category="post.category"
+      :tags="post.tags"
+      :content="post.content"
+      :created-at="post.createdAt"
+      :updated-at="post.updatedAt"
+    />
   </div>
 </template>
 
 <script>
 import { getEntry } from '@/plugins/contentful'
+import PostDetail from '@/components/post/PostDetail'
 
 export default {
   name: 'PagePostDetail',
-  components: {},
+  components: {
+    PostDetail
+  },
   data() {
     return {
       post: {}
@@ -17,7 +28,7 @@ export default {
   },
   async asyncData({ params }) {
     return {
-      post: await getEntry(params.id)
+      post: await getEntry(params.id, { type: 'post' })
     }
   }
 }

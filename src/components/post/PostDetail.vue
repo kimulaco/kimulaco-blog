@@ -1,24 +1,21 @@
 <template>
-  <Card
-    :class="{ '-active': isActive }"
-    :to="`/post/${id}/`"
-    class="PostCard"
-    tag="section"
-  >
-    <div class="PostCard_head">
-      <h3 class="PostCard_heading">{{ title }}</h3>
-      <p :class="`-${category}`" class="PostCard_category">
-        <CodeSvg class="PostCard_category-icon" />
-        <span class="PostCard_category-text">{{ category }}</span>
+  <Card class="PostDetail" tag="article">
+    <div class="PostDetail_head">
+      <h3 class="PostDetail_heading">{{ title }}</h3>
+      <p :class="`-${category}`" class="PostDetail_category">
+        <CodeSvg class="PostDetail_category-icon" />
+        <span class="PostDetail_category-text">{{ category }}</span>
       </p>
     </div>
-    <Tags :tags="tags" class="PostCard_tags" />
+    <Tags :tags="tags" class="PostDetail_tags" />
     <Timestamp
       :created-at="createdAt"
       :updated-at="updatedAt"
-      class="PostCard_timestamp"
+      class="PostDetail_timestamp"
     />
-    <p class="PostCard_content">{{ content }}</p>
+    <!-- eslint-disable vue/no-v-html -->
+    <p class="PostDetail_content" v-html="content" />
+    <!-- eslint-enable vue/no-v-html -->
   </Card>
 </template>
 
@@ -29,7 +26,7 @@ import Timestamp from '@/components/module/Timestamp'
 import CodeSvg from '@/assets/img/icon-code.svg'
 
 export default {
-  name: 'PostCard',
+  name: 'PostDetail',
   components: {
     Card,
     Tags,
@@ -77,20 +74,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.PostCard {
-  margin: 0 0 24px;
+.PostDetail {
+  margin: 0 0 32px;
   position: relative;
-  @include media() {
-    margin: 0 0 32px;
-  }
   &_head {
     display: flex;
-    flex-direction: row-reverse;
     align-items: flex-start;
-    justify-content: flex-end;
+    margin: 0 0 8px;
   }
   &_heading {
-    font-size: 20px;
+    font-size: 28px;
     padding: 5px 0;
     max-width: calc(100% - 50px);
     margin: 0 0 10px;
@@ -103,7 +96,7 @@ export default {
     background: $COLOR_LIGHTGRAY;
     width: 32px;
     height: 32px;
-    margin: 0 8px 0 0;
+    margin: 8px 0 0 auto;
     border: 3px solid $COLOR_WHITE;
     border-radius: 50%;
     overflow: hidden;
@@ -130,21 +123,21 @@ export default {
   &_tags {
     margin: 0 0 10px;
     @include media() {
-      margin: 0 0 12px;
+      margin: 0 0 16px;
     }
   }
   &_timestamp {
     margin: 0 0 10px;
     @include media() {
-      margin: 0 0 12px;
+      margin: 0 0 24px;
     }
   }
   &_content {
     margin: 0;
-    padding: 10px 0 0;
+    padding: 20px 0 0;
     border-top: 1px solid rgba($COLOR_GRAY, 0.2);
     @include media() {
-      padding: 12px 0 0;
+      padding: 20px 0 0;
     }
   }
 }

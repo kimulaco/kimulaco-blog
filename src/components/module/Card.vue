@@ -29,15 +29,12 @@ export default {
     @include reset-child-margin();
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 16px;
     border: 1px solid rgba($COLOR_BLACK, 0.1);
     border-radius: 4px;
     color: $COLOR_BLACK;
     box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.2);
     transition: 0.3s;
-    @include media() {
-      padding: 16px;
-    }
   }
 }
 a.Card {
