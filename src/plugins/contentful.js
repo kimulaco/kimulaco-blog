@@ -13,17 +13,15 @@ const documentToHtml = (doc) => {
   return documentToHtmlString(doc)
 }
 
-export const client = createClient(config)
+const client = createClient(config)
 
-export const parseEntry = (entry, option = { type: 'post' }) => {
+const parseEntry = (entry, option = { type: 'post' }) => {
   let renderdContent = ''
-
   if (option.type === 'list') {
     renderdContent = documentToPlainTextString(entry.fields.content)
   } else {
     renderdContent = documentToHtml(entry.fields.content)
   }
-
   return {
     id: entry.fields.id,
     title: entry.fields.title,
@@ -35,7 +33,7 @@ export const parseEntry = (entry, option = { type: 'post' }) => {
   }
 }
 
-export const parseEntries = (entries, option = { type: 'post' }) => {
+const parseEntries = (entries, option = { type: 'post' }) => {
   const parsedEntries = []
   let entry
   for (entry of entries) {
@@ -47,4 +45,15 @@ export const parseEntries = (entries, option = { type: 'post' }) => {
 export const getEntries = async (option = { type: 'post' }) => {
   const entries = await client.getEntries()
   return parseEntries(entries.items, option)
+}
+
+export const getEntry = async (id, option = { type: 'post' }) => {
+  const entries = await client.getEntries()
+  let entry
+  for (entry of entries.items) {
+    if (entry.fields.id === id) {
+      return parseEntry(entry, option)
+    }
+  }
+  return null
 }
