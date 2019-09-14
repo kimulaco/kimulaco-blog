@@ -21,5 +21,11 @@ export default {
 <style lang="scss" scoped>
 .Card {
   border: 1px solid #999;
+  border-radius: 4px;
+
+  &_inner {
+    @include reset-child-margin();
+    padding: 16px;
+  }
 }
 </style>

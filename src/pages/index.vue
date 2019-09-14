@@ -2,29 +2,27 @@
   <div class="PageHome">
     <h2>最近の記事</h2>
 
-    <Card v-for="post in posts" :key="post.id" tag="section">
-      <h3>
-        <nuxt-link :to="`/post/${post.id}/`">{{ post.title }}</nuxt-link>
-      </h3>
-      <Tags :tags="post.tags" />
-      <Timestamp :created-at="post.createdAt" :updated-at="post.updatedAt" />
-      <p>{{ post.content }}</p>
-    </Card>
+    <PostCard
+      v-for="post in posts"
+      :id="post.id"
+      :key="post.id"
+      :title="post.title"
+      :content="post.content"
+      :tags="post.tags"
+      :created-at="post.createdAt"
+      :updated-at="post.updatedAt"
+    />
   </div>
 </template>
 
 <script>
 import { getEntries } from '@/plugins/contentful'
-import Card from '@/components/module/Card'
-import Tags from '@/components/module/Tags'
-import Timestamp from '@/components/module/Timestamp'
+import PostCard from '@/components/post/PostCard'
 
 export default {
   name: 'PageHome',
   components: {
-    Card,
-    Tags,
-    Timestamp
+    PostCard
   },
   data() {
     return {
