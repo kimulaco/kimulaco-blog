@@ -7,8 +7,7 @@ export default {
   mode: 'universal',
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-    CTF_CPA_ACCESS_TOKEN: process.env.CTF_CPA_ACCESS_TOKEN
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
   },
   head: {
     title: 'kimulaco.com',
