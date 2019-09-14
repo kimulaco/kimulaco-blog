@@ -21,5 +21,10 @@ export default {
   &_inner {
     @extend %layout-inner;
   }
+  &_copyright {
+    &-text {
+      font-size: 14px;
+    }
+  }
 }
 </style>

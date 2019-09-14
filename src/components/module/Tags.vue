@@ -25,6 +25,7 @@ $margin-top: 5px;
 $margin-left: 10px;
 
 .Tags {
+  font-size: 14px;
   &_list {
     display: flex;
     flex-wrap: wrap;

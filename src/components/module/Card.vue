@@ -33,13 +33,18 @@ export default {
     border: 1px solid rgba($COLOR_BLACK, 0.1);
     border-radius: 4px;
     color: $COLOR_BLACK;
-    box-shadow: 0 2px 2px rgba($COLOR_BLACK, 0.1);
+    box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.2);
     transition: 0.3s;
-    @include active() {
-      box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.2);
-    }
     @include media() {
       padding: 16px;
+    }
+  }
+}
+a.Card {
+  &_inner {
+    @include active() {
+      transform: translateY(-3px);
+      box-shadow: 0 2px 10px rgba($COLOR_BLACK, 0.3);
     }
   }
 }

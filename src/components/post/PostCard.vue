@@ -93,7 +93,7 @@ export default {
     margin: 0 0 10px;
     color: $COLOR_BLUE;
     @include media() {
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
   }
   &_category {
@@ -127,13 +127,13 @@ export default {
   &_tags {
     margin: 0 0 10px;
     @include media() {
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
   }
   &_timestamp {
     margin: 0 0 10px;
     @include media() {
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
   }
   &_content {
@@ -141,7 +141,7 @@ export default {
     padding: 10px 0 0;
     border-top: 1px solid rgba($COLOR_GRAY, 0.2);
     @include media() {
-      padding: 16px 0 0;
+      padding: 12px 0 0;
     }
   }
 }
