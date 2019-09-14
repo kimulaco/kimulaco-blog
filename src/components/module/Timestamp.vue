@@ -30,8 +30,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$margin-top: 8px;
-$margin-left: 16px;
+$margin-top: 5px;
+$margin-left: 10px;
 
 .Timestamp {
   font-size: 12px;

@@ -1,14 +1,13 @@
 <template>
   <div class="PageHome">
-    <h2>最近の記事</h2>
-
     <PostCard
       v-for="post in posts"
       :id="post.id"
       :key="post.id"
       :title="post.title"
-      :content="post.content"
+      :category="post.category"
       :tags="post.tags"
+      :content="post.content"
       :created-at="post.createdAt"
       :updated-at="post.updatedAt"
     />

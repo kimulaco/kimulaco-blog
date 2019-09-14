@@ -25,9 +25,10 @@ const parseEntry = (entry, option = { type: 'post' }) => {
   return {
     id: entry.fields.id,
     title: entry.fields.title,
+    category: entry.fields.category,
+    tags: entry.fields.tags,
     description: entry.fields.description,
     content: renderdContent,
-    tags: entry.fields.tags,
     createdAt: date(entry.sys.createdAt),
     updatedAt: date(entry.sys.updatedAt)
   }
