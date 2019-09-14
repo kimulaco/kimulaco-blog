@@ -21,23 +21,22 @@ export default {
 .SiteColumn {
   &_inner {
     @extend %layout-inner;
-
     @include media() {
       display: flex;
+      align-items: flex-start;
     }
   }
-
   &_main {
     @include reset-child-margin();
     width: 100%;
   }
-
   &_sub {
     @include reset-child-margin();
-
+    margin: 24px 0 0;
     @include media() {
       width: 280px;
       min-width: 280px;
+      margin: 0 0 0 24px;
     }
   }
 }

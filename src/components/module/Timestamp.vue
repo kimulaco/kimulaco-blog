@@ -34,17 +34,20 @@ $margin-top: 8px;
 $margin-left: 16px;
 
 .Timestamp {
+  font-size: 12px;
+  color: $COLOR_GRAY;
+  @include media() {
+    font-size: 14px;
+  }
   &_list {
     display: flex;
     flex-wrap: wrap;
     margin: -#{$margin-top} 0 0 -#{$margin-left};
   }
-
   &_item {
     display: flex;
     margin: #{$margin-top} 0 0 #{$margin-left};
   }
-
   &_date {
     margin: 0 0 0 8px;
   }

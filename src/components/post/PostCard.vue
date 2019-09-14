@@ -1,10 +1,11 @@
 <template>
-  <Card class="PostCard" tag="section">
-    <h3 class="PostCard_heading">
-      <nuxt-link :to="`/post/${id}/`" class="PostCard_heading-anchor">
-        {{ title }}
-      </nuxt-link>
-    </h3>
+  <Card
+    :class="{ '-active': isActive }"
+    :to="`/post/${id}/`"
+    class="PostCard"
+    tag="section"
+  >
+    <h3 class="PostCard_heading">{{ title }}</h3>
     <Tags :tags="tags" class="PostCard_tags" />
     <Timestamp
       :created-at="createdAt"
@@ -54,15 +55,31 @@ export default {
       type: String,
       default: ''
     }
+  },
+  data() {
+    return {
+      isActive: false
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .PostCard {
+  margin: 0 0 16px;
   &_heading {
     font-size: 20px;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
+    color: $COLOR_BLUE;
+  }
+  &_tags {
+    margin: 0 0 10px;
+  }
+  &_timestamp {
+    margin: 0 0 10px;
+  }
+  &_content {
+    margin: 0;
   }
 }
 </style>

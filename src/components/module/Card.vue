@@ -1,6 +1,6 @@
 <template>
   <div :is="tag" class="Card">
-    <div class="Card_inner">
+    <div :is="to ? 'nuxt-link' : 'div'" :to="to || false" class="Card_inner">
       <slot />
     </div>
   </div>
@@ -13,6 +13,10 @@ export default {
     tag: {
       type: String,
       default: 'div'
+    },
+    to: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -20,12 +24,19 @@ export default {
 
 <style lang="scss" scoped>
 .Card {
-  border: 1px solid #999;
-  border-radius: 4px;
-
+  background: $COLOR_WHITE;
   &_inner {
     @include reset-child-margin();
-    padding: 16px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(#000, 0.1);
+    color: $COLOR_BLACK;
+    box-shadow: 0 2px 2px rgba(#000, 0.1);
+    transition: 0.3s;
+    @include active() {
+      box-shadow: 0 2px 4px rgba(#000, 0.2);
+    }
   }
 }
 </style>

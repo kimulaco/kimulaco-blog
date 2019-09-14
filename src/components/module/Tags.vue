@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$margin-top: 8px;
-$margin-left: 16px;
+$margin-top: 5px;
+$margin-left: 10px;
 
 .Tags {
   &_list {
@@ -32,7 +32,6 @@ $margin-left: 16px;
     margin: -#{$margin-top} 0 0 -#{$margin-left};
     list-style: none;
   }
-
   &_item {
     margin: #{$margin-top} 0 0 #{$margin-left};
   }
