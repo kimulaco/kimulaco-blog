@@ -7,7 +7,7 @@
           :to="isHome ? false : '/'"
           class="SiteHeader_title-text"
         >
-          kimulaco.org
+          kimulaco.com
         </nuxt-link>
       </p>
     </div>
