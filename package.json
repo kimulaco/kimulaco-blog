@@ -21,6 +21,9 @@
     }
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.4.0",
+    "@contentful/rich-text-plain-text-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
     "contentful": "^7.9.1",
     "dayjs": "^1.8.16",
     "nuxt": "^2.9.2"
