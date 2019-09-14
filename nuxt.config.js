@@ -29,7 +29,11 @@ export default {
   buildModules: ['@nuxtjs/eslint-module'],
   modules: ['@nuxtjs/style-resources'],
   styleResources: {
-    scss: ['@/assets/scss/_define.scss', '@/assets/scss/_mixin.scss']
+    scss: [
+      '@/assets/scss/_define.scss',
+      '@/assets/scss/_mixin.scss',
+      '@/assets/scss/_extend.scss'
+    ]
   },
   srcDir: 'src',
   build: {
