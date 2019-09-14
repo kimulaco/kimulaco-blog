@@ -21,7 +21,10 @@ export default {
 .SiteColumn {
   &_inner {
     @extend %layout-inner;
-    display: flex;
+
+    @include media() {
+      display: flex;
+    }
   }
 
   &_main {
@@ -31,8 +34,11 @@ export default {
 
   &_sub {
     @include reset-child-margin();
-    width: 280px;
-    min-width: 280px;
+
+    @include media() {
+      width: 280px;
+      min-width: 280px;
+    }
   }
 }
 </style>
