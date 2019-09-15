@@ -1,3 +1,6 @@
+import Sass from 'sass'
+import Fiber from 'fibers'
+
 export default {
   mode: 'universal',
   head: {
@@ -26,6 +29,14 @@ export default {
   },
   srcDir: 'src',
   build: {
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    loaders: {
+      scss: {
+        implementation: Sass,
+        sassOptions: {
+          fiber: Fiber
+        }
+      }
+    }
   }
 }

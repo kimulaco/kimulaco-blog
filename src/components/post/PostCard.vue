@@ -7,10 +7,7 @@
   >
     <div class="PostCard_head">
       <h3 class="PostCard_heading">{{ title }}</h3>
-      <p :class="`-${category}`" class="PostCard_category">
-        <CodeSvg class="PostCard_category-icon" />
-        <span class="PostCard_category-text">{{ category }}</span>
-      </p>
+      <Badge :category="category" class="PostCard_category" />
     </div>
     <Tags :tags="tags" class="PostCard_tags" />
     <Timestamp
@@ -24,17 +21,17 @@
 
 <script>
 import Card from '@/components/module/Card'
+import Badge from '@/components/module/Badge'
 import Tags from '@/components/module/Tags'
 import Timestamp from '@/components/module/Timestamp'
-import CodeSvg from '@/assets/img/icon-code.svg'
 
 export default {
   name: 'PostCard',
   components: {
     Card,
+    Badge,
     Tags,
-    Timestamp,
-    CodeSvg
+    Timestamp
   },
   props: {
     id: {
@@ -100,32 +97,7 @@ export default {
     }
   }
   &_category {
-    background: $COLOR_LIGHTGRAY;
-    width: 32px;
-    height: 32px;
     margin: 0 8px 0 0;
-    border: 3px solid $COLOR_WHITE;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 0 1px rgba($COLOR_BLACK, 0.1),
-      0 0 4px rgba($COLOR_BLACK, 0.2);
-    position: relative;
-    &-icon {
-      color: $COLOR_WHITE;
-      width: 16px;
-      height: 16px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    &-text {
-      color: transparent;
-      text-indent: 32px;
-    }
-    &.-code {
-      background: $COLOR_PURPLE;
-    }
   }
   &_tags {
     margin: 0 0 10px;
