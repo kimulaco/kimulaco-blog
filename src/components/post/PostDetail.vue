@@ -87,9 +87,8 @@ export default {
     padding: 5px 0;
     max-width: calc(100% - 50px);
     margin: 0 0 10px;
-    color: $COLOR_BLUE;
     @include media() {
-      margin: 0 0 12px;
+      margin: 0;
     }
   }
   &_category {
