@@ -2,7 +2,7 @@
 id: post-template
 title: サンプル記事
 description: このブログの記事テンプレートです。
-category: code
+category: cording
 tags:
     - HTML
     - CSS

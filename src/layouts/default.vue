@@ -5,7 +5,9 @@
     <SiteColumn>
       <template v-slot:main>
         <main>
-          <nuxt />
+          <transition name="router">
+            <nuxt />
+          </transition>
         </main>
       </template>
 
@@ -34,3 +36,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.router-enter-active,
+.router-leave-active {
+  transition: 0.5s;
+}
+.router-enter,
+.router-leave-to {
+  opacity: 0;
+}
+</style>
