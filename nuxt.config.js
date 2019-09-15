@@ -1,14 +1,5 @@
-if (process.env.NODE_ENV !== 'production') {
-  const dotenv = require('dotenv')
-  dotenv.config()
-}
-
 export default {
   mode: 'universal',
-  env: {
-    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
-  },
   head: {
     title: 'kimulaco.com',
     meta: [
@@ -24,7 +15,7 @@ export default {
   },
   loading: false,
   css: ['normalize.css', '@/assets/scss/base.scss', '@/assets/scss/util.scss'],
-  plugins: ['@/plugins/filter'],
+  plugins: [],
   buildModules: ['@nuxtjs/eslint-module'],
   modules: ['@nuxtjs/style-resources', 'nuxt-svg-loader'],
   styleResources: {
