@@ -6425,10 +6425,10 @@ markdown-it@^8.4.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-markdown-post-parser@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/markdown-post-parser/-/markdown-post-parser-0.0.2.tgz#a0cd86bcbc6ef43a3d0b2a8e69f7cf6d4ab47082"
-  integrity sha512-d2YnX6oZc7ku0PHOtI1pRx4ROV4FD51z3oYX5ZtIye9QCsfOz9B2FUwEfeSQa2TOpGgkHDSN7zaauP32MHMOoQ==
+markdown-post-parser@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/markdown-post-parser/-/markdown-post-parser-0.0.4.tgz#77b38f9b7e320d82006929d6e7321bf6992ec18b"
+  integrity sha512-mFxWX7NYExzls22qWgwt/5K6TJlZP4R/9sP1SJdlD+jF7KyZNFsvR+2mBtAGQ5sjZkmtmDL+8nvSq8W66bv+Zg==
   dependencies:
     commander "^2.20.0"
     fs-extra "^7.0.1"
@@ -6436,6 +6436,7 @@ markdown-post-parser@^0.0.2:
     lodash "^4.17.11"
     markdown-it "^8.4.2"
     markdown-it-meta "0.0.1"
+    remove-markdown "^0.3.0"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -8693,6 +8694,11 @@ relateurl@0.2.x, relateurl@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+remove-markdown@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/remove-markdown/-/remove-markdown-0.3.0.tgz#5e4b667493a93579728f3d52ecc1db9ca505dc98"
+  integrity sha1-XktmdJOpNXlyjz1S7MHbnKUF3Jg=
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
