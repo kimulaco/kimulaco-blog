@@ -15,8 +15,7 @@ export default {
   },
   loading: false,
   css: ['normalize.css', '@/assets/scss/base.scss', '@/assets/scss/util.scss'],
-  plugins: [],
-  buildModules: ['@nuxtjs/eslint-module'],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
   modules: ['@nuxtjs/style-resources', 'nuxt-svg-loader'],
   styleResources: {
     scss: [

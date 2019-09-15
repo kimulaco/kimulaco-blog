@@ -28,13 +28,16 @@ export default {
   }
   &_main {
     @include reset-child-margin();
+
     width: 100%;
   }
   &_sub {
     @include reset-child-margin();
+
     padding: 24px 0 0;
     margin: 24px 0 0;
     position: relative;
+
     @include media() {
       padding: 0;
       width: 280px;

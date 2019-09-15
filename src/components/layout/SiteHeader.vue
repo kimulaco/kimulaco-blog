@@ -35,6 +35,7 @@ export default {
   box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
   &_inner {
     @extend %layout-inner;
+
     min-height: 50px;
     display: flex;
     align-items: center;

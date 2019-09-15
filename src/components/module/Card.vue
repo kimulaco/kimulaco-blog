@@ -27,6 +27,7 @@ export default {
   background: $COLOR_WHITE;
   &_inner {
     @include reset-child-margin();
+
     display: block;
     width: 100%;
     padding: 16px;
