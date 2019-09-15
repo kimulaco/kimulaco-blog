@@ -1,7 +1,7 @@
 <template>
   <div v-if="links.length > 0" class="LinkList">
     <ul class="LinkList_list">
-      <li v-for="link in links" :key="link" class="LinkList_item">
+      <li v-for="link in links" :key="link.url" class="LinkList_item">
         <a
           :href="link.url"
           target="_blank"

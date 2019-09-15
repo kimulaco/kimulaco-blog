@@ -123,7 +123,7 @@ export default {
       color: transparent;
       text-indent: 32px;
     }
-    &.-programming {
+    &.-code {
       background: $COLOR_PURPLE;
     }
   }

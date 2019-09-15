@@ -5,15 +5,15 @@
       :title="post.title"
       :category="post.category"
       :tags="post.tags"
-      :content="post.content"
-      :created-at="post.createdAt"
-      :updated-at="post.updatedAt"
+      :content="post.body"
+      :created-at="post.created_at"
+      :updated-at="post.updated_at"
     />
   </div>
 </template>
 
 <script>
-import { getEntry } from '@/plugins/contentful'
+import { getPost } from '@/plugins/blog'
 import PostDetail from '@/components/post/PostDetail'
 
 export default {
@@ -26,9 +26,9 @@ export default {
       post: {}
     }
   },
-  async asyncData({ params }) {
+  asyncData({ params }) {
     return {
-      post: await getEntry(params.id, { type: 'post' })
+      post: getPost(params.id)
     }
   }
 }

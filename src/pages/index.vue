@@ -7,15 +7,15 @@
       :title="post.title"
       :category="post.category"
       :tags="post.tags"
-      :content="post.content"
-      :created-at="post.createdAt"
-      :updated-at="post.updatedAt"
+      :content="post.content || ''"
+      :created-at="post.created_at"
+      :updated-at="post.updated_at"
     />
   </div>
 </template>
 
 <script>
-import { getEntries } from '@/plugins/contentful'
+import { posts } from '@/plugins/blog'
 import PostCard from '@/components/post/PostCard'
 
 export default {
@@ -28,9 +28,9 @@ export default {
       posts: []
     }
   },
-  async asyncData() {
+  asyncData() {
     return {
-      posts: await getEntries({ type: 'list' })
+      posts
     }
   }
 }
