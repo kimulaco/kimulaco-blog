@@ -11,7 +11,7 @@
       class="PostDetail_timestamp"
     />
     <!-- eslint-disable vue/no-v-html -->
-    <p class="PostDetail_content" v-html="content" />
+    <PostContent class="PostDetail_content" v-html="content" />
     <!-- eslint-enable vue/no-v-html -->
   </Card>
 </template>
@@ -21,6 +21,7 @@ import Card from '@/components/module/Card'
 import Badge from '@/components/module/Badge'
 import Tags from '@/components/module/Tags'
 import Timestamp from '@/components/module/Timestamp'
+import PostContent from '@/components/post/PostContent'
 
 export default {
   name: 'PostDetail',
@@ -28,7 +29,8 @@ export default {
     Card,
     Badge,
     Tags,
-    Timestamp
+    Timestamp,
+    PostContent
   },
   props: {
     id: {
@@ -94,7 +96,7 @@ export default {
   &_tags {
     margin: 0 0 10px;
     @include media() {
-      margin: 0 0 16px;
+      margin: 0 0 12px;
     }
   }
   &_timestamp {
@@ -106,7 +108,17 @@ export default {
   &_content {
     margin: 0;
     padding: 20px 0 0;
-    border-top: 1px solid rgba($COLOR_GRAY, 0.2);
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      background: rgba($COLOR_GRAY, 0.2);
+      width: calc(100% + 32px);
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: -16px;
+    }
     @include media() {
       padding: 20px 0 0;
     }

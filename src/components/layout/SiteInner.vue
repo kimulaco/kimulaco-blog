@@ -13,5 +13,6 @@ export default {
 <style lang="scss" scoped>
 .SiteInner {
   @extend %layout-inner;
+  @include reset-child-margin();
 }
 </style>
