@@ -13,6 +13,9 @@
     <!-- eslint-disable vue/no-v-html -->
     <PostContent class="PostDetail_content" v-html="content" />
     <!-- eslint-enable vue/no-v-html -->
+    <div class="PostDetail_foot">
+      <p>share</p>
+    </div>
   </Card>
 </template>
 
@@ -121,6 +124,21 @@ export default {
     }
     @include media() {
       padding: 20px 0 0;
+    }
+  }
+  &_foot {
+    margin: 20px 0 0;
+    padding: 10px 0 0;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      background: rgba($COLOR_GRAY, 0.2);
+      width: calc(100% + 32px);
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: -16px;
     }
   }
 }

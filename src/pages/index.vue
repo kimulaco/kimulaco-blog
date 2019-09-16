@@ -7,7 +7,7 @@
       :title="post.title"
       :category="post.category"
       :tags="post.tags"
-      :content="post.body.text"
+      :content="post.description"
       :created-at="post.created_at"
       :updated-at="post.updated_at"
     />

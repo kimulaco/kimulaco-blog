@@ -36,9 +36,9 @@
       ],
       "status": "publish",
       "created_at": "2019-10-01",
-      "updated_at": "2019-10-01",
+      "updated_at": "",
       "body": {
-        "md": "---\r\nid: post-template\r\ntitle: サンプル記事\r\ndescription: このブログの記事テンプレートです。\r\ncategory: Cording\r\ntags:\r\n    - HTML\r\n    - CSS\r\n    - JavaScript\r\nstatus: publish\r\ncreated_at: \"2019-10-01\"\r\nupdated_at: \"2019-10-01\"\r\n---\r\n\r\n## はじめに\r\n\r\nこのブログの記事はMarkdown記法で作成されています。",
+        "md": "---\r\nid: post-template\r\ntitle: サンプル記事\r\ndescription: このブログの記事テンプレートです。\r\ncategory: Cording\r\ntags:\r\n    - HTML\r\n    - CSS\r\n    - JavaScript\r\nstatus: publish\r\ncreated_at: \"2019-10-01\"\r\nupdated_at: \"\"\r\n---\r\n\r\n## はじめに\r\n\r\nこのブログの記事はMarkdown記法で作成されています。",
         "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n",
         "text": "はじめに\nこのブログの記事はMarkdown記法で作成されています。"
       },
