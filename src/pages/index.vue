@@ -23,15 +23,13 @@ export default {
   components: {
     PostCard
   },
-  data() {
-    return {
-      posts: []
-    }
-  },
   asyncData() {
     return {
       posts
     }
+  },
+  created() {
+    this.$store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
   }
 }
 </script>

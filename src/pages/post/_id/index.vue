@@ -21,14 +21,14 @@ export default {
   components: {
     PostDetail
   },
-  data() {
+  asyncData({ params, store }) {
+    const post = getPost(params.id)
+    store.commit('breadcrumb/update', [
+      { text: 'Home', url: '/' },
+      { text: post.title }
+    ])
     return {
-      post: {}
-    }
-  },
-  asyncData({ params }) {
-    return {
-      post: getPost(params.id)
+      post
     }
   }
 }
