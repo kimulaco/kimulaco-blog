@@ -1,5 +1,6 @@
 <template>
   <div class="Timestamp">
+    <svg-icon name="icon-calender" class="Timestamp_icon" />
     <dl class="Timestamp_list">
       <div class="Timestamp_item">
         <dt class="Timestamp_title">Created:</dt>
@@ -36,6 +37,7 @@ $margin-left: 10px;
 .Timestamp {
   font-size: 12px;
   color: $COLOR_GRAY;
+  display: flex;
   &_list {
     display: flex;
     flex-wrap: wrap;
@@ -47,6 +49,11 @@ $margin-left: 10px;
   }
   &_date {
     margin: 0 0 0 4px;
+  }
+  &_icon {
+    width: 14px;
+    height: 14px;
+    margin: 0 8px 0 0;
   }
 }
 </style>

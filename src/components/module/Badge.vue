@@ -2,12 +2,12 @@
   <p :class="`-${category}`" class="Badge">
     <svg-icon
       v-if="category === 'Cording'"
-      name="category-cording"
+      name="icon-cording"
       class="Badge_icon"
     />
     <svg-icon
       v-if="category === 'Design'"
-      name="category-design"
+      name="icon-design"
       class="Badge_icon"
     />
     <span class="Badge_text">{{ category }}</span>

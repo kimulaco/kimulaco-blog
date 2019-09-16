@@ -1,5 +1,6 @@
 <template>
   <div class="Tags">
+    <svg-icon name="icon-tags" class="Tags_icon" />
     <ul class="Tags_list">
       <li v-for="tag in tags" :key="tag" class="Tags_item">{{ tag }}</li>
     </ul>
@@ -26,6 +27,7 @@ $margin-left: 10px;
 
 .Tags {
   font-size: 14px;
+  display: flex;
   &_list {
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +37,13 @@ $margin-left: 10px;
   }
   &_item {
     margin: #{$margin-top} 0 0 #{$margin-left};
+  }
+  &_icon {
+    color: $COLOR_GRAY;
+    width: 14px;
+    height: 14px;
+    margin: 0 8px 0 0;
+    transform: translateY(1px);
   }
 }
 </style>

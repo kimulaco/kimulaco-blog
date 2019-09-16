@@ -9,8 +9,13 @@
         <nuxt-link
           :is="item.url ? 'nuxt-link' : 'span'"
           :to="item.url || false"
-          class="Breadcrumb_anchor"
+          :class="item.url ? 'Breadcrumb_anchor' : 'Breadcrumb_text'"
         >
+          <svg-icon
+            v-if="item.url === '/'"
+            name="icon-home"
+            class="Breadcrumb_home"
+          />
           {{ item.text }}
         </nuxt-link>
       </li>
@@ -60,6 +65,17 @@ export default {
     &:first-child {
       padding: 0;
     }
+  }
+  &_anchor {
+    transition: 0.3s;
+    @include active() {
+      opacity: 0.7;
+    }
+  }
+  &_home {
+    width: 14px;
+    height: 14px;
+    transform: translateY(1px);
   }
 }
 </style>
