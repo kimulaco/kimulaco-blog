@@ -1,26 +1,30 @@
 <template>
   <div class="SiteColumn">
-    <div class="SiteColumn_inner">
+    <SiteInner class="SiteColumn_inner">
       <div class="SiteColumn_main">
         <slot name="main" />
       </div>
       <div class="SiteColumn_sub">
         <slot name="sub" />
       </div>
-    </div>
+    </SiteInner>
   </div>
 </template>
 
 <script>
+import SiteInner from '@/components/layout/SiteInner'
+
 export default {
-  name: 'SiteColumn'
+  name: 'SiteColumn',
+  components: {
+    SiteInner
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .SiteColumn {
   &_inner {
-    @extend %layout-inner;
     @include media() {
       display: flex;
       align-items: flex-start;

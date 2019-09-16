@@ -1,18 +1,23 @@
 <template>
   <footer class="SiteFooter">
-    <div class="SiteFooter_inner">
+    <SiteInner class="SiteFooter_inner">
       <p class="SiteFooter_copyright">
         <small class="SiteFooter_copyright-text">
           &copy; 2019 kimulaco.com.
         </small>
       </p>
-    </div>
+    </SiteInner>
   </footer>
 </template>
 
 <script>
+import SiteInner from '@/components/layout/SiteInner'
+
 export default {
-  name: 'SiteFooter'
+  name: 'SiteFooter',
+  components: {
+    SiteInner
+  }
 }
 </script>
 
@@ -20,7 +25,6 @@ export default {
 .SiteFooter {
   padding: 16px 0;
   &_inner {
-    @extend %layout-inner;
     @include media() {
       padding: 0 20px;
     }

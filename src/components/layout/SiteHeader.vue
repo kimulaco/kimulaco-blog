@@ -1,6 +1,6 @@
 <template>
   <header class="SiteHeader">
-    <div class="SiteHeader_inner">
+    <SiteInner class="SiteHeader_inner">
       <p :is="isHome ? 'h1' : 'p'" class="SiteHeader_title">
         <nuxt-link
           :is="isHome ? 'span' : 'nuxt-link'"
@@ -10,13 +10,18 @@
           kimulaco.com
         </nuxt-link>
       </p>
-    </div>
+    </SiteInner>
   </header>
 </template>
 
 <script>
+import SiteInner from '@/components/layout/SiteInner'
+
 export default {
   name: 'SiteHeader',
+  components: {
+    SiteInner
+  },
   computed: {
     isHome() {
       return this.$route.path === '/'
@@ -34,8 +39,6 @@ export default {
   margin: 0 0 40px;
   box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
   &_inner {
-    @extend %layout-inner;
-
     min-height: 50px;
     display: flex;
     align-items: center;

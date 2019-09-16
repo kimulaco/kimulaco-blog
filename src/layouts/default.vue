@@ -2,7 +2,9 @@
   <div class="Layout">
     <SiteHeader />
 
-    <Breadcrumb />
+    <SiteInner>
+      <Breadcrumb />
+    </SiteInner>
 
     <SiteColumn>
       <template v-slot:main>
@@ -24,6 +26,7 @@
 
 <script>
 import Breadcrumb from '@/components/module/Breadcrumb'
+import SiteInner from '@/components/layout/SiteInner'
 import SiteHeader from '@/components/layout/SiteHeader'
 import SiteColumn from '@/components/layout/SiteColumn'
 import SiteFooter from '@/components/layout/SiteFooter'
@@ -33,6 +36,7 @@ export default {
   name: 'Layout',
   components: {
     Breadcrumb,
+    SiteInner,
     SiteHeader,
     SiteColumn,
     SiteFooter,
