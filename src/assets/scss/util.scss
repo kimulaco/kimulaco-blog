@@ -1,1 +1,12 @@
 @charset "UTF-8";
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.5s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}

@@ -69,7 +69,7 @@ export default {
   }
   &_name {
     font-size: 18px;
-    margin: 6px 0 4px;
+    margin: 5px 0 4px;
   }
   &_job {
     font-size: 14px;
@@ -81,7 +81,6 @@ export default {
     margin: 0 10px 0 0;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 0 4px rgba($COLOR_BLACK, 0.2);
     &-img {
       max-width: 100%;
     }

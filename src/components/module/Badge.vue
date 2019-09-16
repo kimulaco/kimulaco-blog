@@ -1,6 +1,15 @@
 <template>
   <p :class="`-${category}`" class="Badge">
-    <svg-icon name="category-cording" class="Badge_icon" />
+    <svg-icon
+      v-if="category === 'Cording'"
+      name="category-cording"
+      class="Badge_icon"
+    />
+    <svg-icon
+      v-if="category === 'Design'"
+      name="category-design"
+      class="Badge_icon"
+    />
     <span class="Badge_text">{{ category }}</span>
   </p>
 </template>
@@ -41,8 +50,11 @@ export default {
     color: transparent;
     text-indent: 32px;
   }
-  &.-cording {
+  &.-Cording {
     background: $COLOR_PURPLE;
+  }
+  &.-Design {
+    background: $COLOR_GREEN;
   }
 }
 </style>

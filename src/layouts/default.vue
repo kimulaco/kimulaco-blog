@@ -3,13 +3,15 @@
     <SiteHeader />
 
     <SiteInner>
-      <Breadcrumb />
+      <transition name="fade">
+        <Breadcrumb />
+      </transition>
     </SiteInner>
 
     <SiteColumn>
       <template v-slot:main>
         <main>
-          <transition name="router">
+          <transition name="fade">
             <nuxt />
           </transition>
         </main>
@@ -44,14 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.router-enter-active,
-.router-leave-active {
-  transition: 0.5s;
-}
-.router-enter,
-.router-leave-to {
-  opacity: 0;
-}
-</style>

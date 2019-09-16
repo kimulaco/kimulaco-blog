@@ -1,8 +1,8 @@
 ---
-id: post-template-02
+id: post-template
 title: サンプル記事
 description: このブログの記事テンプレートです。
-category: Design
+category: Cording
 tags:
     - HTML
     - CSS
