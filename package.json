@@ -25,6 +25,7 @@
     }
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.9.2"
   },

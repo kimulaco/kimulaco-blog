@@ -19,13 +19,20 @@ export default {
   loading: false,
   css: ['normalize.css', '@/assets/scss/base.scss', '@/assets/scss/util.scss'],
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/svg-sprite'],
+  modules: [
+    '@nuxtjs/style-resources',
+    '@nuxtjs/svg-sprite',
+    '@nuxtjs/google-analytics'
+  ],
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',
       '@/assets/scss/_mixin.scss',
       '@/assets/scss/_extend.scss'
     ]
+  },
+  googleAnalytics: {
+    id: 'UA-148174532-1'
   },
   srcDir: 'src',
   build: {
