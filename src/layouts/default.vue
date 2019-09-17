@@ -26,15 +26,16 @@
   </div>
 </template>
 
-<script>
-import Breadcrumb from '@/components/module/Breadcrumb'
-import SiteInner from '@/components/layout/SiteInner'
-import SiteHeader from '@/components/layout/SiteHeader'
-import SiteColumn from '@/components/layout/SiteColumn'
-import SiteFooter from '@/components/layout/SiteFooter'
-import AboutWidget from '@/components/about/AboutWidget'
+<script lang="ts">
+import Vue from 'vue'
+import Breadcrumb from '../components/module/Breadcrumb.vue'
+import SiteInner from '../components/layout/SiteInner.vue'
+import SiteHeader from '../components/layout/SiteHeader.vue'
+import SiteColumn from '../components/layout/SiteColumn.vue'
+import SiteFooter from '../components/layout/SiteFooter.vue'
+import AboutWidget from '../components/about/AboutWidget.vue'
 
-export default {
+export default Vue.extend({
   name: 'Layout',
   components: {
     Breadcrumb,
@@ -44,5 +45,5 @@ export default {
     SiteFooter,
     AboutWidget
   }
-}
+})
 </script>

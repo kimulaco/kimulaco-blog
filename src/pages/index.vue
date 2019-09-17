@@ -14,11 +14,12 @@
   </div>
 </template>
 
-<script>
-import { posts } from '@/plugins/blog'
-import PostCard from '@/components/post/PostCard'
+<script lang="ts">
+import Vue from 'vue'
+import { posts } from '../plugins/blog'
+import PostCard from '../components/post/PostCard.vue'
 
-export default {
+export default Vue.extend({
   name: 'PageHome',
   components: {
     PostCard
@@ -31,5 +32,5 @@ export default {
   created() {
     this.$store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
   }
-}
+})
 </script>
