@@ -42,7 +42,7 @@ const config: Configuration = {
   },
   srcDir: 'src',
   build: {
-    extend(config, ctx) {},
+    extend(config, ctx) {}, // eslint-disable-line @typescript-eslint/no-unused-vars
     loaders: {
       scss: {
         implementation: Sass,

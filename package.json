@@ -11,7 +11,7 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "npm-run-all -p lint:*",
-    "lint:script": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:script": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint src/**/*.vue",
     "test": "jest"
   },
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@nuxt/typescript-build": "^0.2.8",
     "@nuxtjs/eslint-config": "^1.1.2",
+    "@nuxtjs/eslint-config-typescript": "^0.1.3",
     "@nuxtjs/eslint-module": "^1.1.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^2.0.0",
