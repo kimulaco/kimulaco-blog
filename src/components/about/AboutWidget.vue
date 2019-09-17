@@ -17,11 +17,12 @@
   </Card>
 </template>
 
-<script>
-import Card from '@/components/module/Card'
-import LinkList from '@/components/module/LinkList'
+<script lang="ts">
+import Vue from 'vue'
+import Card from '../module/Card.vue'
+import LinkList from '../module/LinkList.vue'
 
-export default {
+export default Vue.extend({
   name: 'AboutWidget',
   components: {
     Card,
@@ -55,7 +56,7 @@ export default {
       ]
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

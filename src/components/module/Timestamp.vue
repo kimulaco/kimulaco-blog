@@ -14,8 +14,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'Timestamp',
   props: {
     createdAt: {
@@ -27,7 +29,7 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

@@ -19,14 +19,15 @@
   </Card>
 </template>
 
-<script>
-import Card from '@/components/module/Card'
-import Badge from '@/components/module/Badge'
-import Tags from '@/components/module/Tags'
-import Timestamp from '@/components/module/Timestamp'
-import PostContent from '@/components/post/PostContent'
+<script lang="ts">
+import Vue from 'vue'
+import Card from '../module/Card.vue'
+import Badge from '../module/Badge.vue'
+import Tags from '../module/Tags.vue'
+import Timestamp from '../module/Timestamp.vue'
+import PostContent from '../post/PostContent.vue'
 
-export default {
+export default Vue.extend({
   name: 'PostDetail',
   components: {
     Card,
@@ -66,13 +67,8 @@ export default {
       type: String,
       default: ''
     }
-  },
-  data() {
-    return {
-      isActive: false
-    }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

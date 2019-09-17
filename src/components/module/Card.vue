@@ -6,8 +6,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'Card',
   props: {
     tag: {
@@ -19,7 +21,7 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

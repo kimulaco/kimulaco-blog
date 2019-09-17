@@ -11,15 +11,16 @@
   </div>
 </template>
 
-<script>
-import SiteInner from '@/components/layout/SiteInner'
+<script lang="ts">
+import Vue from 'vue'
+import SiteInner from '../layout/SiteInner.vue'
 
-export default {
+export default Vue.extend({
   name: 'SiteColumn',
   components: {
     SiteInner
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

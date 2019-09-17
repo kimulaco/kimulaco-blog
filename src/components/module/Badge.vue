@@ -14,8 +14,10 @@
   </p>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'Badge',
   props: {
     category: {
@@ -23,7 +25,7 @@ export default {
       default: 'cording'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

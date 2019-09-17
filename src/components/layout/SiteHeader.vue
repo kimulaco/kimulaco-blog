@@ -14,23 +14,24 @@
   </header>
 </template>
 
-<script>
-import SiteInner from '@/components/layout/SiteInner'
+<script lang="ts">
+import Vue from 'vue'
+import SiteInner from '../layout/SiteInner.vue'
 
-export default {
+export default Vue.extend({
   name: 'SiteHeader',
   components: {
     SiteInner
   },
   computed: {
-    isHome() {
+    isHome(): boolean {
       return this.$route.path === '/'
     },
-    titleTextTag() {
+    titleTextTag(): string {
       return this.isHome ? 'span' : 'nuxt-link'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
