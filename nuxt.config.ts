@@ -1,7 +1,6 @@
 import { Configuration } from '@nuxt/types'
-
-const Sass = require('sass')
-const Fiber = require('fibers')
+import Sass from 'sass'
+import Fiber from 'fibers'
 
 const config: Configuration = {
   mode: 'universal',
