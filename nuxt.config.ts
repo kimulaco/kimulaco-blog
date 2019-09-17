@@ -1,7 +1,9 @@
-import Sass from 'sass'
-import Fiber from 'fibers'
+import { Configuration } from '@nuxt/types'
 
-export default {
+const Sass = require('sass')
+const Fiber = require('fibers')
+
+const config: Configuration = {
   mode: 'universal',
   head: {
     title: 'kimulaco.com',
@@ -51,3 +53,5 @@ export default {
     }
   }
 }
+
+export default config
