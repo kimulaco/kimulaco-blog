@@ -21,13 +21,6 @@ interface Post {
   resource: string[]
 }
 
-interface Meta {
-  hid?: string
-  name?: string
-  property?: string
-  content: string
-}
-
 export const siteUrl = 'https://kimulaco.com'
 export const siteTitle = 'kimulaco.com'
 export const siteDescription = '' // TODO site description
@@ -48,7 +41,7 @@ export const createMeta = (
   title: string = siteTitle,
   description: string = siteDescription,
   url: string = '/'
-): Meta[] => {
+) => {
   return [
     { hid: 'description', name: 'description', content: description },
     { hid: 'og:site_name', property: 'og:site_name', content: title },
