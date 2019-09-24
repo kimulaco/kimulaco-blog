@@ -1,34 +1,37 @@
 <template>
   <div class="Share">
     <ul class="Share_list">
-      <li class="Share_item -twitter">
+      <li class="Share_item">
         <a
           :href="`${twitterBaseUrl}?url=${url}&text=${title} ${description}`"
-          class="Share_anchor"
+          class="Share_anchor -twitter"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Twitterでシェアする
+          <svg-icon name="icon-twitter" class="Share_icon" />
+          <span class="Share_text">Twitterでシェアする</span>
         </a>
       </li>
-      <li class="Share_item -facebook">
+      <li class="Share_item">
         <a
           :href="`https://www.facebook.com/share.php?u=${url}`"
-          class="Share_anchor"
+          class="Share_anchor -facebook"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Facebookでシェアする
+          <svg-icon name="icon-facebook" class="Share_icon" />
+          <span class="Share_text">Facebookでシェアする</span>
         </a>
       </li>
-      <li class="Share_item -line">
+      <li class="Share_item">
         <a
           :href="`https://social-plugins.line.me/lineit/share?url=${url}`"
-          class="Share_anchor"
+          class="Share_anchor -line"
           target="_blank"
           rel="noopener noreferrer"
         >
-          LINEで送る
+          <svg-icon name="icon-line" class="Share_icon" />
+          <span class="Share_text">LINEで送る</span>
         </a>
       </li>
     </ul>
@@ -74,10 +77,30 @@ export default Vue.extend({
   &_item {
     width: calc(100% / 3);
   }
+  &_icon {
+    max-width: 24px;
+    max-height: 24px;
+  }
+  &_text {
+    text-indent: -100vw;
+  }
   &_anchor {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    text-align: center;
+    padding: 8px;
+    color: $COLOR_WHITE;
+    overflow: hidden;
+    &.-twitter {
+      background: #1da1f2;
+    }
+    &.-facebook {
+      background: #4267b2;
+    }
+    &.-line {
+      background: #00b900;
+    }
   }
 }
 </style>
