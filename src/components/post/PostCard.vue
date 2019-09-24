@@ -73,9 +73,7 @@ export default Vue.extend({
   }
   &_head {
     display: flex;
-    flex-direction: row-reverse;
     align-items: flex-start;
-    justify-content: flex-end;
   }
   &_heading {
     font-size: 20px;
@@ -88,7 +86,7 @@ export default Vue.extend({
     }
   }
   &_category {
-    margin: 0 8px 0 0;
+    margin: 0 0 0 auto;
   }
   &_tags {
     margin: 0 0 10px;
