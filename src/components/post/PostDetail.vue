@@ -14,7 +14,11 @@
     <PostContent class="PostDetail_content" v-html="content" />
     <!-- eslint-enable vue/no-v-html -->
     <div class="PostDetail_foot">
-      <p>share</p>
+      <Share
+        :title="title"
+        :description="description"
+        url="https://example.com"
+      />
     </div>
   </Card>
 </template>
@@ -25,6 +29,7 @@ import Card from '../module/Card.vue'
 import Badge from '../module/Badge.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
+import Share from '../module/Share.vue'
 import PostContent from '../post/PostContent.vue'
 
 export default Vue.extend({
@@ -34,6 +39,7 @@ export default Vue.extend({
     Badge,
     Tags,
     Timestamp,
+    Share,
     PostContent
   },
   props: {
@@ -42,6 +48,10 @@ export default Vue.extend({
       required: true
     },
     title: {
+      type: String,
+      required: true
+    },
+    description: {
       type: String,
       required: true
     },

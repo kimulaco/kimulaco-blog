@@ -3,6 +3,7 @@
     <PostDetail
       :id="post.id"
       :title="post.title"
+      :description="post.description"
       :category="post.category"
       :tags="post.tags"
       :content="post.body.html"
