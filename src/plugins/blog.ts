@@ -1,13 +1,41 @@
 const blog = require('../assets/json/blog.json')
 
+type Tags = string[]
+
+interface Post {
+  path: string
+  main: string
+  id: string
+  title: string
+  description: string
+  category: string
+  tags: Tags
+  status: string
+  created_at: string
+  updated_at: string
+  body: {
+    md: string
+    html: string
+    text: string
+  }
+  resource: string[]
+}
+
+interface Meta {
+  hid?: string
+  name?: string
+  property?: string
+  content: string
+}
+
 export const siteUrl = 'https://kimulaco.com'
 export const siteTitle = 'kimulaco.com'
-export const siteDescription = ''
-export const posts = blog.posts
-export const tags = blog.tags
+export const siteDescription = '' // TODO site description
+export const posts: Post[] = blog.posts
+export const tags: Tags = blog.tags
 
-export const getPost = (postId: string) => {
-  let post: any = {}
+export const getPost = (postId: string): Post | null => {
+  let post: Post
   for (post of posts) {
     if (post.id === postId) {
       return post
@@ -20,7 +48,7 @@ export const createMeta = (
   title: string = siteTitle,
   description: string = siteDescription,
   url: string = '/'
-) => {
+): Meta[] => {
   return [
     { hid: 'description', name: 'description', content: description },
     { hid: 'og:site_name', property: 'og:site_name', content: title },
