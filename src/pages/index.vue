@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { posts } from '../plugins/blog'
+import { siteTitle, posts, createMeta } from '../plugins/blog'
 import PostCard from '../components/post/PostCard.vue'
 
 export default Vue.extend({
@@ -27,6 +27,12 @@ export default Vue.extend({
   asyncData() {
     return {
       posts
+    }
+  },
+  head() {
+    return {
+      title: siteTitle,
+      meta: createMeta()
     }
   },
   created() {

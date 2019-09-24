@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { getPost } from '@/plugins/blog'
+import { siteTitle, getPost, createMeta } from '@/plugins/blog'
 import PostDetail from '@/components/post/PostDetail'
 
 export default {
@@ -30,6 +30,16 @@ export default {
     ])
     return {
       post
+    }
+  },
+  head() {
+    return {
+      title: `${this.post.title} | ${siteTitle}`,
+      meta: createMeta(
+        this.post.title,
+        this.post.description,
+        `/post/${this.post.id}/`
+      )
     }
   }
 }

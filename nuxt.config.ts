@@ -2,18 +2,21 @@ import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
 
+const { siteTitle, createMeta } = require('./src/plugins/blog')
+
 const config: Configuration = {
   mode: 'universal',
   head: {
-    title: 'kimulaco.com',
+    htmlAttrs: {
+      lang: 'ja'
+    },
+    title: siteTitle,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: ''
-      }
+      ...createMeta(),
+      { hid: 'og:type', property: 'og:type', content: 'article' },
+      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
