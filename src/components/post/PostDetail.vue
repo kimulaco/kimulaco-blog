@@ -19,6 +19,7 @@
         :description="description"
         url="https://example.com"
       />
+      <LinkBack to="/" class="PostDetail_back">トップページに戻る</LinkBack>
     </div>
   </Card>
 </template>
@@ -27,6 +28,7 @@
 import Vue from 'vue'
 import Card from '../module/Card.vue'
 import Badge from '../module/Badge.vue'
+import LinkBack from '../module/LinkBack.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
@@ -37,6 +39,7 @@ export default Vue.extend({
   components: {
     Card,
     Badge,
+    LinkBack,
     Tags,
     Timestamp,
     Share,
@@ -129,12 +132,12 @@ export default Vue.extend({
       left: -16px;
     }
     @include media() {
-      padding: 20px 0 0;
+      padding: 32px 0;
     }
   }
   &_foot {
-    margin: 20px 0 0;
-    padding: 16px 0 0;
+    margin: 0;
+    padding: 20px 0 0;
     position: relative;
     &::before {
       content: '';
@@ -146,6 +149,9 @@ export default Vue.extend({
       top: 0;
       left: -16px;
     }
+  }
+  &_back {
+    margin: 16px 0 0;
   }
 }
 </style>
