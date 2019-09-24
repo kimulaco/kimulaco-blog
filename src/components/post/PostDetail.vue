@@ -134,7 +134,7 @@ export default Vue.extend({
   }
   &_foot {
     margin: 20px 0 0;
-    padding: 10px 0 0;
+    padding: 16px 0 0;
     position: relative;
     &::before {
       content: '';

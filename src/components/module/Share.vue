@@ -73,6 +73,7 @@ export default Vue.extend({
     display: flex;
     list-style: none;
     padding: 0;
+    margin: 0;
   }
   &_item {
     width: calc(100% / 3);
