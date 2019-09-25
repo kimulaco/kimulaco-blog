@@ -1,14 +1,14 @@
 <template>
   <div class="PagePostDetail">
     <PostDetail
-      :id="post.id"
-      :title="post.title"
-      :description="post.description"
-      :category="post.category"
-      :tags="post.tags"
+      :id="post.meta.id"
+      :title="post.meta.title"
+      :description="post.meta.description"
+      :category="post.meta.category"
+      :tags="post.meta.tags"
+      :created-at="post.meta.created_at"
+      :updated-at="post.meta.updated_at"
       :content="post.body.html"
-      :created-at="post.created_at"
-      :updated-at="post.updated_at"
     />
   </div>
 </template>
@@ -34,11 +34,11 @@ export default {
   },
   head() {
     return {
-      title: `${this.post.title} | ${siteTitle}`,
+      title: `${this.post.meta.title} | ${siteTitle}`,
       meta: createMeta(
-        this.post.title,
-        this.post.description,
-        `/post/${this.post.id}/`
+        this.post.meta.title,
+        this.post.meta.description,
+        `/post/${this.post.meta.id}/`
       )
     }
   }

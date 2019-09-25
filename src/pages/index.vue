@@ -2,14 +2,14 @@
   <div class="PageHome">
     <PostCard
       v-for="post in posts"
-      :id="post.id"
-      :key="post.id"
-      :title="post.title"
-      :category="post.category"
-      :tags="post.tags"
-      :content="post.description"
-      :created-at="post.created_at"
-      :updated-at="post.updated_at"
+      :id="post.meta.id"
+      :key="post.meta.id"
+      :title="post.meta.title"
+      :category="post.meta.category"
+      :tags="post.meta.tags"
+      :content="post.meta.description"
+      :created-at="post.meta.created_at"
+      :updated-at="post.meta.updated_at"
     />
   </div>
 </template>

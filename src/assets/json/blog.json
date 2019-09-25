@@ -1,54 +1,51 @@
 {
   "posts": [
     {
-      "path": "posts/post-template",
-      "main": "posts/post-template/index.md",
-      "id": "post-template-02",
-      "title": "サンプル記事",
-      "description": "このブログの記事テンプレートです。",
-      "category": "Design",
-      "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
-      "status": "publish",
-      "created_at": "2019-10-01",
-      "updated_at": "2019-10-01",
-      "body": {
-        "md": "---\nid: post-template-02\ntitle: サンプル記事\ndescription: このブログの記事テンプレートです。\ncategory: Design\ntags:\n    - HTML\n    - CSS\n    - JavaScript\nstatus: publish\ncreated_at: \"2019-10-01\"\nupdated_at: \"2019-10-01\"\n---\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n\n## テキスト\n\nテキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト\n\nテキスト　[リンクテキスト](./)　テキスト　テキスト\n\nテキスト　**強調テキスト**　テキスト　テキスト\n\nテキスト　`コードテキスト`　テキスト　テキスト\n\n## 見出し\n\n## 見出しレベル2\n\n### 見出しレベル3\n\n#### 見出しレベル4\n\n##### 見出しレベル5\n\n###### 見出しレベル6\n\n## リスト\n\n- テキスト\n- テキスト\n  - テキスト\n  - テキスト\n- テキスト\n- テキスト\n\n1. テキスト\n1. テキスト\n1. テキスト\n1. テキスト\n\n## ブロック\n\n> 引用ブロック\n> 引用ブロック\n> 引用ブロック\n\n```js\nconst text = 'コードブロック'\nconsole.log(text)\n```\n",
-        "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n<h2>テキスト</h2>\n<p>テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト</p>\n<p>テキスト　<a href=\"./\">リンクテキスト</a>　テキスト　テキスト</p>\n<p>テキスト　<strong>強調テキスト</strong>　テキスト　テキスト</p>\n<p>テキスト　<code>コードテキスト</code>　テキスト　テキスト</p>\n<h2>見出し</h2>\n<h2>見出しレベル2</h2>\n<h3>見出しレベル3</h3>\n<h4>見出しレベル4</h4>\n<h5>見出しレベル5</h5>\n<h6>見出しレベル6</h6>\n<h2>リスト</h2>\n<ul>\n<li>テキスト</li>\n<li>テキスト\n<ul>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n<ol>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ol>\n<h2>ブロック</h2>\n<blockquote>\n<p>引用ブロック\n引用ブロック\n引用ブロック</p>\n</blockquote>\n<pre><code class=\"language-js\">const text = 'コードブロック'\nconsole.log(text)\n</code></pre>\n",
-        "text": "\nはじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n\nテキスト\n\nテキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト\n\nテキスト　リンクテキスト　テキスト　テキスト\n\nテキスト　強調テキスト　テキスト　テキスト\n\nテキスト　コードテキスト　テキスト　テキスト\n\n見出し\n\n見出しレベル2\n\n見出しレベル3\n\n見出しレベル4\n\n見出しレベル5\n\n見出しレベル6\n\nリスト\n\nテキスト\nテキスト\n  テキスト\n  テキスト\nテキスト\nテキスト\n\nテキスト\nテキスト\nテキスト\nテキスト\n\nブロック\n\n> 引用ブロック\n> 引用ブロック\n> 引用ブロック\n\nconst text = 'コードブロック'\nconsole.log(text)\n"
+      "meta": {
+        "id": "post-template-02",
+        "title": "サンプル記事",
+        "description": "このブログの記事テンプレートです。",
+        "category": "Design",
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "status": "publish",
+        "created_at": "2019-10-01",
+        "updated_at": "2019-10-01"
       },
-      "resource": []
+      "body": {
+        "text": "\nはじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n\nテキスト\n\nテキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト\n\nテキスト　リンクテキスト　テキスト　テキスト\n\nテキスト　強調テキスト　テキスト　テキスト\n\nテキスト　コードテキスト　テキスト　テキスト\n\n見出し\n\n見出しレベル2\n\n見出しレベル3\n\n見出しレベル4\n\n見出しレベル5\n\n見出しレベル6\n\nリスト\n\nテキスト\nテキスト\n  テキスト\n  テキスト\nテキスト\nテキスト\n\nテキスト\nテキスト\nテキスト\nテキスト\n\nブロック\n\n> 引用ブロック\n> 引用ブロック\n> 引用ブロック\n\nconst text = 'コードブロック'\nconsole.log(text)\n",
+        "md": "\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n\n## テキスト\n\nテキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト\n\nテキスト　[リンクテキスト](./)　テキスト　テキスト\n\nテキスト　**強調テキスト**　テキスト　テキスト\n\nテキスト　`コードテキスト`　テキスト　テキスト\n\n## 見出し\n\n## 見出しレベル2\n\n### 見出しレベル3\n\n#### 見出しレベル4\n\n##### 見出しレベル5\n\n###### 見出しレベル6\n\n## リスト\n\n- テキスト\n- テキスト\n  - テキスト\n  - テキスト\n- テキスト\n- テキスト\n\n1. テキスト\n1. テキスト\n1. テキスト\n1. テキスト\n\n## ブロック\n\n> 引用ブロック\n> 引用ブロック\n> 引用ブロック\n\n```js\nconst text = 'コードブロック'\nconsole.log(text)\n```\n",
+        "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n<h2>テキスト</h2>\n<p>テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト</p>\n<p>テキスト　<a href=\"./\">リンクテキスト</a>　テキスト　テキスト</p>\n<p>テキスト　<strong>強調テキスト</strong>　テキスト　テキスト</p>\n<p>テキスト　<code>コードテキスト</code>　テキスト　テキスト</p>\n<h2>見出し</h2>\n<h2>見出しレベル2</h2>\n<h3>見出しレベル3</h3>\n<h4>見出しレベル4</h4>\n<h5>見出しレベル5</h5>\n<h6>見出しレベル6</h6>\n<h2>リスト</h2>\n<ul>\n<li>テキスト</li>\n<li>テキスト\n<ul>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n<ol>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ol>\n<h2>ブロック</h2>\n<blockquote>\n<p>引用ブロック\n引用ブロック\n引用ブロック</p>\n</blockquote>\n<pre><code class=\"language-js\">const text = 'コードブロック'\nconsole.log(text)\n</code></pre>\n"
+      }
     },
     {
-      "path": "posts/post-template-02",
-      "main": "posts/post-template-02/index.md",
-      "id": "post-template",
-      "title": "サンプル記事",
-      "description": "このブログの記事テンプレートです。",
-      "category": "Cording",
-      "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
-      "status": "publish",
-      "created_at": "2019-10-01",
-      "updated_at": "",
-      "body": {
-        "md": "---\nid: post-template\ntitle: サンプル記事\ndescription: このブログの記事テンプレートです。\ncategory: Cording\ntags:\n    - HTML\n    - CSS\n    - JavaScript\nstatus: publish\ncreated_at: \"2019-10-01\"\nupdated_at: \"\"\n---\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n",
-        "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n",
-        "text": "\nはじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n"
+      "meta": {
+        "id": "post-template",
+        "title": "サンプル記事",
+        "description": "このブログの記事テンプレートです。",
+        "category": "Cording",
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "status": "publish",
+        "created_at": "2019-10-01",
+        "updated_at": ""
       },
-      "resource": []
+      "body": {
+        "text": "\nはじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n",
+        "md": "\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n",
+        "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n"
+      }
     }
   ],
   "tags": [
+    "JavaScript",
     "HTML",
-    "CSS",
-    "JavaScript"
-  ],
-  "resources": []
+    "CSS"
+  ]
 }

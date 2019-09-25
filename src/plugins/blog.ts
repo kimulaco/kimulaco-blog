@@ -3,22 +3,21 @@ const blog = require('../assets/json/blog.json')
 type Tags = string[]
 
 interface Post {
-  path: string
-  main: string
-  id: string
-  title: string
-  description: string
-  category: string
-  tags: Tags
-  status: string
-  created_at: string
-  updated_at: string
+  meta: {
+    id: string
+    title: string
+    description: string
+    category: string
+    tags: Tags
+    status: string
+    created_at: string
+    updated_at: string
+  }
   body: {
     md: string
     html: string
     text: string
   }
-  resource: string[]
 }
 
 export const siteUrl = 'https://kimulaco.com'
@@ -30,7 +29,7 @@ export const tags: Tags = blog.tags
 export const getPost = (postId: string): Post | null => {
   let post: Post
   for (post of posts) {
-    if (post.id === postId) {
+    if (post.meta.id === postId) {
       return post
     }
   }
@@ -53,7 +52,7 @@ export const createMeta = (
 
 export const createPostRoutes = (): string[] => {
   const routes = posts.map((post: Post) => {
-    return `/post/${post.id}/`
+    return `/post/${post.meta.id}/`
   })
   return routes
 }
