@@ -2563,7 +2563,7 @@ braces@^3.0.1, braces@^3.0.2:
 
 "broc@https://github.com/kimulaco/broc.git":
   version "0.1.0"
-  resolved "https://github.com/kimulaco/broc.git#b6d9fb8974b7b4c34597b91eff082a2360b77a04"
+  resolved "https://github.com/kimulaco/broc.git#ff1d350b8239ce348d49c212d34db5bd86b1d595"
   dependencies:
     cac "^6.5.3"
     chalk "^2.4.2"

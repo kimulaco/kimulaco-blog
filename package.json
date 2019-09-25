@@ -8,6 +8,7 @@
     "start": "nuxt-ts start",
     "dev": "npm-run-all -p dev:*",
     "dev:nuxt": "nuxt-ts",
+    "dev:broc": "broc ./posts -o src/assets/json/blog.json -w",
     "build": "npm-run-all -s build:broc build:nuxt",
     "build:nuxt": "nuxt-ts generate",
     "build:broc": "broc ./posts -o src/assets/json/blog.json",
