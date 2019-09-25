@@ -50,3 +50,10 @@ export const createMeta = (
     { hid: 'og:description', property: 'og:description', content: description },
   ]
 }
+
+export const createPostRoutes = (): string[] => {
+  const routes = posts.map((post: Post) => {
+    return `/post/${post.id}/`
+  })
+  return routes
+}

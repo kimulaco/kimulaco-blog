@@ -2,7 +2,7 @@ import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
 
-const { siteTitle, createMeta } = require('./src/plugins/blog')
+const { siteTitle, createMeta, createPostRoutes } = require('./src/plugins/blog')
 
 const config: Configuration = {
   mode: 'universal',
@@ -43,6 +43,9 @@ const config: Configuration = {
     id: 'UA-148174532-1'
   },
   srcDir: 'src',
+  generate: {
+    routes: ['/', ...createPostRoutes()]
+  },
   build: {
     extend(config, ctx) {}, // eslint-disable-line @typescript-eslint/no-unused-vars
     loaders: {
