@@ -2,6 +2,27 @@
   "posts": [
     {
       "meta": {
+        "id": "nuxt-dart-sass",
+        "title": "Nuxt.jsでDart Sassを使う",
+        "description": "Nuxt.jsのプロジェクトにDart Sassを導入してみたので、導入方法の紹介です。",
+        "category": "Cording",
+        "tags": [
+          "Nuxt.js",
+          "Sass",
+          "Dart Sass"
+        ],
+        "status": "draft",
+        "created_at": "2019-10-01",
+        "updated_at": ""
+      },
+      "body": {
+        "text": "\nはじめに\n\nこのブログはNuxt.jsで作成されており、スタイリングにはDart Sass(Scss)を使用しています。\n\nこの記事では、実際にDart Sassを導入する方法などをご紹介します。\n\nDart Sassとは\n\nDart Sassは、Googleが開発するDartというプログラミング言語で作成されたSassのコンパイラです。従来のnode-sassと同じようにnpmからインストールすることが可能で、Node.jsのバージョンに依存しないというメリットがあります。\n\nまた、Sassの新しい記法などはDart Sassに先行で実装されるようなので、今後Sassのスタンダードになることも考えられます。\n\nNuxt.jsでDart Sassを使う方法\n\nパッケージのインストール\n\nNuxt.jsでDart Sassを使うためにはまず以下のパッケージをyarnまたはnpmでインストールします。\n\nyarn add -D sass sass-loader fibers\n\nsass: 名前がややこしいですが、Dart Sass本体です。\nsass-loader: WebpackでSassファイルを読み込む為のloader\nfibers: 必須ではないですが、Dart Sassのコンパイル速度が向上するようなので併用が推奨されています。\n\nnuxt.config.js\n\nDart Sassを使用する時は、node-sassを使用する時と違ってnuxt.config.jsにsass-loaderの設定を追記する必要があります。\n\nconst Sass = require('sass')\nconst Fiber = require('fibers')\n\nexport default {\n  ...\n  build: {\n    loaders: {\n      scss: {\n        implementation: Sass,\n        sassOptions: {\n          fiber: Fiber\n        }\n      }\n    }\n  }\n}\n\nnuxt.configをTypeScriptで書いている場合は、@types/sass と @types/fibers もインストールすることで型を利用できます。\n",
+        "md": "\n\n## はじめに\n\nこのブログはNuxt.jsで作成されており、スタイリングにはDart Sass(Scss)を使用しています。\n\nこの記事では、実際にDart Sassを導入する方法などをご紹介します。\n\n## Dart Sassとは\n\n[Dart Sass](https://sass-lang.com/dart-sass)は、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成されたSassのコンパイラです。従来の[node-sass](https://github.com/sass/node-sass)と同じようにnpmからインストールすることが可能で、Node.jsのバージョンに依存しないというメリットがあります。\n\nまた、Sassの新しい記法などはDart Sassに先行で実装されるようなので、今後Sassのスタンダードになることも考えられます。\n\n## Nuxt.jsでDart Sassを使う方法\n\n### パッケージのインストール\n\nNuxt.jsでDart Sassを使うためにはまず以下のパッケージをyarnまたはnpmでインストールします。\n\n```shell\nyarn add -D sass sass-loader fibers\n```\n\n- [sass](https://github.com/sass/dart-sass): 名前がややこしいですが、Dart Sass本体です。\n- [sass-loader](https://github.com/webpack-contrib/sass-loader): WebpackでSassファイルを読み込む為のloader\n- [fibers](https://github.com/laverdet/node-fibers): 必須ではないですが、Dart Sassのコンパイル速度が向上するようなので併用が推奨されています。\n\n### nuxt.config.js\n\nDart Sassを使用する時は、node-sassを使用する時と違ってnuxt.config.jsにsass-loaderの設定を追記する必要があります。\n\n```js\nconst Sass = require('sass')\nconst Fiber = require('fibers')\n\nexport default {\n  ...\n  build: {\n    loaders: {\n      scss: {\n        implementation: Sass,\n        sassOptions: {\n          fiber: Fiber\n        }\n      }\n    }\n  }\n}\n```\n\nnuxt.configをTypeScriptで書いている場合は、`@types/sass` と `@types/fibers` もインストールすることで型を利用できます。\n",
+        "html": "<h2>はじめに</h2>\n<p>このブログはNuxt.jsで作成されており、スタイリングにはDart Sass(Scss)を使用しています。</p>\n<p>この記事では、実際にDart Sassを導入する方法などをご紹介します。</p>\n<h2>Dart Sassとは</h2>\n<p><a href=\"https://sass-lang.com/dart-sass\">Dart Sass</a>は、Googleが開発する<a href=\"https://dart.dev/\">Dart</a>というプログラミング言語で作成されたSassのコンパイラです。従来の<a href=\"https://github.com/sass/node-sass\">node-sass</a>と同じようにnpmからインストールすることが可能で、Node.jsのバージョンに依存しないというメリットがあります。</p>\n<p>また、Sassの新しい記法などはDart Sassに先行で実装されるようなので、今後Sassのスタンダードになることも考えられます。</p>\n<h2>Nuxt.jsでDart Sassを使う方法</h2>\n<h3>パッケージのインストール</h3>\n<p>Nuxt.jsでDart Sassを使うためにはまず以下のパッケージをyarnまたはnpmでインストールします。</p>\n<pre><code class=\"language-shell\">yarn add -D sass sass-loader fibers\n</code></pre>\n<ul>\n<li><a href=\"https://github.com/sass/dart-sass\">sass</a>: 名前がややこしいですが、Dart Sass本体です。</li>\n<li><a href=\"https://github.com/webpack-contrib/sass-loader\">sass-loader</a>: WebpackでSassファイルを読み込む為のloader</li>\n<li><a href=\"https://github.com/laverdet/node-fibers\">fibers</a>: 必須ではないですが、Dart Sassのコンパイル速度が向上するようなので併用が推奨されています。</li>\n</ul>\n<h3>nuxt.config.js</h3>\n<p>Dart Sassを使用する時は、node-sassを使用する時と違ってnuxt.config.jsにsass-loaderの設定を追記する必要があります。</p>\n<pre><code class=\"language-js\">const Sass = require('sass')\nconst Fiber = require('fibers')\n\nexport default {\n  ...\n  build: {\n    loaders: {\n      scss: {\n        implementation: Sass,\n        sassOptions: {\n          fiber: Fiber\n        }\n      }\n    }\n  }\n}\n</code></pre>\n<p>nuxt.configをTypeScriptで書いている場合は、<code>@types/sass</code> と <code>@types/fibers</code> もインストールすることで型を利用できます。</p>\n"
+      }
+    },
+    {
+      "meta": {
         "id": "post-template-02",
         "title": "サンプル記事",
         "description": "このブログの記事テンプレートです。",
@@ -20,32 +41,14 @@
         "md": "\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n\n## テキスト\n\nテキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト\n\nテキスト　[リンクテキスト](./)　テキスト　テキスト\n\nテキスト　**強調テキスト**　テキスト　テキスト\n\nテキスト　`コードテキスト`　テキスト　テキスト\n\n## 見出し\n\n## 見出しレベル2\n\n### 見出しレベル3\n\n#### 見出しレベル4\n\n##### 見出しレベル5\n\n###### 見出しレベル6\n\n## リスト\n\n- テキスト\n- テキスト\n  - テキスト\n  - テキスト\n- テキスト\n- テキスト\n\n1. テキスト\n1. テキスト\n1. テキスト\n1. テキスト\n\n## ブロック\n\n> 引用ブロック\n> 引用ブロック\n> 引用ブロック\n\n```js\nconst text = 'コードブロック'\nconsole.log(text)\n```\n",
         "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n<h2>テキスト</h2>\n<p>テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト　テキスト</p>\n<p>テキスト　<a href=\"./\">リンクテキスト</a>　テキスト　テキスト</p>\n<p>テキスト　<strong>強調テキスト</strong>　テキスト　テキスト</p>\n<p>テキスト　<code>コードテキスト</code>　テキスト　テキスト</p>\n<h2>見出し</h2>\n<h2>見出しレベル2</h2>\n<h3>見出しレベル3</h3>\n<h4>見出しレベル4</h4>\n<h5>見出しレベル5</h5>\n<h6>見出しレベル6</h6>\n<h2>リスト</h2>\n<ul>\n<li>テキスト</li>\n<li>テキスト\n<ul>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ul>\n<ol>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n<li>テキスト</li>\n</ol>\n<h2>ブロック</h2>\n<blockquote>\n<p>引用ブロック\n引用ブロック\n引用ブロック</p>\n</blockquote>\n<pre><code class=\"language-js\">const text = 'コードブロック'\nconsole.log(text)\n</code></pre>\n"
       }
-    },
-    {
-      "meta": {
-        "id": "post-template",
-        "title": "サンプル記事",
-        "description": "このブログの記事テンプレートです。",
-        "category": "Cording",
-        "tags": [
-          "HTML",
-          "CSS",
-          "JavaScript"
-        ],
-        "status": "publish",
-        "created_at": "2019-10-01",
-        "updated_at": ""
-      },
-      "body": {
-        "text": "\nはじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n",
-        "md": "\n\n## はじめに\n\nこのブログの記事はMarkdown記法で作成されています。\n",
-        "html": "<h2>はじめに</h2>\n<p>このブログの記事はMarkdown記法で作成されています。</p>\n"
-      }
     }
   ],
   "tags": [
+    "Sass",
+    "Nuxt.js",
     "JavaScript",
     "HTML",
+    "Dart Sass",
     "CSS"
   ]
 }
