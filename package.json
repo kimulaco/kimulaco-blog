@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "npm run lint:script",
+    "*.{ts,js,vue}": "npm run lint:script",
     "*.{scss,vue}": "npm run lint:style"
   },
   "husky": {
@@ -39,10 +39,11 @@
     "@nuxtjs/eslint-config-typescript": "^0.1.3",
     "@nuxtjs/eslint-module": "^1.1.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "@nuxtjs/stylelint-module": "^2.0.0",
+    "@nuxtjs/stylelint-module": "^3.0.0",
     "@nuxtjs/svg-sprite": "^0.4.2",
     "@types/fibers": "^0.0.30",
     "@types/sass": "^1.16.0",
+    "@typescript-eslint/parser": "^2.3.2",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",

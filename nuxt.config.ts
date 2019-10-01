@@ -2,7 +2,11 @@ import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
 
-const { siteTitle, createMeta, createPostRoutes } = require('./src/plugins/blog')
+const {
+  siteTitle,
+  createMeta,
+  createPostRoutes
+} = require('./src/plugins/blog')
 
 const config: Configuration = {
   mode: 'universal',
@@ -16,7 +20,7 @@ const config: Configuration = {
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       ...createMeta(),
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' },
+      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },

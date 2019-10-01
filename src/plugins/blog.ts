@@ -10,8 +10,8 @@ interface Post {
     category: string
     tags: Tags
     status: string
-    created_at: string
-    updated_at: string
+    created_at: string // eslint-disable-line camelcase
+    updated_at: string // eslint-disable-line camelcase
   }
   body: {
     md: string
@@ -46,7 +46,7 @@ export const createMeta = (
     { hid: 'og:site_name', property: 'og:site_name', content: title },
     { hid: 'og:url', property: 'og:url', content: `${siteUrl}${url}` },
     { hid: 'og:title', property: 'og:title', content: title },
-    { hid: 'og:description', property: 'og:description', content: description },
+    { hid: 'og:description', property: 'og:description', content: description }
   ]
 }
 
