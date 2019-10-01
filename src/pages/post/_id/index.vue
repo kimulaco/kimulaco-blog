@@ -26,7 +26,7 @@ export default {
     const post = getPost(params.id)
     store.commit('breadcrumb/update', [
       { text: 'Home', url: '/' },
-      { text: post.title }
+      { text: post.meta.title }
     ])
     return {
       post
