@@ -33,6 +33,14 @@ jobs:
       - attach_workspace:
           at: ~/workspace
       - run: yarn test
+  lint:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/workspace
+      - run: yarn lint
   build:
     executor:
       name: default
@@ -47,6 +55,9 @@ workflows:
     jobs:
       - init
       - test:
+          requires:
+            - init
+      - lint:
           requires:
             - init
       - build:
