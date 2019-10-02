@@ -1,0 +1,8 @@
+module.exports = {
+  filters: {},
+  rules: {
+    'preset-ja-spacing': true,
+    'preset-ja-technical-writing': true,
+    'spellcheck-tech-word': true
+  }
+}
