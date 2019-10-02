@@ -17,5 +17,13 @@ module.exports = {
   plugins: [
     'prettier'
   ],
-  rules: {}
+  rules: {},
+  overrides: [
+    {
+      files: ['*.ts'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser'
+      },
+    }
+  ]
 }

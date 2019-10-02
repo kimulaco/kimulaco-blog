@@ -14,11 +14,7 @@
     <PostContent class="PostDetail_content" v-html="content" />
     <!-- eslint-enable vue/no-v-html -->
     <div class="PostDetail_foot">
-      <Share
-        :title="title"
-        :description="description"
-        url="https://example.com"
-      />
+      <Share :title="title" :description="description" :url="shareUrl" />
       <LinkBack to="/" class="PostDetail_back">トップページに戻る</LinkBack>
     </div>
   </Card>
@@ -33,6 +29,7 @@ import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
 import PostContent from '../post/PostContent.vue'
+import { siteUrl } from '../../plugins/blog'
 
 export default Vue.extend({
   name: 'PostDetail',
@@ -79,6 +76,11 @@ export default Vue.extend({
     updatedAt: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    shareUrl() {
+      return `${siteUrl}/post/${this.id}/`
     }
   }
 })
