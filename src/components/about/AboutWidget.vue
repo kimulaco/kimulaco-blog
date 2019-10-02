@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="AboutWidget_content">
-      <p>東京都内の事業会社でフロントエンドエンジニアをしています。</p>
+      <p>東京都内でフロントエンドエンジニアをしています。</p>
       <p>映画と餃子と寿司が好き。</p>
     </div>
     <LinkList :links="links" class="AboutWidget_link" />

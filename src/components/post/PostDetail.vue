@@ -1,7 +1,7 @@
 <template>
   <Card class="PostDetail" tag="article">
     <div class="PostDetail_head">
-      <h3 class="PostDetail_heading">{{ title }}</h3>
+      <h1 class="PostDetail_heading">{{ title }}</h1>
       <Badge :category="category" class="PostDetail_category" />
     </div>
     <Tags :tags="tags" class="PostDetail_tags" />

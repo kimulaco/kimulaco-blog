@@ -23,7 +23,9 @@ export default Vue.extend({
       color: $COLOR_WHITE;
       background: $COLOR_DARKGRAY;
       padding: 1px 6px;
+      margin: 0 4px;
       border-radius: 4px;
+      line-height: 1.2;
     }
   }
   h2 {
