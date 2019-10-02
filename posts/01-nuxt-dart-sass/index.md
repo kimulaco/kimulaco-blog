@@ -20,7 +20,7 @@ updated_at: ""
 
 ## Dart Sassとは
 
-[Dart Sass](https://sass-lang.com/dart-sass)は、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成されたSassのコンパイラです。従来の[node-sass](https://github.com/sass/node-sass)と同じようにnpmからインストールすることが可能で、Node.jsのバージョンに依存しないというメリットがあります。
+[Dart Sass](https://sass-lang.com/dart-sass)は、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成されたSassのコンパイラです。従来の[node-sass](https://github.com/sass/node-sass)と同じようにnpmからインストール可能で、Node.jsのバージョンに依存しないというメリットがあります。
 
 また、Sassの新しい記法などは今後Dart Sassで先行実装されるようなので、今後Sassのスタンダードになることも考えられます。
 
@@ -81,6 +81,6 @@ p { color: tomato; }
 
 ## さいごに
 
-実際にNuxt.jsプロジェクトにDart Sassを導入してみましたが、node-sassからの以降はとても簡単だなと思いました。現状、Dart Sass特有の技術で作成されているわけではありませんが、今後`@use`や`@forward`といった新しいモジュールシステムに置き換えようと思っています。
+実際に、Nuxt.jsプロジェクトにDart Sassを導入してみましたが、node-sassからの以降はとても簡単だなと思いました。現状、Dart Sass特有の技術で作成されているわけではありませんが、今後`@use`や`@forward`といった新しいモジュールシステムに置き換えようと思っています。
 
-また、Nuxt.jsプロジェクトに限った話ではなくDart Sassとnode-sassのコンパイルオプションは基本的に同じなので、node-sassからDart Sassへの移行も特に問題なく行うことができると思うので、気軽に導入を試すことができます。
+また、Nuxt.jsプロジェクトに限った話ではなくDart Sassとnode-sassのコンパイルオプションは基本的に同じです。なので、node-sassからDart Sassへの移行も簡単に行うことができるので、気軽に導入を試すことができます。
