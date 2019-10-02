@@ -5,4 +5,5 @@
 - Nuxt.js + TypeScript
 - MarkdownIt
 - Dart Sass (SCSS)
-- ESLint + stylelint + Prettier + husky + lint-staged
+- ESLint + stylelint + Textlint + Prettier + husky + lint-staged
+- Netfify + CircleCI
