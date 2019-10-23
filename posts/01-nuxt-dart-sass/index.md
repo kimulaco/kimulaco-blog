@@ -1,42 +1,44 @@
 ---
 id: nuxt-dart-sass
-title: Nuxt.jsでDart Sassを使う
-description: Nuxt.jsのプロジェクトにDart Sassを導入してみたので、導入方法の紹介です。
+title: Nuxt.jsプロジェクトでDart Sassを使う
+description: Nuxt.jsプロジェクトでDart Sassを使った時のメモ。
 category: Cording
 tags:
+    - JavaScript
     - Nuxt.js
     - Sass
     - Dart Sass
+    - Webpack
 status: draft
-created_at: "2019-10-01"
+created_at: "2019-10-24"
 updated_at: ""
 ---
 
-## はじめに
+Nuxt.jsプロジェクトにDart Sassを導入する方法。次の環境を前提としていますが、バージョンがよっぽど古かったりしない限りは問題ないはず。
 
-このブログはNuxt.jsで作成されており、スタイリングにはDart Sass(Scss)を使用しています。
-
-この記事では、Nuxt.jsプロジェクトにDart Sassを導入する方法などを紹介します。
+- Node.js v10.16.3
+- Nuxt.js v2.10.2
+- sass(Dart Sass) v1.23.1
+- [create-nuxt-app](https://github.com/nuxt/create-nuxt-app)などでNuxt.jsのプロジェクトを構築済み
+- scssを使用
 
 ## Dart Sassとは
 
-[Dart Sass](https://sass-lang.com/dart-sass)は、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成されたSassのコンパイラです。従来の[node-sass](https://github.com/sass/node-sass)と同じようにnpmからインストール可能で、Node.jsのバージョンに依存しないというメリットがあります。
+[Dart Sass](https://sass-lang.com/dart-sass)とは、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成された、Sassのコンパイラです。DartはJavaScriptにコンパイル可能なため、[sass](https://github.com/sass/dart-sass)というパッケージ名でnpmに公開されており、[node-sass](https://github.com/sass/node-sass)と同じようにnpmインストールできます。
 
-また、Sassの新しい記法などは今後Dart Sassで先行実装されるようなので、今後Sassのスタンダードになることも考えられます。
+またDart Sassには、Sassの新しい機能が先行実装される予定や、Node.jsのバージョン依存問題も解消できるなどのメリットがあります。そのため、今後のSassコンパイラのスタンダードになることも考えられます。
 
-## Nuxt.jsでDart Sassを使う方法
+## Nuxt.jsプロジェクトにDart Sassを導入する方法
 
-### パッケージのインストール
+[create-nuxt-app](https://github.com/nuxt/create-nuxt-app)などでNuxt.jsのプロジェクトを構築済みの状況を前提で紹介します。
 
-Nuxt.jsでDart Sassを使うためには[sass](https://github.com/sass/dart-sass)(Dart Sass)と[sass-loader](https://github.com/webpack-contrib/sass-loader)が必要です。さらにコンパイル速度を向上させるために[fibers](https://github.com/laverdet/node-fibers)のインストールも推奨されているので、次のようにyarnもしくはnpmでパッケージをインストールします。
+Nuxt.jsでDart Sassを使うためには[sass](https://github.com/sass/dart-sass)(Dart Sass)と[sass-loader](https://github.com/webpack-contrib/sass-loader)が必要です。さらに、コンパイル速度を向上させるために[fibers](https://github.com/laverdet/node-fibers)のインストールも推奨されているので、次のようにyarnやnpmでパッケージをインストールします。
 
 ```shell
 yarn add -D sass sass-loader fibers
 ```
 
-### nuxt.config.js
-
-Nuxt.jsでDart Sassを使用する時はnode-sassと違い、nuxt.config.jsにsass-loaderの設定を追記する必要があります。
+次に、nuxt.config.jsにsass-loaderの設定を追記します。node-sassの場合は特に何も設定する必要なく使用できましたが、Dart Sassを使用する場合は現状追加で設定が必要なようです。
 
 Dart Sassに関連する部分だけ抜粋すると次のようになります。
 
@@ -59,9 +61,7 @@ export default {
 }
 ```
 
-### componentsなどで使う時
-
-componentsなどの`.vue`ファイルで使用する時はnode-sassと同じで、style要素に`lang="scss"`や`lang="sass"`を任意で付与しましょう。
+以上でインストールと設定は終わりです。`.vue` にDart Sassを書くときは、node-sassと同じように、 `<style lang="scss">` を付与するだけです。
 
 ```vue
 <template>
@@ -78,9 +78,3 @@ export default {
 p { color: tomato; }
 </style>
 ```
-
-## さいごに
-
-実際に、Nuxt.jsプロジェクトにDart Sassを導入してみましたが、node-sassからの以降はとても簡単だなと思いました。現状、Dart Sass特有の技術で作成されているわけではありませんが、今後`@use`や`@forward`といった新しいモジュールシステムに置き換えようと思っています。
-
-また、Nuxt.jsプロジェクトに限った話ではなくDart Sassとnode-sassのコンパイルオプションは基本的に同じです。なので、node-sassからDart Sassへの移行も簡単に行うことができるので、気軽に導入を試すことができます。
