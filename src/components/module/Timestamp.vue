@@ -3,7 +3,7 @@
     <svg-icon name="icon-calender" class="Timestamp_icon" />
     <dl class="Timestamp_list">
       <div class="Timestamp_item">
-        <dt class="Timestamp_title">Created:</dt>
+        <dt class="Timestamp_title">Published:</dt>
         <dd class="Timestamp_date">{{ createdAt }}</dd>
       </div>
       <div v-if="updatedAt" class="Timestamp_item">

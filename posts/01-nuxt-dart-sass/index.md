@@ -8,13 +8,15 @@ tags:
     - Nuxt.js
     - Sass
     - Dart Sass
-    - Webpack
-status: draft
+    - Dart
+status: publish
 created_at: "2019-10-24"
 updated_at: ""
 ---
 
-Nuxt.jsプロジェクトにDart Sassを導入する方法。次の環境を前提としていますが、バージョンがよっぽど古かったりしない限りは問題ないはず。
+Nuxt.jsプロジェクトにDart Sassを導入してきた時のメモです。
+
+次の環境を前提としていますが、バージョンがよっぽど古かったりしない限りは問題ないはず。
 
 - Node.js v10.16.3
 - Nuxt.js v2.10.2
@@ -61,7 +63,7 @@ export default {
 }
 ```
 
-以上でインストールと設定は終わりです。`.vue` にDart Sassを書くときは、node-sassと同じように、 `<style lang="scss">` を付与するだけです。
+以上で設定は終わりです。`.vue` にDart Sassを書くときは、node-sassと同じように、 `<style lang="scss">` を付与するだけです。
 
 ```vue
 <template>

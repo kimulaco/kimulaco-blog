@@ -23,7 +23,12 @@ interface Post {
 export const siteUrl = 'https://kimulaco.com'
 export const siteTitle = 'kimulaco.com'
 export const siteDescription = '' // TODO site description
-export const posts: Post[] = blog.posts
+export const posts: Post[] = blog.posts.filter((post: Post) => {
+  if (process.env.NODE_ENV === 'production') {
+    return post.meta.status === 'publish'
+  }
+  return true
+})
 export const tags: Tags = blog.tags
 
 export const getPost = (postId: string): Post | null => {

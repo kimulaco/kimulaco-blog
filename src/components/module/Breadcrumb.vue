@@ -45,7 +45,7 @@ export default Vue.extend({
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0 0 16px;
+    margin: 0 0 24px;
   }
   &_item {
     padding: 0 0 0 20px;
