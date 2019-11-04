@@ -26,7 +26,7 @@ Nuxt.jsプロジェクトにDart Sassを導入した時の知見。
 
 [Dart Sass](https://sass-lang.com/dart-sass)とは、Googleが開発する[Dart](https://dart.dev/)というプログラミング言語で作成された、Sassのコンパイラです。DartはJavaScriptにコンパイル可能なため、[node-sass](https://github.com/sass/node-sass)と同じようにnpm経由でインストールできます。少しわかりにくいですが、[sass](https://github.com/sass/dart-sass)というパッケージ名でnpmに公開されています。
 
-また、Dart SassにはSassの新しい機能が先行実装される予定があったり、Node.jsのバージョン依存問題も解消できるなどのメリットがあるので、今後のSassコンパイラのスタンダードになることも考えられます。
+またDart Sassには、Sassの新しい機能が先行実装される予定やNode.jsのバージョン依存問題も解消できるなどのメリットがあるので、今後のSassコンパイラのスタンダードになることも考えられます。
 
 ## Nuxt.jsプロジェクトにDart Sassを導入する方法
 

@@ -21,7 +21,7 @@
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:script",
     "*.{scss,vue}": "npm run lint:style",
-    "post/*.md": "npm run lint:post"
+    "post/**/*.md": "npm run lint:post"
   },
   "husky": {
     "hooks": {
