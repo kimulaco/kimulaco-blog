@@ -1,40 +1,42 @@
 <template>
   <div class="PageHome">
-    <PostCard
+    <PostLink
       v-for="post in posts"
-      :id="post.meta.id"
-      :key="post.meta.id"
-      :title="post.meta.title"
-      :category="post.meta.category"
-      :tags="post.meta.tags"
-      :content="post.meta.description"
-      :created-at="post.meta.created_at"
-      :updated-at="post.meta.updated_at"
+      :id="post.id"
+      :key="post.id"
+      :title="post.title"
+      :category="post.category"
+      :content="post.description"
+      :created-at="post.createdAt"
+      :updated-at="post.updatedAt"
     />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { siteTitle, posts, createMeta } from '../plugins/blog'
-import PostCard from '../components/post/PostCard.vue'
+import cms from '../plugins/cms'
+// import { siteTitle, posts, createMeta } from '../plugins/blog'
+import PostLink from '../components/post/PostLink.vue'
 
 export default Vue.extend({
   name: 'PageHome',
   components: {
-    PostCard
+    PostLink
   },
-  asyncData() {
+  async asyncData() {
+    const { data } = await cms.get('/post')
+    const posts = data.contents
     return {
       posts
     }
   },
-  head() {
-    return {
-      title: siteTitle,
-      meta: createMeta()
-    }
-  },
+  // head() {
+  //   return {
+  //     title: siteTitle,
+  //     meta: createMeta()
+  //   }
+  // },
   created() {
     this.$store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
   }

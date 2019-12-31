@@ -1,15 +1,19 @@
 import { Configuration } from '@nuxt/types'
+import dotenv from 'dotenv'
 import Sass from 'sass'
 import Fiber from 'fibers'
+import { siteTitle, createMeta, createPostRoutes } from './src/plugins/blog'
 
-const {
-  siteTitle,
-  createMeta,
-  createPostRoutes
-} = require('./src/plugins/blog')
+dotenv.config()
+
+const { CMS_BASE_URL, CMS_API_KEY } = process.env
 
 const config: Configuration = {
   mode: 'universal',
+  env: {
+    CMS_BASE_URL: CMS_BASE_URL || '',
+    CMS_API_KEY: CMS_API_KEY || ''
+  },
   head: {
     htmlAttrs: {
       lang: 'ja'
@@ -34,8 +38,10 @@ const config: Configuration = {
   modules: [
     '@nuxtjs/style-resources',
     '@nuxtjs/svg-sprite',
+    '@nuxtjs/axios',
     '@nuxtjs/google-analytics'
   ],
+  plugins: ['@/plugins/axios'],
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',

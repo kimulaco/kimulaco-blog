@@ -2,7 +2,6 @@
   <Card :to="`/post/${id}/`" class="PostCard" tag="section">
     <div class="PostCard_head">
       <h3 class="PostCard_heading">{{ title }}</h3>
-      <Badge :category="category" class="PostCard_category" />
     </div>
     <Tags :tags="tags" class="PostCard_tags" />
     <Timestamp
@@ -17,7 +16,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import Card from '../module/Card.vue'
-import Badge from '../module/Badge.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 
@@ -25,7 +23,6 @@ export default Vue.extend({
   name: 'PostCard',
   components: {
     Card,
-    Badge,
     Tags,
     Timestamp
   },
