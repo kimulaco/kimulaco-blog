@@ -27,10 +27,13 @@
     "@nuxt/typescript-runtime": "^0.3.5",
     "@nuxtjs/axios": "^5.9.0",
     "@nuxtjs/google-analytics": "^2.2.2",
+    "@nuxtjs/markdownit": "^1.2.7",
+    "@nuxtjs/pwa": "^3.0.0-beta.19",
     "dayjs": "^1.8.18",
     "dotenv": "^8.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",
+    "prismjs": "^1.17.1",
     "stylelint-config-prettier": "^8.0.0"
   },
   "devDependencies": {
@@ -42,6 +45,8 @@
     "@nuxtjs/stylelint-module": "^3.1.1",
     "@nuxtjs/svg-sprite": "^0.4.7",
     "@types/fibers": "^3.1.0",
+    "@types/markdown-it": "^0.0.9",
+    "@types/prismjs": "^1.16.0",
     "@types/sass": "^1.16.0",
     "@typescript-eslint/parser": "^2.14.0",
     "@vue/test-utils": "^1.0.0-beta.30",

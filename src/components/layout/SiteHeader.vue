@@ -37,7 +37,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SiteHeader {
   background: $COLOR_WHITE;
-  margin: 0 0 40px;
+  margin: 0 0 60px;
   box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
   &_inner {
     min-height: 50px;

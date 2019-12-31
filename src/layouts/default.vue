@@ -33,7 +33,7 @@ import SiteInner from '../components/layout/SiteInner.vue'
 import SiteHeader from '../components/layout/SiteHeader.vue'
 import SiteColumn from '../components/layout/SiteColumn.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
-import AboutWidget from '../components/about/AboutWidget.vue'
+import AboutWidget from '../components/widget/AboutWidget.vue'
 
 export default Vue.extend({
   name: 'Layout',

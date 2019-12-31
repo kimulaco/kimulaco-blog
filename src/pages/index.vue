@@ -1,27 +1,20 @@
 <template>
   <div class="PageHome">
-    <PostLink
-      v-for="post in posts"
-      :id="post.id"
-      :key="post.id"
-      :title="post.title"
-      :category="post.category"
-      :content="post.description"
-      :created-at="post.createdAt"
-      :updated-at="post.updatedAt"
-    />
+    <Heading>最近の記事</Heading>
+    <PostLink v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import cms from '../plugins/cms'
-// import { siteTitle, posts, createMeta } from '../plugins/blog'
+import Heading from '../components/module/Heading.vue'
 import PostLink from '../components/post/PostLink.vue'
+import cms from '../plugins/cms'
 
 export default Vue.extend({
   name: 'PageHome',
   components: {
+    Heading,
     PostLink
   },
   async asyncData() {

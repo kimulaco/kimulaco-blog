@@ -1,20 +1,23 @@
 <template>
   <Card class="PostDetail" tag="article">
     <div class="PostDetail_head">
-      <h1 class="PostDetail_heading">{{ title }}</h1>
-      <Badge :category="category" class="PostDetail_category" />
+      <h1 class="PostDetail_heading">{{ post.title }}</h1>
     </div>
-    <Tags :tags="tags" class="PostDetail_tags" />
+    <Tags :tags="post.tags" class="PostDetail_tags" />
     <Timestamp
-      :created-at="createdAt"
-      :updated-at="updatedAt"
+      :created-at="post.createdAt"
+      :updated-at="post.updatedAt"
       class="PostDetail_timestamp"
     />
     <!-- eslint-disable vue/no-v-html -->
-    <PostContent class="PostDetail_content" v-html="content" />
+    <PostContent class="PostDetail_content" v-html="$md.render(post.content)" />
     <!-- eslint-enable vue/no-v-html -->
     <div class="PostDetail_foot">
-      <Share :title="title" :description="description" :url="shareUrl" />
+      <Share
+        :title="post.title"
+        :description="post.description"
+        :url="shareUrl"
+      />
       <LinkBack to="/" class="PostDetail_back">トップページに戻る</LinkBack>
     </div>
   </Card>
@@ -23,19 +26,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import Card from '../module/Card.vue'
-import Badge from '../module/Badge.vue'
 import LinkBack from '../module/LinkBack.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
 import PostContent from '../post/PostContent.vue'
-import { siteUrl } from '../../plugins/blog'
 
 export default Vue.extend({
   name: 'PostDetail',
   components: {
     Card,
-    Badge,
     LinkBack,
     Tags,
     Timestamp,
@@ -43,44 +43,14 @@ export default Vue.extend({
     PostContent
   },
   props: {
-    id: {
-      type: String,
+    post: {
+      type: Object,
       required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    category: {
-      type: String,
-      required: true
-    },
-    tags: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    content: {
-      type: String,
-      required: true
-    },
-    createdAt: {
-      type: String,
-      required: true
-    },
-    updatedAt: {
-      type: String,
-      default: ''
     }
   },
   computed: {
     shareUrl() {
-      return `${siteUrl}/post/${this.id}/`
+      return `/post/`
     }
   }
 })

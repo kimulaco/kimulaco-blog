@@ -31,7 +31,7 @@ export default Vue.extend({
   h2 {
     font-size: 22px;
     padding: 0 0 4px;
-    margin: 32px 0 20px;
+    margin: 40px 0 20px;
     border-bottom: 1px solid rgba($COLOR_GRAY, 0.2);
   }
   h3 {
@@ -86,11 +86,11 @@ export default Vue.extend({
     @include reset-child-margin();
   }
   pre {
+    border-radius: 4px;
+    overflow: hidden;
     code {
       display: block;
       padding: 8px;
-      background: $COLOR_DARKGRAY;
-      border-radius: 4px;
       color: $COLOR_LIGHTGRAY;
     }
   }

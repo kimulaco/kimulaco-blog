@@ -45,8 +45,8 @@ export default Vue.extend({
 
     @include media() {
       padding: 0;
-      width: 280px;
-      min-width: 280px;
+      width: 240px;
+      min-width: 240px;
       margin: 0 0 0 24px;
     }
     &::before {

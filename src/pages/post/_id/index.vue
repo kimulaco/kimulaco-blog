@@ -1,46 +1,40 @@
 <template>
   <div class="PagePostDetail">
-    <PostDetail
-      :id="post.meta.id"
-      :title="post.meta.title"
-      :description="post.meta.description"
-      :category="post.meta.category"
-      :tags="post.meta.tags"
-      :created-at="post.meta.created_at"
-      :updated-at="post.meta.updated_at"
-      :content="post.body.html"
-    />
+    <PostDetail :post="post" />
   </div>
 </template>
 
-<script>
-import { siteTitle, getPost, createMeta } from '@/plugins/blog'
-import PostDetail from '@/components/post/PostDetail'
+<script lang="ts">
+import { Context } from '@nuxt/types'
+import PostDetail from '../../../components/post/PostDetail.vue'
+import cms from '../../../plugins/cms'
 
 export default {
   name: 'PagePostDetail',
   components: {
     PostDetail
   },
-  asyncData({ params, store }) {
-    const post = getPost(params.id)
+  async asyncData(context: Context) {
+    const { store, params } = context
+    const { data } = await cms.get(`/post/${params.id}`)
+    const post = data
     store.commit('breadcrumb/update', [
       { text: 'Home', url: '/' },
-      { text: post.meta.title }
+      { text: post.title }
     ])
     return {
       post
     }
-  },
-  head() {
-    return {
-      title: `${this.post.meta.title} | ${siteTitle}`,
-      meta: createMeta(
-        this.post.meta.title,
-        this.post.meta.description,
-        `/post/${this.post.meta.id}/`
-      )
-    }
   }
+  // head() {
+  //   return {
+  //     title: `${this.post.title} | `,
+  //     meta: createMeta(
+  //       this.post.title,
+  //       this.post.description,
+  //       `/post/${this.post.id}/`
+  //     )
+  //   }
+  // }
 }
 </script>

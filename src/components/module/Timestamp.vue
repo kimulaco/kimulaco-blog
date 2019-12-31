@@ -4,11 +4,11 @@
     <dl class="Timestamp_list">
       <div class="Timestamp_item">
         <dt class="Timestamp_title">Published:</dt>
-        <dd class="Timestamp_date">{{ createdAt }}</dd>
+        <dd class="Timestamp_date">{{ createdAt | date('YYYY/MM/DD') }}</dd>
       </div>
       <div v-if="updatedAt" class="Timestamp_item">
         <dt class="Timestamp_title">Updated:</dt>
-        <dd class="Timestamp_date">{{ updatedAt }}</dd>
+        <dd class="Timestamp_date">{{ updatedAt | date('YYYY/MM/DD') }}</dd>
       </div>
     </dl>
   </div>

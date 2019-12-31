@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="AboutWidget_content">
-      <p>東京都内でフロントエンドエンジニアをしています。</p>
-      <p>映画と餃子と寿司が好き。</p>
+      <p>東京の事業会社で働くフロントエンドエンジニア。</p>
+      <p>映画と寿司とピザが好き。</p>
     </div>
     <LinkList :links="links" class="AboutWidget_link" />
   </Card>
@@ -67,6 +67,7 @@ export default Vue.extend({
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: flex-end;
+    margin: 0 0 8px;
   }
   &_name {
     font-size: 18px;
@@ -90,9 +91,9 @@ export default Vue.extend({
     line-height: 1.4;
     font-size: 14px;
     padding: 8px 0 0;
-    margin: 0 0 16px;
+    margin: 0 0 8px;
     p {
-      margin: 8px 0 0;
+      margin: 2px 0 0;
     }
   }
 }

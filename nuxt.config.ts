@@ -29,7 +29,12 @@ const config: Configuration = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: false,
-  css: ['normalize.css', '@/assets/scss/base.scss', '@/assets/scss/util.scss'],
+  css: [
+    'normalize.css',
+    '@/assets/css/prism.css',
+    '@/assets/scss/base.scss',
+    '@/assets/scss/util.scss'
+  ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
@@ -37,11 +42,13 @@ const config: Configuration = {
   ],
   modules: [
     '@nuxtjs/style-resources',
+    '@nuxtjs/markdownit',
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/pwa'
   ],
-  plugins: ['@/plugins/axios'],
+  plugins: ['@/plugins/filter', '@/plugins/axios', '@/plugins/markdownit'],
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',
