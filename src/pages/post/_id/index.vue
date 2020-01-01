@@ -31,7 +31,7 @@ export default Vue.extend({
     ])
     return { post }
   },
-  head(): Object {
+  head(): any {
     return createMetaData(
       this.post.title,
       this.post.description,

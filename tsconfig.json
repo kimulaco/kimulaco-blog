@@ -10,6 +10,7 @@
       "dom"
     ],
     "esModuleInterop": true,
+    "noImplicitThis": false,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
@@ -20,7 +21,8 @@
       "@@/": ["./"]
     },
     "types": [
-      "src/types",
+      "./src/types/blog",
+      "./src/types/shims-vue",
       "@types/node",
       "@nuxt/types"
     ]

@@ -2,7 +2,8 @@ import { Configuration } from '@nuxt/types'
 import dotenv from 'dotenv'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import { SITE_TITLE, createMetaData, createPostRoutes } from './src/utils/blog'
+import { SITE_TITLE, createMetaData } from './src/utils/blog'
+import { createPostRoutes } from './scripts/blog'
 
 dotenv.config()
 
