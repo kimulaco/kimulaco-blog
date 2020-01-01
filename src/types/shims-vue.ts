@@ -4,7 +4,7 @@ import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
-    asyncData?(context: Context): object | undefined;
+    asyncData?(context: Context): object | undefined
   }
 }
 

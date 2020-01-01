@@ -6,10 +6,16 @@
 </template>
 
 <script lang="ts">
+import { Context } from '@nuxt/types'
 import Vue from 'vue'
+import { Post } from '../types/blog'
 import Heading from '../components/module/Heading.vue'
 import PostLink from '../components/post/PostLink.vue'
 import cms from '../plugins/cms'
+
+type LocalData = {
+  posts: Post[]
+}
 
 export default Vue.extend({
   name: 'PageHome',
@@ -17,21 +23,14 @@ export default Vue.extend({
     Heading,
     PostLink
   },
-  async asyncData() {
+  async asyncData(context: Context): Promise<LocalData> {
+    const { store } = context
     const { data } = await cms.get('/post')
     const posts = data.contents
+    store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
     return {
       posts
     }
-  },
-  // head() {
-  //   return {
-  //     title: siteTitle,
-  //     meta: createMeta()
-  //   }
-  // },
-  created() {
-    this.$store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
   }
 })
 </script>

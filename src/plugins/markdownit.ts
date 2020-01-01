@@ -7,7 +7,7 @@ require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-json')
 require('prismjs/components/prism-bash')
 
-const markdownIt: Plugin = ({ app }, inject) => {
+const markdownIt: Plugin = (context, inject) => {
   const md: MarkdownIt = new MarkdownIt('default', {
     html: true,
     typographer: true,

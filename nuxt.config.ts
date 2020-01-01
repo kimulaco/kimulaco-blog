@@ -2,7 +2,7 @@ import { Configuration } from '@nuxt/types'
 import dotenv from 'dotenv'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import { siteTitle, createMeta, createPostRoutes } from './src/plugins/blog'
+import { SITE_TITLE, createMetaData, createPostRoutes } from './src/utils/blog'
 
 dotenv.config()
 
@@ -18,13 +18,13 @@ const config: Configuration = {
     htmlAttrs: {
       lang: 'ja'
     },
-    title: siteTitle,
+    title: SITE_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
-      ...createMeta(),
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' }
+      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' },
+      ...createMetaData().meta
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -61,10 +61,12 @@ const config: Configuration = {
   },
   srcDir: 'src',
   generate: {
-    routes: ['/', ...createPostRoutes()]
+    async routes(): Promise<string[]> {
+      const postRoutes = await createPostRoutes()
+      return ['/', ...postRoutes]
+    }
   },
   build: {
-    extend(config, ctx) {}, // eslint-disable-line @typescript-eslint/no-unused-vars
     loaders: {
       scss: {
         implementation: Sass,
