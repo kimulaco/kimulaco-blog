@@ -3,12 +3,17 @@
     <div class="PostDetail_head">
       <h1 class="PostDetail_heading">{{ post.title }}</h1>
     </div>
-    <Tags :tags="post.tags" class="PostDetail_tags" />
-    <Timestamp
-      :created-at="post.createdAt"
-      :updated-at="post.updatedAt"
-      class="PostDetail_timestamp"
-    />
+    <div class="PostDetail_meta">
+      <Category v-if="post.category" class="PostDetail_category">
+        {{ post.category.name }}
+      </Category>
+      <Tags v-if="post.tags" :tags="post.tags" class="PostDetail_tags" />
+      <Timestamp
+        :created-at="post.createdAt"
+        :updated-at="post.updatedAt"
+        class="PostDetail_timestamp"
+      />
+    </div>
     <!-- eslint-disable vue/no-v-html -->
     <PostContent class="PostDetail_content" v-html="$md.render(post.content)" />
     <!-- eslint-enable vue/no-v-html -->
@@ -27,6 +32,7 @@
 import Vue from 'vue'
 import Card from '../module/Card.vue'
 import LinkBack from '../module/LinkBack.vue'
+import Category from '../module/Category.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
@@ -37,6 +43,7 @@ export default Vue.extend({
   components: {
     Card,
     LinkBack,
+    Category,
     Tags,
     Timestamp,
     Share,
@@ -68,14 +75,17 @@ export default Vue.extend({
   &_heading {
     font-size: 28px;
     padding: 5px 0;
-    max-width: calc(100% - 50px);
     margin: 0 0 10px;
     @include media() {
       margin: 0;
     }
   }
+  &_meta {
+    display: flex;
+    flex-wrap: wrap;
+  }
   &_category {
-    margin: 8px 0 0 auto;
+    margin: 0 16px 10px 0;
   }
   &_tags {
     margin: 0 0 10px;
@@ -91,7 +101,7 @@ export default Vue.extend({
   }
   &_content {
     margin: 0;
-    padding: 20px 0 0;
+    padding: 20px 0;
     position: relative;
     &::before {
       content: '';

@@ -4,7 +4,7 @@
       <div class="PostLink_content">
         <h3 class="PostLink_heading">{{ post.title }}</h3>
         <div class="PostLink_meta">
-          <Category class="PostLink_category">
+          <Category v-if="post.category" class="PostLink_category">
             {{ post.category.name }}
           </Category>
           <Tags v-if="post.tags" :tags="post.tags" class="PostLink_tags" />
@@ -71,7 +71,6 @@ export default Vue.extend({
   &_heading {
     font-size: 20px;
     padding: 5px 0;
-    max-width: calc(100% - 50px);
     margin: 0 0 10px;
     color: $COLOR_BLUE;
     @include media() {

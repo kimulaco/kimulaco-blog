@@ -18,10 +18,14 @@ export default Vue.extend({
   font-size: 12px;
   color: $COLOR_GRAY;
   display: flex;
+  margin: 0;
   &_icon {
     width: 14px;
     height: 14px;
     margin: 0 8px 0 0;
+  }
+  &_text {
+    display: block;
   }
 }
 </style>
