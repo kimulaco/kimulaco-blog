@@ -13,6 +13,12 @@
         :updated-at="post.updatedAt"
         class="PostDetail_timestamp"
       />
+      <img
+        v-if="post.image"
+        :src="post.image.url"
+        class="PostDetail_image"
+        alt=""
+      />
     </div>
     <!-- eslint-disable vue/no-v-html -->
     <PostContent class="PostDetail_content" v-html="$md.render(post.content)" />
@@ -57,7 +63,7 @@ export default Vue.extend({
   },
   computed: {
     shareUrl() {
-      return `/post/`
+      return `/post/${this.post.id}`
     }
   }
 })
@@ -98,6 +104,9 @@ export default Vue.extend({
     @include media() {
       margin: 0 0 24px;
     }
+  }
+  &_image {
+    margin: 0 0 24px;
   }
   &_content {
     margin: 0;
