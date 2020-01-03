@@ -20,8 +20,8 @@ export default Vue.extend({
   display: flex;
   margin: 0;
   &_icon {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     margin: 0 8px 0 0;
   }
   &_text {
