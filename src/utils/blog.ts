@@ -1,5 +1,5 @@
 export const SITE_TITLE = 'kimulaco.com'
-export const SITE_DESC = 'kimulaco.comの説明文'
+export const SITE_DESC = 'kimulaco.comの説明文。'
 export const SITE_URL = 'https://kimulaco.com'
 
 export const createMetaData = (

@@ -24,10 +24,10 @@ const config: Configuration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:image', property: 'og:image', content: '/img/profile.png' },
+      { hid: 'og:image', property: 'og:image', content: '/img/ogp.png' },
       ...createMetaData().meta
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }]
   },
   loading: false,
   css: [

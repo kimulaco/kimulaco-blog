@@ -7,6 +7,7 @@
           :to="isHome ? false : '/'"
           class="SiteHeader_title-text"
         >
+          <img class="SiteHeader_title-icon" src="/img/icon.png" alt="" />
           kimulaco.com
         </nuxt-link>
       </p>
@@ -49,7 +50,14 @@ export default Vue.extend({
     font-size: 16px;
     font-weight: normal;
     &-text {
+      display: flex;
+      align-items: center;
       color: $COLOR_BLACK;
+    }
+    &-icon {
+      display: block;
+      width: 24px;
+      margin: 0 8px 0 0;
     }
   }
 }
