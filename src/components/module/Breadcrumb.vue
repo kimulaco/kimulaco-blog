@@ -74,9 +74,10 @@ export default Vue.extend({
     }
   }
   &_home {
-    width: 14px;
-    height: 14px;
-    transform: translateY(1px);
+    fill: $COLOR_BLUE;
+    width: 15px;
+    height: 15px;
+    transform: translateY(2px);
   }
 }
 </style>
