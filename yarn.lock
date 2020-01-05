@@ -1214,10 +1214,10 @@
     serve-static "^1.14.1"
     server-destroy "^1.0.1"
 
-"@nuxt/types@0.5.9":
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.5.9.tgz#568ddc9f1c1869c4321d070e544e8c84c4794825"
-  integrity sha512-CLpAxcI31ZZjrCiHZLk27k2VnMRa6ipXkrMegcZVkG2i3tnycErq+ydnlS2EPxPG0WNDYQXli192UEBKT12Dfw==
+"@nuxt/types@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-0.6.0.tgz#f127c31d8c86cfbe522654da91704a98a2cb0fb3"
+  integrity sha512-LJF95jLe4Ir/mrKJ5d2QC+t89xnXVM2EWagXx8YDM32RObIAHEU8jUQLPy4uvx1w3APDOMAtByG5V3vlRo7HwQ==
   dependencies:
     "@types/autoprefixer" "^9.6.1"
     "@types/babel__core" "^7.1.3"
@@ -1233,28 +1233,28 @@
     "@types/pug" "^2.0.4"
     "@types/serve-static" "^1.13.3"
     "@types/terser-webpack-plugin" "^2.2.0"
-    "@types/webpack" "^4.41.0"
+    "@types/webpack" "^4.41.1"
     "@types/webpack-bundle-analyzer" "^2.13.3"
     "@types/webpack-dev-middleware" "^2.0.3"
     "@types/webpack-hot-middleware" "^2.25.0"
 
-"@nuxt/typescript-build@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-0.5.4.tgz#5b4b3b310d86bbe4eb1a5a10d8327e8160a0b02d"
-  integrity sha512-BuVdoQMbaantvp4OrYhgTJ/4Q+OXTE/1gRxV8h/JyhWkKbiyekfKj388XUoH6lSH0/4BiGpbpg2FgUcZvxZOvA==
+"@nuxt/typescript-build@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@nuxt/typescript-build/-/typescript-build-0.5.5.tgz#5cb01380f567344339b016a88503fed2bd67b8bf"
+  integrity sha512-VB2PcS8XbW0nUn+AY9+JqbuBO3K3Ys9xoIG8s4uJ9vua/rwLRe4mS6jIoIhMVOoiPjoz8CNq7F3edOXsevSleA==
   dependencies:
-    "@nuxt/types" "0.5.9"
-    consola "^2.11.1"
+    "@nuxt/types" "0.6.0"
+    consola "^2.11.3"
     fork-ts-checker-webpack-plugin "^3.1.1"
     ts-loader "^6.2.1"
     typescript "~3.7"
 
-"@nuxt/typescript-runtime@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@nuxt/typescript-runtime/-/typescript-runtime-0.3.5.tgz#604be92be337c287461fd1b224613e0612a37949"
-  integrity sha512-eVvNtDu+OD3cuWZPfc1Zvw+MyvLXgd5iegikcTzmGJSwXhUmo3c6ykZRnfG1QJNeAR1ds3w3LynjScq0HqDAIw==
+"@nuxt/typescript-runtime@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@nuxt/typescript-runtime/-/typescript-runtime-0.3.6.tgz#be6d3622dd8ea86ac29c737c37344308653aef29"
+  integrity sha512-oqxGfnFXMzBCmfR+58vQRScFsEbbk6poA5b15Ypb67jx8Z4IN5cK3aaLX7Zf+0Ub9W5Qg0y9yktsLperkkoTDQ==
   dependencies:
-    "@nuxt/types" "0.5.9"
+    "@nuxt/types" "0.6.0"
     ts-node "^8.5.4"
     typescript "~3.7"
 
@@ -1348,16 +1348,16 @@
     webpack-node-externals "^1.7.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/axios@^5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.9.0.tgz#08c20fa4c9936bf0015733e1598860032a1a237a"
-  integrity sha512-jc3KOHlFA5zdijiuYSRk0nzmqGSoP30LasD5J5XxUDpc/YlzwAL+Z0+kLcU5IwlrEDkg4VwkhZd/9OG6RkA2CQ==
+"@nuxtjs/axios@^5.9.2":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.9.2.tgz#fe452f85ef7c22c5d50f5f961db1c4b50b080233"
+  integrity sha512-OwRy40N7Q0V0i5A8ojUy9TlvvaYDPlDmUDKPMVxkcFf+wnmgtJbLJGgHrPWof9Y0jb9EXLgxbRmk0LgrNk7QCw==
   dependencies:
     "@nuxtjs/proxy" "^1.3.3"
     axios "^0.19.0"
     axios-retry "^3.1.2"
-    consola "^2.11.1"
-    defu "^0.0.3"
+    consola "^2.11.3"
+    defu "^0.0.4"
 
 "@nuxtjs/eslint-config-typescript@^1.0.0":
   version "1.0.0"
@@ -1865,7 +1865,7 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@types/webpack@^4.41.0":
+"@types/webpack@^4.41.1":
   version "4.41.1"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.1.tgz#571f0e137ce698710dd2637f7d222811eb83e274"
   integrity sha512-n9fP8UrMxOi1wiM3oM+vMZHMJJ7WoQohqd63C20cmKOFkNEy9Q8hyZyDR6PWdvSYt3V3A7cwDq/kWxHlRYYZEg==
@@ -3661,6 +3661,11 @@ consola@^2.11.0, consola@^2.11.1, consola@^2.5.6:
   resolved "https://registry.yarnpkg.com/consola/-/consola-2.11.2.tgz#e2d2028d634b2c44db81c26cc328b8e42d24f2f5"
   integrity sha512-kiOd0jqR5wo4swTf/aTu/Y+mynBjFD70tEpVS83jMtzqahKLPLJTDjVFDhg9ihuiWVV5TLQ43LlwleXuz2yYKg==
 
+consola@^2.11.3:
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/consola/-/consola-2.11.3.tgz#f7315836224c143ac5094b47fd4c816c2cd1560e"
+  integrity sha512-aoW0YIIAmeftGR8GSpw6CGQluNdkWMWh3yEFjH/hmynTYnMtibXszii3lxCXmk8YxJtI3FAK5aTiquA5VH68Gw==
+
 console-browserify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
@@ -4274,6 +4279,11 @@ defu@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/defu/-/defu-0.0.3.tgz#bdc3ea1e1ab2120d4d4a129147f3ba9b7f9fe103"
   integrity sha512-u/fe4fBwrD0KACvI0sYWTWFzooqONZq8ywPnK0ZkAgLNwaDTKpSWvMiiU4QmzhrQCXu8Y0+HIWP8amE18lsL4A==
+
+defu@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-0.0.4.tgz#9294753fff9a88217635ed387e4a451f1738e6ff"
+  integrity sha512-rgzSYjB7bq5P6uPTPOlFYy/hw4SR/Ml+SM/ZlRx1BEcgUmcTA8yqnzByRiA4npIuJPb1uRJo6ROx++Xs5QooqQ==
 
 del@^5.0.0:
   version "5.1.0"
@@ -10265,10 +10275,10 @@ pretty@^2.0.0:
     extend-shallow "^2.0.1"
     js-beautify "^1.6.12"
 
-prismjs@^1.17.1:
-  version "1.17.1"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
-  integrity sha512-PrEDJAFdUGbOP6xK/UsfkC5ghJsPJviKgnQOoxaDbBjwc8op68Quupwt1DeAFoG8GImPhiKXAvvsH7wDSLsu1Q==
+prismjs@^1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.18.0.tgz#8f04dd47fa232cbd27d1ca969107580ff43f06e4"
+  integrity sha512-N0r3i/Cto516V8+GKKamhsPVZSFcO0TMUBtIDW6uq6BVqoC3FNtZVZ+cmH16N2XtGQlgRN+sFUTjOdCsEP51qw==
   optionalDependencies:
     clipboard "^2.0.0"
 
@@ -11172,10 +11182,10 @@ sass-resources-loader@^2.0.0:
     glob "^7.1.1"
     loader-utils "^1.0.4"
 
-sass@^1.24.0:
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.24.0.tgz#e8b9931bc5d18a37d271749311ef2edc83102a77"
-  integrity sha512-1TsPyMhLTx+9DLlmwg02iBW2p4poGA7LlkWJLpUY/XticFKNhPcx+l4FsIJLKl6oSUfXmAKpVljHEez1hwjqiw==
+sass@^1.24.2:
+  version "1.24.2"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.24.2.tgz#0a0e0f00368be6808b2e94470172266ac45498fe"
+  integrity sha512-0JxdMMRd0fOmGFQFRI91vh4n0Ed766ib9JwPUa+1C37zn3VaqlHxbknUn/6LqP/MSfvNPxRYoCrYf5g8vu4OHw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
