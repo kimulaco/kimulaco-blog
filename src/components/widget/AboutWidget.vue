@@ -13,7 +13,17 @@
       <p>東京の事業会社で働くフロントエンドエンジニア。</p>
       <p>映画と寿司とピザが好き。</p>
     </div>
-    <LinkList :links="links" class="AboutWidget_link" />
+    <LinkList
+      :links="[
+        { text: 'Twitter', url: 'https://twitter.com/kimulaco' },
+        { text: 'GitHub', url: 'https://github.com/kimulaco' },
+        { text: 'kimulaco.me', url: 'https://kimulaco.me' }
+      ]"
+      class="AboutWidget_link"
+    />
+    <div class="AboutWidget_more">
+      <nuxt-link to="/about/">詳しく見る</nuxt-link>
+    </div>
   </Card>
 </template>
 
@@ -36,24 +46,6 @@ export default Vue.extend({
     to: {
       type: String,
       default: ''
-    }
-  },
-  data() {
-    return {
-      links: [
-        {
-          text: 'Twitter',
-          url: 'https://twitter.com/kimulaco'
-        },
-        {
-          text: 'GitHub',
-          url: 'https://github.com/kimulaco'
-        },
-        {
-          text: 'kimulaco.me',
-          url: 'https://kimulaco.me'
-        }
-      ]
     }
   }
 })
@@ -91,10 +83,14 @@ export default Vue.extend({
     line-height: 1.4;
     font-size: 14px;
     padding: 8px 0 0;
-    margin: 0 0 8px;
+    margin: 0 0 12px;
     p {
       margin: 2px 0 0;
     }
+  }
+  &_more {
+    font-size: 14px;
+    margin: 16px 0 0;
   }
 }
 </style>

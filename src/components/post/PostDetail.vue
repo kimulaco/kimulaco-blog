@@ -48,6 +48,7 @@ import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
 import PostContent from '../post/PostContent.vue'
+import { SITE_URL } from '../../utils/blog'
 
 export default Vue.extend({
   name: 'PostDetail',
@@ -68,7 +69,7 @@ export default Vue.extend({
   },
   computed: {
     shareUrl() {
-      return `/post/${this.post.id}`
+      return `${SITE_URL}/post/${this.post.id}`
     }
   }
 })

@@ -34,6 +34,19 @@
           <span class="Share_text">LINEで送る</span>
         </a>
       </li>
+      <li class="Share_item">
+        <a
+          :href="
+            `http://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
+          "
+          class="Share_anchor -hatena"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg-icon name="icon-line" class="Share_icon" />
+          <span class="Share_text">はてなブックマークでブックマークする</span>
+        </a>
+      </li>
     </ul>
   </div>
 </template>
@@ -101,6 +114,9 @@ export default Vue.extend({
     }
     &.-line {
       background: #00b900;
+    }
+    &.-hatena {
+      background: #008fde;
     }
   }
 }
