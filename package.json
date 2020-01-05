@@ -15,8 +15,7 @@
   },
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:script",
-    "*.{scss,vue}": "npm run lint:style",
-    "post/**/*.md": "npm run lint:post"
+    "*.{scss,vue}": "npm run lint:style"
   },
   "husky": {
     "hooks": {
@@ -33,8 +32,7 @@
     "dotenv": "^8.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",
-    "prismjs": "^1.17.1",
-    "stylelint-config-prettier": "^8.0.0"
+    "prismjs": "^1.17.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.4",
@@ -67,6 +65,7 @@
     "sass-loader": "^8.0.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-prettier": "^8.0.0",
     "stylelint-scss": "^3.13.0",
     "vue-jest": "^4.0.0-0"
   }

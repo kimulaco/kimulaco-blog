@@ -25,10 +25,7 @@ export default Vue.extend({
     const { store, params } = context
     const { data } = await cms.get(`/post/${params.id}`)
     const post: Post = data
-    store.commit('breadcrumb/update', [
-      { text: 'Home', url: '/' },
-      { text: post.title }
-    ])
+    store.commit('breadcrumb/update', post.title)
     return { post }
   },
   head(): any {

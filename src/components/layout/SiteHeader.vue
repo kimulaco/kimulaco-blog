@@ -11,6 +11,7 @@
           kimulaco.com
         </nuxt-link>
       </p>
+      <p style="margin: 0;"><nuxt-link to="/about">About</nuxt-link></p>
     </SiteInner>
   </header>
 </template>
@@ -40,10 +41,14 @@ export default Vue.extend({
   background: $COLOR_WHITE;
   margin: 0 0 60px;
   box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
+  a {
+    color: inherit;
+  }
   &_inner {
     min-height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   &_title {
     margin: 0;

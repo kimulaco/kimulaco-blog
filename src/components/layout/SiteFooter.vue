@@ -25,6 +25,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SiteFooter {
   padding: 16px 0 24px;
+  margin: 60px 0 0;
   &_inner {
     @include media() {
       padding: 0 20px;

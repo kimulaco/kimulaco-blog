@@ -1,10 +1,10 @@
 <template>
   <div class="SiteColumn">
     <SiteInner class="SiteColumn_inner">
-      <div class="SiteColumn_main">
+      <div v-if="$slots.main" class="SiteColumn_main">
         <slot name="main" />
       </div>
-      <div class="SiteColumn_sub">
+      <div v-if="$slots.sub" class="SiteColumn_sub">
         <slot name="sub" />
       </div>
     </SiteInner>
@@ -28,6 +28,7 @@ export default Vue.extend({
   &_inner {
     @include media() {
       display: flex;
+      justify-content: center;
       align-items: flex-start;
     }
   }
@@ -35,6 +36,7 @@ export default Vue.extend({
     @include reset-child-margin();
 
     width: 100%;
+    max-width: 776px;
   }
   &_sub {
     @include reset-child-margin();

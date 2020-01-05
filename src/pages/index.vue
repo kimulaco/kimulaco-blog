@@ -1,6 +1,6 @@
 <template>
   <div class="PageHome">
-    <Heading>最近の記事</Heading>
+    <Heading class="mt-0">最近の記事</Heading>
     <PostLink v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
@@ -27,7 +27,7 @@ export default Vue.extend({
     const { store } = context
     const { data } = await cms.get('/post')
     const posts = data.contents
-    store.commit('breadcrumb/update', [{ text: 'Home', url: '/' }])
+    store.commit('breadcrumb/hide')
     return {
       posts
     }

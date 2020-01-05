@@ -51,9 +51,6 @@ export default Vue.extend({
 .PostLink {
   margin: 0 0 24px;
   position: relative;
-  @include media() {
-    margin: 0 0 32px;
-  }
   &_column {
     display: flex;
     align-items: center;

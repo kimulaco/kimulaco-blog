@@ -1,18 +1,18 @@
 <template>
-  <h2 class="Heading"><slot /></h2>
+  <h1 class="PageTitle"><slot /></h1>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Heading'
+  name: 'PageTitle'
 })
 </script>
 
 <style lang="scss" scoped>
-.Heading {
-  font-size: 24px;
-  margin: 56px 0 16px;
+.PageTitle {
+  font-size: 32px;
+  margin: 0 0 32px;
 }
 </style>
