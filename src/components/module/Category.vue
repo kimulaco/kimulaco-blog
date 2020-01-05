@@ -20,6 +20,7 @@ export default Vue.extend({
   display: flex;
   margin: 0;
   &_icon {
+    fill: $COLOR_GRAY;
     width: 15px;
     height: 15px;
     margin: 0 8px 0 0;

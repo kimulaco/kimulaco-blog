@@ -2,22 +2,27 @@
   <Card class="PostDetail" tag="article">
     <div class="PostDetail_head">
       <h1 class="PostDetail_heading">{{ post.title }}</h1>
-    </div>
-    <div class="PostDetail_meta">
-      <Category v-if="post.category" class="PostDetail_category">
-        {{ post.category.name }}
-      </Category>
-      <Tags v-if="post.tags" :tags="post.tags" class="PostDetail_tags" />
-      <Timestamp
-        :created-at="post.createdAt"
-        :updated-at="post.updatedAt"
-        class="PostDetail_timestamp"
-      />
+      <div class="PostDetail_meta">
+        <Category v-if="post.category" class="PostDetail_category">
+          {{ post.category.name }}
+        </Category>
+        <Tags v-if="post.tags" :tags="post.tags" class="PostDetail_tags" />
+        <Timestamp
+          :created-at="post.createdAt"
+          :updated-at="post.updatedAt"
+          class="PostDetail_timestamp"
+        />
+      </div>
       <img
         v-if="post.image"
         :src="post.image.url"
         class="PostDetail_image"
         alt=""
+      />
+      <Share
+        :title="post.title"
+        :description="post.description"
+        :url="shareUrl"
       />
     </div>
     <!-- eslint-disable vue/no-v-html -->
@@ -74,24 +79,19 @@ export default Vue.extend({
   margin: 0 0 32px;
   position: relative;
   &_head {
-    display: flex;
-    align-items: flex-start;
-    margin: 0 0 8px;
+    padding: 0 0 16px;
   }
   &_heading {
     font-size: 28px;
     padding: 5px 0;
-    margin: 0 0 10px;
-    @include media() {
-      margin: 0;
-    }
+    margin: 0 0 8px;
   }
   &_meta {
     display: flex;
     flex-wrap: wrap;
   }
   &_category {
-    margin: 0 16px 10px 0;
+    margin: 0 16px 16px 0;
   }
   &_tags {
     margin: 0 0 10px;
@@ -100,13 +100,10 @@ export default Vue.extend({
     }
   }
   &_timestamp {
-    margin: 0 0 10px;
-    @include media() {
-      margin: 0 0 24px;
-    }
+    margin: 0 0 16px;
   }
   &_image {
-    margin: 0 0 24px;
+    margin: 0 0 16px;
   }
   &_content {
     margin: 0;

@@ -3,11 +3,11 @@
     <svg-icon name="icon-calender" class="Timestamp_icon" />
     <dl class="Timestamp_list">
       <div class="Timestamp_item">
-        <dt class="Timestamp_title">Published:</dt>
+        <dt class="Timestamp_title">公開日:</dt>
         <dd class="Timestamp_date">{{ createdAt | date('YYYY/MM/DD') }}</dd>
       </div>
       <div v-if="updatedAt" class="Timestamp_item">
-        <dt class="Timestamp_title">Updated:</dt>
+        <dt class="Timestamp_title">更新日:</dt>
         <dd class="Timestamp_date">{{ updatedAt | date('YYYY/MM/DD') }}</dd>
       </div>
     </dl>
@@ -40,6 +40,7 @@ $margin-left: 10px;
   font-size: 12px;
   color: $COLOR_GRAY;
   display: flex;
+  align-items: center;
   &_list {
     display: flex;
     flex-wrap: wrap;
@@ -53,8 +54,9 @@ $margin-left: 10px;
     margin: 0 0 0 4px;
   }
   &_icon {
-    width: 14px;
-    height: 14px;
+    fill: $COLOR_GRAY;
+    width: 15px;
+    height: 15px;
     margin: 0 8px 0 0;
   }
 }
