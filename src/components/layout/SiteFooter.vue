@@ -3,7 +3,7 @@
     <SiteInner class="SiteFooter_inner">
       <p class="SiteFooter_copyright">
         <small class="SiteFooter_copyright-text">
-          &copy; 2019 kimulaco.com.
+          &copy; 2020 kimulaco.com.
         </small>
       </p>
     </SiteInner>
