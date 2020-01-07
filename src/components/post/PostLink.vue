@@ -53,7 +53,6 @@ export default Vue.extend({
   position: relative;
   &_column {
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
   &_content {
@@ -64,6 +63,7 @@ export default Vue.extend({
     width: calc(35% - 16px);
     max-width: 240px;
     margin: 0 0 0 16px;
+    align-self: center;
   }
   &_heading {
     font-size: 20px;
@@ -76,6 +76,7 @@ export default Vue.extend({
   }
   &_meta {
     display: flex;
+    flex-wrap: wrap;
   }
   &_category {
     margin: 0 10px 0 0;

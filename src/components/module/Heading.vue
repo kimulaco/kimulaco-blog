@@ -13,6 +13,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .Heading {
   font-size: 24px;
-  margin: 56px 0 16px;
+  margin: 56px 0 20px;
 }
 </style>

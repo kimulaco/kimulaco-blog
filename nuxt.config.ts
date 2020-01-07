@@ -5,7 +5,9 @@ import Fiber from 'fibers'
 import { SITE_TITLE, createMetaData } from './src/utils/blog'
 import { createPostRoutes } from './scripts/blog'
 
-dotenv.config()
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
 
 const { CMS_BASE_URL, CMS_API_KEY } = process.env
 
@@ -58,7 +60,7 @@ const config: Configuration = {
     ]
   },
   googleAnalytics: {
-    id: 'UA-148174532-1'
+    id: 'UA-137464103-1'
   },
   srcDir: 'src',
   generate: {

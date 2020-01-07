@@ -21,9 +21,10 @@ export default Vue.extend({
   margin: 0;
   &_icon {
     fill: $COLOR_GRAY;
-    width: 15px;
-    height: 15px;
-    margin: 0 8px 0 0;
+    width: 16px;
+    height: 16px;
+    margin: 0 4px 0 0;
+    transform: translateY(-1px);
   }
   &_text {
     display: block;
