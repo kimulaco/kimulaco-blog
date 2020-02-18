@@ -9,7 +9,7 @@ import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import { Post } from '../../../types/blog'
 import PostDetail from '../../../components/post/PostDetail.vue'
-import cms from '../../../plugins/cms'
+import { getPost } from '../../../plugins/cms'
 import { createMetaData } from '../../../utils/blog'
 
 type LocalData = {
@@ -23,7 +23,7 @@ export default Vue.extend({
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { store, params } = context
-    const { data } = await cms.get(`/post/${params.id}`)
+    const { data } = await getPost(params.id)
     const post: Post = data
     store.commit('breadcrumb/update', post.title)
     return { post }

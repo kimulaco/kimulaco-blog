@@ -5,6 +5,7 @@ module.exports = {
   ],
   plugins: ['stylelint-scss'],
   rules: {
+    'value-keyword-case': null,
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true
   }

@@ -11,7 +11,7 @@ import Vue from 'vue'
 import { Post } from '../types/blog'
 import Heading from '../components/module/Heading.vue'
 import PostLink from '../components/post/PostLink.vue'
-import cms from '../plugins/cms'
+import { getPostList } from '../plugins/cms'
 
 type LocalData = {
   posts: Post[]
@@ -25,7 +25,7 @@ export default Vue.extend({
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { store } = context
-    const { data } = await cms.get('/post')
+    const { data } = await getPostList()
     const posts = data.contents
     store.commit('breadcrumb/hide')
     return {

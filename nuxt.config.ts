@@ -9,13 +9,15 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config()
 }
 
-const { CMS_BASE_URL, CMS_API_KEY } = process.env
+const { CMS_BASE_URL, CMS_API_KEY, CMS_DRAFT_KEY } = process.env
 
 const config: Configuration = {
   mode: 'universal',
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
-    CMS_API_KEY: CMS_API_KEY || ''
+    CMS_API_KEY: CMS_API_KEY || '',
+    CMS_DRAFT_KEY:
+      process.env.NODE_ENV !== 'production' ? CMS_DRAFT_KEY || '' : ''
   },
   head: {
     htmlAttrs: {
