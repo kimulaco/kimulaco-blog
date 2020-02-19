@@ -23,7 +23,7 @@ export default Vue.extend({
     fill: $COLOR_GRAY;
     width: 16px;
     height: 16px;
-    margin: 0 4px 0 0;
+    margin: 2px 4px 0 0;
     transform: translateY(-1px);
   }
   &_text {

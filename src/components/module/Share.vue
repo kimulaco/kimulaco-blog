@@ -3,7 +3,9 @@
     <ul class="Share_list">
       <li class="Share_item">
         <a
-          :href="`${twitterBaseUrl}?url=${url}&text=${title} ${description}`"
+          :href="
+            `https://twitter.com/share?url=${url}&text=${title} ${description}`
+          "
           class="Share_anchor -twitter"
           target="_blank"
           rel="noopener noreferrer"
@@ -37,14 +39,25 @@
       <li class="Share_item">
         <a
           :href="
-            `http://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
+            `https://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
           "
           class="Share_anchor -hatena"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg-icon name="icon-line" class="Share_icon" />
+          <svg-icon name="icon-hatena" class="Share_icon" />
           <span class="Share_text">はてなブックマークでブックマークする</span>
+        </a>
+      </li>
+      <li class="Share_item">
+        <a
+          :href="`https://getpocket.com/edit?url=${url}&title=${title}`"
+          class="Share_anchor -pocket"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg-icon name="icon-pocket" class="Share_icon" />
+          <span class="Share_text">Pocket</span>
         </a>
       </li>
     </ul>
@@ -69,11 +82,6 @@ export default Vue.extend({
       type: String,
       required: true
     }
-  },
-  data() {
-    return {
-      twitterBaseUrl: 'https://twitter.com/share'
-    }
   }
 })
 </script>
@@ -84,16 +92,17 @@ export default Vue.extend({
   font-size: 14px;
   &_list {
     display: flex;
+    justify-content: center;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: -20px 0 0;
   }
   &_item {
-    width: calc(100% / 3);
+    margin: 20px 20px 0;
   }
   &_icon {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 20px;
+    max-height: 20px;
   }
   &_text {
     text-indent: -100vw;
@@ -102,10 +111,13 @@ export default Vue.extend({
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 40px;
+    height: 40px;
     padding: 8px;
     color: $COLOR_WHITE;
     overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(#000, 0.2);
     &.-twitter {
       background: #1da1f2;
     }
@@ -115,8 +127,16 @@ export default Vue.extend({
     &.-line {
       background: #00b900;
     }
+    &.-pocket {
+      background: #fff;
+      padding-top: 10px;
+    }
     &.-hatena {
-      background: #008fde;
+      background: #00a4de;
+      .Share_icon {
+        max-width: 30px;
+        max-height: 30px;
+      }
     }
   }
 }

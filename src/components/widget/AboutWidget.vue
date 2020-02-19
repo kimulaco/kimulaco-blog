@@ -80,7 +80,6 @@ export default Vue.extend({
     }
   }
   &_content {
-    line-height: 1.4;
     font-size: 14px;
     padding: 8px 0 0;
     margin: 0 0 12px;

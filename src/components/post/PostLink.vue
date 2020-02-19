@@ -95,7 +95,6 @@ export default Vue.extend({
   }
   &_description {
     font-size: 14px;
-    line-height: 1.4;
     margin: 0;
     padding: 10px 0 0;
     border-top: 1px solid rgba($COLOR_GRAY, 0.2);
