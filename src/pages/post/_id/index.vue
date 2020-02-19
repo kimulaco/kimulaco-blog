@@ -13,7 +13,7 @@ import { getPost } from '../../../plugins/cms'
 import { createMetaData } from '../../../utils/blog'
 
 type LocalData = {
-  post: Post
+  post: Post | null
 }
 
 export default Vue.extend({
@@ -22,16 +22,28 @@ export default Vue.extend({
     PostDetail
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { store, params } = context
-    const post: Post = await getPost(params.id)
-    store.commit('breadcrumb/update', post.title)
-    return { post }
+    const { store, params, redirect } = context
+    try {
+      const post: Post = await getPost(params.id)
+      store.commit('breadcrumb/update', post.title)
+      return { post }
+    } catch (error) {
+      redirect({
+        path: '/error/404'
+      })
+      return { post: null }
+    }
   },
   head(): any {
+    let imageUrl: string = ''
+    if (this.post.image && this.post.image.url) {
+      imageUrl = this.post.image.url
+    }
     return createMetaData(
       this.post.title,
       this.post.description,
-      `/post/${this.post.id}/`
+      `/post/${this.post.id}/`,
+      imageUrl
     )
   }
 })
