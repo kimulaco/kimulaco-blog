@@ -25,8 +25,7 @@ export default Vue.extend({
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { store } = context
-    const { data } = await getPostList()
-    const posts = data.contents
+    const posts = await getPostList()
     store.commit('breadcrumb/hide')
     return {
       posts

@@ -17,7 +17,9 @@ module.exports = {
   plugins: [
     'prettier'
   ],
-  rules: {},
+  rules: {
+    'camelcase': 0
+  },
   overrides: [
     {
       files: ['*.ts'],

@@ -23,8 +23,7 @@ export default Vue.extend({
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { store, params } = context
-    const { data } = await getPost(params.id)
-    const post: Post = data
+    const post: Post = await getPost(params.id)
     store.commit('breadcrumb/update', post.title)
     return { post }
   },

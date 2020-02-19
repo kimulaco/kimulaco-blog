@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Post } from '../types/blog'
 
 export const cms = axios.create({
   baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
@@ -7,18 +8,17 @@ export const cms = axios.create({
   }
 })
 
-export const getPostList = (cmsParams: any = {}) => {
-  const params = cmsParams
-  if (process.env.CMS_DRAFT_KEY) {
-    params.draftKey = process.env.CMS_DRAFT_KEY
-  }
-  return cms.get('/post', { params })
+export const getPostList = async (params: any = {}) => {
+  const posts: any = await cms.get('/post', { params })
+  return posts.data.contents.filter((post: Post) => {
+    if (process.env.NODE_ENV === 'production') {
+      return post.status === 'public'
+    }
+    return true
+  })
 }
 
-export const getPost = (postId: string, cmsParams: any = {}) => {
-  const params = cmsParams
-  if (process.env.CMS_DRAFT_KEY) {
-    params.draftKey = process.env.CMS_DRAFT_KEY
-  }
-  return cms.get(`/post/${postId}`, { params })
+export const getPost = async (postId: string, params: any = {}) => {
+  const post = await cms.get(`/post/${postId}`, { params })
+  return post.data.contents
 }
