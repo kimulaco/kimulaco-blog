@@ -70,7 +70,7 @@ export default Vue.extend({
     font-size: 18px;
   }
   &_icon {
-    width: 80px;
+    width: 60px;
     margin: 0 16px 0 0;
     border-radius: 50%;
   }
