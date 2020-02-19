@@ -131,7 +131,7 @@ export default Vue.extend({
     &::before {
       content: '';
       display: block;
-      background: rgba($COLOR_GRAY, 0.2);
+      background: rgba($COLOR_GRAY, 0.1);
       width: calc(100% + 32px);
       height: 1px;
       position: absolute;
@@ -140,7 +140,7 @@ export default Vue.extend({
     }
   }
   &_back {
-    margin: 16px 0 0;
+    margin: 24px 0 0;
   }
 }
 </style>

@@ -13,14 +13,32 @@
       <p>東京の事業会社で働くフロントエンドエンジニア。</p>
       <p>映画と寿司とピザが好き。</p>
     </div>
-    <LinkList
-      :links="[
-        { text: 'Twitter', url: 'https://twitter.com/kimulaco' },
-        { text: 'GitHub', url: 'https://github.com/kimulaco' },
-        { text: 'kimulaco.me', url: 'https://kimulaco.me' }
-      ]"
-      class="AboutWidget_link"
-    />
+    <div class="AboutWidget_link">
+      <ul class="AboutWidget_link-list">
+        <li class="AboutWidget_link-item">
+          <a
+            href="https://twitter.com/kimulaco"
+            class="AboutWidget_link-anchor -twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg-icon name="icon-twitter" class="AboutWidget_link-icon" />
+            <span class="AboutWidget_link-text">Twitter</span>
+          </a>
+        </li>
+        <li class="AboutWidget_link-item">
+          <a
+            href="https://github.com/kimulaco"
+            class="AboutWidget_link-anchor -twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg-icon name="icon-github" class="AboutWidget_link-icon" />
+            <span class="AboutWidget_link-text">GitHub</span>
+          </a>
+        </li>
+      </ul>
+    </div>
     <div class="AboutWidget_more">
       <nuxt-link to="/about/">詳しく見る</nuxt-link>
     </div>
@@ -30,13 +48,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import Card from '../module/Card.vue'
-import LinkList from '../module/LinkList.vue'
 
 export default Vue.extend({
   name: 'AboutWidget',
   components: {
-    Card,
-    LinkList
+    Card
   },
   props: {
     tag: {
@@ -64,10 +80,12 @@ export default Vue.extend({
   &_name {
     font-size: 18px;
     margin: 5px 0 4px;
+    line-height: 1.2;
   }
   &_job {
     font-size: 14px;
     margin: 0;
+    line-height: 1.2;
   }
   &_icon {
     width: 50px;
@@ -75,6 +93,7 @@ export default Vue.extend({
     margin: 0 10px 0 0;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 1px 4px rgba(#000, 0.2);
     &-img {
       max-width: 100%;
     }
@@ -85,6 +104,33 @@ export default Vue.extend({
     margin: 0 0 12px;
     p {
       margin: 2px 0 0;
+    }
+  }
+  &_link {
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: -12px 0 0 -12px;
+      list-style: none;
+    }
+    &-item {
+      margin: 12px 0 0 12px;
+    }
+    &-icon {
+      max-width: 24px;
+      max-height: 24px;
+    }
+    &-text {
+      font-size: 0;
+    }
+    &-anchor {
+      display: block;
+      max-width: 24px;
+      max-height: 24px;
+      &.-twitter {
+        color: #1da1f2;
+      }
     }
   }
   &_more {

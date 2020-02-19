@@ -57,7 +57,7 @@
           rel="noopener noreferrer"
         >
           <svg-icon name="icon-pocket" class="Share_icon" />
-          <span class="Share_text">Pocket</span>
+          <span class="Share_text">Pocketに保存する</span>
         </a>
       </li>
     </ul>
@@ -98,7 +98,7 @@ export default Vue.extend({
     margin: -20px 0 0;
   }
   &_item {
-    margin: 20px 20px 0;
+    margin: 20px 16px 0;
   }
   &_icon {
     max-width: 20px;
@@ -117,7 +117,7 @@ export default Vue.extend({
     color: $COLOR_WHITE;
     overflow: hidden;
     border-radius: 50%;
-    box-shadow: 0 0 4px rgba(#000, 0.2);
+    box-shadow: 0 1px 4px rgba(#000, 0.2);
     &.-twitter {
       background: #1da1f2;
     }

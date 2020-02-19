@@ -39,9 +39,11 @@ export default Vue.extend({
 .Breadcrumb {
   margin: 0;
   font-size: 14px;
+  line-height: 1.2;
   color: $COLOR_GRAY;
   &_list {
     display: flex;
+    align-items: flex-end;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
@@ -60,7 +62,7 @@ export default Vue.extend({
       border-color: $COLOR_GRAY;
       transform: rotate(45deg);
       position: absolute;
-      top: 0.35em;
+      top: 0.25em;
       left: 6px;
     }
     &:first-child {
@@ -75,8 +77,8 @@ export default Vue.extend({
   }
   &_home {
     fill: $COLOR_BLUE;
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     transform: translateY(2px);
   }
 }

@@ -37,6 +37,7 @@ export default Vue.extend({
     margin: 0;
     padding: 0;
     list-style: none;
+    line-height: 1.2;
   }
   &_item {
     margin: 0 0 4px;

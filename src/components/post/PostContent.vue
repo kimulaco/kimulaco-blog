@@ -52,19 +52,9 @@ export default Vue.extend({
     margin: 32px 0 20px;
   }
   a {
-    text-decoration: none;
+    text-decoration: underline;
     padding: 0 2px 2px;
     position: relative;
-    &::after {
-      content: '';
-      display: block;
-      background: $COLOR_BLUE;
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
   }
   strong {
     color: $COLOR_RED;
@@ -82,15 +72,15 @@ export default Vue.extend({
     padding: 8px;
     margin: 16px 0;
     background: $COLOR_LIGHTGRAY;
-    border-radius: 4px;
+    border-radius: 6px;
     @include reset-child-margin();
   }
   pre {
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     code {
       display: block;
-      padding: 8px;
+      padding: 0;
       color: $COLOR_LIGHTGRAY;
     }
   }

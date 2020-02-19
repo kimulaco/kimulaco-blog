@@ -5,13 +5,13 @@
     <section>
       <Heading class="mt-0">このサイトについて</Heading>
       <p>
-        フロントエンドエンジニアとして活動する運用者が、学んだことをアウトプットしたり、エンジニア目線で生活を楽にする為のナレッジなどを情報共有する為のブログ。
+        フロントエンドエンジニアとして活動する運用者が、学んだことをアウトプットしたり、楽して生活する為に試したことなどを共有する為のブログ。
       </p>
       <p>気になる技術などを試験運用する場にしたりもします。</p>
     </section>
 
     <section>
-      <Heading>サイト運用者について</Heading>
+      <Heading>このサイトの運用者</Heading>
       <div class="AboutProfile">
         <p class="AboutProfile_name">kimulaco</p>
         <img class="AboutProfile_icon" src="/img/profile.png" alt="" />
