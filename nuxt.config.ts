@@ -69,6 +69,15 @@ const config: Configuration = {
       return ['/', ...postRoutes]
     }
   },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'src/pages/error/404.vue')
+      })
+    }
+  },
   build: {
     loaders: {
       scss: {
