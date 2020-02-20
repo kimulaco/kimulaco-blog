@@ -8,8 +8,8 @@
         </Category>
         <Tags v-if="post.tags" :tags="post.tags" class="PostDetail_tags" />
         <Timestamp
-          :created-at="post.createdAt"
-          :updated-at="post.updatedAt"
+          :created-at="post.created_at"
+          :updated-at="post.updated_at"
           class="PostDetail_timestamp"
         />
       </div>
