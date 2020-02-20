@@ -28,8 +28,8 @@
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/sentry": "^3.2.4",
     "dayjs": "^1.8.20",
-    "dotenv": "^8.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",
     "prismjs": "^1.19.0"

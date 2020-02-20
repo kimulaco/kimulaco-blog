@@ -1,21 +1,15 @@
 import { Configuration } from '@nuxt/types'
-import dotenv from 'dotenv'
 import Sass from 'sass'
 import Fiber from 'fibers'
 import { SITE_TITLE, createMetaData } from './src/utils/blog'
 import { createPostRoutes } from './scripts/blog'
-
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config()
-}
-
-const { CMS_BASE_URL, CMS_API_KEY } = process.env
+import pkg from './package.json'
 
 const config: Configuration = {
   mode: 'universal',
   env: {
-    CMS_BASE_URL: CMS_BASE_URL || '',
-    CMS_API_KEY: CMS_API_KEY || ''
+    CMS_BASE_URL: process.env.CMS_BASE_URL || '',
+    CMS_API_KEY: process.env.CMS_API_KEY || ''
   },
   head: {
     htmlAttrs: {
@@ -45,6 +39,7 @@ const config: Configuration = {
   ],
   modules: [
     '@nuxtjs/style-resources',
+    '@nuxtjs/sentry',
     '@nuxtjs/markdownit',
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
@@ -58,6 +53,17 @@ const config: Configuration = {
       '@/assets/scss/_mixin.scss',
       '@/assets/scss/_extend.scss'
     ]
+  },
+  sentry: {
+    dsn: process.env.SENTRY_DSN || '',
+    disableServerSide: true,
+    disableServerRelease: true,
+    config: {
+      environment: process.env.NODE_ENV || 'development'
+    },
+    webpackConfig: {
+      release: `${pkg.name}@${pkg.version}`
+    }
   },
   googleAnalytics: {
     id: 'UA-137464103-1'
