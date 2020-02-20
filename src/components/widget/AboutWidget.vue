@@ -37,6 +37,17 @@
             <span class="AboutWidget_link-text">GitHub</span>
           </a>
         </li>
+        <li class="AboutWidget_link-item">
+          <a
+            href="https://kimulaco.me/"
+            class="AboutWidget_link-anchor -me"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img class="AboutWidget_link-icon" src="/img/icon.png" alt="" />
+            <span class="AboutWidget_link-text">kimulaco.me</span>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="AboutWidget_more">
