@@ -6,7 +6,11 @@
         <Category v-if="post.category" class="PostDetail_category">
           {{ post.category.name }}
         </Category>
-        <Tags v-if="post.tags" :tags="post.tags" class="PostDetail_tags" />
+        <Tags
+          v-if="postTag.length > 0"
+          :tags="postTag"
+          class="PostDetail_tags"
+        />
         <Timestamp
           :created-at="post.created_at"
           :updated-at="post.updated_at"
@@ -68,7 +72,18 @@ export default Vue.extend({
     }
   },
   computed: {
-    shareUrl() {
+    postTag() {
+      if (!this.post || !this.post.tag) {
+        return []
+      }
+      return this.post.tag.map((tag: any) => {
+        return {
+          id: tag.id,
+          name: tag.name
+        }
+      })
+    },
+    shareUrl(): string {
       return `${SITE_URL}/post/${this.post.id}`
     }
   }
