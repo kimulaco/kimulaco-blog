@@ -1,6 +1,6 @@
 <template>
   <div class="Tags">
-    <svg-icon name="icon-tags" class="Tags_icon" />
+    <b class="Tags_heading">Tags: </b>
     <ul class="Tags_list">
       <li v-for="tag in tags" :key="tag.id" class="Tags_item">
         {{ tag.name }}
@@ -33,22 +33,26 @@ $margin-left: 10px;
   font-size: 14px;
   display: flex;
   color: $COLOR_GRAY;
-  &_list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: -#{$margin-top} 0 0 -#{$margin-left};
-    list-style: none;
-  }
-  &_item {
-    margin: #{$margin-top} 0 0 #{$margin-left};
-  }
-  &_icon {
-    fill: $COLOR_GRAY;
-    width: 14px;
-    height: 14px;
-    margin: 0 8px 0 0;
-    transform: translateY(1px);
-  }
+}
+.Tags_heading {
+  font-weight: normal;
+  margin: 0 2px 0 0;
+}
+.Tags_list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: -#{$margin-top} 0 0 -#{$margin-left};
+  list-style: none;
+}
+.Tags_item {
+  margin: #{$margin-top} 0 0 #{$margin-left};
+}
+.Tags_icon {
+  fill: $COLOR_GRAY;
+  width: 14px;
+  height: 14px;
+  margin: 2px 8px 0 0;
+  transform: translateY(1px);
 }
 </style>

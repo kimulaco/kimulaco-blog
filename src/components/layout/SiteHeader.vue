@@ -38,8 +38,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SiteHeader {
   background: $COLOR_WHITE;
-  margin: 0 0 60px;
+  margin: 0;
   box-shadow: 0 2px 4px rgba($COLOR_BLACK, 0.1);
+  @include media() {
+    margin: 0 0 30px;
+  }
   a {
     color: inherit;
   }

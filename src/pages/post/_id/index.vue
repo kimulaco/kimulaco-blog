@@ -22,10 +22,9 @@ export default Vue.extend({
     PostDetail
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { store, params, redirect } = context
+    const { params, redirect } = context
     try {
       const post: Post = await getPost(params.id)
-      store.commit('breadcrumb/update', post.title)
       return { post }
     } catch (error) {
       redirect({

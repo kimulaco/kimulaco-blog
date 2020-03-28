@@ -37,17 +37,20 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .Breadcrumb {
+  padding: 0 10px;
   margin: 0;
   font-size: 14px;
   line-height: 1.2;
   color: $COLOR_GRAY;
+  @include media() {
+    padding: 0;
+  }
   &_list {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0 0 24px;
   }
   &_item {
     padding: 0 0 0 20px;

@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import { Post } from '../types/blog'
 import PostLink from '../components/post/PostLink.vue'
@@ -20,10 +19,8 @@ export default Vue.extend({
   components: {
     PostLink
   },
-  async asyncData(context: Context): Promise<LocalData> {
-    const { store } = context
+  async asyncData(): Promise<LocalData> {
     const posts = await getPostList()
-    store.commit('breadcrumb/hide')
     return {
       posts
     }

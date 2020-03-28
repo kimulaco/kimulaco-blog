@@ -38,8 +38,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-$COLOR_LIGHTGRAY: rgba($COLOR_GRAY, 0.2);
-
 .PostLink {
   border-bottom: 1px solid $COLOR_LIGHTGRAY;
   position: relative;
@@ -49,7 +47,7 @@ $COLOR_LIGHTGRAY: rgba($COLOR_GRAY, 0.2);
 }
 .PostLink_inner {
   display: block;
-  padding: 24px 10px;
+  padding: 24px 20px;
   color: $COLOR_BLACK;
 }
 .PostLink_heading {

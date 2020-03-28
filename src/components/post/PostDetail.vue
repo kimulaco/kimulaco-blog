@@ -1,22 +1,13 @@
 <template>
-  <Card class="PostDetail" tag="article">
+  <article class="PostDetail">
     <div class="PostDetail_head">
       <h1 class="PostDetail_heading">{{ post.title }}</h1>
-      <div class="PostDetail_meta">
-        <Category v-if="post.category" class="PostDetail_category">
-          {{ post.category.name }}
-        </Category>
-        <Tags
-          v-if="postTag.length > 0"
-          :tags="postTag"
-          class="PostDetail_tags"
-        />
-        <Timestamp
-          :created-at="post.created_at"
-          :updated-at="post.updated_at"
-          class="PostDetail_timestamp"
-        />
-      </div>
+      <Timestamp
+        :created-at="post.created_at"
+        :updated-at="post.updated_at"
+        class="PostDetail_timestamp"
+      />
+      <Tags v-if="postTag.length > 0" :tags="postTag" class="PostDetail_tags" />
       <img
         v-if="post.image"
         :src="post.image.url"
@@ -38,16 +29,14 @@
         :description="post.description"
         :url="shareUrl"
       />
-      <LinkBack to="/" class="PostDetail_back">トップページに戻る</LinkBack>
+      <LinkBack to="/" class="PostDetail_back">記事一覧に戻る</LinkBack>
     </div>
-  </Card>
+  </article>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Card from '../module/Card.vue'
 import LinkBack from '../module/LinkBack.vue'
-import Category from '../module/Category.vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
 import Share from '../module/Share.vue'
@@ -57,9 +46,7 @@ import { SITE_URL } from '../../utils/blog'
 export default Vue.extend({
   name: 'PostDetail',
   components: {
-    Card,
     LinkBack,
-    Category,
     Tags,
     Timestamp,
     Share,
@@ -92,34 +79,34 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .PostDetail {
-  margin: 0 0 32px;
+  padding: 0 10px;
   position: relative;
   &_head {
     padding: 0 0 16px;
+    @include media() {
+      padding: 0 0 32px;
+    }
   }
   &_heading {
     font-size: 28px;
     padding: 5px 0;
     margin: 0 0 8px;
-  }
-  &_meta {
-    display: flex;
-    flex-wrap: wrap;
+    line-height: 1.2;
+    @include media() {
+      font-size: 32px;
+    }
   }
   &_category {
     margin: 0 16px 16px 0;
   }
   &_tags {
-    margin: 0 0 10px;
-    @include media() {
-      margin: 0 0 12px;
-    }
-  }
-  &_timestamp {
     margin: 0 0 16px;
   }
   &_image {
     margin: 0 0 16px;
+    @include media() {
+      margin: 0 0 32px;
+    }
   }
   &_content {
     margin: 0;
@@ -128,12 +115,12 @@ export default Vue.extend({
     &::before {
       content: '';
       display: block;
-      background: rgba($COLOR_GRAY, 0.2);
-      width: calc(100% + 32px);
+      background: $COLOR_LIGHTGRAY;
+      width: calc(100% + 20px);
       height: 1px;
       position: absolute;
       top: 0;
-      left: -16px;
+      left: -10px;
     }
     @include media() {
       padding: 32px 0;
@@ -141,12 +128,12 @@ export default Vue.extend({
   }
   &_foot {
     margin: 0;
-    padding: 20px 0 0;
+    padding: 32px 0 0;
     position: relative;
     &::before {
       content: '';
       display: block;
-      background: rgba($COLOR_GRAY, 0.1);
+      background: $COLOR_LIGHTGRAY;
       width: calc(100% + 32px);
       height: 1px;
       position: absolute;
@@ -155,7 +142,7 @@ export default Vue.extend({
     }
   }
   &_back {
-    margin: 24px 0 0;
+    margin: 32px 0 0;
   }
 }
 </style>

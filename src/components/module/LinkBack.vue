@@ -42,7 +42,7 @@ export default Vue.extend({
       border-width: 0 0 2px 2px;
       transform: rotate(45deg);
       position: absolute;
-      top: 0.4em;
+      top: 0.5em;
       left: 4px;
     }
   }

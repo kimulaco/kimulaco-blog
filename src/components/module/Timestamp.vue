@@ -36,7 +36,7 @@ $margin-top: 5px;
 $margin-left: 10px;
 
 .Timestamp {
-  font-size: 12px;
+  font-size: 14px;
   color: $COLOR_GRAY;
   display: flex;
   align-items: center;

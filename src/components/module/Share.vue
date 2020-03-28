@@ -95,10 +95,16 @@ export default Vue.extend({
     justify-content: center;
     list-style: none;
     padding: 0;
-    margin: -20px 0 0;
+    margin: -10px 0 0;
+    @include media() {
+      margin: -20px 0 0;
+    }
   }
   &_item {
-    margin: 20px 16px 0;
+    margin: 10px 8px 0;
+    @include media() {
+      margin: 20px 16px 0;
+    }
   }
   &_icon {
     max-width: 20px;

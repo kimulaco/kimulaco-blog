@@ -29,27 +29,27 @@ export default Vue.extend({
     }
   }
   h2 {
-    font-size: 22px;
+    font-size: 24px;
     padding: 0 0 4px;
-    margin: 40px 0 20px;
+    margin: 40px 0 16px;
     border-bottom: 1px solid rgba($COLOR_GRAY, 0.2);
   }
   h3 {
     font-size: 20px;
     padding: 0 0 4px;
-    margin: 32px 0 20px;
+    margin: 32px 0 16px;
   }
   h4 {
     font-size: 18px;
-    margin: 32px 0 20px;
+    margin: 32px 0 16px;
   }
   h5 {
     font-size: 16px;
-    margin: 32px 0 20px;
+    margin: 32px 0 16px;
   }
   h6 {
     font-size: 14px;
-    margin: 32px 0 20px;
+    margin: 32px 0 16px;
   }
   a {
     text-decoration: underline;
@@ -71,17 +71,17 @@ export default Vue.extend({
   blockquote {
     padding: 8px;
     margin: 16px 0;
-    background: $COLOR_LIGHTGRAY;
+    background: $COLOR_BLOCKGRAY;
     border-radius: 6px;
     @include reset-child-margin();
   }
   pre {
     border-radius: 6px;
-    overflow: hidden;
+    overflow: auto;
     code {
       display: block;
       padding: 0;
-      color: $COLOR_LIGHTGRAY;
+      color: $COLOR_BLOCKGRAY;
     }
   }
 }
