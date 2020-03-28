@@ -101,6 +101,9 @@ export default Vue.extend({
   }
   &_tags {
     margin: 0 0 16px;
+    @include media() {
+      margin: 0 0 32px;
+    }
   }
   &_image {
     margin: 0 0 16px;
