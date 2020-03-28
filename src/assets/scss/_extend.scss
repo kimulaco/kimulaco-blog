@@ -2,9 +2,6 @@
 
 %layout-inner {
   max-width: $CONTENT_MAX_WIDTH;
-  padding: 0 10px;
+  padding: 0 20px;
   margin: 0 auto;
-  @include media() {
-    padding: 0 20px;
-  }
 }

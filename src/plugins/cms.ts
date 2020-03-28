@@ -12,7 +12,7 @@ export const getPostList = async (params: any = {}) => {
   const posts: any = await cms.get('/post', { params })
   return posts.data.contents.filter((post: Post) => {
     if (process.env.NODE_ENV === 'production') {
-      return post.status === 'public'
+      return post.status.id === 'public'
     }
     return true
   })

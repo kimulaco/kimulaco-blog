@@ -21,10 +21,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .SiteMain {
   padding: 32px 0;
-  &_inner {
-    @include media() {
-      padding: 0 20px;
-    }
-  }
 }
 </style>

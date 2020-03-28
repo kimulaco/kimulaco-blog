@@ -5,12 +5,12 @@
         <nuxt-link :to="`/post/${post.id}/`">{{ post.title }}</nuxt-link>
       </h3>
       <div class="PostLink_meta">
-        <Tags v-if="post.tags" :tags="post.tags" class="PostLink_tags" />
         <Timestamp
           :created-at="post.created_at"
           :updated-at="post.updated_at"
           class="PostLink_timestamp"
         />
+        <Tags v-if="postTag.length > 0" :tags="postTag" class="PostLink_tags" />
       </div>
       <p class="PostLink_description">{{ post.description }}</p>
     </div>
@@ -32,6 +32,19 @@ export default Vue.extend({
     post: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    postTag() {
+      if (!this.post || !this.post.tag) {
+        return []
+      }
+      return this.post.tag.map((tag: any) => {
+        return {
+          id: tag.id,
+          name: tag.name
+        }
+      })
     }
   }
 })
@@ -60,11 +73,8 @@ export default Vue.extend({
   display: flex;
   flex-wrap: wrap;
 }
-.PostLink_tags {
-  margin: 0 10px 0 0;
-  @include media() {
-    margin: 0 0 12px;
-  }
+.PostLink_timestamp {
+  margin: 0 16px 0 0;
 }
 .PostLink_description {
   font-size: 15px;
