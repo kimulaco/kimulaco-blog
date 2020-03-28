@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-$FONT_FAMILY: "游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
+$FONT_FAMILY: Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
 
-$BREAK_POINT: 800px;
+$BREAK_POINT: 780px;
 $CONTENT_MIN_WIDTH: 320px;
-$CONTENT_MAX_WIDTH: 1080px;
+$CONTENT_MAX_WIDTH: 780px;
 
 $COLOR_WHITE: #fff;
 $COLOR_BLACK: #222;
@@ -12,6 +12,6 @@ $COLOR_GRAY: #777;
 $COLOR_DARKGRAY: #444;
 $COLOR_LIGHTGRAY: #fcfcfc;
 $COLOR_RED: #e64e33;
-$COLOR_BLUE: #15a6f1;
+$COLOR_BLUE: #1aa5ec;
 $COLOR_PURPLE: #6a14bf;
 $COLOR_GREEN: #6cc718;

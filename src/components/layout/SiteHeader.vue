@@ -11,7 +11,6 @@
           kimulaco.com
         </nuxt-link>
       </p>
-      <p style="margin: 0;"><nuxt-link to="/about">About</nuxt-link></p>
     </SiteInner>
   </header>
 </template>

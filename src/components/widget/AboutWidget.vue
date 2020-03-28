@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="AboutWidget_content">
-      <p>東京の事業会社で働くフロントエンドエンジニア。</p>
+      <p>フロントエンドエンジニアとして働いています。</p>
       <p>映画と寿司とピザが好き。</p>
     </div>
     <div class="AboutWidget_link">
@@ -50,9 +50,6 @@
         </li>
       </ul>
     </div>
-    <div class="AboutWidget_more">
-      <nuxt-link to="/about/">詳しく見る</nuxt-link>
-    </div>
   </Card>
 </template>
 
@@ -80,6 +77,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .AboutWidget {
+  color: $COLOR_WHITE;
   margin: 0;
   &_head {
     display: flex;
@@ -89,8 +87,8 @@ export default Vue.extend({
     margin: 0 0 8px;
   }
   &_name {
-    font-size: 18px;
-    margin: 5px 0 4px;
+    font-size: 20px;
+    margin: 6px 0 0;
     line-height: 1.2;
   }
   &_job {

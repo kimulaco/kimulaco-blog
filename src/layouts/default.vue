@@ -8,19 +8,15 @@
       </transition>
     </SiteInner>
 
-    <SiteColumn>
-      <template v-slot:main>
-        <main>
-          <transition name="fade">
-            <nuxt />
-          </transition>
-        </main>
-      </template>
+    <SiteMain>
+      <transition name="fade">
+        <nuxt />
+      </transition>
+    </SiteMain>
 
-      <template v-slot:sub>
-        <AboutWidget />
-      </template>
-    </SiteColumn>
+    <SiteProfile>
+      <AboutWidget />
+    </SiteProfile>
 
     <SiteFooter />
   </div>
@@ -31,7 +27,8 @@ import Vue from 'vue'
 import Breadcrumb from '../components/module/Breadcrumb.vue'
 import SiteInner from '../components/layout/SiteInner.vue'
 import SiteHeader from '../components/layout/SiteHeader.vue'
-import SiteColumn from '../components/layout/SiteColumn.vue'
+import SiteMain from '../components/layout/SiteMain.vue'
+import SiteProfile from '../components/layout/SiteProfile.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
 
@@ -41,7 +38,8 @@ export default Vue.extend({
     Breadcrumb,
     SiteInner,
     SiteHeader,
-    SiteColumn,
+    SiteMain,
+    SiteProfile,
     SiteFooter,
     AboutWidget
   }
