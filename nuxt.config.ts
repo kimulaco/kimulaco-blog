@@ -1,7 +1,7 @@
 import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import { SITE_TITLE, createMetaData } from './src/utils/blog'
+import { SITE_TITLE, SITE_URL, createMetaData } from './src/utils/blog'
 import { createPostRoutes } from './scripts/blog'
 import pkg from './package.json'
 
@@ -20,7 +20,21 @@ const config: Configuration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       { hid: 'og:type', property: 'og:type', content: 'article' },
-      { hid: 'og:image', property: 'og:image', content: '/img/ogp.png' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${SITE_URL}/img/ogp.png`
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@kimulaco'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
       ...createMetaData().meta
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }]
