@@ -3,9 +3,7 @@
     <ul class="Share_list">
       <li class="Share_item">
         <a
-          :href="
-            `https://twitter.com/share?url=${url}&text=${title} ${description}`
-          "
+          :href="sharePageUrl.twitter"
           class="Share_anchor -twitter"
           target="_blank"
           rel="noopener noreferrer"
@@ -16,7 +14,7 @@
       </li>
       <li class="Share_item">
         <a
-          :href="`https://www.facebook.com/share.php?u=${url}`"
+          :href="sharePageUrl.facebook"
           class="Share_anchor -facebook"
           target="_blank"
           rel="noopener noreferrer"
@@ -27,7 +25,7 @@
       </li>
       <li class="Share_item">
         <a
-          :href="`https://social-plugins.line.me/lineit/share?url=${url}`"
+          :href="sharePageUrl.line"
           class="Share_anchor -line"
           target="_blank"
           rel="noopener noreferrer"
@@ -38,9 +36,7 @@
       </li>
       <li class="Share_item">
         <a
-          :href="
-            `https://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
-          "
+          :href="sharePageUrl.hatena"
           class="Share_anchor -hatena"
           target="_blank"
           rel="noopener noreferrer"
@@ -51,7 +47,7 @@
       </li>
       <li class="Share_item">
         <a
-          :href="`https://getpocket.com/edit?url=${url}&title=${title}`"
+          :href="sharePageUrl.pocket"
           class="Share_anchor -pocket"
           target="_blank"
           rel="noopener noreferrer"
@@ -81,6 +77,17 @@ export default Vue.extend({
     url: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    sharePageUrl() {
+      return {
+        twitter: `https://twitter.com/share?url=${this.url}&text=${this.title} ${this.description}`,
+        facebook: `https://www.facebook.com/share.php?u=${this.url}`,
+        line: `https://social-plugins.line.me/lineit/share?url=${this.url}`,
+        hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.title}`,
+        pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.title}`
+      }
     }
   }
 })
