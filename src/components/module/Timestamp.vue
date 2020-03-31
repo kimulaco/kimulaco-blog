@@ -40,23 +40,23 @@ $margin-left: 10px;
   color: $COLOR_GRAY;
   display: flex;
   align-items: center;
-  &_list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -#{$margin-top} 0 0 -#{$margin-left};
-  }
-  &_item {
-    display: flex;
-    margin: #{$margin-top} 0 0 #{$margin-left};
-  }
-  &_date {
-    margin: 0 0 0 2px;
-  }
-  &_icon {
-    fill: $COLOR_GRAY;
-    width: 15px;
-    height: 15px;
-    margin: 0 4px 0 0;
-  }
+}
+.Timestamp_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -#{$margin-top} 0 0 -#{$margin-left};
+}
+.Timestamp_item {
+  display: flex;
+  margin: #{$margin-top} 0 0 #{$margin-left};
+}
+.Timestamp_date {
+  margin: 0 0 0 4px;
+}
+.Timestamp_icon {
+  fill: $COLOR_GRAY;
+  width: 15px;
+  height: 15px;
+  margin: 0 4px 0 0;
 }
 </style>

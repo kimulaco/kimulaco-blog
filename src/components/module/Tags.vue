@@ -36,7 +36,7 @@ $margin-left: 10px;
 }
 .Tags_heading {
   font-weight: normal;
-  margin: 0 2px 0 0;
+  margin: 0 4px 0 0;
 }
 .Tags_list {
   display: flex;

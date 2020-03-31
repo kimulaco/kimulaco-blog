@@ -32,7 +32,7 @@ export default Vue.extend({
     font-size: 24px;
     padding: 0 0 4px;
     margin: 40px 0 16px;
-    border-bottom: 1px solid rgba($COLOR_GRAY, 0.2);
+    border-bottom: 1px solid rgba($COLOR_GRAY, 0.3);
   }
   h3 {
     font-size: 20px;
