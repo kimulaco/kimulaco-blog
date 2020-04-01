@@ -1,7 +1,12 @@
 import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import { SITE_TITLE, SITE_URL, createMetaData } from './src/utils/blog'
+import {
+  SITE_TITLE,
+  SITE_URL,
+  FACEBOOK_APP_ID,
+  createMetaData
+} from './src/utils/blog'
 import { createPostRoutes } from './scripts/blog'
 import pkg from './package.json'
 
@@ -24,6 +29,11 @@ const config: Configuration = {
         hid: 'og:image',
         property: 'og:image',
         content: `${SITE_URL}/img/ogp.png`
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: FACEBOOK_APP_ID
       },
       {
         hid: 'twitter:creator',
