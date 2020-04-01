@@ -77,13 +77,18 @@ const config: Configuration = {
   manifest: {
     name: SITE_TITLE,
     lang: 'ja',
+    start_url: '/',
     short_name: SITE_TITLE,
-    title: SITE_TITLE,
-    'og:title': SITE_TITLE,
-    description: SITE_DESC,
-    'og:description': SITE_DESC,
     theme_color: SITE_THEME_COLOR,
-    background_color: SITE_THEME_COLOR
+    background_color: SITE_THEME_COLOR,
+    display: 'standalone',
+    icons: [
+      {
+        src: '/img/icon.png',
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
   },
   styleResources: {
     scss: [
