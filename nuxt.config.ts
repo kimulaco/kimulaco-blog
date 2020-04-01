@@ -86,7 +86,9 @@ const config: Configuration = {
       environment: process.env.NODE_ENV || 'development'
     },
     webpackConfig: {
-      release: `${pkg.name}@${pkg.version}`
+      include: ['.'],
+      release: `${pkg.name}@${pkg.version}`,
+      ignoreFile: '.gitignore'
     }
   },
   googleAnalytics: {
