@@ -1,6 +1,7 @@
 export const SITE_TITLE = 'kimulaco.com'
-export const SITE_DESC = 'kimulaco.comの説明文。'
+export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
 export const SITE_URL = 'https://kimulaco.com'
+export const SITE_THEME_COLOR = '#ffffff'
 export const FACEBOOK_APP_ID = '216629989749363'
 
 export const createMetaData = (

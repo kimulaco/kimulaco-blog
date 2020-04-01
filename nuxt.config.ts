@@ -3,7 +3,9 @@ import Sass from 'sass'
 import Fiber from 'fibers'
 import {
   SITE_TITLE,
+  SITE_DESC,
   SITE_URL,
+  SITE_THEME_COLOR,
   FACEBOOK_APP_ID,
   createMetaData
 } from './src/utils/blog'
@@ -24,6 +26,7 @@ const config: Configuration = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
+      { hid: 'description', name: 'description', content: SITE_DESC },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       {
         hid: 'og:image',
@@ -71,6 +74,17 @@ const config: Configuration = {
     '@nuxtjs/pwa'
   ],
   plugins: ['@/plugins/filter', '@/plugins/axios', '@/plugins/markdownit'],
+  manifest: {
+    name: SITE_TITLE,
+    lang: 'ja',
+    short_name: SITE_TITLE,
+    title: SITE_TITLE,
+    'og:title': SITE_TITLE,
+    description: SITE_DESC,
+    'og:description': SITE_DESC,
+    theme_color: SITE_THEME_COLOR,
+    background_color: SITE_THEME_COLOR
+  },
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',
