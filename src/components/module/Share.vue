@@ -80,13 +80,25 @@ export default Vue.extend({
     }
   },
   computed: {
+    encodedTitle() {
+      if (process.client) {
+        return window.encodeURI(this.title)
+      }
+      return this.title
+    },
+    encodedDesc() {
+      if (process.client) {
+        return window.encodeURI(this.description)
+      }
+      return this.description
+    },
     sharePageUrl() {
       return {
-        twitter: `https://twitter.com/share?url=${this.url}&text=${this.title} ${this.description}`,
+        twitter: `https://twitter.com/share?url=${this.url}&text=${this.encodedTitle} ${this.encodedDesc}`,
         facebook: `https://www.facebook.com/share.php?u=${this.url}`,
         line: `https://social-plugins.line.me/lineit/share?url=${this.url}`,
-        hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.title}`,
-        pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.title}`
+        hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.encodedTitle}`,
+        pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`
       }
     }
   }
