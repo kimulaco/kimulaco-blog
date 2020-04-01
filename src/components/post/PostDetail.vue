@@ -144,8 +144,9 @@ export default Vue.extend({
       left: -16px;
     }
   }
-  &_back {
-    margin: 32px 0 0;
-  }
+}
+
+.PostDetail_back.LinkBack {
+  margin: 32px 0 0;
 }
 </style>
