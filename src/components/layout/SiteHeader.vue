@@ -8,7 +8,7 @@
           class="SiteHeader_title-text"
         >
           <img class="SiteHeader_title-icon" src="/img/icon.png" alt="" />
-          kimulaco.com
+          kimulaco blog
         </nuxt-link>
       </p>
     </SiteInner>

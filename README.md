@@ -1,3 +1,3 @@
-# kimulaco.com
+# blog.kimulaco.me
 
-https://kimulaco.com
+https://blog.kimulaco.me
