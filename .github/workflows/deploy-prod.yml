@@ -1,0 +1,23 @@
+name: Deploy Production
+on:
+  push:
+    branches:
+    - 'master'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: yarn
+    - run: yarn build
+      env:
+        CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
+        CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+        SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - run: npx netlify-cli deploy --dir=./dist
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
