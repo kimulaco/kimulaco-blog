@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import PageTitle from '../../components/module/PageTitle.vue'
+import PageTitle from '../components/module/PageTitle.vue'
 
 export default Vue.extend({
   name: 'PageHome',

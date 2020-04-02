@@ -28,7 +28,7 @@ export default Vue.extend({
       return { post }
     } catch (error) {
       redirect({
-        path: '/error/404'
+        path: '/404'
       })
       return { post: null }
     }

@@ -125,7 +125,7 @@ const config: Configuration = {
       routes.push({
         name: 'custom',
         path: '*',
-        component: resolve(__dirname, 'src/pages/error/404.vue')
+        component: resolve(__dirname, 'src/pages/404.vue')
       })
     }
   },
