@@ -2,7 +2,10 @@ name: Build
 on:
   push:
     branches-ignore:
-     - 'master'
+    - 'master'
+  pull_request:
+    branches-ignore:
+      - 'master'
 jobs:
   build:
     runs-on: ubuntu-latest
