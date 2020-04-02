@@ -22,7 +22,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .LinkBack {
-  font-size: 14px;
+  font-size: 15px;
   margin: 0;
   &_anchor {
     display: inline-block;
