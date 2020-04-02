@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="AboutWidget_content">
-      <p>フロントエンドエンジニアとして働いています。</p>
-      <p>映画と寿司とピザが好き。</p>
+      <p>フロントエンドエンジニア</p>
+      <p>映画と寿司とピザが好き</p>
     </div>
     <div class="AboutWidget_link">
       <ul class="AboutWidget_link-list">
@@ -93,7 +93,7 @@ export default Vue.extend({
   }
   &_job {
     font-size: 14px;
-    margin: 0;
+    margin: 2px 0 0;
     line-height: 1.2;
   }
   &_icon {
