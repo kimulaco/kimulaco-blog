@@ -50,7 +50,10 @@ const config: Configuration = {
       },
       ...createMetaData().meta
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
+      { rel: 'canonical', href: SITE_URL }
+    ]
   },
   loading: false,
   css: [
