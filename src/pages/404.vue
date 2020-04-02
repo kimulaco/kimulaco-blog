@@ -1,5 +1,5 @@
 <template>
-  <div class="PageHome">
+  <div class="PageError">
     <PageTitle>ページが見つかりませんでした。</PageTitle>
     <p>記事が削除、またはURLが変更されている可能性があります。</p>
   </div>
@@ -10,7 +10,7 @@ import Vue from 'vue'
 import PageTitle from '../components/module/PageTitle.vue'
 
 export default Vue.extend({
-  name: 'PageHome',
+  name: 'Page404',
   layout: 'single',
   components: {
     PageTitle
