@@ -20,12 +20,13 @@ export default Vue.extend({
     margin: 16px 0;
     code {
       display: inline-block;
-      color: $COLOR_WHITE;
-      background: $COLOR_DARKGRAY;
-      padding: 1px 6px;
+      color: $COLOR_DARKGRAY;
+      background: $COLOR_LIGHTGRAY;
+      padding: 2px 6px;
       margin: 0 4px;
       border-radius: 4px;
       line-height: 1.2;
+      font-size: 15px;
     }
   }
   h2 {
