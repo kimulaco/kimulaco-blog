@@ -1,4 +1,4 @@
-export const SITE_TITLE = 'blog.kimulaco.me'
+export const SITE_TITLE = 'kimulaco blog'
 export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
 export const SITE_URL = 'https://blog.kimulaco.me'
 export const SITE_THEME_COLOR = '#ffffff'
