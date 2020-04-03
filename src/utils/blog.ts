@@ -13,12 +13,6 @@ export const createMetaData = (
   const metaTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE
   const metaDesc = description || SITE_DESC
   const metaImage = imageUrl || `${SITE_URL}/img/ogp.png`
-  const link = [
-    {
-      rel: 'canonical',
-      href: `${SITE_URL}${path || '/'}`
-    }
-  ]
   const meta = [
     { hid: 'description', name: 'description', content: metaDesc },
     { hid: 'og:site_name', property: 'og:site_name', content: metaTitle },
@@ -36,7 +30,6 @@ export const createMetaData = (
   ]
   return {
     title: metaTitle,
-    link,
     meta
   }
 }
