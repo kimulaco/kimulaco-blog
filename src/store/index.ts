@@ -6,7 +6,7 @@ type State = {
   }
 }
 
-export const state: State = (): State => ({
+export const state = (): State => ({
   notification: {
     show: false,
     title: '',

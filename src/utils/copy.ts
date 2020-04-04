@@ -1,4 +1,4 @@
-let copyField = null
+let copyField: any = null
 
 export default (text: string) => {
   if (!copyField) {
@@ -13,7 +13,7 @@ export default (text: string) => {
   copyField.textContent = text
 
   document.body.appendChild(copyField)
-  document.getSelection().selectAllChildren(copyField)
+  document.getSelection()!.selectAllChildren(copyField)
 
   const result = document.execCommand('copy')
 
