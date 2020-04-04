@@ -7,6 +7,8 @@
           class="Share_anchor -twitter"
           target="_blank"
           rel="noopener noreferrer"
+          title="Twitterでシェアする"
+          @click="$emit('click', 'Twitter')"
         >
           <svg-icon name="icon-twitter" class="Share_icon" />
           <span class="Share_text">Twitterでシェアする</span>
@@ -18,6 +20,8 @@
           class="Share_anchor -facebook"
           target="_blank"
           rel="noopener noreferrer"
+          title="Facebookでシェアする"
+          @click="$emit('click', 'Facebook')"
         >
           <svg-icon name="icon-facebook" class="Share_icon" />
           <span class="Share_text">Facebookでシェアする</span>
@@ -29,6 +33,8 @@
           class="Share_anchor -line"
           target="_blank"
           rel="noopener noreferrer"
+          title="LINEで送る"
+          @click="$emit('click', 'LINE')"
         >
           <svg-icon name="icon-line" class="Share_icon" />
           <span class="Share_text">LINEで送る</span>
@@ -40,6 +46,8 @@
           class="Share_anchor -hatena"
           target="_blank"
           rel="noopener noreferrer"
+          title="はてなブックマークでブックマークする"
+          @click="$emit('click', 'hatena')"
         >
           <svg-icon name="icon-hatena" class="Share_icon" />
           <span class="Share_text">はてなブックマークでブックマークする</span>
@@ -51,10 +59,23 @@
           class="Share_anchor -pocket"
           target="_blank"
           rel="noopener noreferrer"
+          title="Pocketに保存する"
+          @click="$emit('click', 'Pocket')"
         >
           <svg-icon name="icon-pocket" class="Share_icon" />
           <span class="Share_text">Pocketに保存する</span>
         </a>
+      </li>
+      <li class="Share_item">
+        <button
+          type="button"
+          class="Share_anchor -clipbord"
+          title="URLをクリップボードにコピーする"
+          @click="handleCopyClipbord"
+        >
+          <svg-icon name="icon-clipbord" class="Share_icon" />
+          <span class="Share_text">URLをクリップボードにコピーする</span>
+        </button>
       </li>
     </ul>
   </div>
@@ -62,6 +83,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import copyToClipbord from '../../utils/copy'
 
 export default Vue.extend({
   name: 'Share',
@@ -101,6 +123,16 @@ export default Vue.extend({
         pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`
       }
     }
+  },
+  methods: {
+    handleCopyClipbord() {
+      this.$emit('click', 'Clipbord')
+      copyToClipbord(window.location.href)
+      this.$store.commit('showNotification', {
+        title: 'URLをクリップボードにコピーしました。',
+        content: window.location.href
+      })
+    }
   }
 })
 </script>
@@ -112,6 +144,7 @@ export default Vue.extend({
   &_list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: -10px 0 0;
@@ -130,6 +163,7 @@ export default Vue.extend({
     max-height: 20px;
   }
   &_text {
+    font-size: 0;
     text-indent: -100vw;
   }
   &_anchor {
@@ -162,6 +196,9 @@ export default Vue.extend({
         max-width: 30px;
         max-height: 30px;
       }
+    }
+    &.-clipbord {
+      background: #777;
     }
   }
 }
