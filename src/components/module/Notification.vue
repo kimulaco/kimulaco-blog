@@ -44,7 +44,7 @@ export default Vue.extend({
 }
 .Notification_title {
   font-size: 16px;
-  margin: 0 0 5px;
+  margin: 0;
 }
 .Notification_content {
   font-size: 15px;
