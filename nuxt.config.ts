@@ -73,7 +73,12 @@ const config: Configuration = {
     '@nuxtjs/google-analytics',
     '@nuxtjs/pwa'
   ],
-  plugins: ['@/plugins/filter', '@/plugins/axios', '@/plugins/markdownit'],
+  plugins: [
+    { src: '@/plugins/ga', mode: 'client' },
+    { src: '@/plugins/filter', mode: 'all' },
+    { src: '@/plugins/axios', mode: 'all' },
+    { src: '@/plugins/markdownit', mode: 'all' }
+  ],
   manifest: {
     name: SITE_TITLE,
     lang: 'ja',
