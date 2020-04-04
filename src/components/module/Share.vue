@@ -7,6 +7,7 @@
           class="Share_anchor -twitter"
           target="_blank"
           rel="noopener noreferrer"
+          @click="$emit('click', 'Twitter')"
         >
           <svg-icon name="icon-twitter" class="Share_icon" />
           <span class="Share_text">Twitterでシェアする</span>
@@ -18,6 +19,7 @@
           class="Share_anchor -facebook"
           target="_blank"
           rel="noopener noreferrer"
+          @click="$emit('click', 'Facebook')"
         >
           <svg-icon name="icon-facebook" class="Share_icon" />
           <span class="Share_text">Facebookでシェアする</span>
@@ -29,6 +31,7 @@
           class="Share_anchor -line"
           target="_blank"
           rel="noopener noreferrer"
+          @click="$emit('click', 'LINE')"
         >
           <svg-icon name="icon-line" class="Share_icon" />
           <span class="Share_text">LINEで送る</span>
@@ -40,6 +43,7 @@
           class="Share_anchor -hatena"
           target="_blank"
           rel="noopener noreferrer"
+          @click="$emit('click', 'hatena')"
         >
           <svg-icon name="icon-hatena" class="Share_icon" />
           <span class="Share_text">はてなブックマークでブックマークする</span>
@@ -51,6 +55,7 @@
           class="Share_anchor -pocket"
           target="_blank"
           rel="noopener noreferrer"
+          @click="$emit('click', 'Pocket')"
         >
           <svg-icon name="icon-pocket" class="Share_icon" />
           <span class="Share_text">Pocketに保存する</span>
