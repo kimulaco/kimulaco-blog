@@ -15,10 +15,7 @@
     <SiteFooter />
 
     <transition name="fade">
-      <Notification
-        v-if="notification.show"
-        @close="$store.commit('hideNotification')"
-      >
+      <Notification v-if="notification.show" @close="handleCloseNotification">
         <template v-if="notification.title" v-slot:title>
           {{ notification.title }}
         </template>
@@ -58,9 +55,16 @@ export default Vue.extend({
     'notification.show'(isShow: boolean): void {
       if (isShow) {
         setTimeout(() => {
+          this.$ga.event('notification', 'close', 'timeout')
           this.$store.commit('hideNotification')
         }, 4000)
       }
+    }
+  },
+  methods: {
+    handleCloseNotification() {
+      this.$ga.event('notification', 'close', 'click')
+      this.$store.commit('hideNotification')
     }
   }
 })
