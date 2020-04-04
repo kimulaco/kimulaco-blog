@@ -13,6 +13,20 @@
     </SiteProfile>
 
     <SiteFooter />
+
+    <transition name="fade">
+      <Notification
+        v-if="notification.show"
+        @close="$store.commit('hideNotification')"
+      >
+        <template v-if="notification.title" v-slot:title>
+          {{ notification.title }}
+        </template>
+        <template v-if="notification.content" v-slot:content>
+          {{ notification.content }}
+        </template>
+      </Notification>
+    </transition>
   </div>
 </template>
 
@@ -22,6 +36,7 @@ import SiteHeader from '../components/layout/SiteHeader.vue'
 import SiteMain from '../components/layout/SiteMain.vue'
 import SiteProfile from '../components/layout/SiteProfile.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
+import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
 
 export default Vue.extend({
@@ -31,7 +46,22 @@ export default Vue.extend({
     SiteMain,
     SiteProfile,
     SiteFooter,
+    Notification,
     AboutWidget
+  },
+  computed: {
+    notification() {
+      return this.$store.state.notification
+    }
+  },
+  watch: {
+    'notification.show'(isShow: boolean): void {
+      if (isShow) {
+        setTimeout(() => {
+          this.$store.commit('hideNotification')
+        }, 4000)
+      }
+    }
   }
 })
 </script>

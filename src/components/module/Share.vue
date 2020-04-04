@@ -128,6 +128,10 @@ export default Vue.extend({
     handleCopyClipbord() {
       this.$emit('click', 'Clipbord')
       copyToClipbord(window.location.href)
+      this.$store.commit('showNotification', {
+        title: 'URLをクリップボードにコピーしました。',
+        content: window.location.href
+      })
     }
   }
 })
