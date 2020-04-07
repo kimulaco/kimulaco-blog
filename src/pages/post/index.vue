@@ -26,7 +26,7 @@ export default Vue.extend({
     const tagId: string = Array.isArray(query.tag)
       ? String(query.tag[0])
       : String(query.tag)
-    let tag
+    let tag = null
     let filters = ''
 
     if (tagId) {
@@ -38,10 +38,7 @@ export default Vue.extend({
 
     return {
       posts,
-      tag: {
-        id: tag.id,
-        name: tag.name
-      }
+      tag
     }
   }
 })

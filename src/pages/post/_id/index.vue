@@ -7,7 +7,12 @@
         :updated-at="post.updated_at"
         class="PostDetail_timestamp"
       />
-      <Tags v-if="postTag.length > 0" :tags="postTag" class="PostDetail_tags" />
+      <Tags
+        v-if="postTag.length > 0"
+        :tags="postTag"
+        :link="true"
+        class="PostDetail_tags"
+      />
       <img
         v-if="post.image"
         :src="post.image.url"
