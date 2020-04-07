@@ -16,6 +16,14 @@ export default Vue.extend({
 .PostContent {
   line-height: 1.6;
   @include reset-child-margin();
+  a {
+    text-decoration: underline;
+    padding: 0 2px 2px;
+    position: relative;
+  }
+  strong {
+    color: $COLOR_RED;
+  }
   p {
     margin: 16px 0;
     code {
@@ -27,6 +35,16 @@ export default Vue.extend({
       border-radius: 4px;
       line-height: 1.2;
       font-size: 15px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      text-decoration: none;
     }
   }
   h2 {
@@ -51,14 +69,6 @@ export default Vue.extend({
   h6 {
     font-size: 14px;
     margin: 32px 0 16px;
-  }
-  a {
-    text-decoration: underline;
-    padding: 0 2px 2px;
-    position: relative;
-  }
-  strong {
-    color: $COLOR_RED;
   }
   ul,
   ol {
