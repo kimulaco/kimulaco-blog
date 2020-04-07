@@ -36,18 +36,25 @@ const markdownIt: Plugin = (context, inject) => {
   }
 
   md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
-    const anchorIdx = tokens[idx].attrIndex('target')
-    if (anchorIdx < 0) {
-      tokens[idx].attrPush(['target', '_blank'])
-    } else {
-      tokens[idx].attrs[anchorIdx][1] = '_blank'
-    }
+    const token = tokens[idx]
+    const hrefIndex = token.attrIndex('href')
+    const href = token.attrs[hrefIndex][1]
 
-    const relIdx = tokens[idx].attrIndex('rel')
-    if (relIdx < 0) {
-      tokens[idx].attrPush(['rel', 'noopener noreferrer'])
-    } else {
-      tokens[idx].attrs[relIdx][1] = 'noopener noreferrer'
+    if (/https?:\/\//.test(href)) {
+      const anchorIdx = token.attrIndex('target')
+      const relIdx = token.attrIndex('rel')
+
+      if (anchorIdx < 0) {
+        token.attrPush(['target', '_blank'])
+      } else {
+        token.attrs[anchorIdx][1] = '_blank'
+      }
+
+      if (relIdx < 0) {
+        token.attrPush(['rel', 'noopener noreferrer'])
+      } else {
+        token.attrs[relIdx][1] = 'noopener noreferrer'
+      }
     }
 
     return render(tokens, idx, options, env, self)
