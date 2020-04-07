@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Post } from '../types/blog'
+import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
 export const cms = axios.create({
   baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
@@ -9,7 +10,13 @@ export const cms = axios.create({
 })
 
 export const getPostList = async (params: any = {}) => {
-  const posts: any = await cms.get('/post', { params })
+  const posts: any = await cms.get('/post', {
+    params: {
+      limit: POST_COUNT_BY_PAGE,
+      offset: (params.page || 0) * POST_COUNT_BY_PAGE,
+      filters: params.filters
+    }
+  })
   return posts.data.contents.filter((post: Post) => {
     if (process.env.NODE_ENV === 'production') {
       return post.status.id === 'public'
@@ -21,4 +28,9 @@ export const getPostList = async (params: any = {}) => {
 export const getPost = async (postId: string, params: any = {}) => {
   const post = await cms.get(`/post/${postId}`, { params })
   return post.data
+}
+
+export const getTag = async (tagId: string) => {
+  const tag = await cms.get(`/tag/${tagId}`)
+  return tag.data
 }

@@ -66,6 +66,7 @@ export default Vue.extend({
 .PostLink_heading {
   font-size: 24px;
   padding: 5px 0;
+  line-height: 1.4;
   margin: 0;
   color: $COLOR_BLUE;
 }
