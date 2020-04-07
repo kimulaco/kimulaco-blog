@@ -23,15 +23,19 @@ export default Vue.extend({
     PostLink
   },
   async asyncData({ query }: Context): Promise<any> {
-    const tagId: string = Array.isArray(query.tag)
-      ? String(query.tag[0])
-      : String(query.tag)
     let tag = null
     let filters = ''
 
-    if (tagId) {
-      filters += `tag[contains]${tagId}`
-      tag = await getTag(tagId)
+    if (query.tag) {
+      let tagId: any = query.tag
+
+      if (Array.isArray(tagId)) tagId = tagId[0]
+      if (typeof tagId !== 'string') tagId = null
+
+      if (tagId) {
+        filters += `tag[contains]${tagId}`
+        tag = await getTag(tagId)
+      }
     }
 
     const posts = await getPostList({ filters })
