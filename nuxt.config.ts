@@ -71,7 +71,8 @@ const config: Configuration = {
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
@@ -94,6 +95,15 @@ const config: Configuration = {
         type: 'image/png'
       }
     ]
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: SITE_URL,
+    gzip: true,
+    async routes() {
+      const postRoutes = await createPostRoutes()
+      return ['/', ...postRoutes]
+    }
   },
   styleResources: {
     scss: [
