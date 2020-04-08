@@ -12,11 +12,13 @@ import {
 import { createPostRoutes } from './scripts/blog'
 import pkg from './package.json'
 
+const { NODE_ENV, CMS_BASE_URL, CMS_API_KEY, SENTRY_DSN } = process.env
+
 const config: Configuration = {
   mode: 'universal',
   env: {
-    CMS_BASE_URL: process.env.CMS_BASE_URL || '',
-    CMS_API_KEY: process.env.CMS_API_KEY || ''
+    CMS_BASE_URL: CMS_BASE_URL || '',
+    CMS_API_KEY: CMS_API_KEY || ''
   },
   head: {
     htmlAttrs: {
@@ -113,11 +115,11 @@ const config: Configuration = {
     ]
   },
   sentry: {
-    dsn: process.env.SENTRY_DSN || '',
+    dsn: SENTRY_DSN || '',
     disableServerSide: true,
     disableServerRelease: true,
     config: {
-      environment: process.env.NODE_ENV || 'development'
+      environment: NODE_ENV || 'development'
     },
     webpackConfig: {
       include: ['.'],
@@ -126,7 +128,12 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-137464103-1'
+    id: 'UA-137464103-1',
+    debug: {
+      enabled: NODE_ENV !== 'production',
+      trace: NODE_ENV !== 'production',
+      sendHitTask: NODE_ENV !== 'production'
+    }
   },
   srcDir: 'src',
   generate: {
