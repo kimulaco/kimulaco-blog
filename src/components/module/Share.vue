@@ -153,7 +153,10 @@ export default Vue.extend({
     }
   }
   &_item {
-    margin: 10px 8px 0;
+    margin: 10px 3px 0;
+    @include media(356px) {
+      margin: 10px 6px 0;
+    }
     @include media() {
       margin: 20px 16px 0;
     }

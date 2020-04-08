@@ -15,6 +15,7 @@ export default Vue.extend({
 <style lang="scss">
 .PostContent {
   line-height: 1.6;
+  word-wrap: break-word;
   @include reset-child-margin();
   a {
     text-decoration: underline;
