@@ -1,5 +1,5 @@
 <template>
-  <div class="PageError">
+  <div class="Page404">
     <PageTitle>ページが見つかりませんでした。</PageTitle>
     <p>記事が削除、またはURLが変更されている可能性があります。</p>
   </div>
