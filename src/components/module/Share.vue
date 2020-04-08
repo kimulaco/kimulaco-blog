@@ -158,7 +158,7 @@ export default Vue.extend({
       margin: 10px 6px 0;
     }
     @include media() {
-      margin: 20px 16px 0;
+      margin: 20px 12px 0;
     }
   }
   &_icon {
