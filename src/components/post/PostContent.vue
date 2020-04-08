@@ -26,10 +26,13 @@ export default Vue.extend({
   }
   p {
     margin: 16px 0;
-    code {
+  }
+  p,
+  li {
+    > code {
       display: inline-block;
       color: $COLOR_DARKGRAY;
-      background: $COLOR_LIGHTGRAY;
+      background: #f1f1f1;
       padding: 2px 6px;
       margin: 0 4px;
       border-radius: 4px;
