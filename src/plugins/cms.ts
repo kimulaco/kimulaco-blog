@@ -22,3 +22,8 @@ export const getPost = async (postId: string, params: any = {}) => {
   const post = await cms.get(`/post/${postId}`, { params })
   return post.data
 }
+
+export const getAbout = async () => {
+  const post = await cms.get('/about')
+  return post.data.content
+}
