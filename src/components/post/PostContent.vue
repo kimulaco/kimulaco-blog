@@ -18,7 +18,7 @@ export default Vue.extend({
   word-wrap: break-word;
   @include reset-child-margin();
   a {
-    text-decoration: underline;
+    text-decoration: none;
     padding: 0 2px 2px;
     position: relative;
   }
@@ -39,16 +39,6 @@ export default Vue.extend({
       border-radius: 4px;
       line-height: 1.2;
       font-size: 15px;
-    }
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    a {
-      text-decoration: none;
     }
   }
   h2 {
