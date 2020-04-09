@@ -130,9 +130,7 @@ const config: Configuration = {
   googleAnalytics: {
     id: 'UA-137464103-1',
     debug: {
-      enabled: NODE_ENV !== 'production',
-      trace: NODE_ENV !== 'production',
-      sendHitTask: NODE_ENV !== 'production'
+      enabled: false
     }
   },
   srcDir: 'src',
