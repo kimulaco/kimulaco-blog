@@ -18,3 +18,33 @@
 .mb-0 {
   margin-top: 0 !important;
 }
+
+.Profile {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 24px;
+}
+.Profile_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.Profile_desc {
+  font-size: 16px;
+  margin: 0;
+}
+.Profile_icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 16px 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.Profile_img  {
+  display: block;
+}
+.PostContent .Profile p {
+  margin: 0;
+}

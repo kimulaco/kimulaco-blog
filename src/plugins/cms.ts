@@ -34,3 +34,8 @@ export const getTag = async (tagId: string) => {
   const tag = await cms.get(`/tag/${tagId}`)
   return tag.data
 }
+
+export const getAbout = async () => {
+  const post = await cms.get('/about')
+  return post.data.content
+}
