@@ -1,8 +1,23 @@
+export const PUBLISHER_NAME = 'kimulaco'
 export const SITE_TITLE = 'kimulaco blog'
 export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
 export const SITE_URL = 'https://blog.kimulaco.me'
 export const SITE_THEME_COLOR = '#ffffff'
 export const FACEBOOK_APP_ID = '216629989749363'
+export const COPYRIGHT = '@ 2020 kimulaco.'
+export const FEED_PATH = '/feed.xml'
+export const SITEMAP_PATH = '/sitemap.xml'
+
+export const FEED_CONFIG = {
+  title: SITE_TITLE,
+  description: SITE_DESC,
+  id: `${SITE_URL}${FEED_PATH}`,
+  link: `${SITE_URL}${FEED_PATH}`,
+  language: 'ja',
+  favicon: `${SITE_URL}/img/favicon.ico`,
+  copyright: COPYRIGHT,
+  image: `${SITE_URL}/img/icon.png`
+}
 
 export const createMetaData = (
   title?: string,

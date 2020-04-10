@@ -1,14 +1,19 @@
 import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
+import removeMd from 'remove-markdown'
 import {
   SITE_TITLE,
   SITE_DESC,
   SITE_URL,
   SITE_THEME_COLOR,
+  FEED_PATH,
+  FEED_CONFIG,
+  SITEMAP_PATH,
   FACEBOOK_APP_ID,
   createMetaData
 } from './src/utils/blog'
+import { getPostList } from './src/plugins/cms'
 import { createPostRoutes } from './scripts/blog'
 import pkg from './package.json'
 
@@ -74,7 +79,8 @@ const config: Configuration = {
     '@nuxtjs/axios',
     '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/feed'
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
@@ -99,7 +105,7 @@ const config: Configuration = {
     ]
   },
   sitemap: {
-    path: '/sitemap.xml',
+    path: SITEMAP_PATH,
     hostname: SITE_URL,
     gzip: true,
     async routes() {
@@ -107,6 +113,36 @@ const config: Configuration = {
       return ['/', ...postRoutes]
     }
   },
+  feed: [
+    {
+      path: FEED_PATH,
+      type: 'atom1',
+      cacheTime: 1000 * 60 * 15,
+      async create(feed: any) {
+        const posts = await getPostList()
+        feed.options = FEED_CONFIG
+        for (const post of posts) {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `${SITE_URL}/post/${post.url}/`,
+            description: post.description,
+            content: removeMd(post.content),
+            date: new Date(post.created_at),
+            image: `${SITE_URL}/img/ogp.png`
+          })
+        }
+        feed.addCategory('Blog')
+        feed.addCategory('Tech')
+        feed.addCategory('Web')
+        feed.addContributor({
+          name: 'kimulaco',
+          email: 'kimulaco@gmail.com',
+          link: 'https://kimulaco.me/'
+        })
+      }
+    }
+  ],
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',
