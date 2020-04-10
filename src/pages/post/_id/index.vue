@@ -94,7 +94,7 @@ export default Vue.extend({
       return `${SITE_URL}/post/${this.post.id}`
     }
   },
-  head(): any {
+  head() {
     let imageUrl: string = ''
     if (this.post.image && this.post.image.url) {
       imageUrl = this.post.image.url

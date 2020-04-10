@@ -13,6 +13,7 @@ import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
 import PostContent from '../../components/post/PostContent.vue'
 import { getAbout } from '../../plugins/cms'
+import { createMetaData } from '../../utils/blog'
 
 type LocalData = {
   about: any
@@ -30,6 +31,9 @@ export default Vue.extend({
     return {
       about
     }
+  },
+  head() {
+    return createMetaData('About', '', '/about/')
   }
 })
 </script>
