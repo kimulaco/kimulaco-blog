@@ -12,8 +12,7 @@ export const SITEMAP_PATH = '/sitemap.xml'
 export const FEED_CONFIG = {
   title: SITE_TITLE,
   description: SITE_DESC,
-  id: `${SITE_URL}${FEED_PATH}`,
-  link: `${SITE_URL}${FEED_PATH}`,
+  link: SITE_URL,
   language: 'ja',
   favicon: `${SITE_URL}/img/favicon.ico`,
   copyright: COPYRIGHT,

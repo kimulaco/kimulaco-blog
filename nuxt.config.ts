@@ -132,7 +132,7 @@ const config: Configuration = {
         for (const post of posts) {
           feed.addItem({
             title: post.title,
-            id: post.id,
+            id: `${SITE_URL}/post/${post.url}/`,
             link: `${SITE_URL}/post/${post.url}/`,
             description: post.description,
             content: removeMd(post.content),
