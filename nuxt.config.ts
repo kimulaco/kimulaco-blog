@@ -57,7 +57,15 @@ const config: Configuration = {
       },
       ...createMetaData().meta
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
+      {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        title: SITE_TITLE,
+        href: FEED_PATH
+      }
+    ]
   },
   loading: false,
   css: [
