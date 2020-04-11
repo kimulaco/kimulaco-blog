@@ -38,6 +38,7 @@ export default Vue.extend({
   top: 20px;
   right: 20px;
   max-width: calc(80vw - 28px);
+  word-wrap: break-word;
 }
 .Notification_inner {
   padding: 12px 16px;
