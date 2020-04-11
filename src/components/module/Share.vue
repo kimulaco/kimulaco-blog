@@ -1,7 +1,7 @@
 <template>
   <div class="Share">
     <ul class="Share_list">
-      <li class="Share_item">
+      <li v-if="social.includes('twitter')" class="Share_item">
         <a
           :href="sharePageUrl.twitter"
           class="Share_anchor -twitter"
@@ -14,7 +14,8 @@
           <span class="Share_text">Twitterでシェアする</span>
         </a>
       </li>
-      <li class="Share_item">
+
+      <li v-if="social.includes('facebook')" class="Share_item">
         <a
           :href="sharePageUrl.facebook"
           class="Share_anchor -facebook"
@@ -27,7 +28,22 @@
           <span class="Share_text">Facebookでシェアする</span>
         </a>
       </li>
-      <li class="Share_item">
+
+      <li v-if="social.includes('feedly')" class="Share_item">
+        <a
+          :href="sharePageUrl.feedly"
+          class="Share_anchor -feedly"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Feedlyでフォローする"
+          @click="$emit('click', 'Feedly')"
+        >
+          <img src="@/assets/img/icon-feedly.png" alt="" />
+          <span class="Share_text">Feedlyでフォローする</span>
+        </a>
+      </li>
+
+      <li v-if="social.includes('line')" class="Share_item">
         <a
           :href="sharePageUrl.line"
           class="Share_anchor -line"
@@ -40,7 +56,8 @@
           <span class="Share_text">LINEで送る</span>
         </a>
       </li>
-      <li class="Share_item">
+
+      <li v-if="social.includes('hatena')" class="Share_item">
         <a
           :href="sharePageUrl.hatena"
           class="Share_anchor -hatena"
@@ -53,7 +70,8 @@
           <span class="Share_text">はてなブックマークでブックマークする</span>
         </a>
       </li>
-      <li class="Share_item">
+
+      <li v-if="social.includes('pocket')" class="Share_item">
         <a
           :href="sharePageUrl.pocket"
           class="Share_anchor -pocket"
@@ -66,7 +84,8 @@
           <span class="Share_text">Pocketに保存する</span>
         </a>
       </li>
-      <li class="Share_item">
+
+      <li v-if="social.includes('clipbord')" class="Share_item">
         <button
           type="button"
           class="Share_anchor -clipbord"
@@ -84,6 +103,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import copyToClipbord from '../../utils/copy'
+import { SITE_URL, FEED_PATH } from '../../utils/blog'
 
 export default Vue.extend({
   name: 'Share',
@@ -99,6 +119,12 @@ export default Vue.extend({
     url: {
       type: String,
       required: true
+    },
+    social: {
+      type: Array,
+      default() {
+        return ['twitter', 'facebook', 'feedly', 'pocket', 'hatena', 'clipbord']
+      }
     }
   },
   computed: {
@@ -118,7 +144,7 @@ export default Vue.extend({
       return {
         twitter: `https://twitter.com/share?url=${this.url}&text=${this.encodedTitle} ${this.encodedDesc}`,
         facebook: `https://www.facebook.com/share.php?u=${this.url}`,
-        line: `https://social-plugins.line.me/lineit/share?url=${this.url}`,
+        feedly: `https://feedly.com/i/subscription/feed#${SITE_URL}${FEED_PATH}`,
         hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.encodedTitle}`,
         pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`
       }
@@ -185,6 +211,9 @@ export default Vue.extend({
     }
     &.-facebook {
       background: #4267b2;
+    }
+    &.-feedly {
+      background: #6cc655;
     }
     &.-line {
       background: #00b900;

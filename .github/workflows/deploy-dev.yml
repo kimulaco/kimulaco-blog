@@ -1,20 +1,14 @@
-name: Build
+name: Deploy RC
 on:
   push:
-    branches-ignore:
-    - 'master'
-    - 'rc'
-  pull_request:
-    branches-ignore:
-    - 'master'
+    branches:
     - 'rc'
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - run: yarn
@@ -23,3 +17,7 @@ jobs:
         CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
         CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - run: npx netlify-cli deploy --dir=./dist
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
