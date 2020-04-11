@@ -103,7 +103,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import copyToClipbord from '../../utils/copy'
-import { SITE_URL, FEED_PATH } from '../../utils/blog'
+import { FEED_URL } from '../../utils/blog'
 
 export default Vue.extend({
   name: 'Share',
@@ -144,7 +144,9 @@ export default Vue.extend({
       return {
         twitter: `https://twitter.com/share?url=${this.url}&text=${this.encodedTitle} ${this.encodedDesc}`,
         facebook: `https://www.facebook.com/share.php?u=${this.url}`,
-        feedly: `https://feedly.com/i/subscription/feed#${SITE_URL}${FEED_PATH}`,
+        feedly: `https://feedly.com/i/subscription/feed${encodeURI(
+          '/' + FEED_URL
+        )}`,
         hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.encodedTitle}`,
         pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`
       }
