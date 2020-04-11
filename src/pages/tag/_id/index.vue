@@ -22,6 +22,7 @@ import PageTitle from '../../../components/module/PageTitle.vue'
 import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
 import { getPostList, getTag } from '../../../plugins/cms'
+import { createMetaData } from '../../../utils/blog'
 
 export default Vue.extend({
   name: 'PageTag',
@@ -43,10 +44,18 @@ export default Vue.extend({
       return {
         posts: [],
         tag: {
-          name: params.id
+          name: params.id,
+          id: params.id
         }
       }
     }
+  },
+  head() {
+    return createMetaData(
+      `${this.tag.name}のタグを持つ記事`,
+      `${this.tag.name}のタグを持つ記事の一覧。`,
+      `/tag/${this.tag.id}/`
+    )
   }
 })
 </script>
