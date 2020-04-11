@@ -17,7 +17,13 @@ import { getPostList } from './src/plugins/cms'
 import { createPostRoutes } from './scripts/blog'
 import pkg from './package.json'
 
-const { NODE_ENV, CMS_BASE_URL, CMS_API_KEY, SENTRY_DSN } = process.env
+const {
+  NODE_ENV,
+  STAGE_ENV,
+  CMS_BASE_URL,
+  CMS_API_KEY,
+  SENTRY_DSN
+} = process.env
 
 const config: Configuration = {
   mode: 'universal',
@@ -160,6 +166,7 @@ const config: Configuration = {
   },
   sentry: {
     dsn: SENTRY_DSN || '',
+    disabled: STAGE_ENV !== 'production',
     disableServerSide: true,
     disableServerRelease: true,
     config: {
@@ -171,12 +178,15 @@ const config: Configuration = {
       ignoreFile: '.gitignore'
     }
   },
-  googleAnalytics: {
-    id: 'UA-137464103-1',
-    debug: {
-      enabled: false
-    }
-  },
+  googleAnalytics:
+    STAGE_ENV === 'production'
+      ? {
+          id: 'UA-137464103-1',
+          debug: {
+            enabled: false
+          }
+        }
+      : null,
   srcDir: 'src',
   generate: {
     async routes(): Promise<string[]> {
