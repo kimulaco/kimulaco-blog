@@ -86,7 +86,7 @@ dist
 sw.*
 
 # XML
-feed.xml
+feed
 
 # Mac OSX
 .DS_Store
