@@ -1,10 +1,14 @@
 <template>
   <div class="PageTag">
-    <PageTitle>{{ tag.name }}のタグを持つ記事</PageTitle>
+    <PageTitle>"{{ tag.name }}"のタグを持つ記事</PageTitle>
 
-    <div>
+    <div v-if="posts.length > 0">
       <PostLink v-for="post in posts" :key="post.id" :post="post" />
     </div>
+    <p v-else>
+      <b>"{{ tag.name }}"</b>
+      のタグを持つ記事はありません。
+    </p>
   </div>
 </template>
 
@@ -21,7 +25,7 @@ export default Vue.extend({
     PageTitle,
     PostLink
   },
-  async asyncData({ params, redirect }: Context): Promise<any> {
+  async asyncData({ params }: Context): Promise<any> {
     try {
       const filters = `tag[contains]${params.id}`
       const tag = await getTag(params.id)
@@ -31,12 +35,11 @@ export default Vue.extend({
         tag
       }
     } catch (error) {
-      redirect({
-        path: '/404'
-      })
       return {
-        post: null,
-        tag: null
+        posts: [],
+        tag: {
+          name: params.id
+        }
       }
     }
   }
