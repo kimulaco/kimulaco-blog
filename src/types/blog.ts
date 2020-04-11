@@ -24,3 +24,10 @@ export type Post = {
   }
   content: string
 }
+
+export type Tag = {
+  id: string
+  createdAt: string
+  updatedAt: string
+  name: string
+}

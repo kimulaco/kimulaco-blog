@@ -14,7 +14,7 @@ import {
   createMetaData
 } from './src/utils/blog'
 import { getPostList } from './src/plugins/cms'
-import { createPostRoutes } from './scripts/blog'
+import { createPostRoutes, createTagRoutes } from './scripts/blog'
 import pkg from './package.json'
 
 const {
@@ -123,8 +123,11 @@ const config: Configuration = {
     hostname: SITE_URL,
     gzip: true,
     async routes() {
-      const postRoutes = await createPostRoutes()
-      return ['/', ...postRoutes]
+      const [postRoutes, tagRoutes] = await Promise.all([
+        createPostRoutes(),
+        createTagRoutes()
+      ])
+      return ['/', ...postRoutes, ...tagRoutes]
     }
   },
   feed: [
@@ -190,8 +193,11 @@ const config: Configuration = {
   srcDir: 'src',
   generate: {
     async routes(): Promise<string[]> {
-      const postRoutes = await createPostRoutes()
-      return ['/', ...postRoutes]
+      const [postRoutes, tagRoutes] = await Promise.all([
+        createPostRoutes(),
+        createTagRoutes()
+      ])
+      return ['/', ...postRoutes, ...tagRoutes]
     }
   },
   router: {
