@@ -5,10 +5,13 @@
     <div v-if="posts.length > 0">
       <PostLink v-for="post in posts" :key="post.id" :post="post" />
     </div>
-    <p v-else>
-      <b>"{{ tag.name }}"</b>
-      のタグを持つ記事はありません。
-    </p>
+    <div v-else>
+      <p class="mb-32">
+        <b>"{{ tag.name }}"</b>
+        のタグを持つ記事はありません。
+      </p>
+      <LinkButton to="/">トップページへ</LinkButton>
+    </div>
   </div>
 </template>
 
@@ -16,6 +19,7 @@
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import PageTitle from '../../../components/module/PageTitle.vue'
+import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
 import { getPostList, getTag } from '../../../plugins/cms'
 
@@ -23,6 +27,7 @@ export default Vue.extend({
   name: 'PageTag',
   components: {
     PageTitle,
+    LinkButton,
     PostLink
   },
   async asyncData({ params }: Context): Promise<any> {
