@@ -11,6 +11,7 @@ export const SITEMAP_PATH = '/sitemap.xml'
 
 export const FEED_CONFIG = {
   title: SITE_TITLE,
+  id: `${SITE_URL}${FEED_PATH}`,
   description: SITE_DESC,
   link: SITE_URL,
   language: 'ja',
