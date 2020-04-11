@@ -3,7 +3,14 @@
     <SiteInner class="SiteFooter_inner">
       <ul class="SiteFooter_menu">
         <li class="SiteFooter_menu-item">
-          <nuxt-link class="SiteFooter_menu-link" to="/about/">About</nuxt-link>
+          <nuxt-link class="SiteFooter_menu-link" to="/about/">
+            About
+          </nuxt-link>
+        </li>
+        <li class="SiteFooter_menu-item">
+          <a class="SiteFooter_menu-link" href="/feed.xml">
+            Feed
+          </a>
         </li>
       </ul>
 
@@ -52,7 +59,7 @@ export default Vue.extend({
   display: flex;
   list-style: none;
 }
-.SiteFooter_item {
+.SiteFooter_menu-item {
   margin: 0 0 0 16px;
 }
 .SiteFooter_copyright {

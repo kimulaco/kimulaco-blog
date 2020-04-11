@@ -60,8 +60,11 @@ export default Vue.extend({
 }
 .PostLink_inner {
   display: block;
-  padding: 24px 20px;
+  padding: 20px 10px;
   color: $COLOR_BLACK;
+  @include media() {
+    padding: 24px 20px;
+  }
 }
 .PostLink_heading {
   font-size: 24px;
