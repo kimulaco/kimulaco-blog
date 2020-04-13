@@ -10,11 +10,12 @@
       "dom"
     ],
     "esModuleInterop": true,
-    "noImplicitThis": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noEmit": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
-    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@/": ["./src/"],
