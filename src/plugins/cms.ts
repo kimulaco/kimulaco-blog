@@ -2,15 +2,28 @@ import axios from 'axios'
 import { Post } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
+const { CMS_BASE_URL, CMS_API_KEY, NODE_ENV } = process.env
+
+type PostParams = {
+  page?: number
+  filters?: string
+}
+
+type PostsResponse = {
+  data: {
+    contents: Post[]
+  }
+}
+
 export const cms = axios.create({
-  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
+  baseURL: `${CMS_BASE_URL}/api/v1`,
   headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
+    'X-API-KEY': CMS_API_KEY
   }
 })
 
-export const getPostList = async (params: any = {}) => {
-  const posts: any = await cms.get('/post', {
+export const getPostList = async (params: PostParams = {}) => {
+  const posts: PostsResponse = await cms.get('/post', {
     params: {
       limit: POST_COUNT_BY_PAGE,
       offset: (params.page || 0) * POST_COUNT_BY_PAGE,
@@ -18,15 +31,15 @@ export const getPostList = async (params: any = {}) => {
     }
   })
   return posts.data.contents.filter((post: Post) => {
-    if (process.env.NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       return post.status.id === 'public'
     }
     return true
   })
 }
 
-export const getPost = async (postId: string, params: any = {}) => {
-  const post = await cms.get(`/post/${postId}`, { params })
+export const getPost = async (postId: string) => {
+  const post = await cms.get(`/post/${postId}`)
   return post.data
 }
 
