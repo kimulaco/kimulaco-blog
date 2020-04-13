@@ -64,7 +64,7 @@ const config: Configuration = {
       ...createMetaData().meta
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/img/icon.svg' },
       {
         rel: 'alternate',
         type: 'application/atom+xml',
