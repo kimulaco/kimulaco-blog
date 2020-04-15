@@ -96,7 +96,7 @@ export default Vue.extend({
     border-radius: 6px;
     box-shadow: 0 0 4px rgba($COLOR_BLACK, 0.2);
     @include media() {
-      margin: 20px;
+      margin: 20px 20px 40px;
     }
     ul {
       margin: 0;
