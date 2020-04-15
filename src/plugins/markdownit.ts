@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import removeMd from 'remove-markdown'
 import Prism from 'prismjs'
 import { Plugin } from '@nuxt/types'
 
@@ -59,6 +60,16 @@ const markdownIt: Plugin = (context, inject) => {
 
     return render(tokens, idx, options, env, self)
   }
+
+  md.use(require('markdown-it-anchor'), {
+    permalink: false
+  })
+  md.use(require('markdown-it-table-of-contents'), {
+    containerClass: 'PostTableContent',
+    format(link: string) {
+      return removeMd(link)
+    }
+  })
 
   inject('md', md)
 }

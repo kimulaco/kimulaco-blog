@@ -73,7 +73,7 @@ export default Vue.extend({
       return {
         post: {
           ...post,
-          content: app.$md.render(post.content)
+          content: app.$md.render(`[[toc]]\n\n${post.content}`)
         }
       }
     } catch (error) {
