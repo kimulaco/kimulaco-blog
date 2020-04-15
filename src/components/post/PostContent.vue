@@ -90,5 +90,20 @@ export default Vue.extend({
       color: $COLOR_BLOCKGRAY;
     }
   }
+  .PostContent_index {
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba($COLOR_BLACK, 0.2);
+    @include media() {
+      margin: 20px;
+    }
+    ul {
+      margin: 0;
+    }
+  }
+  .PostContent_index-title {
+    margin: 0 0 10px;
+    font-size: 20px;
+  }
 }
 </style>

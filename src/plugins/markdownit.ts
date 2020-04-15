@@ -65,7 +65,8 @@ const markdownIt: Plugin = (context, inject) => {
     permalink: false
   })
   md.use(require('markdown-it-table-of-contents'), {
-    containerClass: 'PostTableContent',
+    containerClass: 'PostContent_index',
+    containerHeaderHtml: '<h2 class="PostContent_index-title">目次</h2>',
     format(link: string) {
       return removeMd(link)
     }
