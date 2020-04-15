@@ -92,6 +92,7 @@ export default Vue.extend({
   }
   .PostContent_index {
     padding: 16px;
+    margin: 0 0 40px;
     border-radius: 6px;
     box-shadow: 0 0 4px rgba($COLOR_BLACK, 0.2);
     @include media() {
