@@ -27,7 +27,7 @@
       />
     </div>
     <!-- eslint-disable vue/no-v-html -->
-    <PostContent class="PostDetail_content" v-html="$md.render(post.content)" />
+    <PostContent class="PostDetail_content" v-html="post.content" />
     <!-- eslint-enable vue/no-v-html -->
     <div class="PostDetail_foot">
       <Share
@@ -67,10 +67,15 @@ export default Vue.extend({
     PostContent
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { params, redirect } = context
+    const { app, params, redirect } = context
     try {
       const post: Post = await getPost(params.id)
-      return { post }
+      return {
+        post: {
+          ...post,
+          content: app.$md.render(post.content)
+        }
+      }
     } catch (error) {
       redirect({
         path: '/404'

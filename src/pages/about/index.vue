@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
 import PostContent from '../../components/post/PostContent.vue'
@@ -26,10 +27,10 @@ export default Vue.extend({
     PageTitle,
     PostContent
   },
-  async asyncData(): Promise<LocalData> {
+  async asyncData({ app }: Context): Promise<LocalData> {
     const about = await getAbout()
     return {
-      about
+      about: app.$md.render(about)
     }
   },
   head() {
