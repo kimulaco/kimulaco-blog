@@ -9,7 +9,7 @@ export const cms = axios.create({
   }
 })
 
-export const getPostList = async (params: any = {}) => {
+export const getPostList = async (params: PostRequestParam = {}) => {
   const posts: any = await cms.get('/post', {
     params: {
       limit: POST_COUNT_BY_PAGE,

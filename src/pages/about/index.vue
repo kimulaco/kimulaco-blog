@@ -17,7 +17,7 @@ import { getAbout } from '../../plugins/cms'
 import { createMetaData } from '../../utils/blog'
 
 type LocalData = {
-  about: any
+  about: string
 }
 
 export default Vue.extend({
