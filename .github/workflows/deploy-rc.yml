@@ -17,7 +17,10 @@ jobs:
         STAGE_ENV: rc
         CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
         CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+        SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+        SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
     - run: npx netlify-cli deploy --dir=./dist
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
