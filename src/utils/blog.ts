@@ -1,3 +1,5 @@
+// import { MetaInfo } from 'vue-meta'
+
 export const PUBLISHER_NAME = 'kimulaco'
 export const SITE_TITLE = 'kimulaco blog'
 export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
@@ -21,24 +23,15 @@ export const FEED_CONFIG = {
   image: `${SITE_URL}/img/icon.png`
 }
 
-type MetaElement = {
-  hid: string
-  content: string
-  name?: string
-  property?: string
-}
-
-type MetaData = {
-  title: string
-  meta: MetaElement[]
-}
-
 export const createMetaData = (
   title?: string,
   description?: string,
   path?: string,
   imageUrl?: string
-): any => {
+): {
+  title: string
+  meta: object
+} => {
   const metaTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE
   const metaDesc = description || SITE_DESC
   const metaImage = imageUrl || `${SITE_URL}/img/ogp.png`
