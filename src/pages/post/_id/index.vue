@@ -44,7 +44,7 @@
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
-import { Post } from '../../../types/blog'
+import { Post, Tag } from '../../../types/blog'
 import LinkBack from '../../../components/module/LinkBack.vue'
 import Tags from '../../../components/module/Tags.vue'
 import Timestamp from '../../../components/module/Timestamp.vue'
@@ -88,7 +88,7 @@ export default Vue.extend({
       if (!this.post || !this.post.tag) {
         return []
       }
-      return this.post.tag.map((tag: any) => {
+      return this.post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
           name: tag.name

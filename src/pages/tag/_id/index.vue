@@ -23,6 +23,12 @@ import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
 import { getPostList, getTag } from '../../../plugins/cms'
 import { createMetaData } from '../../../utils/blog'
+import { Post, Tag } from '../../../types/blog'
+
+type LocalData = {
+  posts: Post[]
+  tag: Tag
+}
 
 export default Vue.extend({
   name: 'PageTag',
@@ -31,11 +37,11 @@ export default Vue.extend({
     LinkButton,
     PostLink
   },
-  async asyncData({ params }: Context): Promise<any> {
+  async asyncData({ params }: Context): Promise<LocalData> {
     try {
       const filters = `tag[contains]${params.id}`
-      const tag = await getTag(params.id)
-      const posts = await getPostList({ filters })
+      const tag: Tag = await getTag(params.id)
+      const posts: Post[] = await getPostList({ filters })
       return {
         posts,
         tag

@@ -25,14 +25,14 @@ export type Post = {
   content: string
 }
 
-export type PostRequestParam = {
-  page: number | undefined
-  filters: string | undefined
+export type PostListRequestParam = {
+  page?: number | undefined
+  filters?: string | undefined
 }
 
 export type Tag = {
   id: string
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
   name: string
 }
