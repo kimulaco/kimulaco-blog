@@ -1,5 +1,7 @@
-export default ({ app }: any) => {
-  app.$ga.eventSync = (...args: any[]) => {
+import { Context } from '@nuxt/types'
+
+export default ({ app }: Context) => {
+  app.$ga.eventSync = (...args: string[]) => {
     return new Promise((resolve) => {
       let isResolved = false
 

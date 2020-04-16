@@ -5,7 +5,7 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser'
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
@@ -18,20 +18,10 @@ module.exports = {
     'prettier'
   ],
   rules: {
-    'camelcase': 0
-  },
-  overrides: [
-    {
-      files: ['*.ts'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser'
-      },
-      rules: {
-        '@typescript-eslint/no-unused-vars': ['error', {
-          'vars': 'all',
-          'args': 'after-used'
-        }]
-      },
-    }
-  ]
+    'camelcase': 0,
+    '@typescript-eslint/no-unused-vars': ['error', {
+      'vars': 'all',
+      'args': 'after-used'
+    }]
+  }
 }

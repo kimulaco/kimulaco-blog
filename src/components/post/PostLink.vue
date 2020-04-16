@@ -37,10 +37,11 @@ export default Vue.extend({
   },
   computed: {
     postTag() {
-      if (!this.post || !this.post.tag) {
+      const { post } = this as any
+      if (!post || !post.tag) {
         return []
       }
-      return this.post.tag.map((tag: Tag) => {
+      return post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
           name: tag.name

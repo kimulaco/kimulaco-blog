@@ -1,3 +1,10 @@
+export type Tag = {
+  id: string
+  name: string
+  createdAt?: string
+  updatedAt?: string
+}
+
 export type Post = {
   id: string
   status: {
@@ -22,17 +29,11 @@ export type Post = {
     name: string
     description: string
   }
+  tag: Tag[]
   content: string
 }
 
 export type PostListRequestParam = {
   page?: number | undefined
   filters?: string | undefined
-}
-
-export type Tag = {
-  id: string
-  createdAt?: string
-  updatedAt?: string
-  name: string
 }

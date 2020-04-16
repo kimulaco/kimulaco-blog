@@ -57,10 +57,11 @@ export default Vue.extend({
     }
   },
   head() {
+    const { tag } = this as any
     return createMetaData(
-      `${this.tag.name}のタグを持つ記事`,
-      `${this.tag.name}のタグを持つ記事の一覧。`,
-      `/tag/${this.tag.id}/`
+      `${tag.name}のタグを持つ記事`,
+      `${tag.name}のタグを持つ記事の一覧。`,
+      `/tag/${tag.id}/`
     )
   }
 })

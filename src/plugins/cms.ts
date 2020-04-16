@@ -2,10 +2,12 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import { Post, Tag, PostListRequestParam } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
+const { CMS_BASE_URL, CMS_API_KEY, NODE_ENV } = process.env
+
 export const cms: AxiosInstance = axios.create({
-  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
+  baseURL: `${CMS_BASE_URL}/api/v1`,
   headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
+    'X-API-KEY': CMS_API_KEY
   }
 })
 
@@ -20,7 +22,7 @@ export const getPostList = async (
     }
   })
   return posts.data.contents.filter((post: Post) => {
-    if (process.env.NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       return post.status.id === 'public'
     }
     return true
