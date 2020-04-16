@@ -1,4 +1,6 @@
 import MarkdownIt from 'markdown-it'
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItTableOfContents from 'markdown-it-table-of-contents'
 import removeMd from 'remove-markdown'
 import Prism from 'prismjs'
 import { Plugin } from '@nuxt/types'
@@ -74,14 +76,15 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
     return render(tokens, idx, options, env, self)
   }
 
-  md.use(require('markdown-it-anchor'), {
-    permalink: false
-  })
-  md.use(require('markdown-it-table-of-contents'), {
+  md.use(markdownItAnchor)
+  md.use(markdownItTableOfContents, {
     containerClass: 'PostContent_index',
     containerHeaderHtml: '<h2 class="PostContent_index-title">目次</h2>',
     format(link: string) {
-      return removeMd(link)
+      return removeMd(decodeURI(link))
+    },
+    transformLink(link: string) {
+      return removeMd(decodeURI(link))
     }
   })
 

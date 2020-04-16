@@ -23,6 +23,9 @@
       "@/": ["./src/"],
       "@@/": ["./"]
     },
+    "typeRoots": [
+      "./@types"
+    ],
     "types": [
       "./src/types/blog",
       "./src/types/shims-vue",
