@@ -12,9 +12,11 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
+    "noImplicitReturns": true,
     "noEmit": true,
-    "allowJs": true,
+    "allowJs": false,
     "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "baseUrl": ".",
     "paths": {
