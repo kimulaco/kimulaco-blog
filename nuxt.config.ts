@@ -169,7 +169,7 @@ const config: Configuration = {
   },
   sentry: {
     dsn: SENTRY_DSN || '',
-    disabled: STAGE_ENV !== 'production',
+    disabled: !STAGE_ENV,
     disableServerSide: true,
     disableServerRelease: true,
     config: {
