@@ -1,4 +1,4 @@
-let copyField: any = null
+let copyField: HTMLPreElement | null = null
 
 export default (text: string) => {
   if (!copyField) {

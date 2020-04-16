@@ -10,16 +10,22 @@
       "dom"
     ],
     "esModuleInterop": true,
-    "noImplicitThis": false,
-    "allowJs": true,
-    "sourceMap": true,
-    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
     "noEmit": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "@/": ["./src/"],
       "@@/": ["./"]
     },
+    "typeRoots": [
+      "./@types"
+    ],
     "types": [
       "./src/types/blog",
       "./src/types/shims-vue",

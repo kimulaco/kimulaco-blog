@@ -21,6 +21,18 @@ export const FEED_CONFIG = {
   image: `${SITE_URL}/img/icon.png`
 }
 
+type MetaElement = {
+  hid: string
+  content: string
+  name?: string
+  property?: string
+}
+
+type MetaData = {
+  title: string
+  meta: MetaElement[]
+}
+
 export const createMetaData = (
   title?: string,
   description?: string,
