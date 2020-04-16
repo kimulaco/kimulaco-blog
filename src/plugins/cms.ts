@@ -1,16 +1,20 @@
-import axios from 'axios'
-import { Post } from '../types/blog'
+import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import { Post, Tag, PostListRequestParam } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
-export const cms = axios.create({
-  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
+const { CMS_BASE_URL, CMS_API_KEY, NODE_ENV } = process.env
+
+export const cms: AxiosInstance = axios.create({
+  baseURL: `${CMS_BASE_URL}/api/v1`,
   headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
+    'X-API-KEY': CMS_API_KEY
   }
 })
 
-export const getPostList = async (params: any = {}) => {
-  const posts: any = await cms.get('/post', {
+export const getPostList = async (
+  params: PostListRequestParam = {}
+): Promise<Post[]> => {
+  const posts: AxiosResponse = await cms.get('/post', {
     params: {
       limit: POST_COUNT_BY_PAGE,
       offset: (params.page || 0) * POST_COUNT_BY_PAGE,
@@ -18,29 +22,29 @@ export const getPostList = async (params: any = {}) => {
     }
   })
   return posts.data.contents.filter((post: Post) => {
-    if (process.env.NODE_ENV === 'production') {
+    if (NODE_ENV === 'production') {
       return post.status.id === 'public'
     }
     return true
   })
 }
 
-export const getPost = async (postId: string, params: any = {}) => {
-  const post = await cms.get(`/post/${postId}`, { params })
+export const getPost = async (postId: string): Promise<Post> => {
+  const post: AxiosResponse = await cms.get(`/post/${postId}`)
   return post.data
 }
 
-export const getTags = async () => {
-  const tag = await cms.get(`/tag`)
+export const getTags = async (): Promise<Tag[]> => {
+  const tag: AxiosResponse = await cms.get(`/tag`)
   return tag.data.contents
 }
 
-export const getTag = async (tagId: string) => {
-  const tag = await cms.get(`/tag/${tagId}`)
+export const getTag = async (tagId: string): Promise<Tag> => {
+  const tag: AxiosResponse = await cms.get(`/tag/${tagId}`)
   return tag.data
 }
 
-export const getAbout = async () => {
-  const post = await cms.get('/about')
+export const getAbout = async (): Promise<string> => {
+  const post: AxiosResponse = await cms.get('/about')
   return post.data.content
 }

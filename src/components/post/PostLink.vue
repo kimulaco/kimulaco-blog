@@ -21,6 +21,7 @@
 import Vue from 'vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
+import { Tag } from '../../types/blog'
 
 export default Vue.extend({
   name: 'PostLink',
@@ -36,10 +37,11 @@ export default Vue.extend({
   },
   computed: {
     postTag() {
-      if (!this.post || !this.post.tag) {
+      const { post } = this as any
+      if (!post || !post.tag) {
         return []
       }
-      return this.post.tag.map((tag: any) => {
+      return post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
           name: tag.name

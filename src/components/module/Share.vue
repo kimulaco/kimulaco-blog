@@ -105,6 +105,14 @@ import Vue from 'vue'
 import copyToClipbord from '../../utils/copy'
 import { FEED_URL } from '../../utils/blog'
 
+type ShareURLs = {
+  twitter: string
+  facebook: string
+  feedly: string
+  hatena: string
+  pocket: string
+}
+
 export default Vue.extend({
   name: 'Share',
   props: {
@@ -128,19 +136,21 @@ export default Vue.extend({
     }
   },
   computed: {
-    encodedTitle() {
+    encodedTitle(): string {
+      const { title } = this as any
       if (process.client) {
-        return window.encodeURI(this.title)
+        return window.encodeURI(title)
       }
-      return this.title
+      return title
     },
-    encodedDesc() {
+    encodedDesc(): string {
+      const { description } = this as any
       if (process.client) {
-        return window.encodeURI(this.description)
+        return window.encodeURI(description)
       }
-      return this.description
+      return description
     },
-    sharePageUrl() {
+    sharePageUrl(): ShareURLs {
       return {
         twitter: `https://twitter.com/share?url=${this.url}&text=${this.encodedTitle} ${this.encodedDesc}`,
         facebook: `https://www.facebook.com/share.php?u=${this.url}`,

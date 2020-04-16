@@ -44,7 +44,7 @@
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
-import { Post } from '../../../types/blog'
+import { Post, Tag } from '../../../types/blog'
 import LinkBack from '../../../components/module/LinkBack.vue'
 import Tags from '../../../components/module/Tags.vue'
 import Timestamp from '../../../components/module/Timestamp.vue'
@@ -85,10 +85,11 @@ export default Vue.extend({
   },
   computed: {
     postTag() {
-      if (!this.post || !this.post.tag) {
+      const { post } = this as any
+      if (!post || !post.tag) {
         return []
       }
-      return this.post.tag.map((tag: any) => {
+      return post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
           name: tag.name
@@ -96,18 +97,20 @@ export default Vue.extend({
       })
     },
     shareUrl(): string {
-      return `${SITE_URL}/post/${this.post.id}`
+      const { post } = this as any
+      return `${SITE_URL}/post/${post.id}`
     }
   },
   head() {
+    const { post } = this as any
     let imageUrl: string = ''
-    if (this.post.image && this.post.image.url) {
-      imageUrl = this.post.image.url
+    if (post.image && post.image.url) {
+      imageUrl = post.image.url
     }
     return createMetaData(
-      this.post.title,
-      this.post.description,
-      `/post/${this.post.id}/`,
+      post.title,
+      post.description,
+      `/post/${post.id}/`,
       imageUrl
     )
   }
