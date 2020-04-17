@@ -218,6 +218,9 @@ const config: Configuration = {
         }
       }
     }
+  },
+  server: {
+    port: 3000
   }
 }
 
