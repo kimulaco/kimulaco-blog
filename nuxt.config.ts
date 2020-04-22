@@ -1,7 +1,6 @@
 import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import removeMd from 'remove-markdown'
 import {
   SITE_TITLE,
   SITE_URL,
@@ -14,7 +13,7 @@ import {
   createMetaData
 } from './src/utils/blog'
 import { getPostList } from './src/plugins/cms'
-import { createPostRoutes, createTagRoutes } from './scripts/blog'
+import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
 import pkg from './package.json'
 
 const {
@@ -106,29 +105,7 @@ const config: Configuration = {
       path: FEED_PATH,
       type: 'atom1',
       cacheTime: 1000 * 60 * 15,
-      async create(feed: any) {
-        const posts = await getPostList()
-        feed.options = FEED_CONFIG
-        for (const post of posts) {
-          feed.addItem({
-            title: post.title,
-            id: `${SITE_URL}/post/${post.id}/`,
-            link: `${SITE_URL}/post/${post.id}/`,
-            description: post.description,
-            content: removeMd(post.content),
-            date: new Date(post.created_at),
-            image: `${SITE_URL}/img/ogp.png`
-          })
-        }
-        feed.addCategory('Blog')
-        feed.addCategory('Tech')
-        feed.addCategory('Web')
-        feed.addContributor({
-          name: 'kimulaco',
-          email: 'kimulaco@gmail.com',
-          link: 'https://kimulaco.me/'
-        })
-      }
+      create: createFeed
     }
   ],
   styleResources: {
@@ -156,9 +133,7 @@ const config: Configuration = {
     STAGE_ENV === 'production'
       ? {
           id: 'UA-137464103-1',
-          debug: {
-            enabled: false
-          }
+          debug: { enabled: false }
         }
       : null,
   srcDir: 'src',

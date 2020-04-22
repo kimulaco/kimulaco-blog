@@ -11,6 +11,7 @@ type MetaData = {
 }
 
 export const PUBLISHER_NAME = 'kimulaco'
+export const PUBLISHER_EMAIL = 'kimulaco@gmail.com'
 export const TWITTER_ID = '@kimulaco'
 export const SITE_TITLE = 'kimulaco blog'
 export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
