@@ -23,3 +23,8 @@ jobs:
         CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
         CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - name: E2E Test
+      uses: cypress-io/github-action@v1
+      with:
+        start: yarn start
+        wait-on: 'http://localhost:3000'
