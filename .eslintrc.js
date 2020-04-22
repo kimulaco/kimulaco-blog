@@ -20,10 +20,11 @@ module.exports = {
     'prettier'
   ],
   rules: {
+    'no-console': [0 , { allow: ['error'] }]
     'camelcase': 0,
     '@typescript-eslint/no-unused-vars': ['error', {
-      'vars': 'all',
-      'args': 'after-used'
+      vars: 'all',
+      args: 'after-used'
     }]
   }
 }

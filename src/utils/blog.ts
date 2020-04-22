@@ -1,4 +1,18 @@
+type MetaElement = {
+  hid: string
+  content: string
+  name?: string
+  property?: string
+}
+
+type MetaData = {
+  title: string
+  meta: MetaElement[]
+}
+
 export const PUBLISHER_NAME = 'kimulaco'
+export const PUBLISHER_EMAIL = 'kimulaco@gmail.com'
+export const TWITTER_ID = '@kimulaco'
 export const SITE_TITLE = 'kimulaco blog'
 export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
 export const SITE_URL = 'https://blog.kimulaco.me'
@@ -10,6 +24,23 @@ export const FEED_PATH = '/feed/post.xml'
 export const FEED_URL = SITE_URL + FEED_PATH
 export const SITEMAP_PATH = '/sitemap.xml'
 
+export const SITE_ICONS = [
+  {
+    src: '/img/icon.png',
+    sizes: '512x512',
+    type: 'image/png'
+  }
+]
+
+export const SITE_DEFAULT_OGP = [
+  { hid: 'description', name: 'description', content: SITE_DESC },
+  { hid: 'og:type', property: 'og:type', content: 'article' },
+  { hid: 'og:image', property: 'og:image', content: `${SITE_URL}/img/ogp.png` },
+  { hid: 'fb:app_id', property: 'fb:app_id', content: FACEBOOK_APP_ID },
+  { hid: 'twitter:creator', name: 'twitter:creator', content: TWITTER_ID },
+  { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' }
+]
+
 export const FEED_CONFIG = {
   title: SITE_TITLE,
   id: `${SITE_URL}${FEED_PATH}`,
@@ -19,18 +50,6 @@ export const FEED_CONFIG = {
   favicon: `${SITE_URL}/img/favicon.ico`,
   copyright: COPYRIGHT,
   image: `${SITE_URL}/img/icon.png`
-}
-
-type MetaElement = {
-  hid: string
-  content: string
-  name?: string
-  property?: string
-}
-
-type MetaData = {
-  title: string
-  meta: MetaElement[]
 }
 
 export const createMetaData = (

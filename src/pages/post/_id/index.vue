@@ -77,6 +77,7 @@ export default Vue.extend({
         }
       }
     } catch (error) {
+      console.error(error)
       redirect({
         path: '/404'
       })

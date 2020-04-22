@@ -1,20 +1,19 @@
 import { Configuration } from '@nuxt/types'
 import Sass from 'sass'
 import Fiber from 'fibers'
-import removeMd from 'remove-markdown'
 import {
   SITE_TITLE,
-  SITE_DESC,
   SITE_URL,
+  SITE_ICONS,
   SITE_THEME_COLOR,
+  SITE_DEFAULT_OGP,
   FEED_PATH,
   FEED_CONFIG,
   SITEMAP_PATH,
-  FACEBOOK_APP_ID,
   createMetaData
 } from './src/utils/blog'
 import { getPostList } from './src/plugins/cms'
-import { createPostRoutes, createTagRoutes } from './scripts/blog'
+import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
 import pkg from './package.json'
 
 const {
@@ -32,35 +31,12 @@ const config: Configuration = {
     CMS_API_KEY: CMS_API_KEY || ''
   },
   head: {
-    htmlAttrs: {
-      lang: 'ja'
-    },
+    htmlAttrs: { lang: 'ja' },
     title: SITE_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
-      { hid: 'description', name: 'description', content: SITE_DESC },
-      { hid: 'og:type', property: 'og:type', content: 'article' },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: `${SITE_URL}/img/ogp.png`
-      },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: FACEBOOK_APP_ID
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@kimulaco'
-      },
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image'
-      },
+      ...SITE_DEFAULT_OGP,
       ...createMetaData().meta
     ],
     link: [
@@ -110,13 +86,7 @@ const config: Configuration = {
     theme_color: SITE_THEME_COLOR,
     background_color: SITE_THEME_COLOR,
     display: 'standalone',
-    icons: [
-      {
-        src: '/img/icon.png',
-        sizes: '512x512',
-        type: 'image/png'
-      }
-    ]
+    icons: SITE_ICONS
   },
   sitemap: {
     path: SITEMAP_PATH,
@@ -135,29 +105,7 @@ const config: Configuration = {
       path: FEED_PATH,
       type: 'atom1',
       cacheTime: 1000 * 60 * 15,
-      async create(feed: any) {
-        const posts = await getPostList()
-        feed.options = FEED_CONFIG
-        for (const post of posts) {
-          feed.addItem({
-            title: post.title,
-            id: `${SITE_URL}/post/${post.id}/`,
-            link: `${SITE_URL}/post/${post.id}/`,
-            description: post.description,
-            content: removeMd(post.content),
-            date: new Date(post.created_at),
-            image: `${SITE_URL}/img/ogp.png`
-          })
-        }
-        feed.addCategory('Blog')
-        feed.addCategory('Tech')
-        feed.addCategory('Web')
-        feed.addContributor({
-          name: 'kimulaco',
-          email: 'kimulaco@gmail.com',
-          link: 'https://kimulaco.me/'
-        })
-      }
+      create: createFeed
     }
   ],
   styleResources: {
@@ -180,9 +128,7 @@ const config: Configuration = {
     STAGE_ENV === 'production'
       ? {
           id: 'UA-137464103-1',
-          debug: {
-            enabled: false
-          }
+          debug: { enabled: false }
         }
       : null,
   srcDir: 'src',
