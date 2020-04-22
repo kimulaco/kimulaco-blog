@@ -93,3 +93,7 @@ feed
 
 # Vim swap files
 *.swp
+
+# test
+test/e2e/videos
+test/e2e/screenshots

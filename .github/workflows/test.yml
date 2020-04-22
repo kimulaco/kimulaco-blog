@@ -1,25 +1,25 @@
-name: Deploy Production
+name: Test
 on:
   push:
-    branches:
+    branches-ignore:
     - 'master'
+    - 'rc'
+  pull_request:
+    branches-ignore:
+    - 'master'
+    - 'rc'
 env:
-  STAGE_ENV: production
   CACHE_VERSION: v1
   CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
   CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - name: Cache node_modules
@@ -42,4 +42,3 @@ jobs:
       with:
         name: E2E Test Videos
         path: test/e2e/videos
-    - run: npx netlify-cli deploy --prod --dir=./dist
