@@ -169,16 +169,11 @@ const config: Configuration = {
   },
   sentry: {
     dsn: SENTRY_DSN || '',
+    publishRelease: STAGE_ENV === 'production',
     disabled: !STAGE_ENV,
-    disableServerSide: true,
-    disableServerRelease: true,
     config: {
-      environment: NODE_ENV || 'development'
-    },
-    webpackConfig: {
-      include: ['.'],
       release: `${pkg.name}@${pkg.version}`,
-      ignoreFile: '.gitignore'
+      environment: NODE_ENV || 'development'
     }
   },
   googleAnalytics:
