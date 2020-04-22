@@ -1,4 +1,4 @@
-name: Build
+name: Test
 on:
   push:
     branches-ignore:
@@ -23,3 +23,18 @@ jobs:
         CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
         CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - name: E2E Test
+      uses: cypress-io/github-action@v1.16.1
+      with:
+        start: yarn start
+        wait-on: 'http://localhost:3000'
+      env:
+        CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
+        CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+        SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - name: Upload E2E test videos
+      uses: actions/upload-artifact@v1
+      if: always()
+      with:
+        name: E2E Test Videos
+        path: test/e2e/videos
