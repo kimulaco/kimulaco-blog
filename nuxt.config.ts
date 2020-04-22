@@ -4,13 +4,13 @@ import Fiber from 'fibers'
 import removeMd from 'remove-markdown'
 import {
   SITE_TITLE,
-  SITE_DESC,
   SITE_URL,
+  SITE_ICONS,
   SITE_THEME_COLOR,
+  SITE_DEFAULT_OGP,
   FEED_PATH,
   FEED_CONFIG,
   SITEMAP_PATH,
-  FACEBOOK_APP_ID,
   createMetaData
 } from './src/utils/blog'
 import { getPostList } from './src/plugins/cms'
@@ -32,35 +32,12 @@ const config: Configuration = {
     CMS_API_KEY: CMS_API_KEY || ''
   },
   head: {
-    htmlAttrs: {
-      lang: 'ja'
-    },
+    htmlAttrs: { lang: 'ja' },
     title: SITE_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
-      { hid: 'description', name: 'description', content: SITE_DESC },
-      { hid: 'og:type', property: 'og:type', content: 'article' },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: `${SITE_URL}/img/ogp.png`
-      },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: FACEBOOK_APP_ID
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@kimulaco'
-      },
-      {
-        hid: 'twitter:card',
-        name: 'twitter:card',
-        content: 'summary_large_image'
-      },
+      ...SITE_DEFAULT_OGP,
       ...createMetaData().meta
     ],
     link: [
@@ -110,13 +87,7 @@ const config: Configuration = {
     theme_color: SITE_THEME_COLOR,
     background_color: SITE_THEME_COLOR,
     display: 'standalone',
-    icons: [
-      {
-        src: '/img/icon.png',
-        sizes: '512x512',
-        type: 'image/png'
-      }
-    ]
+    icons: SITE_ICONS
   },
   sitemap: {
     path: SITEMAP_PATH,
