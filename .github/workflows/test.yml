@@ -1,4 +1,4 @@
-name: Build
+name: Test
 on:
   push:
     branches-ignore:
@@ -32,3 +32,8 @@ jobs:
         CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
         CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+    - uses: actions/upload-artifact@v1
+      if: always()
+      with:
+        name: Cypress Videos
+        path: test/e2e/videos
