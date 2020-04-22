@@ -12,8 +12,9 @@
     "lint:script": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint src/**/*.vue",
     "test:unit": "jest",
-    "test:e2e": "start-server-and-test start http://localhost:3000 cypress:run",
-    "cypress:run": "cypress run"
+    "test:e2e": "start-server-and-test start http://localhost:3000 cy:run",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:script",
