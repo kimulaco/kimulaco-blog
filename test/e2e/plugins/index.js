@@ -1,21 +1,24 @@
-/// <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
+const axios = require('axios')
+const xml2js = require('xml2js')
+const SITE_URL = 'https://blog.kimulaco.me'
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-
-/**
- * @type {Cypress.PluginConfig}
- */
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+  on('task', {
+    async getPageList() {
+      const response = await axios.get(`${config.baseUrl}/sitemap.xml`)
+      const parsed = await xml2js.parseStringPromise(response.data)
+      const urls = []
+
+      parsed.urlset.url.forEach((url) => {
+        const path = url.loc[0].replace(SITE_URL, '')
+        if (path !== '/404') {
+          urls.push(path)
+        }
+      })
+
+      return urls
+    }
+  })
+
+  return config
 }
