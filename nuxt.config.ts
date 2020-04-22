@@ -169,10 +169,10 @@ const config: Configuration = {
   },
   sentry: {
     dsn: SENTRY_DSN || '',
-    publishRelease: STAGE_ENV === 'production',
+    publishRelease: STAGE_ENV,
     disabled: !STAGE_ENV,
     config: {
-      release: `${pkg.name}@${pkg.version}`,
+      release: `${pkg.name}@${pkg.version}-${STAGE_ENV}`,
       environment: NODE_ENV || 'development'
     }
   },
