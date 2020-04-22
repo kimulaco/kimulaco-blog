@@ -1,5 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
-import { Post, Tag, PostListRequestParam } from '../types/blog'
+import {
+  Post,
+  Tag,
+  PostListRequestParam,
+  TagListRequestParam
+} from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
 export const cms: AxiosInstance = axios.create({
@@ -32,8 +37,12 @@ export const getPost = async (postId: string): Promise<Post> => {
   return post.data
 }
 
-export const getTags = async (): Promise<Tag[]> => {
-  const tag: AxiosResponse = await cms.get(`/tag`)
+export const getTags = async (
+  params: TagListRequestParam = {}
+): Promise<Tag[]> => {
+  const tag: AxiosResponse = await cms.get(`/tag`, {
+    params
+  })
   return tag.data.contents
 }
 

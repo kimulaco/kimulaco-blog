@@ -10,7 +10,9 @@ export const createPostRoutes = async (): Promise<string[]> => {
 }
 
 export const createTagRoutes = async (): Promise<string[]> => {
-  const tags: Tag[] = await getTags()
+  const tags: Tag[] = await getTags({
+    limit: 30
+  })
   const routes = tags.map((tag: Tag) => {
     return `/tag/${tag.id}/`
   })

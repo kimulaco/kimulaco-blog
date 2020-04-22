@@ -37,3 +37,7 @@ export type PostListRequestParam = {
   page?: number | undefined
   filters?: string | undefined
 }
+
+export type TagListRequestParam = {
+  limit?: number | undefined
+}
