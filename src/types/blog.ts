@@ -33,6 +33,10 @@ export type Post = {
   content: string
 }
 
+export type PostRequestParam = {
+  draftKey?: string
+}
+
 export type PostListRequestParam = {
   page?: number | undefined
   filters?: string | undefined

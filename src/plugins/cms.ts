@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import {
   Post,
   Tag,
+  PostRequestParam,
   PostListRequestParam,
   TagListRequestParam
 } from '../types/blog'
@@ -32,17 +33,18 @@ export const getPostList = async (
   })
 }
 
-export const getPost = async (postId: string): Promise<Post> => {
-  const post: AxiosResponse = await cms.get(`/post/${postId}`)
+export const getPost = async (
+  postId: string,
+  params: PostRequestParam = {}
+): Promise<Post> => {
+  const post: AxiosResponse = await cms.get(`/post/${postId}`, { params })
   return post.data
 }
 
 export const getTags = async (
   params: TagListRequestParam = {}
 ): Promise<Tag[]> => {
-  const tag: AxiosResponse = await cms.get(`/tag`, {
-    params
-  })
+  const tag: AxiosResponse = await cms.get(`/tag`, { params })
   return tag.data.contents
 }
 
