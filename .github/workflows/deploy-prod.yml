@@ -3,9 +3,8 @@ on:
   push:
     branches:
     - 'master'
-  update_post:
-    branches:
-    - 'master'
+  repository_dispatch:
+    types: [update_post]
 env:
   STAGE_ENV: production
   CACHE_VERSION: v1
