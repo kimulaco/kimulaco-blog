@@ -32,6 +32,41 @@ export const getPostList = async (
   })
 }
 
+export const getPostAll = async (
+  params: PostListRequestParam = {}
+): Promise<Post[]> => {
+  let posts: Post[] = []
+  let offset = 0
+  let postCount = 0
+  let resolve = false
+
+  while (!resolve) {
+    const postList: AxiosResponse = await cms.get('/post', {
+      params: {
+        limit: POST_COUNT_BY_PAGE,
+        filters: params.filters,
+        offset
+      }
+    })
+    postCount += postList.data.contents.length
+    posts = posts.concat(postList.data.contents.filter((post: Post) => {
+      if (process.env.NODE_ENV === 'production') {
+        return post.status.id === 'public'
+      }
+      return true
+    }))
+    offset++
+    if (
+      postList.data.totalCount <= 0 ||
+      postCount >= postList.data.totalCount
+    ) {
+      resolve = true
+    }
+  }
+
+  return posts
+}
+
 export const getPost = async (postId: string): Promise<Post> => {
   const post: AxiosResponse = await cms.get(`/post/${postId}`)
   return post.data
