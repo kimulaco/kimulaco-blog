@@ -67,9 +67,10 @@ export default Vue.extend({
     PostContent
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { app, params, redirect } = context
+    const { app, params, query, redirect } = context
+    const draftKey = String(query.draft_key) || ''
     try {
-      const post: Post = await getPost(params.id)
+      const post: Post = await getPost(params.id, { draftKey })
       return {
         post: {
           ...post,

@@ -9,6 +9,7 @@ import { Inject } from '../types/nuxt'
 require('prismjs/components/prism-scss')
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-json')
+require('prismjs/components/prism-yaml')
 require('prismjs/components/prism-bash')
 
 const markdownIt: Plugin = (context: object, inject: Inject) => {

@@ -29,7 +29,12 @@ export default Vue.extend({
     margin: 16px 0;
   }
   p,
-  li {
+  li,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     > code {
       display: inline-block;
       color: $COLOR_DARKGRAY;
@@ -38,6 +43,11 @@ export default Vue.extend({
       margin: 0 4px;
       border-radius: 4px;
       line-height: 1.2;
+    }
+  }
+  p,
+  li {
+    > code {
       font-size: 15px;
     }
   }
