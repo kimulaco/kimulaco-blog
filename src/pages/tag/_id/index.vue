@@ -21,7 +21,7 @@ import Vue from 'vue'
 import PageTitle from '../../../components/module/PageTitle.vue'
 import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
-import { getPostList, getTag } from '../../../plugins/cms'
+import { getPostAll, getTag } from '../../../plugins/cms'
 import { createMetaData } from '../../../utils/blog'
 import { Post, Tag } from '../../../types/blog'
 
@@ -41,7 +41,7 @@ export default Vue.extend({
     try {
       const filters = `tag[contains]${params.id}`
       const tag: Tag = await getTag(params.id)
-      const posts: Post[] = await getPostList({ filters })
+      const posts: Post[] = await getPostAll({ filters })
       return {
         posts,
         tag

@@ -12,7 +12,6 @@ import {
   SITEMAP_PATH,
   createMetaData
 } from './src/utils/blog'
-import { getPostList } from './src/plugins/cms'
 import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
 import pkg from './package.json'
 
