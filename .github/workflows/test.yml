@@ -42,3 +42,11 @@ jobs:
       with:
         name: E2E Test Videos
         path: test/e2e/videos
+    - name: Notify to Slack
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: '*Test*'
+        channel: ${{ secrets.SLACK_CHANNEL }}
+        url: ${{ secrets.SLACK_WEBHOOK }}
