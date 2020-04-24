@@ -45,3 +45,11 @@ jobs:
         name: E2E Test Videos
         path: test/e2e/videos
     - run: npx netlify-cli deploy --prod --dir=./dist
+    - name: Notify to Slack
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: '*Deploy to Production*'
+        channel: ${{ secrets.SLACK_CHANNEL }}
+        url: ${{ secrets.SLACK_WEBHOOK }}
