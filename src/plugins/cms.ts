@@ -46,6 +46,28 @@ export const getTags = async (
   return tag.data.contents
 }
 
+export const getTagAll = async (): Promise<Tag[]> => {
+  let tags: Tag[] = []
+  let offset = 0
+  let resolve = false
+
+  while (!resolve) {
+    const tag: AxiosResponse = await cms.get(`/tag`, {
+      params: {
+        limit: 20,
+        offset
+      }
+    })
+    tags = tags.concat(tag.data.contents)
+    offset++
+    if (tags.length >= tag.data.totalCount) {
+      resolve = true
+    }
+  }
+
+  return tags
+}
+
 export const getTag = async (tagId: string): Promise<Tag> => {
   const tag: AxiosResponse = await cms.get(`/tag/${tagId}`)
   return tag.data
