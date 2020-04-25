@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-Vue.filter('date', (value: string) => {
+export const dateFilter = (value: string): string => {
   if (!value) return ''
   return dayjs(value).format('YYYY/MM/DD')
-})
+}
+
+Vue.filter('date', dateFilter)

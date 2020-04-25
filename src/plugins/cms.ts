@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import { dateFilter } from './filter'
 import {
   Post,
   Tag,
@@ -7,6 +8,14 @@ import {
   TagListRequestParam
 } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
+
+const filterPost = (post: Post): Post => {
+  return {
+    ...post,
+    created_at: dateFilter(post.created_at || ''),
+    updated_at: dateFilter(post.updated_at || '')
+  }
+}
 
 export const cms: AxiosInstance = axios.create({
   baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
@@ -30,6 +39,8 @@ export const getPostList = async (
       return post.status.id === 'public'
     }
     return true
+  }).map((post: Post) => {
+    return filterPost(post)
   })
 }
 
@@ -55,7 +66,9 @@ export const getPostAll = async (
         return post.status.id === 'public'
       }
       return true
-    }))
+    })).map((post: Post) => {
+      return filterPost(post)
+    })
     offset++
     if (
       postList.data.totalCount <= 0 ||
@@ -73,7 +86,7 @@ export const getPost = async (
   params: PostRequestParam = {}
 ): Promise<Post> => {
   const post: AxiosResponse = await cms.get(`/post/${postId}`, { params })
-  return post.data
+  return filterPost(post.data)
 }
 
 export const getTags = async (
