@@ -6,7 +6,8 @@ import {
   PostRequestParam,
   PostListRequestParam,
   PostListResponse,
-  TagListRequestParam
+  TagListRequestParam,
+  TagListResponse
 } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
 
@@ -86,33 +87,50 @@ export const getPost = async (
   return filterPost(post.data)
 }
 
-export const getTags = async (
+export const getTagList = async (
   params: TagListRequestParam = {}
-): Promise<Tag[]> => {
-  const tag: AxiosResponse = await cms.get(`/tag`, { params })
-  return tag.data.contents
+): Promise<TagListResponse> => {
+  const limit = params.limit || POST_COUNT_BY_PAGE
+  const { data }: AxiosResponse = await cms.get(`/tag`, {
+    params: {
+      limit,
+      filters: params.filters,
+      offset: (params.page || 0) * limit
+    }
+  })
+  return {
+    tags: data.contents,
+    totalCount: data.totalCount
+  }
 }
 
-export const getTagAll = async (): Promise<Tag[]> => {
-  let tags: Tag[] = []
-  let offset = 0
+export const getTagListAll = async (
+  params: TagListRequestParam = {}
+): Promise<TagListResponse> => {
+  let tagList: Tag[] = []
   let resolve = false
+  let index = 0
 
   while (!resolve) {
-    const tag: AxiosResponse = await cms.get(`/tag`, {
-      params: {
-        limit: 20,
-        offset
-      }
+    const { tags, totalCount }: TagListResponse = await getTagList({
+      limit: POST_COUNT_BY_PAGE,
+      filters: params.filters,
+      page: index
     })
-    tags = tags.concat(tag.data.contents)
-    offset++
-    if (tags.length >= tag.data.totalCount) {
+
+    tagList = tagList.concat(tags)
+
+    index++
+
+    if (tagList.length >= totalCount) {
       resolve = true
     }
   }
 
-  return tags
+  return {
+    tags: tagList,
+    totalCount: tagList.length
+  }
 }
 
 export const getTag = async (tagId: string): Promise<Tag> => {

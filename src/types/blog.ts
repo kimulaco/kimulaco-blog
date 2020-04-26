@@ -50,4 +50,11 @@ export type PostListResponse = {
 
 export type TagListRequestParam = {
   limit?: number | undefined
+  page?: number | undefined
+  filters?: string | undefined
+}
+
+export type TagListResponse = {
+  tags: Tag[]
+  totalCount: number
 }
