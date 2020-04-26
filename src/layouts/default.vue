@@ -3,9 +3,7 @@
     <SiteHeader />
 
     <SiteMain>
-      <transition name="fade">
-        <nuxt />
-      </transition>
+      <nuxt />
     </SiteMain>
 
     <SiteProfile>
@@ -14,16 +12,14 @@
 
     <SiteFooter />
 
-    <transition name="fade">
-      <Notification v-if="notification.show" @close="handleCloseNotification">
-        <template v-if="notification.title" v-slot:title>
-          {{ notification.title }}
-        </template>
-        <template v-if="notification.content" v-slot:content>
-          {{ notification.content }}
-        </template>
-      </Notification>
-    </transition>
+    <Notification v-if="notification.show" @close="handleCloseNotification">
+      <template v-if="notification.title" v-slot:title>
+        {{ notification.title }}
+      </template>
+      <template v-if="notification.content" v-slot:content>
+        {{ notification.content }}
+      </template>
+    </Notification>
   </div>
 </template>
 
