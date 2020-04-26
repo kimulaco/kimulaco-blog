@@ -8,7 +8,7 @@
 import Vue from 'vue'
 import { Post, PostListResponse } from '../types/blog'
 import PostLink from '../components/post/PostLink.vue'
-import { getPostListAll } from '../plugins/cms'
+import { getPostList } from '../plugins/cms'
 
 type LocalData = {
   posts: Post[]
@@ -20,7 +20,7 @@ export default Vue.extend({
     PostLink
   },
   async asyncData(): Promise<LocalData> {
-    const { posts }: PostListResponse = await getPostListAll()
+    const { posts }: PostListResponse = await getPostList()
     return {
       posts: posts || []
     }
