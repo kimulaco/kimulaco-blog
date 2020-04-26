@@ -5,9 +5,20 @@ import {
   Tag,
   PostRequestParam,
   PostListRequestParam,
-  TagListRequestParam
+  PostListResponse,
+  TagListRequestParam,
+  TagListResponse,
+  AboutResponse
 } from '../types/blog'
-import { POST_COUNT_BY_PAGE } from '../utils/blog'
+
+const API_DEFAULT_LIMIT = 10
+
+export const cms: AxiosInstance = axios.create({
+  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
+  headers: {
+    'X-API-KEY': process.env.CMS_API_KEY
+  }
+})
 
 const filterPost = (post: Post): Post => {
   return {
@@ -17,68 +28,57 @@ const filterPost = (post: Post): Post => {
   }
 }
 
-export const cms: AxiosInstance = axios.create({
-  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
-  headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
-  }
-})
-
 export const getPostList = async (
   params: PostListRequestParam = {}
-): Promise<Post[]> => {
-  const posts: AxiosResponse = await cms.get('/post', {
+): Promise<PostListResponse> => {
+  const limit = params.limit || API_DEFAULT_LIMIT
+  let { data }: AxiosResponse = await cms.get('/post', {
     params: {
-      limit: POST_COUNT_BY_PAGE,
-      offset: (params.page || 0) * POST_COUNT_BY_PAGE,
+      limit,
+      offset: (params.page || 0) * limit,
       filters: params.filters
     }
   })
-  return posts.data.contents.filter((post: Post) => {
-    if (process.env.NODE_ENV === 'production') {
-      return post.status.id === 'public'
-    }
-    return true
-  }).map((post: Post) => {
-    return filterPost(post)
-  })
-}
 
-export const getPostAll = async (
-  params: PostListRequestParam = {}
-): Promise<Post[]> => {
-  let posts: Post[] = []
-  let offset = 0
-  let postCount = 0
-  let resolve = false
-
-  while (!resolve) {
-    const postList: AxiosResponse = await cms.get('/post', {
-      params: {
-        limit: POST_COUNT_BY_PAGE,
-        filters: params.filters,
-        offset
-      }
-    })
-    postCount += postList.data.contents.length
-    posts = posts.concat(postList.data.contents.filter((post: Post) => {
-      if (process.env.NODE_ENV === 'production') {
-        return post.status.id === 'public'
-      }
-      return true
-    })).map((post: Post) => {
+  return {
+    totalCount: data.totalCount,
+    posts: data.contents.map((post: Post) => {
       return filterPost(post)
     })
-    offset++
-    if (
-      postList.data.totalCount <= 0 ||
-      postCount >= postList.data.totalCount
-    ) {
+  }
+}
+
+export const getPostListAll = async (
+  params: PostListRequestParam = {}
+): Promise<PostListResponse> => {
+  let postList: Post[] = []
+  let postCount = 0
+  let resolve = false
+  let index = 0
+
+  while (!resolve) {
+    const { posts, totalCount }: PostListResponse = await getPostList({
+      limit: API_DEFAULT_LIMIT,
+      filters: params.filters,
+      page: index
+    })
+
+    postCount += posts.length
+    postList = postList.concat(posts.map((post: Post) => {
+      return filterPost(post)
+    }))
+
+    index++
+
+    if (postCount >= totalCount) {
       resolve = true
     }
   }
 
-  return posts
+  return {
+    posts: postList,
+    totalCount: postList.length
+  }
 }
 
 export const getPost = async (
@@ -89,33 +89,50 @@ export const getPost = async (
   return filterPost(post.data)
 }
 
-export const getTags = async (
+export const getTagList = async (
   params: TagListRequestParam = {}
-): Promise<Tag[]> => {
-  const tag: AxiosResponse = await cms.get(`/tag`, { params })
-  return tag.data.contents
+): Promise<TagListResponse> => {
+  const limit = params.limit || API_DEFAULT_LIMIT
+  const { data }: AxiosResponse = await cms.get(`/tag`, {
+    params: {
+      limit,
+      filters: params.filters,
+      offset: (params.page || 0) * limit
+    }
+  })
+  return {
+    tags: data.contents,
+    totalCount: data.totalCount
+  }
 }
 
-export const getTagAll = async (): Promise<Tag[]> => {
-  let tags: Tag[] = []
-  let offset = 0
+export const getTagListAll = async (
+  params: TagListRequestParam = {}
+): Promise<TagListResponse> => {
+  let tagList: Tag[] = []
   let resolve = false
+  let index = 0
 
   while (!resolve) {
-    const tag: AxiosResponse = await cms.get(`/tag`, {
-      params: {
-        limit: 20,
-        offset
-      }
+    const { tags, totalCount }: TagListResponse = await getTagList({
+      limit: API_DEFAULT_LIMIT,
+      filters: params.filters,
+      page: index
     })
-    tags = tags.concat(tag.data.contents)
-    offset++
-    if (tags.length >= tag.data.totalCount) {
+
+    tagList = tagList.concat(tags)
+
+    index++
+
+    if (tagList.length >= totalCount) {
       resolve = true
     }
   }
 
-  return tags
+  return {
+    tags: tagList,
+    totalCount: tagList.length
+  }
 }
 
 export const getTag = async (tagId: string): Promise<Tag> => {
@@ -123,7 +140,7 @@ export const getTag = async (tagId: string): Promise<Tag> => {
   return tag.data
 }
 
-export const getAbout = async (): Promise<string> => {
+export const getAbout = async (): Promise<AboutResponse> => {
   const post: AxiosResponse = await cms.get('/about')
-  return post.data.content
+  return post.data
 }

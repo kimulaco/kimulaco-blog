@@ -7,12 +7,6 @@ export type Tag = {
 
 export type Post = {
   id: string
-  status: {
-    id: string
-    createdAt: string
-    updatedAt: string
-    name: string
-  }
   created_at: string
   updated_at?: string
   createdAt: string
@@ -38,10 +32,28 @@ export type PostRequestParam = {
 }
 
 export type PostListRequestParam = {
+  limit?: number | undefined
   page?: number | undefined
   filters?: string | undefined
 }
 
+export type PostListResponse = {
+  posts: Post[]
+  totalCount: number
+}
+
 export type TagListRequestParam = {
   limit?: number | undefined
+  page?: number | undefined
+  filters?: string | undefined
+}
+
+export type TagListResponse = {
+  tags: Tag[]
+  totalCount: number
+}
+
+export type AboutResponse = {
+  about: string
+  contact: string
 }

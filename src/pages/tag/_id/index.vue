@@ -21,9 +21,9 @@ import Vue from 'vue'
 import PageTitle from '../../../components/module/PageTitle.vue'
 import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
-import { getPostAll, getTag } from '../../../plugins/cms'
+import { getPostListAll, getTag } from '../../../plugins/cms'
 import { createMetaData } from '../../../utils/blog'
-import { Post, Tag } from '../../../types/blog'
+import { Post, Tag, PostListResponse } from '../../../types/blog'
 
 type LocalData = {
   posts: Post[]
@@ -39,11 +39,12 @@ export default Vue.extend({
   },
   async asyncData({ params }: Context): Promise<LocalData> {
     try {
-      const filters = `tag[contains]${params.id}`
       const tag: Tag = await getTag(params.id)
-      const posts: Post[] = await getPostAll({ filters })
+      const { posts }: PostListResponse = await getPostListAll({
+        filters: `tag[contains]${params.id}`
+      })
       return {
-        posts,
+        posts: posts || [],
         tag
       }
     } catch (error) {

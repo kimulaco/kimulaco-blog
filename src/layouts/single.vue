@@ -3,9 +3,7 @@
     <SiteHeader />
 
     <SiteMain>
-      <transition name="fade">
-        <nuxt />
-      </transition>
+      <nuxt />
     </SiteMain>
 
     <SiteFooter />

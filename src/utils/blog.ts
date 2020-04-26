@@ -18,7 +18,6 @@ export const SITE_DESC = 'フロントエンドエンジニアのブログ。'
 export const SITE_URL = 'https://blog.kimulaco.me'
 export const SITE_THEME_COLOR = '#ffffff'
 export const FACEBOOK_APP_ID = '216629989749363'
-export const POST_COUNT_BY_PAGE = 10
 export const COPYRIGHT = '@ 2020 kimulaco.'
 export const FEED_PATH = '/feed/post.xml'
 export const FEED_URL = SITE_URL + FEED_PATH

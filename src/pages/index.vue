@@ -6,9 +6,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Post } from '../types/blog'
+import { Post, PostListResponse } from '../types/blog'
 import PostLink from '../components/post/PostLink.vue'
-import { getPostAll } from '../plugins/cms'
+import { getPostList } from '../plugins/cms'
 
 type LocalData = {
   posts: Post[]
@@ -20,9 +20,9 @@ export default Vue.extend({
     PostLink
   },
   async asyncData(): Promise<LocalData> {
-    const posts = await getPostAll()
+    const { posts }: PostListResponse = await getPostList()
     return {
-      posts
+      posts: posts || []
     }
   }
 })
