@@ -52,3 +52,8 @@ export type TagListResponse = {
   tags: Tag[]
   totalCount: number
 }
+
+export type AboutResponse = {
+  about: string
+  contact: string
+}

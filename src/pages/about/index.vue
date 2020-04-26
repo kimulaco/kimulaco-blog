@@ -3,7 +3,7 @@
     <PageTitle>About</PageTitle>
 
     <!-- eslint-disable vue/no-v-html -->
-    <PostContent class="About_content" v-html="$md.render(about)" />
+    <PostContent class="About_content" v-html="content" />
     <!-- eslint-enable vue/no-v-html -->
   </div>
 </template>
@@ -17,7 +17,7 @@ import { getAbout } from '../../plugins/cms'
 import { createMetaData } from '../../utils/blog'
 
 type LocalData = {
-  about: string
+  content: string
 }
 
 export default Vue.extend({
@@ -28,9 +28,12 @@ export default Vue.extend({
     PostContent
   },
   async asyncData({ app }: Context): Promise<LocalData> {
-    const about = await getAbout()
+    const { about, contact } = await getAbout()
+    const content = about
+      + '\n\n<h2 id="contact">お問い合わせ</h2>\n\n'
+      + contact
     return {
-      about: app.$md.render(about)
+      content: app.$md.render(content),
     }
   },
   head() {
