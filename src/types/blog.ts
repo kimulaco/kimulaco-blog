@@ -7,12 +7,6 @@ export type Tag = {
 
 export type Post = {
   id: string
-  status: {
-    id: string
-    createdAt: string
-    updatedAt: string
-    name: string
-  }
   created_at: string
   updated_at?: string
   createdAt: string
