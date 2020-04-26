@@ -38,8 +38,14 @@ export type PostRequestParam = {
 }
 
 export type PostListRequestParam = {
+  limit?: number | undefined
   page?: number | undefined
   filters?: string | undefined
+}
+
+export type PostListResponse = {
+  posts: Post[]
+  totalCount: number
 }
 
 export type TagListRequestParam = {

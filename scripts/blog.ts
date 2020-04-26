@@ -1,5 +1,5 @@
 import removeMd from 'remove-markdown'
-import { Post, Tag } from '../src/types/blog'
+import { PostListResponse, Post, Tag } from '../src/types/blog'
 import {
   PUBLISHER_NAME,
   PUBLISHER_EMAIL,
@@ -7,11 +7,11 @@ import {
   SITE_ICONS,
   FEED_CONFIG
 } from '../src/utils/blog'
-import { getPostAll, getTagAll } from '../src/plugins/cms' // eslint-disable-line import/first
+import { getPostListAll, getTagAll } from '../src/plugins/cms' // eslint-disable-line import/first
 
 export const createPostRoutes = async (): Promise<string[]> => {
-  const posts: Post[] = await getPostAll()
-  const routes = posts.map((post: Post) => {
+  const { posts }: PostListResponse = await getPostListAll()
+  const routes = (posts || []).map((post: Post) => {
     return `/post/${post.id}/`
   })
   return routes
@@ -26,7 +26,7 @@ export const createTagRoutes = async (): Promise<string[]> => {
 }
 
 export const createFeed = async (feed: any) => {
-  const posts: Post[] = await getPostAll()
+  const { posts }: PostListResponse = await getPostListAll()
 
   feed.options = FEED_CONFIG
 

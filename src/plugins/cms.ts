@@ -5,9 +5,17 @@ import {
   Tag,
   PostRequestParam,
   PostListRequestParam,
+  PostListResponse,
   TagListRequestParam
 } from '../types/blog'
 import { POST_COUNT_BY_PAGE } from '../utils/blog'
+
+export const cms: AxiosInstance = axios.create({
+  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
+  headers: {
+    'X-API-KEY': process.env.CMS_API_KEY
+  }
+})
 
 const filterPost = (post: Post): Post => {
   return {
@@ -17,68 +25,57 @@ const filterPost = (post: Post): Post => {
   }
 }
 
-export const cms: AxiosInstance = axios.create({
-  baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
-  headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
-  }
-})
-
 export const getPostList = async (
   params: PostListRequestParam = {}
-): Promise<Post[]> => {
-  const posts: AxiosResponse = await cms.get('/post', {
+): Promise<PostListResponse> => {
+  const limit = params.limit || POST_COUNT_BY_PAGE
+  let { data }: AxiosResponse = await cms.get('/post', {
     params: {
-      limit: POST_COUNT_BY_PAGE,
-      offset: (params.page || 0) * POST_COUNT_BY_PAGE,
+      limit,
+      offset: (params.page || 0) * limit,
       filters: params.filters
     }
   })
-  return posts.data.contents.filter((post: Post) => {
-    if (process.env.NODE_ENV === 'production') {
-      return post.status.id === 'public'
-    }
-    return true
-  }).map((post: Post) => {
-    return filterPost(post)
-  })
-}
 
-export const getPostAll = async (
-  params: PostListRequestParam = {}
-): Promise<Post[]> => {
-  let posts: Post[] = []
-  let offset = 0
-  let postCount = 0
-  let resolve = false
-
-  while (!resolve) {
-    const postList: AxiosResponse = await cms.get('/post', {
-      params: {
-        limit: POST_COUNT_BY_PAGE,
-        filters: params.filters,
-        offset
-      }
-    })
-    postCount += postList.data.contents.length
-    posts = posts.concat(postList.data.contents.filter((post: Post) => {
-      if (process.env.NODE_ENV === 'production') {
-        return post.status.id === 'public'
-      }
-      return true
-    })).map((post: Post) => {
+  return {
+    totalCount: data.totalCount,
+    posts: data.contents.map((post: Post) => {
       return filterPost(post)
     })
-    offset++
-    if (
-      postList.data.totalCount <= 0 ||
-      postCount >= postList.data.totalCount
-    ) {
+  }
+}
+
+export const getPostListAll = async (
+  params: PostListRequestParam = {}
+): Promise<PostListResponse> => {
+  let postList: Post[] = []
+  let postCount = 0
+  let resolve = false
+  let index = 0
+
+  while (!resolve) {
+    const { posts, totalCount }: PostListResponse = await getPostList({
+      limit: POST_COUNT_BY_PAGE,
+      filters: params.filters,
+      page: index
+    })
+
+    postCount += posts.length
+    postList = postList.concat(posts.map((post: Post) => {
+      return filterPost(post)
+    }))
+
+    index++
+
+    if (postCount >= totalCount) {
       resolve = true
     }
   }
 
-  return posts
+  return {
+    posts: postList,
+    totalCount: postList.length
+  }
 }
 
 export const getPost = async (
