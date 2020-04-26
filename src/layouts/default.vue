@@ -12,14 +12,16 @@
 
     <SiteFooter />
 
-    <Notification v-if="notification.show" @close="handleCloseNotification">
-      <template v-if="notification.title" v-slot:title>
-        {{ notification.title }}
-      </template>
-      <template v-if="notification.content" v-slot:content>
-        {{ notification.content }}
-      </template>
-    </Notification>
+    <transition name="fade">
+      <Notification v-if="notification.show" @close="handleCloseNotification">
+        <template v-if="notification.title" v-slot:title>
+          {{ notification.title }}
+        </template>
+        <template v-if="notification.content" v-slot:content>
+          {{ notification.content }}
+        </template>
+      </Notification>
+    </transition>
   </div>
 </template>
 
