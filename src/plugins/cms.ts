@@ -9,7 +9,8 @@ import {
   TagListRequestParam,
   TagListResponse
 } from '../types/blog'
-import { POST_COUNT_BY_PAGE } from '../utils/blog'
+
+const API_DEFAULT_LIMIT = 10
 
 export const cms: AxiosInstance = axios.create({
   baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
@@ -29,7 +30,7 @@ const filterPost = (post: Post): Post => {
 export const getPostList = async (
   params: PostListRequestParam = {}
 ): Promise<PostListResponse> => {
-  const limit = params.limit || POST_COUNT_BY_PAGE
+  const limit = params.limit || API_DEFAULT_LIMIT
   let { data }: AxiosResponse = await cms.get('/post', {
     params: {
       limit,
@@ -56,7 +57,7 @@ export const getPostListAll = async (
 
   while (!resolve) {
     const { posts, totalCount }: PostListResponse = await getPostList({
-      limit: POST_COUNT_BY_PAGE,
+      limit: API_DEFAULT_LIMIT,
       filters: params.filters,
       page: index
     })
@@ -90,7 +91,7 @@ export const getPost = async (
 export const getTagList = async (
   params: TagListRequestParam = {}
 ): Promise<TagListResponse> => {
-  const limit = params.limit || POST_COUNT_BY_PAGE
+  const limit = params.limit || API_DEFAULT_LIMIT
   const { data }: AxiosResponse = await cms.get(`/tag`, {
     params: {
       limit,
@@ -113,7 +114,7 @@ export const getTagListAll = async (
 
   while (!resolve) {
     const { tags, totalCount }: TagListResponse = await getTagList({
-      limit: POST_COUNT_BY_PAGE,
+      limit: API_DEFAULT_LIMIT,
       filters: params.filters,
       page: index
     })
