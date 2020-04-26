@@ -7,7 +7,8 @@ import {
   PostListRequestParam,
   PostListResponse,
   TagListRequestParam,
-  TagListResponse
+  TagListResponse,
+  AboutResponse
 } from '../types/blog'
 
 const API_DEFAULT_LIMIT = 10
@@ -139,7 +140,7 @@ export const getTag = async (tagId: string): Promise<Tag> => {
   return tag.data
 }
 
-export const getAbout = async (): Promise<string> => {
+export const getAbout = async (): Promise<AboutResponse> => {
   const post: AxiosResponse = await cms.get('/about')
-  return post.data.content
+  return post.data
 }

@@ -8,6 +8,11 @@
           </nuxt-link>
         </li>
         <li class="SiteFooter_menu-item">
+          <nuxt-link class="SiteFooter_menu-link" to="/about/#contact">
+            Contact
+          </nuxt-link>
+        </li>
+        <li class="SiteFooter_menu-item">
           <a class="SiteFooter_menu-link" href="/feed/post.xml">
             Feed
           </a>
