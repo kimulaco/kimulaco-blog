@@ -1,55 +1,71 @@
 <template>
-  <article class="PostDetail">
-    <div class="PostDetail_head">
-      <h1 class="PostDetail_heading">{{ post.title }}</h1>
-      <Timestamp
-        :created-at="post.created_at"
-        :updated-at="post.updated_at"
-        class="PostDetail_timestamp"
-      />
-      <Tags
-        v-if="postTag.length > 0"
-        :tags="postTag"
-        :link="true"
-        class="PostDetail_tags"
-      />
-      <img
-        v-if="post.image"
-        :src="post.image.url"
-        class="PostDetail_image"
-        alt=""
-      />
-      <Share
-        :title="post.title"
-        :description="post.description"
-        :url="shareUrl"
-        @click="$ga.event('share', 'click', $event, 1)"
-      />
-    </div>
-    <!-- eslint-disable vue/no-v-html -->
-    <PostContent class="PostDetail_content" v-html="post.content" />
-    <!-- eslint-enable vue/no-v-html -->
-    <div class="PostDetail_foot">
-      <Share
-        :title="post.title"
-        :description="post.description"
-        :url="shareUrl"
-        @click="$ga.event('share', 'click', $event, 2)"
-      />
-      <LinkBack to="/" class="PostDetail_back">記事一覧に戻る</LinkBack>
-    </div>
-  </article>
+  <div>
+
+    <article class="PostDetail">
+      <div class="PostDetail_head">
+        <h1 class="PostDetail_heading">{{ post.title }}</h1>
+        <Timestamp
+          :created-at="post.created_at"
+          :updated-at="post.updated_at"
+          class="PostDetail_timestamp"
+        />
+        <Tags
+          v-if="postTag.length > 0"
+          :tags="postTag"
+          :link="true"
+          class="PostDetail_tags"
+        />
+        <img
+          v-if="post.image"
+          :src="post.image.url"
+          class="PostDetail_image"
+          alt=""
+        />
+        <Share
+          :title="post.title"
+          :description="post.description"
+          :url="shareUrl"
+          @click="$ga.event('share', 'click', $event, 1)"
+        />
+      </div>
+      <!-- eslint-disable vue/no-v-html -->
+      <PostContent class="PostDetail_content" v-html="post.content" />
+      <!-- eslint-enable vue/no-v-html -->
+      <div class="PostDetail_foot">
+        <Share
+          :title="post.title"
+          :description="post.description"
+          :url="shareUrl"
+          @click="$ga.event('share', 'click', $event, 2)"
+        />
+        <LinkBack to="/" class="PostDetail_back">記事一覧に戻る</LinkBack>
+      </div>
+    </article>
+
+    <aside>
+      <Heading>関連記事</Heading>
+      <div>
+        <PostLink
+          v-for="post in post.related_posts"
+          :key="post.id"
+          :post="post"
+        />
+      </div>
+    </aside>
+  </div>
 </template>
 
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import { Post, Tag } from '../../../types/blog'
+import Heading from '../../../components/module/Heading.vue'
 import LinkBack from '../../../components/module/LinkBack.vue'
 import Tags from '../../../components/module/Tags.vue'
 import Timestamp from '../../../components/module/Timestamp.vue'
 import Share from '../../../components/module/Share.vue'
 import PostContent from '../../../components/post/PostContent.vue'
+import PostLink from '../../../components/post/PostLink.vue'
 import { getPost } from '../../../plugins/cms'
 import { SITE_URL, createMetaData } from '../../../utils/blog'
 
@@ -60,11 +76,13 @@ type LocalData = {
 export default Vue.extend({
   name: 'PagePostDetail',
   components: {
+    Heading,
     LinkBack,
     Tags,
     Timestamp,
     Share,
-    PostContent
+    PostContent,
+    PostLink
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { app, params, query, redirect } = context

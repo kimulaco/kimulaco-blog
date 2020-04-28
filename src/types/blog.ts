@@ -25,6 +25,7 @@ export type Post = {
   }
   tag: Tag[]
   content: string
+  related_posts: Post[]
 }
 
 export type PostRequestParam = {

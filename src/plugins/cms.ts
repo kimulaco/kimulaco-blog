@@ -21,6 +21,22 @@ export const cms: AxiosInstance = axios.create({
 })
 
 const filterPost = (post: Post): Post => {
+  post = {
+    ...post,
+    created_at: dateFilter(post.created_at || ''),
+    updated_at: dateFilter(post.updated_at || '')
+  }
+
+  if (Array.isArray(post.related_posts) && post.related_posts.length > 0) {
+    post.related_posts = post.related_posts.map((relatedPost: Post) => {
+      return {
+        ...relatedPost,
+        created_at: dateFilter(relatedPost.created_at || ''),
+        updated_at: dateFilter(relatedPost.updated_at || '')
+      }
+    })
+  }
+
   return {
     ...post,
     created_at: dateFilter(post.created_at || ''),
