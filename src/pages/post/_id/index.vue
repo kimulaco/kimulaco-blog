@@ -150,7 +150,7 @@ export default Vue.extend({
   font-size: 28px;
   padding: 5px 0;
   margin: 0 0 8px;
-  line-height: 1.2;
+  line-height: 1.4;
   @include media() {
     font-size: 32px;
   }
