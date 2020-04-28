@@ -30,6 +30,7 @@ export type Post = {
 
 export type PostRequestParam = {
   draftKey?: string
+  depth?: number
 }
 
 export type PostListRequestParam = {

@@ -101,7 +101,11 @@ export const getPost = async (
   postId: string,
   params: PostRequestParam = {}
 ): Promise<Post> => {
-  const post: AxiosResponse = await cms.get(`/post/${postId}`, { params })
+  const post: AxiosResponse = await cms.get(`/post/${postId}`, {
+    params: Object.assign({
+      depth: 2
+    }, params)
+  })
   return filterPost(post.data)
 }
 
