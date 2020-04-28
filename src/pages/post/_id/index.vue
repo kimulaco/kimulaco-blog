@@ -11,7 +11,6 @@
         <Tags
           v-if="postTag.length > 0"
           :tags="postTag"
-          :link="true"
           class="PostDetail_tags"
         />
         <img

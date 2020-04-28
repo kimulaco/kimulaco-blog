@@ -3,12 +3,9 @@
     <b class="Tags_heading">Tags: </b>
     <ul class="Tags_list">
       <li v-for="tag in tags" :key="tag.id" class="Tags_item">
-        <nuxt-link v-if="link" :to="`/tag/${tag.id}/`">
+        <nuxt-link :to="`/tag/${tag.id}/`">
           {{ tag.name }}
         </nuxt-link>
-        <template v-else>
-          {{ tag.name }}
-        </template>
       </li>
     </ul>
   </div>
@@ -25,10 +22,6 @@ export default Vue.extend({
       default() {
         return []
       }
-    },
-    link: {
-      type: Boolean,
-      default: false
     }
   }
 })
