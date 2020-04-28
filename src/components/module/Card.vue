@@ -27,18 +27,18 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .Card {
   background: $COLOR_WHITE;
-  &_inner {
-    @include reset-child-margin();
+}
+.Card_inner {
+  @include reset-child-margin();
 
-    display: block;
-    width: 100%;
-    padding: 16px;
-    border: 1px solid rgba($COLOR_BLACK, 0.1);
-    border-radius: 6px;
-    color: $COLOR_BLACK;
-    box-shadow: 0 2px 2px rgba($COLOR_BLACK, 0.1);
-    transition: 0.3s;
-  }
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba($COLOR_BLACK, 0.1);
+  border-radius: 6px;
+  color: $COLOR_BLACK;
+  box-shadow: 0 2px 2px rgba($COLOR_BLACK, 0.1);
+  transition: 0.3s;
 }
 a.Card {
   &_inner {

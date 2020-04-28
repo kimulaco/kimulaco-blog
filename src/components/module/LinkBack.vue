@@ -24,27 +24,27 @@ export default Vue.extend({
 .LinkBack {
   font-size: 15px;
   margin: 0;
-  &_anchor {
-    display: inline-block;
-    padding: 0 0 0 12px;
-    position: relative;
-    transition: 0.3s;
-    @include active() {
-      opacity: 0.7;
-    }
-    &::before {
-      content: '';
-      display: block;
-      width: 4px;
-      height: 4px;
-      border-style: solid;
-      border-color: inherit;
-      border-width: 0 0 2px 2px;
-      transform: rotate(45deg);
-      position: absolute;
-      top: 0.5em;
-      left: 4px;
-    }
+}
+.LinkBack_anchor {
+  display: inline-block;
+  padding: 0 0 0 12px;
+  position: relative;
+  transition: 0.3s;
+  @include active() {
+    opacity: 0.7;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 0 0 2px 2px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0.5em;
+    left: 4px;
   }
 }
 </style>

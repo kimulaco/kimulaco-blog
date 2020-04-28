@@ -179,71 +179,71 @@ export default Vue.extend({
 .Share {
   margin: 0;
   font-size: 14px;
-  &_list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: -10px 0 0;
-    @include media() {
-      margin: -20px 0 0;
+}
+.Share_list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: -10px 0 0;
+  @include media() {
+    margin: -20px 0 0;
+  }
+}
+.Share_item {
+  margin: 10px 3px 0;
+  @include media(356px) {
+    margin: 10px 6px 0;
+  }
+  @include media() {
+    margin: 20px 12px 0;
+  }
+}
+.Share_icon {
+  max-width: 20px;
+  max-height: 20px;
+}
+.Share_text {
+  font-size: 0;
+  text-indent: -100vw;
+}
+.Share_anchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  color: $COLOR_WHITE;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(#000, 0.2);
+  &.-twitter {
+    background: #1da1f2;
+  }
+  &.-facebook {
+    background: #4267b2;
+  }
+  &.-feedly {
+    background: #6cc655;
+  }
+  &.-line {
+    background: #00b900;
+  }
+  &.-pocket {
+    background: #fff;
+    padding-top: 10px;
+  }
+  &.-hatena {
+    background: #00a4de;
+    .Share_icon {
+      max-width: 30px;
+      max-height: 30px;
     }
   }
-  &_item {
-    margin: 10px 3px 0;
-    @include media(356px) {
-      margin: 10px 6px 0;
-    }
-    @include media() {
-      margin: 20px 12px 0;
-    }
-  }
-  &_icon {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  &_text {
-    font-size: 0;
-    text-indent: -100vw;
-  }
-  &_anchor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    color: $COLOR_WHITE;
-    overflow: hidden;
-    border-radius: 50%;
-    box-shadow: 0 1px 4px rgba(#000, 0.2);
-    &.-twitter {
-      background: #1da1f2;
-    }
-    &.-facebook {
-      background: #4267b2;
-    }
-    &.-feedly {
-      background: #6cc655;
-    }
-    &.-line {
-      background: #00b900;
-    }
-    &.-pocket {
-      background: #fff;
-      padding-top: 10px;
-    }
-    &.-hatena {
-      background: #00a4de;
-      .Share_icon {
-        max-width: 30px;
-        max-height: 30px;
-      }
-    }
-    &.-clipbord {
-      background: #777;
-    }
+  &.-clipbord {
+    background: #777;
   }
 }
 </style>

@@ -19,15 +19,15 @@ export default Vue.extend({
   color: $COLOR_GRAY;
   display: flex;
   margin: 0;
-  &_icon {
-    fill: $COLOR_GRAY;
-    width: 16px;
-    height: 16px;
-    margin: 2px 4px 0 0;
-    transform: translateY(-1px);
-  }
-  &_text {
-    display: block;
-  }
+}
+.Category_icon {
+  fill: $COLOR_GRAY;
+  width: 16px;
+  height: 16px;
+  margin: 2px 4px 0 0;
+  transform: translateY(-1px);
+}
+.Category_text {
+  display: block;
 }
 </style>

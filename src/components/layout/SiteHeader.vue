@@ -46,26 +46,26 @@ export default Vue.extend({
   a {
     color: inherit;
   }
-  &_inner {
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  &_title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: normal;
-    &-text {
-      display: flex;
-      align-items: center;
-      color: $COLOR_BLACK;
-    }
-    &-icon {
-      display: block;
-      width: 24px;
-      margin: 0 8px 0 0;
-    }
-  }
+}
+.SiteHeader_inner {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.SiteHeader_title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+.SiteHeader_title-text {
+  display: flex;
+  align-items: center;
+  color: $COLOR_BLACK;
+}
+.SiteHeader_title-icon {
+  display: block;
+  width: 24px;
+  margin: 0 8px 0 0;
 }
 </style>

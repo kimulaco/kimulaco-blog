@@ -32,31 +32,29 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.LinkList {
-  &_list {
+.LinkList_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.2;
+}
+.LinkList_item {
+  margin: 0 0 4px;
+  padding: 0 0 0 16px;
+  position: relative;
+  &:last-child {
     margin: 0;
-    padding: 0;
-    list-style: none;
-    line-height: 1.2;
   }
-  &_item {
-    margin: 0 0 4px;
-    padding: 0 0 0 16px;
-    position: relative;
-    &:last-child {
-      margin: 0;
-    }
-    &::before {
-      content: '';
-      display: block;
-      width: 4px;
-      height: 4px;
-      background: $COLOR_BLACK;
-      border-radius: 1px;
-      position: absolute;
-      top: 0.5em;
-      left: 4px;
-    }
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: $COLOR_BLACK;
+    border-radius: 1px;
+    position: absolute;
+    top: 0.5em;
+    left: 4px;
   }
 }
 </style>

@@ -79,72 +79,70 @@ export default Vue.extend({
 .AboutWidget {
   color: $COLOR_WHITE;
   margin: 0;
-  &_head {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: flex-end;
-    margin: 0 0 8px;
-  }
-  &_name {
-    font-size: 20px;
-    margin: 6px 0 0;
-    line-height: 1.2;
-  }
-  &_job {
-    font-size: 14px;
+}
+.AboutWidget_head {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0 0 8px;
+}
+.AboutWidget_name {
+  font-size: 20px;
+  margin: 6px 0 0;
+  line-height: 1.2;
+}
+.AboutWidget_job {
+  font-size: 14px;
+  margin: 2px 0 0;
+  line-height: 1.2;
+}
+.AboutWidget_icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(#000, 0.2);
+}
+.AboutWidget_icon-img {
+  max-width: 100%;
+}
+.AboutWidget_content {
+  font-size: 14px;
+  padding: 8px 0 0;
+  margin: 0 0 12px;
+  p {
     margin: 2px 0 0;
-    line-height: 1.2;
   }
-  &_icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 10px 0 0;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 1px 4px rgba(#000, 0.2);
-    &-img {
-      max-width: 100%;
-    }
+}
+.AboutWidget_link-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: -12px 0 0 -12px;
+  list-style: none;
+}
+.AboutWidget_link-item {
+  margin: 12px 0 0 12px;
+}
+.AboutWidget_link-icon {
+  max-width: 24px;
+  max-height: 24px;
+}
+.AboutWidget_link-text {
+  font-size: 0;
+}
+.AboutWidget_link-anchor {
+  display: block;
+  max-width: 24px;
+  max-height: 24px;
+  &.-twitter {
+    color: #1da1f2;
   }
-  &_content {
-    font-size: 14px;
-    padding: 8px 0 0;
-    margin: 0 0 12px;
-    p {
-      margin: 2px 0 0;
-    }
-  }
-  &_link {
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0;
-      margin: -12px 0 0 -12px;
-      list-style: none;
-    }
-    &-item {
-      margin: 12px 0 0 12px;
-    }
-    &-icon {
-      max-width: 24px;
-      max-height: 24px;
-    }
-    &-text {
-      font-size: 0;
-    }
-    &-anchor {
-      display: block;
-      max-width: 24px;
-      max-height: 24px;
-      &.-twitter {
-        color: #1da1f2;
-      }
-    }
-  }
-  &_more {
-    font-size: 14px;
-    margin: 16px 0 0;
-  }
+}
+.AboutWidget_more {
+  font-size: 14px;
+  margin: 16px 0 0;
 }
 </style>

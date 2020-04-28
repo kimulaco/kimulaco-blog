@@ -1,6 +1,5 @@
 <template>
-  <div>
-
+  <div class="PagePostDetail">
     <article class="PostDetail">
       <div class="PostDetail_head">
         <h1 class="PostDetail_heading">{{ post.title }}</h1>
@@ -141,68 +140,68 @@ export default Vue.extend({
 .PostDetail {
   padding: 0 10px;
   position: relative;
-  &_head {
-    padding: 0 0 16px;
-    @include media() {
-      padding: 0 0 32px;
-    }
+}
+.PostDetail_head {
+  padding: 0 0 16px;
+  @include media() {
+    padding: 0 0 32px;
   }
-  &_heading {
-    font-size: 28px;
-    padding: 5px 0;
-    margin: 0 0 8px;
-    line-height: 1.2;
-    @include media() {
-      font-size: 32px;
-    }
+}
+.PostDetail_heading {
+  font-size: 28px;
+  padding: 5px 0;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  @include media() {
+    font-size: 32px;
   }
-  &_category {
-    margin: 0 16px 16px 0;
+}
+.PostDetail_category {
+  margin: 0 16px 16px 0;
+}
+.PostDetail_tags {
+  margin: 0 0 16px;
+  @include media() {
+    margin: 0 0 32px;
   }
-  &_tags {
-    margin: 0 0 16px;
-    @include media() {
-      margin: 0 0 32px;
-    }
+}
+.PostDetail_image {
+  margin: 0 0 16px;
+  @include media() {
+    margin: 0 0 32px;
   }
-  &_image {
-    margin: 0 0 16px;
-    @include media() {
-      margin: 0 0 32px;
-    }
+}
+.PostDetail_content {
+  margin: 0;
+  padding: 20px 0;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    background: $COLOR_LIGHTGRAY;
+    width: calc(100% + 20px);
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: -10px;
   }
-  &_content {
-    margin: 0;
-    padding: 20px 0;
-    position: relative;
-    &::before {
-      content: '';
-      display: block;
-      background: $COLOR_LIGHTGRAY;
-      width: calc(100% + 20px);
-      height: 1px;
-      position: absolute;
-      top: 0;
-      left: -10px;
-    }
-    @include media() {
-      padding: 32px 0;
-    }
+  @include media() {
+    padding: 32px 0;
   }
-  &_foot {
-    margin: 0;
-    padding: 32px 0 0;
-    position: relative;
-    &::before {
-      content: '';
-      display: block;
-      background: $COLOR_LIGHTGRAY;
-      width: calc(100% + 32px);
-      height: 1px;
-      position: absolute;
-      top: 0;
-      left: -16px;
-    }
+}
+.PostDetail_foot {
+  margin: 0;
+  padding: 32px 0 0;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    background: $COLOR_LIGHTGRAY;
+    width: calc(100% + 32px);
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: -16px;
   }
 }
 
