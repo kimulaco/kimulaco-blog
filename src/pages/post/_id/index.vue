@@ -41,7 +41,7 @@
       </div>
     </article>
 
-    <aside>
+    <aside v-if="post.related_posts.length > 0">
       <Heading>関連記事</Heading>
       <div>
         <PostLink
