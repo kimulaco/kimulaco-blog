@@ -3,6 +3,7 @@ export type Tag = {
   name: string
   createdAt?: string
   updatedAt?: string
+  count: number
 }
 
 export type Post = {
@@ -42,12 +43,6 @@ export type PostListRequestParam = {
 export type PostListResponse = {
   posts: Post[]
   totalCount: number
-}
-
-export type TagListRequestParam = {
-  limit?: number | undefined
-  page?: number | undefined
-  filters?: string | undefined
 }
 
 export type TagListResponse = {

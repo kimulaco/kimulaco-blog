@@ -7,7 +7,7 @@ import {
   SITE_ICONS,
   FEED_CONFIG
 } from '../src/utils/blog'
-import { getPostListAll, getTagListAll } from '../src/plugins/cms' // eslint-disable-line import/first
+import { getPostListAll, getTagListDetail } from '../src/plugins/cms' // eslint-disable-line import/first
 
 export const createPostRoutes = async (): Promise<string[]> => {
   const { posts }: PostListResponse = await getPostListAll()
@@ -18,7 +18,7 @@ export const createPostRoutes = async (): Promise<string[]> => {
 }
 
 export const createTagRoutes = async (): Promise<string[]> => {
-  const { tags }: TagListResponse = await getTagListAll()
+  const { tags }: TagListResponse = await getTagListDetail()
   const routes = tags.map((tag: Tag) => {
     return `/tag/${tag.id}/`
   })

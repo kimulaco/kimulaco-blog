@@ -6,7 +6,7 @@
       <ul class="TagList">
         <li v-for="tag in tags" :key="tag.id" class="TagList_item">
           <nuxt-link :to="`/tag/${tag.id}/`" class="TagList_anchor">
-            {{ tag.name }}
+            {{ tag.name }} ({{ tag.count }})
           </nuxt-link>
         </li>
       </ul>
@@ -18,7 +18,7 @@
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
-import { getTagListAll } from '../../plugins/cms'
+import { getTagListDetail } from '../../plugins/cms'
 import { createMetaData } from '../../utils/blog'
 import { Tag, TagListResponse } from '../../types/blog'
 
@@ -33,7 +33,7 @@ export default Vue.extend({
   },
   async asyncData({ params }: Context): Promise<LocalData> {
     try {
-      const { tags }: TagListResponse = await getTagListAll()
+      const { tags }: TagListResponse = await getTagListDetail()
       return { tags }
     } catch (error) {
       return { tags: [] }

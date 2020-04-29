@@ -52,7 +52,8 @@ export default Vue.extend({
         posts: [],
         tag: {
           name: params.id,
-          id: params.id
+          id: params.id,
+          count: 0
         }
       }
     }
