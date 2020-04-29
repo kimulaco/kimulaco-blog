@@ -29,7 +29,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 $margin-top: 5px;
-$margin-left: 10px;
+$margin-left: 8px;
 
 .Tags {
   font-size: 14px;
