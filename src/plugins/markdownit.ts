@@ -79,6 +79,7 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
 
   md.use(markdownItAnchor)
   md.use(markdownItTableOfContents, {
+    includeLevel: [1, 2, 3],
     containerClass: 'PostContent_index',
     containerHeaderHtml: '<h2 class="PostContent_index-title">目次</h2>',
     format(link: string) {
