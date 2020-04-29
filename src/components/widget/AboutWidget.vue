@@ -1,8 +1,9 @@
 <template>
   <Card class="AboutWidget">
+    <h2 class="hidden">管理人について</h2>
     <div class="AboutWidget_head">
       <div class="AboutWidget_head-content">
-        <h2 class="AboutWidget_name">kimulaco</h2>
+        <p class="AboutWidget_name">kimulaco</p>
         <p class="AboutWidget_job">Front-end Engineer</p>
       </div>
       <div class="AboutWidget_icon">
@@ -96,6 +97,7 @@ export default Vue.extend({
 }
 .AboutWidget_name {
   font-size: 20px;
+  font-weight: bold;
   margin: 6px 0 0;
   line-height: 1.2;
 }

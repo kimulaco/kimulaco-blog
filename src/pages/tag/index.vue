@@ -1,16 +1,7 @@
 <template>
   <div class="PageTag">
     <PageTitle>タグ一覧</PageTitle>
-
-    <div>
-      <ul class="TagList">
-        <li v-for="tag in tags" :key="tag.id" class="TagList_item">
-          <nuxt-link :to="`/tag/${tag.id}/`" class="TagList_anchor">
-            {{ tag.name }} ({{ tag.count }})
-          </nuxt-link>
-        </li>
-      </ul>
-    </div>
+    <TagList :tags="tags" />
   </div>
 </template>
 
@@ -18,6 +9,7 @@
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
+import TagList from '../../components/module/TagList.vue'
 import { getTagListDetail } from '../../plugins/cms'
 import { createMetaData } from '../../utils/blog'
 import { Tag, TagListResponse } from '../../types/blog'
@@ -29,7 +21,8 @@ type LocalData = {
 export default Vue.extend({
   name: 'PageTag',
   components: {
-    PageTitle
+    PageTitle,
+    TagList
   },
   async asyncData({ params }: Context): Promise<LocalData> {
     try {
