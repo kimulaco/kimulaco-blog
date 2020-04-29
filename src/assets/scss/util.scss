@@ -34,6 +34,10 @@
   z-index: -1 !important;
 }
 
+.shadow {
+  box-shadow: 0 0 4px rgba($COLOR_BLACK, 0.2);
+}
+
 .Profile {
   display: flex;
   flex-direction: row-reverse;
