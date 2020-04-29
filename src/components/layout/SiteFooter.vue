@@ -67,6 +67,14 @@ export default Vue.extend({
 .SiteFooter_menu-item {
   margin: 0 0 0 16px;
 }
+.SiteFooter_menu-link {
+  transition: 0.3s;
+  @include media() {
+    @include active() {
+      opacity: 0.8;
+    }
+  }
+}
 .SiteFooter_copyright {
   margin: 0;
   text-align: center;

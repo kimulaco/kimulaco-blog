@@ -2,7 +2,9 @@
   <section class="PostLink">
     <div class="PostLink_inner">
       <h3 class="PostLink_heading">
-        <nuxt-link :to="`/post/${post.id}/`">{{ post.title }}</nuxt-link>
+        <nuxt-link :to="`/post/${post.id}/`" class="PostLink_heading-link">
+          {{ post.title }}
+        </nuxt-link>
       </h3>
       <div class="PostLink_meta">
         <Timestamp
@@ -74,6 +76,14 @@ export default Vue.extend({
   line-height: 1.4;
   margin: 0;
   color: $COLOR_BLUE;
+}
+.PostLink_heading-link {
+  transition: 0.3s;
+  @include media() {
+    @include active() {
+      opacity: 0.8;
+    }
+  }
 }
 .PostLink_meta {
   display: flex;

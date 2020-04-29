@@ -3,7 +3,7 @@
     <b class="Tags_heading">Tags: </b>
     <ul class="Tags_list">
       <li v-for="tag in tags" :key="tag.id" class="Tags_item">
-        <nuxt-link :to="`/tag/${tag.id}/`">
+        <nuxt-link :to="`/tag/${tag.id}/`" class="Tags_link">
           {{ tag.name }}
         </nuxt-link>
       </li>
@@ -49,6 +49,14 @@ $margin-left: 8px;
 }
 .Tags_item {
   margin: #{$margin-top} 0 0 #{$margin-left};
+}
+.Tags_link {
+  transition: 0.3s;
+  @include media() {
+    @include active() {
+      opacity: 0.8;
+    }
+  }
 }
 .Tags_icon {
   fill: $COLOR_GRAY;
