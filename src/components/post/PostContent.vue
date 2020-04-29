@@ -110,6 +110,12 @@ export default Vue.extend({
     }
     ul {
       margin: 0;
+      ul {
+        display: none;
+        @include media() {
+          display: block;
+        }
+      }
     }
   }
   .PostContent_index-title {
