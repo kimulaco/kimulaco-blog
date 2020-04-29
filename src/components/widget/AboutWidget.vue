@@ -6,7 +6,14 @@
         <p class="AboutWidget_job">Front-end Engineer</p>
       </div>
       <div class="AboutWidget_icon">
-        <img class="AboutWidget_icon-img" src="/img/profile.png" alt="" />
+        <img
+          class="AboutWidget_icon-img"
+          src="/img/profile.png"
+          alt=""
+          width="50"
+          height="50"
+          loading="lazy"
+        />
       </div>
     </div>
     <div class="AboutWidget_content">
