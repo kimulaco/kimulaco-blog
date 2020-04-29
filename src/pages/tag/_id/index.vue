@@ -1,5 +1,5 @@
 <template>
-  <div class="PageTag">
+  <div class="PageTagDetail">
     <PageTitle>"{{ tag.name }}"のタグを持つ記事</PageTitle>
 
     <div v-if="posts.length > 0">
@@ -31,7 +31,7 @@ type LocalData = {
 }
 
 export default Vue.extend({
-  name: 'PageTag',
+  name: 'PageTagDetail',
   components: {
     PageTitle,
     LinkButton,
