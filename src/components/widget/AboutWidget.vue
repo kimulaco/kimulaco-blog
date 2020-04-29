@@ -146,6 +146,12 @@ export default Vue.extend({
   display: block;
   max-width: 24px;
   max-height: 24px;
+  transition: 0.3s;
+  @include media() {
+    @include active() {
+      opacity: 0.8;
+    }
+  }
   &.-twitter {
     color: #1da1f2;
   }
