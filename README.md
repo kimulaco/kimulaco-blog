@@ -1,9 +1,9 @@
 # kimulaco blog
 
-![Deploy Production](https://github.com/kimulaco/blog.kimulaco.me/workflows/Deploy%20Production/badge.svg)
+![Deploy Production](https://github.com/kimulaco/kimulaco-blog/workflows/Deploy%20Production/badge.svg)
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
-https://blog.kimulaco.me
+https://kimulaco.com
 
 ## Development
 
