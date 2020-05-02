@@ -46,6 +46,13 @@ const config: Configuration = {
         title: SITE_TITLE,
         href: FEED_PATH
       }
+    ],
+    script: [
+      {
+        'data-ad-client': 'ca-pub-9857491267710655',
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        async: true
+      }
     ]
   },
   loading: false,
