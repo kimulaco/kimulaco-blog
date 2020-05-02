@@ -1,6 +1,6 @@
 const axios = require('axios')
 const xml2js = require('xml2js')
-const SITE_URL = 'https://blog.kimulaco.me'
+const SITE_URL = 'https://kimulaco.com'
 
 module.exports = (on, config) => {
   on('task', {
