@@ -1,6 +1,6 @@
 <template>
-  <p class="LinkBack">
-    <nuxt-link :to="to" class="LinkBack_anchor">
+  <p class="LinkText">
+    <nuxt-link :to="to" class="LinkText_anchor">
       <slot />
     </nuxt-link>
   </p>
@@ -10,7 +10,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'LinkBack',
+  name: 'LinkText',
   props: {
     to: {
       type: String,
@@ -21,11 +21,11 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.LinkBack {
+.LinkText {
   font-size: 15px;
   margin: 0;
 }
-.LinkBack_anchor {
+.LinkText_anchor {
   display: inline-block;
   padding: 0 0 0 12px;
   position: relative;
@@ -41,10 +41,18 @@ export default Vue.extend({
     border-style: solid;
     border-color: inherit;
     border-width: 0 0 2px 2px;
-    transform: rotate(45deg);
+    transform: rotate(225deg);
     position: absolute;
     top: 0.5em;
-    left: 4px;
+    left: 0;
   }
 }
+.LinkText.-back {
+    .LinkText_anchor {
+      &::before {
+        transform: rotate(45deg);
+        left: 4px;
+      }
+    }
+  }
 </style>

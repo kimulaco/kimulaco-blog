@@ -1,15 +1,16 @@
 <template>
   <div class="PageHome">
-    <section class="mb-64">
-      <h2 class="hidden">タグ</h2>
-      <TagList :tags="tags" />
-    </section>
-
     <section>
-      <Heading>最近の記事</Heading>
+      <Heading class="mt-0">最近の記事</Heading>
       <div>
         <PostLink v-for="post in posts" :key="post.id" :post="post" />
       </div>
+      <LinkText to="/post/" class="mt-24">全ての記事を見る</LinkText>
+    </section>
+
+    <section class="mb-64">
+      <Heading>タグ</Heading>
+      <TagList :tags="tags" />
     </section>
   </div>
 </template>
@@ -18,6 +19,7 @@
 import Vue from 'vue'
 import { Post, Tag, PostListResponse, TagListResponse } from '../types/blog'
 import Heading from '../components/module/Heading.vue'
+import LinkText from '../components/module/LinkText.vue'
 import TagList from '../components/module/TagList.vue'
 import PostLink from '../components/post/PostLink.vue'
 import { getPostList, getTagListDetail } from '../plugins/cms'
@@ -31,6 +33,7 @@ export default Vue.extend({
   name: 'PageHome',
   components: {
     Heading,
+    LinkText,
     TagList,
     PostLink
   },
