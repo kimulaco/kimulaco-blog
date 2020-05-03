@@ -21,6 +21,11 @@ export default Vue.extend({
     text-decoration: none;
     padding: 0 2px 2px;
     position: relative;
+    @include media() {
+      @include active() {
+        text-decoration: underline;
+      }
+    }
   }
   strong {
     color: $COLOR_RED;

@@ -46,6 +46,23 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
     }
   }
 
+  md.renderer.rules.image = (
+    tokens: any[],
+    idx: number,
+    options: object,
+    env: any,
+    self: any
+  ) => {
+    const token = tokens[idx]
+    const loadingIndex = token.attrIndex('loading')
+
+    if (!token.attrs[loadingIndex]) {
+      token.attrPush(['loading', 'lazy'])
+    }
+
+    return render(tokens, idx, options, env, self)
+  }
+
   md.renderer.rules.link_open = (
     tokens: any[],
     idx: number,

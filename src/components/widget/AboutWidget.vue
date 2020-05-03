@@ -1,12 +1,20 @@
 <template>
   <Card class="AboutWidget">
+    <h2 class="hidden">管理人について</h2>
     <div class="AboutWidget_head">
       <div class="AboutWidget_head-content">
-        <h2 class="AboutWidget_name">kimulaco</h2>
+        <p class="AboutWidget_name">kimulaco</p>
         <p class="AboutWidget_job">Front-end Engineer</p>
       </div>
       <div class="AboutWidget_icon">
-        <img class="AboutWidget_icon-img" src="/img/profile.png" alt="" />
+        <img
+          class="AboutWidget_icon-img"
+          src="/img/profile.png"
+          alt=""
+          width="50"
+          height="50"
+          loading="lazy"
+        />
       </div>
     </div>
     <div class="AboutWidget_content">
@@ -89,6 +97,7 @@ export default Vue.extend({
 }
 .AboutWidget_name {
   font-size: 20px;
+  font-weight: bold;
   margin: 6px 0 0;
   line-height: 1.2;
 }
@@ -137,6 +146,12 @@ export default Vue.extend({
   display: block;
   max-width: 24px;
   max-height: 24px;
+  transition: 0.3s;
+  @include media() {
+    @include active() {
+      opacity: 0.8;
+    }
+  }
   &.-twitter {
     color: #1da1f2;
   }
