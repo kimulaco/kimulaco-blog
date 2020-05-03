@@ -36,7 +36,7 @@
           :url="shareUrl"
           @click="$ga.event('share', 'click', $event, 2)"
         />
-        <LinkBack to="/" class="PostDetail_back">記事一覧に戻る</LinkBack>
+        <LinkText to="/" class="PostDetail_back -back">記事一覧に戻る</LinkText>
       </div>
     </article>
 
@@ -58,7 +58,7 @@ import { Context } from '@nuxt/types'
 import Vue from 'vue'
 import { Post, Tag } from '../../../types/blog'
 import Heading from '../../../components/module/Heading.vue'
-import LinkBack from '../../../components/module/LinkBack.vue'
+import LinkText from '../../../components/module/LinkText.vue'
 import Tags from '../../../components/module/Tags.vue'
 import Timestamp from '../../../components/module/Timestamp.vue'
 import Share from '../../../components/module/Share.vue'
@@ -75,7 +75,7 @@ export default Vue.extend({
   name: 'PagePostDetail',
   components: {
     Heading,
-    LinkBack,
+    LinkText,
     Tags,
     Timestamp,
     Share,
@@ -204,7 +204,7 @@ export default Vue.extend({
   }
 }
 
-.PostDetail_back.LinkBack {
+.PostDetail_back.LinkText {
   margin: 32px 0 0;
 }
 </style>
