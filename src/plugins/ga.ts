@@ -5,7 +5,6 @@ export default ({ app: { router, $ga } }: Context) => {
   const sendVitalsMetricToGA = (
     { name, delta, id }: { name: string, delta: number, id: string }
   ) => {
-    console.log(name)
     $ga.event({
       eventCategory: 'Web Vitals',
       eventAction: name,
