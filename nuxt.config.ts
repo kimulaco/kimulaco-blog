@@ -76,12 +76,7 @@ const config: Configuration = {
     '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/feed',
-    ['nuxt-vitals', {
-      trackingID: STAGE_ENV === 'production'
-        ? process.env.GA_TRACKING_ID
-        : process.env.GA_TRACKING_ID_RC
-    }]
+    '@nuxtjs/feed'
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
