@@ -10,6 +10,7 @@ import {
   FEED_PATH,
   FEED_CONFIG,
   SITEMAP_PATH,
+  GA_TRACKING_ID,
   createMetaData
 } from './src/utils/blog'
 import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
@@ -76,7 +77,13 @@ const config: Configuration = {
     '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
+    [
+      'nuxt-vitals',
+      STAGE_ENV === 'production'
+        ? { trackingID: GA_TRACKING_ID }
+        : null
+    ]
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
@@ -133,7 +140,7 @@ const config: Configuration = {
   googleAnalytics:
     STAGE_ENV === 'production'
       ? {
-          id: 'UA-137464103-1',
+          id: GA_TRACKING_ID,
           debug: { enabled: false }
         }
       : null,

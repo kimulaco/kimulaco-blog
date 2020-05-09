@@ -22,6 +22,7 @@ export const COPYRIGHT = '@ 2020 kimulaco.'
 export const FEED_PATH = '/feed/post.xml'
 export const FEED_URL = SITE_URL + FEED_PATH
 export const SITEMAP_PATH = '/sitemap.xml'
+export const GA_TRACKING_ID = 'UA-137464103-1'
 
 export const SITE_ICONS = [
   {
