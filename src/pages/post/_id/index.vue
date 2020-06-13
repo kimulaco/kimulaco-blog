@@ -69,7 +69,7 @@ import {
   SITE_URL,
   createMetaData,
   createPostBreadclumb,
-  createJsonldOfArticle,
+  createJsonldOfPost,
   createJsonldOfBreadcrumbList
 } from '../../../utils/blog'
 
@@ -115,7 +115,7 @@ export default Vue.extend({
   jsonld(): object {
     const { post, breadcrumbs } = this as any
     return [
-      createJsonldOfArticle(post),
+      createJsonldOfPost(post),
       createJsonldOfBreadcrumbList(breadcrumbs)
     ]
   },

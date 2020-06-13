@@ -139,10 +139,39 @@ export const createTagBreadclumb = (
   ]
 }
 
-export const createJsonldOfArticle = (post: Post) => {
+export const createJsonldOfWebSite = () => {
   return {
     '@context': 'http://schema.org',
-    '@type': 'NewsArticle',
+    '@type': 'WebSite',
+    'url': SITE_URL,
+    'name': SITE_TITLE,
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE_TITLE,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${SITE_URL}/img/icon.png`,
+        'width': 512,
+        'height': 512
+      },
+    },
+    'author': {
+      '@type': 'Person',
+      'name': PUBLISHER_NAME
+    },
+    'image': {
+      '@type': 'ImageObject',
+      'url': `${SITE_URL}/img/ogp.png`,
+      'width': 1200,
+      'height': 630
+    }
+  }
+}
+
+export const createJsonldOfPost = (post: Post) => {
+  return {
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
     'name': SITE_TITLE,
     'description': post.description,
     'headline': `${post.title} | ${SITE_TITLE}`,
@@ -159,7 +188,7 @@ export const createJsonldOfArticle = (post: Post) => {
     },
     'author': {
       '@type': 'Person',
-      'name': 'kimulaco'
+      'name': PUBLISHER_NAME
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
