@@ -10,14 +10,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Post, PostListResponse } from '../../types/blog'
+import { Post, BreadcrumbItem, PostListResponse } from '../../types/blog'
 import PageTitle from '../../components/module/PageTitle.vue'
 import PostLink from '../../components/post/PostLink.vue'
 import { getPostListAll } from '../../plugins/cms'
-import { createMetaData } from '../../utils/blog'
+import {
+  createMetaData,
+  createPageBreadclumb,
+  createJsonldOfBreadcrumbList
+} from '../../utils/blog'
 
 type LocalData = {
   posts: Post[]
+  breadcrumbs: BreadcrumbItem[] | null
 }
 
 export default Vue.extend({
@@ -29,8 +34,13 @@ export default Vue.extend({
   async asyncData(): Promise<LocalData> {
     const { posts }: PostListResponse = await getPostListAll()
     return {
-      posts: posts || []
+      posts: posts || [],
+      breadcrumbs: createPageBreadclumb('記事一覧', '/post')
     }
+  },
+  jsonld(): object {
+    const { breadcrumbs } = this as any
+    return createJsonldOfBreadcrumbList(breadcrumbs)
   },
   head() {
     return createMetaData(

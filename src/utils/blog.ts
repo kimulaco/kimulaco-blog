@@ -1,3 +1,5 @@
+import { Post, BreadcrumbItem } from '../types/blog'
+
 type MetaElement = {
   hid: string
   content: string
@@ -78,5 +80,139 @@ export const createMetaData = (
   return {
     title: metaTitle,
     meta
+  }
+}
+
+export const createPageBreadclumb = (
+  title: string,
+  path: string,
+): BreadcrumbItem[] => {
+  return [
+    {
+      url: SITE_URL,
+      text: 'TOPページ'
+    },
+    {
+      url: `${SITE_URL}${path}`,
+      text: title
+    }
+  ]
+}
+
+export const createPostBreadclumb = (
+  title: string,
+  postId: string,
+): BreadcrumbItem[] => {
+  return [
+    {
+      url: SITE_URL,
+      text: 'TOPページ'
+    },
+    {
+      url: `${SITE_URL}/post`,
+      text: '記事一覧'
+    },
+    {
+      url: `${SITE_URL}/post/${postId}`,
+      text: title
+    }
+  ]
+}
+
+export const createTagBreadclumb = (
+  title: string,
+  tagId: string,
+): BreadcrumbItem[] => {
+  return [
+    {
+      url: SITE_URL,
+      text: 'TOPページ'
+    },
+    {
+      url: `${SITE_URL}/tag`,
+      text: 'タグ一覧'
+    },
+    {
+      url: `${SITE_URL}/tag/${tagId}`,
+      text: title
+    }
+  ]
+}
+
+export const createJsonldOfWebSite = () => {
+  return {
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    'url': SITE_URL,
+    'name': SITE_TITLE,
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE_TITLE,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${SITE_URL}/img/icon.png`,
+        'width': 512,
+        'height': 512
+      },
+    },
+    'author': {
+      '@type': 'Person',
+      'name': PUBLISHER_NAME
+    },
+    'image': {
+      '@type': 'ImageObject',
+      'url': `${SITE_URL}/img/ogp.png`,
+      'width': 1200,
+      'height': 630
+    }
+  }
+}
+
+export const createJsonldOfPost = (post: Post) => {
+  return {
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
+    'name': SITE_TITLE,
+    'description': post.description,
+    'headline': `${post.title} | ${SITE_TITLE}`,
+    'inLanguage': 'jp',
+    'url': SITE_URL,
+    'image': [`${SITE_URL}/img/ogp.png`],
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE_TITLE,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${SITE_URL}/img/icon.png`
+      }
+    },
+    'author': {
+      '@type': 'Person',
+      'name': PUBLISHER_NAME
+    },
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/post/${post.id}`
+    },
+    'datePublished': post.created_at,
+    'dateModified': post.updated_at || ''
+  }
+}
+
+export const createJsonldOfBreadcrumbList = (breadcrumbs: BreadcrumbItem[]) => {
+  return {
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': breadcrumbs.map((
+      item: BreadcrumbItem,
+      index: number
+    ) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'item': {
+        '@id': item.url,
+        'name': item.text
+      }
+    }))
   }
 }

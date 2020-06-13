@@ -23,6 +23,7 @@ import LinkText from '../components/module/LinkText.vue'
 import TagList from '../components/module/TagList.vue'
 import PostLink from '../components/post/PostLink.vue'
 import { getPostList, getTagListDetail } from '../plugins/cms'
+import { createJsonldOfWebSite } from '../utils/blog'
 
 type LocalData = {
   posts: Post[]
@@ -44,6 +45,9 @@ export default Vue.extend({
       posts: posts || [],
       tags: tags || []
     }
+  },
+  jsonld(): object {
+    return createJsonldOfWebSite()
   }
 })
 </script>

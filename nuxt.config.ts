@@ -80,6 +80,7 @@ const config: Configuration = {
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
+    { src: '@/plugins/json-ld', mode: 'server' },
     { src: '@/plugins/filter', mode: 'all' },
     { src: '@/plugins/axios', mode: 'all' },
     { src: '@/plugins/markdownit', mode: 'all' }

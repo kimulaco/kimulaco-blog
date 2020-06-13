@@ -5131,10 +5131,15 @@ connect@^3.7.0:
     parseurl "~1.3.3"
     utils-merge "1.0.1"
 
-consola@^2.10.0, consola@^2.10.1, consola@^2.11.3, consola@^2.3.2, consola@^2.4.0, consola@^2.5.6, consola@^2.6.0, consola@^2.9.0:
+consola@^2.10.0, consola@^2.10.1, consola@^2.11.3, consola@^2.4.0, consola@^2.5.6, consola@^2.6.0, consola@^2.9.0:
   version "2.11.3"
   resolved "https://registry.yarnpkg.com/consola/-/consola-2.11.3.tgz#f7315836224c143ac5094b47fd4c816c2cd1560e"
   integrity sha512-aoW0YIIAmeftGR8GSpw6CGQluNdkWMWh3yEFjH/hmynTYnMtibXszii3lxCXmk8YxJtI3FAK5aTiquA5VH68Gw==
+
+consola@^2.3.2:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/consola/-/consola-2.13.0.tgz#5a4dc75e1b1fddbd8b10728e7790a2e54efeeeb7"
+  integrity sha512-Jw+8qpL0yrpfqH9m90fWoDRQyn8TYU6Aegpl4UofoP81VYvQLoOWMpFw2vQ3U/cyLRRzTc/CyNC6YYVzZFU8Eg==
 
 console-browserify@^1.1.0:
   version "1.2.0"
@@ -8025,10 +8030,15 @@ got@^9.6.0:
     to-readable-stream "^1.0.0"
     url-parse-lax "^3.0.0"
 
-graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2, graceful-fs@^4.2.3:
+graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.3, graceful-fs@^4.2.0, graceful-fs@^4.2.2, graceful-fs@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+
+graceful-fs@^4.1.2, graceful-fs@^4.1.6:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
+  integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
@@ -10505,9 +10515,9 @@ lru_map@^0.3.3:
   integrity sha1-tcg1G5Rky9dQM1p5ZQoOwOVhGN0=
 
 luxon@^1.3.3:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.23.0.tgz#23b748ad0f2d5494dc4d2878c19278c1e651410c"
-  integrity sha512-+6a/bXsCWrrR8vfbL41iM92es12zwV2Rum/KPkT+ubOZnnU3Sqbqok/FmD1xsWlWN2Y9Hu0fU/vNgU24ns7bpA==
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.24.1.tgz#a8383266131ed4eaed4b5f430f96f3695403a52a"
+  integrity sha512-CgnIMKAWT0ghcuWFfCWBnWGOddM0zu6c4wZAWmD0NN7MZTnro0+833DF6tJep+xlxRPg4KtsYEHYLfTMBQKwYg==
 
 macos-release@^2.2.0:
   version "2.3.0"
@@ -11548,6 +11558,11 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+
+nuxt-jsonld@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/nuxt-jsonld/-/nuxt-jsonld-1.4.9.tgz#6e99b816f8f979c23a92aaf7858a19d7a2777a20"
+  integrity sha512-vQiVm9XH+g1uyeECQJiu4dFyjCB50n2qqS7DMFsY6whHW2iIl4y6kGqvqkDUg5/c3dy4aZT03nZYO00gAHaA4A==
 
 nuxt@^2.12.2:
   version "2.12.2"

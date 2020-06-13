@@ -56,7 +56,7 @@
 <script lang="ts">
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
-import { Post, Tag } from '../../../types/blog'
+import { Post, Tag, BreadcrumbItem } from '../../../types/blog'
 import Heading from '../../../components/module/Heading.vue'
 import LinkText from '../../../components/module/LinkText.vue'
 import Tags from '../../../components/module/Tags.vue'
@@ -65,10 +65,17 @@ import Share from '../../../components/module/Share.vue'
 import PostContent from '../../../components/post/PostContent.vue'
 import PostLink from '../../../components/post/PostLink.vue'
 import { getPost } from '../../../plugins/cms'
-import { SITE_URL, createMetaData } from '../../../utils/blog'
+import {
+  SITE_URL,
+  createMetaData,
+  createPostBreadclumb,
+  createJsonldOfPost,
+  createJsonldOfBreadcrumbList
+} from '../../../utils/blog'
 
 type LocalData = {
   post: Post | null
+  breadcrumbs: BreadcrumbItem[] | null
 }
 
 export default Vue.extend({
@@ -91,15 +98,26 @@ export default Vue.extend({
         post: {
           ...post,
           content: app.$md.render(`[[toc]]\n\n${post.content}`)
-        }
+        },
+        breadcrumbs: createPostBreadclumb(post.title, post.id)
       }
     } catch (error) {
       console.error(error)
       redirect({
         path: '/404'
       })
-      return { post: null }
+      return {
+        post: null,
+        breadcrumbs: null
+      }
     }
+  },
+  jsonld(): object {
+    const { post, breadcrumbs } = this as any
+    return [
+      createJsonldOfPost(post),
+      createJsonldOfBreadcrumbList(breadcrumbs)
+    ]
   },
   computed: {
     postTag() {
