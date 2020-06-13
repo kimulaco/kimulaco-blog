@@ -22,12 +22,22 @@ import PageTitle from '../../../components/module/PageTitle.vue'
 import LinkButton from '../../../components/module/LinkButton.vue'
 import PostLink from '../../../components/post/PostLink.vue'
 import { getPostListAll, getTag } from '../../../plugins/cms'
-import { createMetaData } from '../../../utils/blog'
-import { Post, Tag, PostListResponse } from '../../../types/blog'
+import {
+  createMetaData,
+  createTagBreadclumb,
+  createJsonldOfBreadcrumbList
+} from '../../../utils/blog'
+import {
+  Post,
+  Tag,
+  BreadcrumbItem,
+  PostListResponse
+} from '../../../types/blog'
 
 type LocalData = {
   posts: Post[]
   tag: Tag
+  breadcrumbs: BreadcrumbItem[] | null
 }
 
 export default Vue.extend({
@@ -45,7 +55,11 @@ export default Vue.extend({
       })
       return {
         posts: posts || [],
-        tag
+        tag,
+        breadcrumbs: createTagBreadclumb(
+          `${tag.name}のタグを持つ記事の一覧。`,
+          tag.id
+        )
       }
     } catch (error) {
       return {
@@ -54,9 +68,14 @@ export default Vue.extend({
           name: params.id,
           id: params.id,
           count: 0
-        }
+        },
+        breadcrumbs: null
       }
     }
+  },
+  jsonld(): object {
+    const { breadcrumbs } = this as any
+    return createJsonldOfBreadcrumbList(breadcrumbs)
   },
   head() {
     const { tag } = this as any

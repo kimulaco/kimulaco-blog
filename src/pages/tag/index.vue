@@ -11,11 +11,16 @@ import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
 import TagList from '../../components/module/TagList.vue'
 import { getTagListDetail } from '../../plugins/cms'
-import { createMetaData } from '../../utils/blog'
-import { Tag, TagListResponse } from '../../types/blog'
+import {
+  createMetaData,
+  createPageBreadclumb,
+  createJsonldOfBreadcrumbList
+} from '../../utils/blog'
+import { Tag, BreadcrumbItem, TagListResponse } from '../../types/blog'
 
 type LocalData = {
   tags: Tag[]
+  breadcrumbs: BreadcrumbItem[] | null
 }
 
 export default Vue.extend({
@@ -27,10 +32,20 @@ export default Vue.extend({
   async asyncData({ params }: Context): Promise<LocalData> {
     try {
       const { tags }: TagListResponse = await getTagListDetail()
-      return { tags }
+      return {
+        tags,
+        breadcrumbs: createPageBreadclumb('タグ一覧', '/tag')
+      }
     } catch (error) {
-      return { tags: [] }
+      return {
+        tags: [],
+        breadcrumbs: null
+      }
     }
+  },
+  jsonld(): object {
+    const { breadcrumbs } = this as any
+    return createJsonldOfBreadcrumbList(breadcrumbs)
   },
   head() {
     return createMetaData(

@@ -29,6 +29,11 @@ export type Post = {
   related_posts: Post[]
 }
 
+export type BreadcrumbItem = {
+  url: string
+  text: string
+}
+
 export type PostRequestParam = {
   draftKey?: string
   depth?: number

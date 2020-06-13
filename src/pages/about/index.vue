@@ -14,10 +14,16 @@ import Vue from 'vue'
 import PageTitle from '../../components/module/PageTitle.vue'
 import PostContent from '../../components/post/PostContent.vue'
 import { getAbout } from '../../plugins/cms'
-import { createMetaData } from '../../utils/blog'
+import {
+  createMetaData,
+  createPageBreadclumb,
+  createJsonldOfBreadcrumbList
+} from '../../utils/blog'
+import { BreadcrumbItem } from '../../types/blog'
 
 type LocalData = {
   content: string
+  breadcrumbs: BreadcrumbItem[] | null
 }
 
 export default Vue.extend({
@@ -34,7 +40,12 @@ export default Vue.extend({
       + contact
     return {
       content: app.$md.render(content),
+      breadcrumbs: createPageBreadclumb('About', '/about')
     }
+  },
+  jsonld(): object {
+    const { breadcrumbs } = this as any
+    return createJsonldOfBreadcrumbList(breadcrumbs)
   },
   head() {
     return createMetaData('About', '', '/about/')
