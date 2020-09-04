@@ -28,6 +28,7 @@ const {
 
 const config: Configuration = {
   mode: 'universal',
+  target: 'static',
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
     CMS_API_KEY: CMS_API_KEY || '',
