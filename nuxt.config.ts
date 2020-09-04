@@ -20,14 +20,17 @@ const {
   STAGE_ENV,
   CMS_BASE_URL,
   CMS_API_KEY,
-  SENTRY_DSN
+  SENTRY_DSN,
+  GA_TRACKING_ID,
+  GA_TRACKING_ID_RC,
+  AD_ID,
 } = process.env
 
 const config: Configuration = {
   mode: 'universal',
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
-    CMS_API_KEY: CMS_API_KEY || ''
+    CMS_API_KEY: CMS_API_KEY || '',
   },
   head: {
     htmlAttrs: { lang: 'ja' },
@@ -45,13 +48,6 @@ const config: Configuration = {
         type: 'application/atom+xml',
         title: SITE_TITLE,
         href: FEED_PATH
-      }
-    ],
-    script: [
-      {
-        'data-ad-client': 'ca-pub-9857491267710655',
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        async: true
       }
     ]
   },
@@ -74,6 +70,7 @@ const config: Configuration = {
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/google-adsense',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     '@nuxtjs/feed'
@@ -132,10 +129,18 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: STAGE_ENV === 'production'
-      ? process.env.GA_TRACKING_ID
-      : process.env.GA_TRACKING_ID_RC,
+    id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     debug: { enabled: false }
+  },
+  'google-adsense': {
+    id: AD_ID,
+    tag: 'adsbygoogle',
+    pageLevelAds: true,
+    analyticsUacct: STAGE_ENV === 'production'
+      ? GA_TRACKING_ID
+      : GA_TRACKING_ID_RC,
+    analyticsDomainName: SITE_URL.replace('https://', ''),
+    // test: STAGE_ENV !== 'production',
   },
   srcDir: 'src',
   generate: {

@@ -6,6 +6,17 @@
       <nuxt />
     </SiteMain>
 
+    <div>
+      <!-- <adsbygoogle ad-slot="4432810314" /> -->
+      <adsbygoogle
+        ad-slot="4432810314"
+        ad-format=""
+        :ad-style="{
+          'max-width': '100%',
+        }"
+      />
+    </div>
+
     <SiteProfile>
       <AboutWidget />
     </SiteProfile>
@@ -47,7 +58,7 @@ export default Vue.extend({
   computed: {
     notification() {
       return this.$store.state.notification
-    }
+    },
   },
   watch: {
     'notification.show'(isShow: boolean): void {
