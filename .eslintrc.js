@@ -3,10 +3,10 @@ module.exports = {
   env: {
     'browser': true,
     'node': true,
-    'cypress/globals': true
+    'cypress/globals': true,
   },
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
@@ -14,17 +14,19 @@ module.exports = {
     'prettier/vue',
     'plugin:cypress/recommended',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
   ],
-  plugins: [
-    'prettier'
-  ],
+  plugins: ['prettier'],
   rules: {
-    'no-console': [0 , { allow: ['error'] }]
+    'no-console': [0, { allow: ['error'] }],
     'camelcase': 0,
-    '@typescript-eslint/no-unused-vars': ['error', {
-      vars: 'all',
-      args: 'after-used'
-    }]
-  }
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+      },
+    ],
+  },
 }

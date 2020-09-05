@@ -13,8 +13,8 @@ import SiteInner from '../layout/SiteInner.vue'
 export default Vue.extend({
   name: 'SiteMain',
   components: {
-    SiteInner
-  }
+    SiteInner,
+  },
 })
 </script>
 

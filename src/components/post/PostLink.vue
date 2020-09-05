@@ -29,13 +29,13 @@ export default Vue.extend({
   name: 'PostLink',
   components: {
     Tags,
-    Timestamp
+    Timestamp,
   },
   props: {
     post: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     postTag() {
@@ -46,11 +46,11 @@ export default Vue.extend({
       return post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
-          name: tag.name
+          name: tag.name,
         }
       })
-    }
-  }
+    },
+  },
 })
 </script>
 

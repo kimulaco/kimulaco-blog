@@ -1,9 +1,5 @@
 <template>
-  <nuxt-link
-    :is="to ? 'nuxt-link' : 'span'"
-    :to="to"
-    class="Tag"
-  >
+  <nuxt-link :is="to ? 'nuxt-link' : 'span'" :to="to" class="Tag">
     <slot />
   </nuxt-link>
 </template>
@@ -16,9 +12,9 @@ export default Vue.extend({
   props: {
     to: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

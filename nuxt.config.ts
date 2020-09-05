@@ -8,9 +8,8 @@ import {
   SITE_THEME_COLOR,
   SITE_DEFAULT_OGP,
   FEED_PATH,
-  FEED_CONFIG,
   SITEMAP_PATH,
-  createMetaData
+  createMetaData,
 } from './src/utils/blog'
 import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
 import pkg from './package.json'
@@ -40,7 +39,7 @@ const config: Configuration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       ...SITE_DEFAULT_OGP,
-      ...createMetaData().meta
+      ...createMetaData().meta,
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/img/icon.svg' },
@@ -48,21 +47,21 @@ const config: Configuration = {
         rel: 'alternate',
         type: 'application/atom+xml',
         title: SITE_TITLE,
-        href: FEED_PATH
-      }
-    ]
+        href: FEED_PATH,
+      },
+    ],
   },
   loading: false,
   css: [
     'normalize.css',
     '@/assets/css/prism.css',
     '@/assets/scss/base.scss',
-    '@/assets/scss/util.scss'
+    '@/assets/scss/util.scss',
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
   ],
   modules: [
     '@nuxtjs/style-resources',
@@ -74,14 +73,14 @@ const config: Configuration = {
     '@nuxtjs/google-adsense',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
   ],
   plugins: [
     { src: '@/plugins/ga', mode: 'client' },
     { src: '@/plugins/json-ld', mode: 'server' },
     { src: '@/plugins/filter', mode: 'all' },
     { src: '@/plugins/axios', mode: 'all' },
-    { src: '@/plugins/markdownit', mode: 'all' }
+    { src: '@/plugins/markdownit', mode: 'all' },
   ],
   manifest: {
     name: SITE_TITLE,
@@ -91,7 +90,7 @@ const config: Configuration = {
     theme_color: SITE_THEME_COLOR,
     background_color: SITE_THEME_COLOR,
     display: 'standalone',
-    icons: SITE_ICONS
+    icons: SITE_ICONS,
   },
   sitemap: {
     path: SITEMAP_PATH,
@@ -100,25 +99,25 @@ const config: Configuration = {
     async routes() {
       const [postRoutes, tagRoutes] = await Promise.all([
         createPostRoutes(),
-        createTagRoutes()
+        createTagRoutes(),
       ])
       return ['/', ...postRoutes, ...tagRoutes]
-    }
+    },
   },
   feed: [
     {
       path: FEED_PATH,
       type: 'atom1',
       cacheTime: 1000 * 60 * 15,
-      create: createFeed
-    }
+      create: createFeed,
+    },
   ],
   styleResources: {
     scss: [
       '@/assets/scss/_define.scss',
       '@/assets/scss/_mixin.scss',
-      '@/assets/scss/_extend.scss'
-    ]
+      '@/assets/scss/_extend.scss',
+    ],
   },
   sentry: {
     dsn: SENTRY_DSN || '',
@@ -126,55 +125,53 @@ const config: Configuration = {
     disabled: !STAGE_ENV,
     config: {
       release: `${pkg.name}@${pkg.version}-${STAGE_ENV}`,
-      environment: NODE_ENV || 'development'
-    }
+      environment: NODE_ENV || 'development',
+    },
   },
   googleAnalytics: {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
-    debug: { enabled: false }
+    debug: { enabled: false },
   },
-  'google-adsense': {
+  googleAdsense: {
     id: AD_ID,
     tag: 'adsbygoogle',
     pageLevelAds: true,
-    analyticsUacct: STAGE_ENV === 'production'
-      ? GA_TRACKING_ID
-      : GA_TRACKING_ID_RC,
+    analyticsUacct:
+      STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     analyticsDomainName: SITE_URL.replace('https://', ''),
-    // test: STAGE_ENV !== 'production',
   },
   srcDir: 'src',
   generate: {
     async routes(): Promise<string[]> {
       const [postRoutes, tagRoutes] = await Promise.all([
         createPostRoutes(),
-        createTagRoutes()
+        createTagRoutes(),
       ])
       return ['/', ...postRoutes, ...tagRoutes]
-    }
+    },
   },
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'custom',
         path: '*',
-        component: resolve(__dirname, 'src/pages/404.vue')
+        component: resolve(__dirname, 'src/pages/404.vue'),
       })
-    }
+    },
   },
   build: {
     loaders: {
       scss: {
         implementation: Sass,
         sassOptions: {
-          fiber: Fiber
-        }
-      }
-    }
+          fiber: Fiber,
+        },
+      },
+    },
   },
   server: {
-    port: 3000
-  }
+    port: 3000,
+  },
 }
 
 export default config

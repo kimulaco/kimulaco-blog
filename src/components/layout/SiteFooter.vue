@@ -13,16 +13,12 @@
           </nuxt-link>
         </li>
         <li class="SiteFooter_menu-item">
-          <a class="SiteFooter_menu-link" href="/feed/post.xml">
-            Feed
-          </a>
+          <a class="SiteFooter_menu-link" href="/feed/post.xml">Feed</a>
         </li>
       </ul>
 
       <p class="SiteFooter_copyright">
-        <small class="SiteFooter_copyright-text">
-          &copy; 2020 kimulaco.
-        </small>
+        <small class="SiteFooter_copyright-text">&copy; 2020 kimulaco.</small>
       </p>
     </SiteInner>
   </footer>
@@ -35,8 +31,8 @@ import SiteInner from '../layout/SiteInner.vue'
 export default Vue.extend({
   name: 'SiteFooter',
   components: {
-    SiteInner
-  }
+    SiteInner,
+  },
 })
 </script>
 

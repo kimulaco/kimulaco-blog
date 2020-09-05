@@ -53,7 +53,7 @@ export default Vue.extend({
     SiteProfile,
     SiteFooter,
     Notification,
-    AboutWidget
+    AboutWidget,
   },
   computed: {
     notification() {
@@ -68,13 +68,13 @@ export default Vue.extend({
           this.$store.commit('hideNotification')
         }, 4000)
       }
-    }
+    },
   },
   methods: {
     handleCloseNotification() {
       this.$ga.event('notification', 'close', 'click')
       this.$store.commit('hideNotification')
-    }
-  }
+    },
+  },
 })
 </script>

@@ -17,7 +17,7 @@ module.exports = (on, config) => {
       })
 
       return urls
-    }
+    },
   })
 
   return config

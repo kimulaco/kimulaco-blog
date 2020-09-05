@@ -25,13 +25,13 @@ import { getPostListAll, getTag } from '../../../plugins/cms'
 import {
   createMetaData,
   createTagBreadclumb,
-  createJsonldOfBreadcrumbList
+  createJsonldOfBreadcrumbList,
 } from '../../../utils/blog'
 import {
   Post,
   Tag,
   BreadcrumbItem,
-  PostListResponse
+  PostListResponse,
 } from '../../../types/blog'
 
 type LocalData = {
@@ -45,21 +45,21 @@ export default Vue.extend({
   components: {
     PageTitle,
     LinkButton,
-    PostLink
+    PostLink,
   },
   async asyncData({ params }: Context): Promise<LocalData> {
     try {
       const tag: Tag = await getTag(params.id)
       const { posts }: PostListResponse = await getPostListAll({
-        filters: `tag[contains]${params.id}`
+        filters: `tag[contains]${params.id}`,
       })
       return {
         posts: posts || [],
         tag,
         breadcrumbs: createTagBreadclumb(
           `${tag.name}のタグを持つ記事の一覧。`,
-          tag.id
-        )
+          tag.id,
+        ),
       }
     } catch (error) {
       return {
@@ -67,9 +67,9 @@ export default Vue.extend({
         tag: {
           name: params.id,
           id: params.id,
-          count: 0
+          count: 0,
         },
-        breadcrumbs: null
+        breadcrumbs: null,
       }
     }
   },
@@ -82,8 +82,8 @@ export default Vue.extend({
     return createMetaData(
       `${tag.name}のタグを持つ記事`,
       `${tag.name}のタグを持つ記事の一覧。`,
-      `/tag/${tag.id}/`
+      `/tag/${tag.id}/`,
     )
-  }
+  },
 })
 </script>

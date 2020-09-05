@@ -36,18 +36,18 @@ export default Vue.extend({
     Heading,
     LinkText,
     TagList,
-    PostLink
+    PostLink,
   },
   async asyncData(): Promise<LocalData> {
     const { posts }: PostListResponse = await getPostList()
     const { tags }: TagListResponse = await getTagListDetail()
     return {
       posts: posts || [],
-      tags: tags || []
+      tags: tags || [],
     }
   },
   jsonld(): object {
     return createJsonldOfWebSite()
-  }
+  },
 })
 </script>

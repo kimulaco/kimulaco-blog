@@ -14,9 +14,9 @@ export default Vue.extend({
   props: {
     to: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 
@@ -48,11 +48,11 @@ export default Vue.extend({
   }
 }
 .LinkText.-back {
-    .LinkText_anchor {
-      &::before {
-        transform: rotate(45deg);
-        left: 4px;
-      }
+  .LinkText_anchor {
+    &::before {
+      transform: rotate(45deg);
+      left: 4px;
     }
   }
+}
 </style>

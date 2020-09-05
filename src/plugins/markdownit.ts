@@ -22,14 +22,14 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
           return `<pre class="language-${lang}"><code>${Prism.highlight(
             str,
             Prism.languages[lang],
-            lang
+            lang,
           )}</code></pre>`
         } catch (e) {}
       }
       return `<pre class="language-plain"><code>${md.utils.escapeHtml(
-        str
+        str,
       )}</code></pre>`
-    }
+    },
   })
 
   let render: any | undefined = md.renderer.rules.link_open
@@ -40,7 +40,7 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
       idx: number,
       options: object,
       env: any,
-      self: any
+      self: any,
     ) => {
       return self.renderToken(tokens, idx, options)
     }
@@ -51,7 +51,7 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
     idx: number,
     options: object,
     env: any,
-    self: any
+    self: any,
   ) => {
     const token = tokens[idx]
     const loadingIndex = token.attrIndex('loading')
@@ -68,7 +68,7 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
     idx: number,
     options: object,
     env: any,
-    self: any
+    self: any,
   ) => {
     const token = tokens[idx]
     const hrefIndex = token.attrIndex('href')
@@ -104,7 +104,7 @@ const markdownIt: Plugin = (context: object, inject: Inject) => {
     },
     transformLink(link: string) {
       return removeMd(decodeURI(link))
-    }
+    },
   })
 
   inject('md', md)

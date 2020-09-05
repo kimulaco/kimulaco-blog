@@ -24,7 +24,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Notification'
+  name: 'Notification',
 })
 </script>
 

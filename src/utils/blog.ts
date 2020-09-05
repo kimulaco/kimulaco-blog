@@ -1,17 +1,5 @@
 import { Post, BreadcrumbItem } from '../types/blog'
 
-type MetaElement = {
-  hid: string
-  content: string
-  name?: string
-  property?: string
-}
-
-type MetaData = {
-  title: string
-  meta: MetaElement[]
-}
-
 export const PUBLISHER_NAME = 'kimulaco'
 export const PUBLISHER_EMAIL = 'kimulaco@gmail.com'
 export const TWITTER_ID = '@kimulaco'
@@ -29,8 +17,8 @@ export const SITE_ICONS = [
   {
     src: '/img/icon.png',
     sizes: '512x512',
-    type: 'image/png'
-  }
+    type: 'image/png',
+  },
 ]
 
 export const SITE_DEFAULT_OGP = [
@@ -39,7 +27,7 @@ export const SITE_DEFAULT_OGP = [
   { hid: 'og:image', property: 'og:image', content: `${SITE_URL}/img/ogp.png` },
   { hid: 'fb:app_id', property: 'fb:app_id', content: FACEBOOK_APP_ID },
   { hid: 'twitter:creator', name: 'twitter:creator', content: TWITTER_ID },
-  { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' }
+  { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
 ]
 
 export const FEED_CONFIG = {
@@ -50,14 +38,14 @@ export const FEED_CONFIG = {
   language: 'ja',
   favicon: `${SITE_URL}/img/favicon.ico`,
   copyright: COPYRIGHT,
-  image: `${SITE_URL}/img/icon.png`
+  image: `${SITE_URL}/img/icon.png`,
 }
 
 export const createMetaData = (
   title?: string,
   description?: string,
   path?: string,
-  imageUrl?: string
+  imageUrl?: string,
 ): any => {
   const metaTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE
   const metaDesc = description || SITE_DESC
@@ -73,13 +61,13 @@ export const createMetaData = (
     {
       hid: 'twitter:description',
       name: 'twitter:description',
-      content: metaDesc
+      content: metaDesc,
     },
-    { hid: 'twitter:image', name: 'twitter:image', content: metaImage }
+    { hid: 'twitter:image', name: 'twitter:image', content: metaImage },
   ]
   return {
     title: metaTitle,
-    meta
+    meta,
   }
 }
 
@@ -90,12 +78,12 @@ export const createPageBreadclumb = (
   return [
     {
       url: SITE_URL,
-      text: 'TOPページ'
+      text: 'TOPページ',
     },
     {
       url: `${SITE_URL}${path}`,
-      text: title
-    }
+      text: title,
+    },
   ]
 }
 
@@ -106,16 +94,16 @@ export const createPostBreadclumb = (
   return [
     {
       url: SITE_URL,
-      text: 'TOPページ'
+      text: 'TOPページ',
     },
     {
       url: `${SITE_URL}/post`,
-      text: '記事一覧'
+      text: '記事一覧',
     },
     {
       url: `${SITE_URL}/post/${postId}`,
-      text: title
-    }
+      text: title,
+    },
   ]
 }
 
@@ -126,16 +114,16 @@ export const createTagBreadclumb = (
   return [
     {
       url: SITE_URL,
-      text: 'TOPページ'
+      text: 'TOPページ',
     },
     {
       url: `${SITE_URL}/tag`,
-      text: 'タグ一覧'
+      text: 'タグ一覧',
     },
     {
       url: `${SITE_URL}/tag/${tagId}`,
-      text: title
-    }
+      text: title,
+    },
   ]
 }
 
@@ -152,19 +140,19 @@ export const createJsonldOfWebSite = () => {
         '@type': 'ImageObject',
         'url': `${SITE_URL}/img/icon.png`,
         'width': 512,
-        'height': 512
+        'height': 512,
       },
     },
     'author': {
       '@type': 'Person',
-      'name': PUBLISHER_NAME
+      'name': PUBLISHER_NAME,
     },
     'image': {
       '@type': 'ImageObject',
       'url': `${SITE_URL}/img/ogp.png`,
       'width': 1200,
-      'height': 630
-    }
+      'height': 630,
+    },
   }
 }
 
@@ -183,19 +171,19 @@ export const createJsonldOfPost = (post: Post) => {
       'name': SITE_TITLE,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${SITE_URL}/img/icon.png`
-      }
+        'url': `${SITE_URL}/img/icon.png`,
+      },
     },
     'author': {
       '@type': 'Person',
-      'name': PUBLISHER_NAME
+      'name': PUBLISHER_NAME,
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}/post/${post.id}`
+      '@id': `${SITE_URL}/post/${post.id}`,
     },
     'datePublished': post.created_at,
-    'dateModified': post.updated_at || ''
+    'dateModified': post.updated_at || '',
   }
 }
 
@@ -203,16 +191,15 @@ export const createJsonldOfBreadcrumbList = (breadcrumbs: BreadcrumbItem[]) => {
   return {
     '@context': 'http://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': breadcrumbs.map((
-      item: BreadcrumbItem,
-      index: number
-    ) => ({
-      '@type': 'ListItem',
-      'position': index + 1,
-      'item': {
-        '@id': item.url,
-        'name': item.text
-      }
-    }))
+    'itemListElement': breadcrumbs.map(
+      (item: BreadcrumbItem, index: number) => ({
+        '@type': 'ListItem',
+        'position': index + 1,
+        'item': {
+          '@id': item.url,
+          'name': item.text,
+        },
+      }),
+    ),
   }
 }

@@ -17,10 +17,10 @@ export default Vue.extend({
   layout: 'single',
   components: {
     PageTitle,
-    LinkButton
+    LinkButton,
   },
   head() {
     return createMetaData('ページが見つかりませんでした', '', '/404')
-  }
+  },
 })
 </script>

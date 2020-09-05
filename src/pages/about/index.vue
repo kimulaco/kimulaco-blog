@@ -17,7 +17,7 @@ import { getAbout } from '../../plugins/cms'
 import {
   createMetaData,
   createPageBreadclumb,
-  createJsonldOfBreadcrumbList
+  createJsonldOfBreadcrumbList,
 } from '../../utils/blog'
 import { BreadcrumbItem } from '../../types/blog'
 
@@ -31,16 +31,15 @@ export default Vue.extend({
   layout: 'single',
   components: {
     PageTitle,
-    PostContent
+    PostContent,
   },
   async asyncData({ app }: Context): Promise<LocalData> {
     const { about, contact } = await getAbout()
-    const content = about
-      + '\n\n<h2 id="contact">お問い合わせ</h2>\n\n'
-      + contact
+    const content =
+      about + '\n\n<h2 id="contact">お問い合わせ</h2>\n\n' + contact
     return {
       content: app.$md.render(content),
-      breadcrumbs: createPageBreadclumb('About', '/about')
+      breadcrumbs: createPageBreadclumb('About', '/about'),
     }
   },
   jsonld(): object {
@@ -49,6 +48,6 @@ export default Vue.extend({
   },
   head() {
     return createMetaData('About', '', '/about/')
-  }
+  },
 })
 </script>
