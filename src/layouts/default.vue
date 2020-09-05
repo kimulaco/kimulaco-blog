@@ -6,16 +6,11 @@
       <nuxt />
     </SiteMain>
 
-    <div>
-      <!-- <adsbygoogle ad-slot="4432810314" /> -->
-      <adsbygoogle
-        ad-slot="4432810314"
-        ad-format=""
-        :ad-style="{
-          'max-width': '100%',
-        }"
-      />
-    </div>
+    <aside>
+      <SiteInner>
+        <Ads ad-slot="4432810314" />
+      </SiteInner>
+    </aside>
 
     <SiteProfile>
       <AboutWidget />
@@ -38,20 +33,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import SiteInner from '../components/layout/SiteInner.vue'
 import SiteHeader from '../components/layout/SiteHeader.vue'
 import SiteMain from '../components/layout/SiteMain.vue'
 import SiteProfile from '../components/layout/SiteProfile.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
+import Ads from '../components/module/Ads.vue'
 import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
 
 export default Vue.extend({
   name: 'Layout',
   components: {
+    SiteInner,
     SiteHeader,
     SiteMain,
     SiteProfile,
     SiteFooter,
+    Ads,
     Notification,
     AboutWidget,
   },
@@ -78,3 +77,5 @@ export default Vue.extend({
   },
 })
 </script>
+
+style

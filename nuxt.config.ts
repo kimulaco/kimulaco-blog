@@ -139,6 +139,7 @@ const config: Configuration = {
     analyticsUacct:
       STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     analyticsDomainName: SITE_URL.replace('https://', ''),
+    test: STAGE_ENV !== 'production',
   },
   srcDir: 'src',
   generate: {

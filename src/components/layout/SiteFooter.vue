@@ -13,10 +13,9 @@
           </nuxt-link>
         </li>
         <li class="SiteFooter_menu-item">
-          <a
-            class="SiteFooter_menu-link"
-            :href="`${siteUrl}/feed/post.xml`"
-          >Feed</a>
+          <a class="SiteFooter_menu-link" :href="`${siteUrl}/feed/post.xml`">
+            Feed
+          </a>
         </li>
       </ul>
 
