@@ -13,7 +13,10 @@
           </nuxt-link>
         </li>
         <li class="SiteFooter_menu-item">
-          <a class="SiteFooter_menu-link" href="/feed/post.xml">Feed</a>
+          <a
+            class="SiteFooter_menu-link"
+            :href="`${siteUrl}/feed/post.xml`"
+          >Feed</a>
         </li>
       </ul>
 
@@ -27,11 +30,17 @@
 <script lang="ts">
 import Vue from 'vue'
 import SiteInner from '../layout/SiteInner.vue'
+import { SITE_URL } from '../../utils/blog'
 
 export default Vue.extend({
   name: 'SiteFooter',
   components: {
     SiteInner,
+  },
+  computed: {
+    siteUrl(): string {
+      return SITE_URL
+    },
   },
 })
 </script>
