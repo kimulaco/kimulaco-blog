@@ -85,14 +85,14 @@ dist
 # Service worker
 sw.*
 
-# XML
-feed
-
 # Mac OSX
 .DS_Store
 
 # Vim swap files
 *.swp
+
+# src
+src/static/feed/post.xml
 
 # test
 test/e2e/videos
