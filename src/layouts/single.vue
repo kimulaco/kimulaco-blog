@@ -21,7 +21,7 @@ export default Vue.extend({
   components: {
     SiteHeader,
     SiteMain,
-    SiteFooter
-  }
+    SiteFooter,
+  },
 })
 </script>

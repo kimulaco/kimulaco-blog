@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
-import { dateFilter } from './filter'
 import {
   Post,
   Tag,
@@ -7,23 +6,24 @@ import {
   PostListRequestParam,
   PostListResponse,
   TagListResponse,
-  AboutResponse
+  AboutResponse,
 } from '../types/blog'
+import { dateFilter } from './filter'
 
 const API_DEFAULT_LIMIT = 10
 
 export const cms: AxiosInstance = axios.create({
   baseURL: `${process.env.CMS_BASE_URL}/api/v1`,
   headers: {
-    'X-API-KEY': process.env.CMS_API_KEY
-  }
+    'X-API-KEY': process.env.CMS_API_KEY,
+  },
 })
 
 const filterPost = (post: Post): Post => {
   post = {
     ...post,
     created_at: dateFilter(post.created_at || ''),
-    updated_at: dateFilter(post.updated_at || '')
+    updated_at: dateFilter(post.updated_at || ''),
   }
 
   if (Array.isArray(post.related_posts) && post.related_posts.length > 0) {
@@ -31,7 +31,7 @@ const filterPost = (post: Post): Post => {
       return {
         ...relatedPost,
         created_at: dateFilter(relatedPost.created_at || ''),
-        updated_at: dateFilter(relatedPost.updated_at || '')
+        updated_at: dateFilter(relatedPost.updated_at || ''),
       }
     })
   }
@@ -39,32 +39,32 @@ const filterPost = (post: Post): Post => {
   return {
     ...post,
     created_at: dateFilter(post.created_at || ''),
-    updated_at: dateFilter(post.updated_at || '')
+    updated_at: dateFilter(post.updated_at || ''),
   }
 }
 
 export const getPostList = async (
-  params: PostListRequestParam = {}
+  params: PostListRequestParam = {},
 ): Promise<PostListResponse> => {
   const limit = params.limit || API_DEFAULT_LIMIT
-  let { data }: AxiosResponse = await cms.get('/post', {
+  const { data }: AxiosResponse = await cms.get('/post', {
     params: {
       limit,
       offset: (params.page || 0) * limit,
-      filters: params.filters
-    }
+      filters: params.filters,
+    },
   })
 
   return {
     totalCount: data.totalCount,
     posts: data.contents.map((post: Post) => {
       return filterPost(post)
-    })
+    }),
   }
 }
 
 export const getPostListAll = async (
-  params: PostListRequestParam = {}
+  params: PostListRequestParam = {},
 ): Promise<PostListResponse> => {
   let postList: Post[] = []
   let postCount = 0
@@ -75,13 +75,15 @@ export const getPostListAll = async (
     const { posts, totalCount }: PostListResponse = await getPostList({
       limit: API_DEFAULT_LIMIT,
       filters: params.filters,
-      page: index
+      page: index,
     })
 
     postCount += posts.length
-    postList = postList.concat(posts.map((post: Post) => {
-      return filterPost(post)
-    }))
+    postList = postList.concat(
+      posts.map((post: Post) => {
+        return filterPost(post)
+      }),
+    )
 
     index++
 
@@ -92,18 +94,21 @@ export const getPostListAll = async (
 
   return {
     posts: postList,
-    totalCount: postList.length
+    totalCount: postList.length,
   }
 }
 
 export const getPost = async (
   postId: string,
-  params: PostRequestParam = {}
+  params: PostRequestParam = {},
 ): Promise<Post> => {
   const post: AxiosResponse = await cms.get(`/post/${postId}`, {
-    params: Object.assign({
-      depth: 2
-    }, params)
+    params: Object.assign(
+      {
+        depth: 2,
+      },
+      params,
+    ),
   })
   return filterPost(post.data)
 }
@@ -118,26 +123,28 @@ export const getTagListDetail = async (): Promise<TagListResponse> => {
     }
 
     for (const tag of post.tag) {
-      if (tagData.hasOwnProperty(tag.id)) {
+      if (tagData[tag.id]) {
         tagData[tag.id].count++
       } else {
         tagData[tag.id] = {
           ...tag,
-          count: 1
+          count: 1,
         }
       }
     }
   }
 
-  const tags: Tag[] = Object.keys(tagData).map((tagDataId: string) => {
-    return tagData[tagDataId]
-  }).sort((a: Tag, b: Tag) => {
-    return b.count - a.count
-  })
+  const tags: Tag[] = Object.keys(tagData)
+    .map((tagDataId: string) => {
+      return tagData[tagDataId]
+    })
+    .sort((a: Tag, b: Tag) => {
+      return b.count - a.count
+    })
 
   return {
     tags,
-    totalCount: tags.length
+    totalCount: tags.length,
   }
 }
 

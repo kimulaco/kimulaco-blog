@@ -22,7 +22,7 @@ import SiteInner from '../layout/SiteInner.vue'
 export default Vue.extend({
   name: 'SiteHeader',
   components: {
-    SiteInner
+    SiteInner,
   },
   computed: {
     isHome(): boolean {
@@ -30,8 +30,8 @@ export default Vue.extend({
     },
     titleTextTag(): string {
       return this.isHome ? 'span' : 'nuxt-link'
-    }
-  }
+    },
+  },
 })
 </script>
 

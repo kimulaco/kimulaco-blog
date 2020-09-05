@@ -13,16 +13,16 @@ import Tag from './Tag.vue'
 export default Vue.extend({
   name: 'TagList',
   components: {
-    Tag
+    Tag,
   },
   props: {
     tags: {
       type: Array,
       default() {
         return []
-      }
-    }
-  }
+      },
+    },
+  },
 })
 </script>
 

@@ -21,13 +21,13 @@ export default Vue.extend({
   props: {
     createdAt: {
       type: String,
-      required: true
+      required: true,
     },
     updatedAt: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

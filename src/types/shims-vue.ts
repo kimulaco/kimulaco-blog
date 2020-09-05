@@ -1,5 +1,4 @@
-import Vue, { ComponentOptions } from 'vue'
-import { Context } from '@nuxt/types'
+import Vue from 'vue'
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
 declare module 'vue/types/vue' {

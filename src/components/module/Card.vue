@@ -14,13 +14,13 @@ export default Vue.extend({
   props: {
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
     to: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

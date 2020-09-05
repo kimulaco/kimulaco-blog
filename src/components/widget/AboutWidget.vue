@@ -68,18 +68,18 @@ import Card from '../module/Card.vue'
 export default Vue.extend({
   name: 'AboutWidget',
   components: {
-    Card
+    Card,
   },
   props: {
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
     to: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 })
 </script>
 

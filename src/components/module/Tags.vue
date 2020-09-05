@@ -21,9 +21,9 @@ export default Vue.extend({
       type: Array,
       default() {
         return []
-      }
-    }
-  }
+      },
+    },
+  },
 })
 </script>
 

@@ -10,26 +10,26 @@ export const state = (): State => ({
   notification: {
     show: false,
     title: '',
-    content: ''
-  }
+    content: '',
+  },
 })
 
 export const mutations = {
   showNotification(
     state: State,
-    { title, content }: { title: string; content: string }
+    { title, content }: { title: string; content: string },
   ) {
     state.notification = {
       show: true,
       title,
-      content
+      content,
     }
   },
   hideNotification(state: State) {
     state.notification = {
       show: false,
       title: '',
-      content: ''
+      content: '',
     }
-  }
+  },
 }

@@ -118,22 +118,22 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     url: {
       type: String,
-      required: true
+      required: true,
     },
     social: {
       type: Array,
       default() {
         return ['twitter', 'facebook', 'feedly', 'pocket', 'hatena', 'clipbord']
-      }
-    }
+      },
+    },
   },
   computed: {
     encodedTitle(): string {
@@ -155,12 +155,12 @@ export default Vue.extend({
         twitter: `https://twitter.com/share?url=${this.url}&text=${this.encodedTitle} ${this.encodedDesc}`,
         facebook: `https://www.facebook.com/share.php?u=${this.url}`,
         feedly: `https://feedly.com/i/subscription/feed${encodeURI(
-          '/' + FEED_URL
+          '/' + FEED_URL,
         )}`,
         hatena: `https://b.hatena.ne.jp/add?mode=confirm&url=${this.url}&title=${this.encodedTitle}`,
-        pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`
+        pocket: `https://getpocket.com/edit?url=${this.url}&title=${this.encodedTitle}`,
       }
-    }
+    },
   },
   methods: {
     handleCopyClipbord() {
@@ -168,10 +168,10 @@ export default Vue.extend({
       copyToClipbord(window.location.href)
       this.$store.commit('showNotification', {
         title: 'URLをクリップボードにコピーしました。',
-        content: window.location.href
+        content: window.location.href,
       })
-    }
-  }
+    },
+  },
 })
 </script>
 

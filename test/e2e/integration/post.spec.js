@@ -4,7 +4,7 @@ it('pages are not 404', () => {
       cy.visit(url)
       cy.get('h1.PageTitle').should(
         'not.have.text',
-        'ページが見つかりませんでした。'
+        'ページが見つかりませんでした。',
       )
     })
   })

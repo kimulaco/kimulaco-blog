@@ -17,7 +17,7 @@ import { getPostListAll } from '../../plugins/cms'
 import {
   createMetaData,
   createPageBreadclumb,
-  createJsonldOfBreadcrumbList
+  createJsonldOfBreadcrumbList,
 } from '../../utils/blog'
 
 type LocalData = {
@@ -29,13 +29,13 @@ export default Vue.extend({
   name: 'PagePost',
   components: {
     PageTitle,
-    PostLink
+    PostLink,
   },
   async asyncData(): Promise<LocalData> {
     const { posts }: PostListResponse = await getPostListAll()
     return {
       posts: posts || [],
-      breadcrumbs: createPageBreadclumb('記事一覧', '/post')
+      breadcrumbs: createPageBreadclumb('記事一覧', '/post'),
     }
   },
   jsonld(): object {
@@ -46,8 +46,8 @@ export default Vue.extend({
     return createMetaData(
       '記事一覧',
       '本サイトの記事一覧ページです。記事を公開日順で一覧できます。',
-      '/post/'
+      '/post/',
     )
-  }
+  },
 })
 </script>

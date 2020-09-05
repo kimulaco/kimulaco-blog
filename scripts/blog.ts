@@ -4,8 +4,7 @@ import {
   PUBLISHER_NAME,
   PUBLISHER_EMAIL,
   SITE_URL,
-  SITE_ICONS,
-  FEED_CONFIG
+  FEED_CONFIG,
 } from '../src/utils/blog'
 import { getPostListAll, getTagListDetail } from '../src/plugins/cms' // eslint-disable-line import/first
 
@@ -38,7 +37,7 @@ export const createFeed = async (feed: any) => {
       description: post.description,
       content: removeMd(post.content),
       date: new Date(post.created_at),
-      image: `${SITE_URL}/img/ogp.png`
+      image: `${SITE_URL}/img/ogp.png`,
     })
   }
 
@@ -48,6 +47,6 @@ export const createFeed = async (feed: any) => {
   feed.addContributor({
     name: PUBLISHER_NAME,
     email: PUBLISHER_EMAIL,
-    link: 'https://kimulaco.me/'
+    link: 'https://kimulaco.me/',
   })
 }

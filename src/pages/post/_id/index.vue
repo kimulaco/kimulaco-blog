@@ -70,7 +70,7 @@ import {
   createMetaData,
   createPostBreadclumb,
   createJsonldOfPost,
-  createJsonldOfBreadcrumbList
+  createJsonldOfBreadcrumbList,
 } from '../../../utils/blog'
 
 type LocalData = {
@@ -87,7 +87,7 @@ export default Vue.extend({
     Timestamp,
     Share,
     PostContent,
-    PostLink
+    PostLink,
   },
   async asyncData(context: Context): Promise<LocalData> {
     const { app, params, query, redirect } = context
@@ -97,27 +97,24 @@ export default Vue.extend({
       return {
         post: {
           ...post,
-          content: app.$md.render(`[[toc]]\n\n${post.content}`)
+          content: app.$md.render(`[[toc]]\n\n${post.content}`),
         },
-        breadcrumbs: createPostBreadclumb(post.title, post.id)
+        breadcrumbs: createPostBreadclumb(post.title, post.id),
       }
     } catch (error) {
       console.error(error)
       redirect({
-        path: '/404'
+        path: '/404',
       })
       return {
         post: null,
-        breadcrumbs: null
+        breadcrumbs: null,
       }
     }
   },
   jsonld(): object {
     const { post, breadcrumbs } = this as any
-    return [
-      createJsonldOfPost(post),
-      createJsonldOfBreadcrumbList(breadcrumbs)
-    ]
+    return [createJsonldOfPost(post), createJsonldOfBreadcrumbList(breadcrumbs)]
   },
   computed: {
     postTag() {
@@ -128,14 +125,14 @@ export default Vue.extend({
       return post.tag.map((tag: Tag) => {
         return {
           id: tag.id,
-          name: tag.name
+          name: tag.name,
         }
       })
     },
     shareUrl(): string {
       const { post } = this as any
       return `${SITE_URL}/post/${post.id}`
-    }
+    },
   },
   head() {
     const { post } = this as any
@@ -147,9 +144,9 @@ export default Vue.extend({
       post.title,
       post.description,
       `/post/${post.id}/`,
-      imageUrl
+      imageUrl,
     )
-  }
+  },
 })
 </script>
 

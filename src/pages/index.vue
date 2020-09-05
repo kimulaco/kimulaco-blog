@@ -8,7 +8,7 @@
       <LinkText to="/post/" class="mt-24">全ての記事を見る</LinkText>
     </section>
 
-    <section class="mb-64">
+    <section>
       <Heading>タグ</Heading>
       <TagList :tags="tags" />
     </section>
@@ -36,18 +36,18 @@ export default Vue.extend({
     Heading,
     LinkText,
     TagList,
-    PostLink
+    PostLink,
   },
   async asyncData(): Promise<LocalData> {
     const { posts }: PostListResponse = await getPostList()
     const { tags }: TagListResponse = await getTagListDetail()
     return {
       posts: posts || [],
-      tags: tags || []
+      tags: tags || [],
     }
   },
   jsonld(): object {
     return createJsonldOfWebSite()
-  }
+  },
 })
 </script>
