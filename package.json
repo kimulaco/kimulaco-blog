@@ -41,8 +41,7 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.4",
     "prismjs": "^1.21.0",
-    "remove-markdown": "^0.3.0",
-    "web-vitals": "^0.2.1"
+    "remove-markdown": "^0.3.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.4",
@@ -51,7 +50,7 @@
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "@nuxtjs/stylelint-module": "^3.2.2",
+    "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg-sprite": "^0.4.12",
     "@types/fibers": "^3.1.0",
     "@types/markdown-it": "^10.0.2",
@@ -71,7 +70,7 @@
     "fibers": "^5.0.0",
     "husky": "^4.2.5",
     "jest": "^25.4.0",
-    "lint-staged": "^10.1.7",
+    "lint-staged": "^10.3.0",
     "netlify-cli": "^2.48.0",
     "npm-run-all": "^4.1.5",
     "nuxt-jsonld": "^1.4.10",
@@ -80,10 +79,10 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "start-server-and-test": "^1.11.0",
-    "stylelint": "^13.3.3",
-    "stylelint-config-prettier": "^8.0.1",
+    "stylelint": "^13.7.0",
+    "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.17.1",
+    "stylelint-scss": "^3.18.0",
     "vue-jest": "^4.0.0-0",
     "xml2js": "^0.4.23"
   }
