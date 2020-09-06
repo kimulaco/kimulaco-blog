@@ -132,7 +132,7 @@ const config: Configuration = {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     debug: { enabled: false },
   },
-  googleAdsense: {
+  'google-adsense': {
     id: AD_ID,
     tag: 'adsbygoogle',
     pageLevelAds: true,
