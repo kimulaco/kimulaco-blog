@@ -26,6 +26,6 @@ export default Vue.extend({
   // justify-content: center;
 }
 .Ads_inner {
-  background: $COLOR_LIGHTGRAY;
+  // background: $COLOR_LIGHTGRAY;
 }
 </style>
