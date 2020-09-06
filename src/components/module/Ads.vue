@@ -1,7 +1,7 @@
 <template>
   <div class="Ads">
     <div class="Ads_inner">
-      <adsbygoogle :ad-slot="adSlot" ad-format="auto" />
+      <adsbygoogle :ad-slot="adSlot" ad-format="rectangle" />
     </div>
   </div>
 </template>
@@ -22,8 +22,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .Ads {
-  // display: flex;
-  // justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .Ads_inner {
   background: $COLOR_LIGHTGRAY;
