@@ -18,6 +18,7 @@ env:
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
   GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
   GA_TRACKING_ID_RC: ${{ secrets.GA_TRACKING_ID_RC }}
+  AD_ID: ${{ secrets.AD_ID }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
