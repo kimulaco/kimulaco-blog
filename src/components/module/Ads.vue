@@ -1,7 +1,15 @@
 <template>
   <div class="Ads">
     <div class="Ads_inner">
-      <adsbygoogle :ad-slot="adSlot" ad-format="auto" />
+      <adsbygoogle
+        ad-format="auto"
+        :ad-slot="adSlot"
+        :style="{
+          'width': '100%',
+          'min-width': '300px',
+          'max-width': '740px',
+        }"
+      />
     </div>
   </div>
 </template>
