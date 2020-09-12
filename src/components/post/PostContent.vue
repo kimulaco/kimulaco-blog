@@ -26,6 +26,15 @@ export default Vue.extend({
         text-decoration: underline;
       }
     }
+    > code {
+      font-size: 15px;
+      display: inline-block;
+      background: #f1f1f1;
+      padding: 2px 6px;
+      margin: 0 4px;
+      border-radius: 4px;
+      line-height: 1.2;
+    }
   }
   strong {
     color: $COLOR_RED;
