@@ -1,9 +1,5 @@
 name: Test
-on:
-  pull_request:
-    branches-ignore:
-    - 'master'
-    - 'rc'
+on: [pull_request]
 env:
   CACHE_VERSION: v1
   CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
