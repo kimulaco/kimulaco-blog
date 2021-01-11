@@ -43,10 +43,21 @@ jobs:
         name: E2E Test Videos
         path: test/e2e/videos
     - name: Notify to Slack
-      uses: homoluctus/slatify@master
+      uses: tokorom/action-slack-incoming-webhook@main
       if: always()
       with:
-        type: ${{ job.status }}
-        job_name: '*Test*'
-        channel: ${{ secrets.SLACK_CHANNEL }}
-        url: ${{ secrets.SLACK_WEBHOOK }}
+        text: (success() && "Success Test") || "Failed Test"
+        attachments: |
+          [
+            {
+              "color": (success() && "good") || "danger",
+              "author_name": "${{ github.actor }}",
+              "author_icon": "${{ github.event.sender.avatar_url }}",
+              "fields": [
+                {
+                  "title": "Commit Message",
+                  "value": "${{ env.COMMIT_MESSAGE }}"
+                }
+              ]
+            }
+          ]
