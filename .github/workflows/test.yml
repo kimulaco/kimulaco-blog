@@ -1,13 +1,5 @@
 name: Test
-on:
-  push:
-    branches-ignore:
-    - 'master'
-    - 'rc'
-  pull_request:
-    branches-ignore:
-    - 'master'
-    - 'rc'
+on: [pull_request]
 env:
   CACHE_VERSION: v1
   CMS_BASE_URL: ${{ secrets.CMS_BASE_URL }}
@@ -32,7 +24,7 @@ jobs:
     - run: yarn
     - run: yarn build
     - name: E2E Test
-      uses: cypress-io/github-action@v1.16.1
+      uses: cypress-io/github-action@v2
       with:
         start: yarn start
         wait-on: 'http://localhost:3000'
@@ -43,10 +35,44 @@ jobs:
         name: E2E Test Videos
         path: test/e2e/videos
     - name: Notify to Slack
-      uses: homoluctus/slatify@master
-      if: always()
+      uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      if: success()
       with:
-        type: ${{ job.status }}
-        job_name: '*Test*'
-        channel: ${{ secrets.SLACK_CHANNEL }}
-        url: ${{ secrets.SLACK_WEBHOOK }}
+        text: Success Test
+        attachments: |
+          [
+            {
+              "color": "good",
+              "author_name": "${{ github.actor }}",
+              "author_icon": "${{ github.event.sender.avatar_url }}",
+              "fields": [
+                {
+                  "title": "Branch",
+                  "value": "${{ github.head_ref }}"
+                }
+              ]
+            }
+          ]
+    - name: Notify to Slack
+      uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      if: failure()
+      with:
+        text: Failure Test
+        attachments: |
+          [
+            {
+              "color": "danger",
+              "author_name": "${{ github.actor }}",
+              "author_icon": "${{ github.event.sender.avatar_url }}",
+              "fields": [
+                {
+                  "title": "Branch",
+                  "value": "${{ github.head_ref }}"
+                }
+              ]
+            }
+          ]

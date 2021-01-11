@@ -46,7 +46,7 @@ export default Vue.extend({
       tags: tags || [],
     }
   },
-  jsonld(): object {
+  jsonld(): any {
     return createJsonldOfWebSite()
   },
 })

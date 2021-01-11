@@ -42,7 +42,7 @@ export default Vue.extend({
       breadcrumbs: createPageBreadclumb('About', '/about'),
     }
   },
-  jsonld(): object {
+  jsonld(): any {
     const { breadcrumbs } = this as any
     return createJsonldOfBreadcrumbList(breadcrumbs)
   },
