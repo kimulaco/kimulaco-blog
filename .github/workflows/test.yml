@@ -32,7 +32,7 @@ jobs:
     - run: yarn
     - run: yarn build
     - name: E2E Test
-      uses: cypress-io/github-action@v1.16.1
+      uses: cypress-io/github-action@v2
       with:
         start: yarn start
         wait-on: 'http://localhost:3000'
