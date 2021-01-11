@@ -44,6 +44,8 @@ jobs:
         path: test/e2e/videos
     - name: Notify to Slack
       uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       if: always()
       with:
         text: (success() && "Success Test") || "Failed Test"
