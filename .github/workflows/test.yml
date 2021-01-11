@@ -1,9 +1,5 @@
 name: Test
 on:
-  push:
-    branches-ignore:
-    - 'master'
-    - 'rc'
   pull_request:
     branches-ignore:
     - 'master'
@@ -46,19 +42,40 @@ jobs:
       uses: tokorom/action-slack-incoming-webhook@main
       env:
         INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-      if: always()
+      if: success()
       with:
-        text: (success() && "Success Test") || "Failed Test"
+        text: Success Test
         attachments: |
           [
             {
-              "color": (success() && "good") || "danger",
+              "color": "good",
               "author_name": "${{ github.actor }}",
               "author_icon": "${{ github.event.sender.avatar_url }}",
               "fields": [
                 {
-                  "title": "Commit Message",
-                  "value": "${{ env.COMMIT_MESSAGE }}"
+                  "title": "Branch",
+                  "value": "${{ github.head_ref }}"
+                }
+              ]
+            }
+          ]
+    - name: Notify to Slack
+      uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      if: failure()
+      with:
+        text: Failure Test
+        attachments: |
+          [
+            {
+              "color": "danger",
+              "author_name": "${{ github.actor }}",
+              "author_icon": "${{ github.event.sender.avatar_url }}",
+              "fields": [
+                {
+                  "title": "Branch",
+                  "value": "${{ github.head_ref }}"
                 }
               ]
             }
