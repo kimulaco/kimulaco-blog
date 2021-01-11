@@ -112,7 +112,7 @@ export default Vue.extend({
       }
     }
   },
-  jsonld(): object {
+  jsonld(): any {
     const { post, breadcrumbs } = this as any
     return [createJsonldOfPost(post), createJsonldOfBreadcrumbList(breadcrumbs)]
   },
