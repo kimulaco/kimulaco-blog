@@ -17,6 +17,7 @@ const DEFAULT_ADS_STYLE = {
   'width': '100%',
   'min-width': '280px',
   'max-width': '940px',
+  'height': '280px',
 }
 
 export default Vue.extend({
