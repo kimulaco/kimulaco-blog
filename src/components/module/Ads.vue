@@ -4,11 +4,7 @@
       <adsbygoogle
         ad-format="auto"
         :ad-slot="adSlot"
-        :style="{
-          'width': '100%',
-          'min-width': '300px',
-          'max-width': '740px',
-        }"
+        :style="adsStyle"
       />
     </div>
   </div>
@@ -17,6 +13,12 @@
 <script lang="ts">
 import Vue from 'vue'
 
+const DEFAULT_ADS_STYLE = {
+  'width': '100%',
+  'min-width': '280px',
+  'max-width': '940px',
+}
+
 export default Vue.extend({
   name: 'Ads',
   props: {
@@ -24,16 +26,26 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    styles: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  computed: {
+    adsStyle() {
+      return Object.assign(DEFAULT_ADS_STYLE, this.styles || {})
+    },
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.Ads {
-  // display: flex;
-  // justify-content: center;
-}
 .Ads_inner {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   > ins[data-adtest='on'] {
     background-color: $COLOR_LIGHTGRAY;
   }

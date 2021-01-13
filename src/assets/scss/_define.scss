@@ -2,9 +2,11 @@
 
 $FONT_FAMILY: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 
-$BREAK_POINT: 780px;
+$BREAK_POINT: 980px;
+$CONTENT_MAX_WIDTH: 1200px;
 $CONTENT_MIN_WIDTH: 320px;
-$CONTENT_MAX_WIDTH: 780px;
+$ASIDE_WIDTH: 300px;
+$MAIN_WIDTH: calc(100% - #{$ASIDE_WIDTH});
 
 $COLOR_WHITE: #fff;
 $COLOR_BLACK: #222;
