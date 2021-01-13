@@ -2,7 +2,6 @@
   <div class="Ads">
     <div class="Ads_inner">
       <adsbygoogle
-        ad-format="auto"
         :ad-slot="adSlot"
         :style="adsStyle"
       />
