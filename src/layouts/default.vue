@@ -73,7 +73,7 @@ export default Vue.extend({
     },
   },
   mounted() {
-    if (window.innerWidth >= 980) {
+    if (window.innerWidth <= 980) {
       this.asideAdSlot = '5734133674'
     } else {
       this.asideAdSlot = '4432810314'
