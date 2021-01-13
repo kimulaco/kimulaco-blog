@@ -11,7 +11,7 @@
       <template v-slot:sub>
         <aside>
           <AboutWidget class="mb-20" />
-          <Ads v-if="asideAdSlot" :ad-slot="asideAdSlot" />
+          <Ads ad-slot="4432810314" />
         </aside>
       </template>
     </SiteColumn>
@@ -52,11 +52,6 @@ export default Vue.extend({
     Notification,
     AboutWidget,
   },
-  data() {
-    return {
-      asideAdSlot: '',
-    }
-  },
   computed: {
     notification() {
       return this.$store.state.notification
@@ -71,13 +66,6 @@ export default Vue.extend({
         }, 4000)
       }
     },
-  },
-  mounted() {
-    if (window.innerWidth <= 980) {
-      this.asideAdSlot = '5734133674'
-    } else {
-      this.asideAdSlot = '4432810314'
-    }
   },
   methods: {
     handleCloseNotification() {
