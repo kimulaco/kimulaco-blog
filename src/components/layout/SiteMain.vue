@@ -1,8 +1,8 @@
 <template>
   <main class="SiteMain">
-    <SiteInner class="SiteMain_inner">
+    <div class="SiteMain_inner">
       <slot />
-    </SiteInner>
+    </div>
   </main>
 </template>
 
@@ -20,6 +20,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .SiteMain {
-  padding: 32px 0;
+  padding: 0 0 32px;
 }
 </style>
