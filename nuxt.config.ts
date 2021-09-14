@@ -127,6 +127,7 @@ const config: Configuration = {
       release: `${pkg.name}@${pkg.version}-${STAGE_ENV}`,
       environment: NODE_ENV || 'development',
     },
+    tracing: true,
   },
   googleAnalytics: {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
