@@ -1,10 +1,7 @@
 <template>
   <div class="Ads">
     <div class="Ads_inner">
-      <adsbygoogle
-        :ad-slot="adSlot"
-        :style="adsStyle"
-      />
+      <adsbygoogle :ad-slot="adSlot" :style="adsStyle" />
     </div>
   </div>
 </template>
@@ -30,7 +27,7 @@ export default Vue.extend({
     styles: {
       type: Object,
       default() {
-        return {};
+        return {}
       },
     },
   },

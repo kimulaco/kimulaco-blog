@@ -24,7 +24,7 @@ export default Vue.extend({
   name: 'SiteColumn',
   components: {
     SiteInner,
-  }
+  },
 })
 </script>
 
