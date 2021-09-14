@@ -8,13 +8,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteInner from '../layout/SiteInner.vue'
 
 export default Vue.extend({
   name: 'SiteMain',
-  components: {
-    SiteInner,
-  },
 })
 </script>
 
