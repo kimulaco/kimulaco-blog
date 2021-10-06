@@ -6,7 +6,13 @@ const { GA_VIEW_ID } = process.env
 const GOOGLE_API_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly'
 const KEY_PATH = '../../keys/kimulaco-blog.json'
 
-export const getPopularPostsID = async () => {
+interface GetPopularPostsRequest {
+  startDate: string
+  endDate: string
+  length: number
+}
+
+export const getPopularPosts = async (option: GetPopularPostsRequest) => {
   const client = await google.auth.getClient({
     keyFile: path.resolve(__dirname, KEY_PATH),
     scopes: GOOGLE_API_SCOPE,
@@ -22,8 +28,8 @@ export const getPopularPostsID = async () => {
           viewId: GA_VIEW_ID,
           dateRanges: [
             {
-              startDate: '30daysAgo',
-              endDate: '1daysAgo',
+              startDate: option.startDate,
+              endDate: option.endDate,
             },
           ],
           dimensions: [
@@ -51,7 +57,7 @@ export const getPopularPostsID = async () => {
             fieldName: 'ga:pageviews',
             sortOrder: 'DESCENDING',
           },
-          pageSize: 5,
+          pageSize: option.length,
         },
       ],
     },
