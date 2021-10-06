@@ -15,7 +15,6 @@ export const getPopularPostsID = async () => {
     version: 'v4',
     auth: client,
   })
-  console.log('await analyticsReporting.reports.batchGet()')
   const response = await analyticsReporting.reports.batchGet({
     requestBody: {
       reportRequests: [
