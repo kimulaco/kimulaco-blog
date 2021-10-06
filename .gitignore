@@ -91,6 +91,9 @@ sw.*
 # Vim swap files
 *.swp
 
+# SecureKey
+keys
+
 # src
 src/static/feed/post.xml
 
