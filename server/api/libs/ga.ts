@@ -1,10 +1,7 @@
-// @ts-nocheck
-import path from 'path'
 import { google } from 'googleapis'
-const { GA_VIEW_ID } = process.env
+const { GA_VIEW_ID, GA_PRIVATE_KEY, GA_CLIENT_EMAIL } = process.env
 
 const GOOGLE_API_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly'
-const KEY_PATH = '../../keys/kimulaco-blog.json'
 
 interface GetPopularPostsRequest {
   startDate: string
@@ -13,15 +10,16 @@ interface GetPopularPostsRequest {
 }
 
 export const getPopularPosts = async (option: GetPopularPostsRequest) => {
-  const client = await google.auth.getClient({
-    keyFile: path.resolve(__dirname, KEY_PATH),
-    scopes: GOOGLE_API_SCOPE,
+  const client = new google.auth.JWT({
+    email: GA_CLIENT_EMAIL,
+    key: GA_PRIVATE_KEY.replace(/\\n/gm, '\n'),
+    scopes: [GOOGLE_API_SCOPE],
   })
-  const analyticsReporting = google.analyticsreporting({
+  const analytics = google.analyticsreporting({
     version: 'v4',
     auth: client,
   })
-  const response = await analyticsReporting.reports.batchGet({
+  const response = await analytics.reports.batchGet({
     requestBody: {
       reportRequests: [
         {

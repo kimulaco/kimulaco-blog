@@ -100,3 +100,6 @@ src/static/feed/post.xml
 # test
 test/e2e/videos
 test/e2e/screenshots
+
+# Netlify
+.netlify
