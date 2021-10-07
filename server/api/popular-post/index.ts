@@ -6,7 +6,7 @@ export const handler: Handler = async (event): Promise<void> => {
   const query = event.queryStringParameters
   try {
     const popularPosts = await getPopularPosts({
-      startDate: getQueryOne(query?.startDate) || '30daysAgo',
+      startDate: getQueryOne(query?.startDate) || '90daysAgo',
       endDate: getQueryOne(query?.endDate) || '1daysAgo',
       length: Number(getQueryOne(query?.length)) || 5,
     })
