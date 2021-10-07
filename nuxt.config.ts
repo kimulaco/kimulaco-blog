@@ -23,6 +23,8 @@ const {
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
   AD_ID,
+  API_DOMAIN_PROD,
+  API_DOMAIN_DEV,
 } = process.env
 
 const config: Configuration = {
@@ -64,6 +66,7 @@ const config: Configuration = {
     '@nuxt/typescript-build',
   ],
   modules: [
+    '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
     '@nuxtjs/sentry',
     '@nuxtjs/markdownit',
@@ -168,6 +171,14 @@ const config: Configuration = {
         sassOptions: {
           fiber: Fiber,
         },
+      },
+    },
+  },
+  proxy: {
+    '/api': {
+      target: NODE_ENV === 'production' ? API_DOMAIN_PROD : API_DOMAIN_DEV,
+      pathRewrite: {
+        '^/api': '/.netlify/functions',
       },
     },
   },

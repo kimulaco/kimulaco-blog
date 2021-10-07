@@ -47,7 +47,8 @@ export default Vue.extend({
     LinkButton,
     PostLink,
   },
-  async asyncData({ params }: Context): Promise<LocalData> {
+  async asyncData({ params, store, $axios }: Context): Promise<LocalData> {
+    await store.dispatch('getPopularPosts', $axios)
     try {
       const tag: Tag = await getTag(params.id)
       const { posts }: PostListResponse = await getPostListAll({

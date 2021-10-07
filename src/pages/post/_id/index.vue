@@ -90,7 +90,8 @@ export default Vue.extend({
     PostLink,
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { app, params, query, redirect } = context
+    const { app, params, query, redirect, store, $axios } = context
+    await store.dispatch('getPopularPosts', $axios)
     const draftKey = String(query.draft_key) || ''
     try {
       const post: Post = await getPost(params.id, { draftKey })

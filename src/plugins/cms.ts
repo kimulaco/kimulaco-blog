@@ -52,6 +52,7 @@ export const getPostList = async (
       limit,
       offset: (params.page || 0) * limit,
       filters: params.filters,
+      ids: params.ids,
     },
   })
 
