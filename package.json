@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "nuxt-ts start",
+    "deploy": "netlify deploy --prod --dir dist --functions server/api",
     "dev": "nuxt-ts",
     "build": "nuxt-ts generate",
     "lint": "npm-run-all -p lint:*",
@@ -15,8 +16,8 @@
     "test:e2e": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "function:dev": "netlify functions:serve --functions server/api --port 4000",
-    "function:build": "netlify functions:build --functions server/api"
+    "functions:dev": "netlify functions:serve --functions server/api --port 4000",
+    "functions:build": "netlify functions:build --functions server/api"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "npm run lint:script",
