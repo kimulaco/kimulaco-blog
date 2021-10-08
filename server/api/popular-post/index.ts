@@ -15,6 +15,9 @@ export const handler: Handler = async (event): Promise<void> => {
       body: JSON.stringify({
         popularPosts,
       }),
+      headers: {
+        'access-control-allow-origin': '*',
+      },
     }
   } catch (error) {
     console.error(error)
