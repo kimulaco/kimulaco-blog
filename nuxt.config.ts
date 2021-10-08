@@ -23,8 +23,8 @@ const {
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
   AD_ID,
-  API_DOMAIN_PROD,
-  API_DOMAIN_DEV,
+  NETLIFY_FUNCTIONS_BASE_URL_PROD,
+  NETLIFY_FUNCTIONS_BASE_URL_DEV,
 } = process.env
 
 const config: Configuration = {
@@ -33,6 +33,10 @@ const config: Configuration = {
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
     CMS_API_KEY: CMS_API_KEY || '',
+    NETLIFY_FUNCTIONS_BASE_URL:
+      process.env.NODE_ENV === 'production'
+        ? NETLIFY_FUNCTIONS_BASE_URL_PROD
+        : NETLIFY_FUNCTIONS_BASE_URL_DEV,
   },
   head: {
     htmlAttrs: { lang: 'ja' },
@@ -171,14 +175,6 @@ const config: Configuration = {
         sassOptions: {
           fiber: Fiber,
         },
-      },
-    },
-  },
-  proxy: {
-    '/api': {
-      target: NODE_ENV === 'production' ? API_DOMAIN_PROD : API_DOMAIN_DEV,
-      pathRewrite: {
-        '^/api': '/.netlify/functions',
       },
     },
   },

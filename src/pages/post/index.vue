@@ -36,8 +36,8 @@ export default Vue.extend({
     PageTitle,
     PostLink,
   },
-  async asyncData({ store, $axios }): Promise<LocalData> {
-    await store.dispatch('getPopularPosts', $axios)
+  async asyncData({ store }): Promise<LocalData> {
+    await store.dispatch('getPopularPosts')
     const { posts }: PostListResponse = await getPostListAll()
     return {
       posts: posts || [],

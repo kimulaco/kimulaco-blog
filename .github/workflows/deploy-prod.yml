@@ -5,6 +5,8 @@ on:
     - 'master'
   repository_dispatch:
     types: [cms_build]
+  schedule:
+    - cron: '* 15 * * *'
 env:
   STAGE_ENV: production
   CACHE_VERSION: v1

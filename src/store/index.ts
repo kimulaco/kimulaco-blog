@@ -1,5 +1,5 @@
-import { AxiosInstance } from 'axios'
 import { getPostList } from '../plugins/cms'
+import { getPopularPostsID } from '../plugins/functions'
 import { Post, PostListResponse } from '../types/blog'
 
 type State = {
@@ -27,15 +27,12 @@ export const state = (): State => ({
 })
 
 export const actions = {
-  async getPopularPosts(
-    { state, commit }: Context,
-    $axios: AxiosInstance,
-  ): Promise<Post[]> {
+  async getPopularPosts({ state, commit }: Context): Promise<Post[]> {
     if (process.client) return []
     if (state.popularPosts.length > 0) return state.popularPosts
     try {
-      const response = await $axios.get('/api/popular-post')
-      const popularPostIds: string[] = response.data.popularPosts || []
+      const popularPosts = await getPopularPostsID()
+      const popularPostIds: string[] = popularPosts || []
       if (popularPostIds.length <= 0) {
         commit('setPopularPosts', [])
         return []
