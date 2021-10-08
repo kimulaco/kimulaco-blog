@@ -32,6 +32,7 @@ export const actions = {
     if (state.popularPosts.length > 0) return state.popularPosts
     try {
       const popularPosts = await getPopularPostsID()
+      console.log(`popular posts: ${popularPosts.join(',')}`)
       const popularPostIds: string[] = popularPosts || []
       if (popularPostIds.length <= 0) {
         commit('setPopularPosts', [])
@@ -43,7 +44,9 @@ export const actions = {
       })
       commit('setPopularPosts', posts)
       return posts
-    } catch {
+    } catch (error) {
+      console.log('Failed get popular posts')
+      console.error(error)
       return []
     }
   },
