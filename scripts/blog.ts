@@ -47,6 +47,6 @@ export const createFeed = async (feed: any) => {
   feed.addContributor({
     name: PUBLISHER_NAME,
     email: PUBLISHER_EMAIL,
-    link: 'https://kimulaco.me/',
+    link: SITE_URL,
   })
 }

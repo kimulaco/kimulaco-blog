@@ -1,25 +1,21 @@
 <template>
   <main class="SiteMain">
-    <SiteInner class="SiteMain_inner">
+    <div class="SiteMain_inner">
       <slot />
-    </SiteInner>
+    </div>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteInner from '../layout/SiteInner.vue'
 
 export default Vue.extend({
   name: 'SiteMain',
-  components: {
-    SiteInner,
-  },
 })
 </script>
 
 <style lang="scss" scoped>
 .SiteMain {
-  padding: 32px 0;
+  padding: 0 0 32px;
 }
 </style>

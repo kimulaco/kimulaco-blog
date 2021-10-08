@@ -2,19 +2,27 @@
   <div class="Layout">
     <SiteHeader />
 
-    <SiteMain>
-      <nuxt />
-    </SiteMain>
-
-    <aside>
-      <SiteInner>
-        <Ads ad-slot="4432810314" />
-      </SiteInner>
-    </aside>
-
-    <SiteProfile>
-      <AboutWidget />
-    </SiteProfile>
+    <SiteColumn>
+      <template v-slot:main>
+        <SiteMain>
+          <nuxt />
+        </SiteMain>
+      </template>
+      <template v-slot:sub>
+        <aside>
+          <AboutWidget class="mb-20" />
+          <Ads ad-slot="4432810314" />
+          <PostsWidget
+            v-if="popularPosts.length > 0"
+            :posts="popularPosts"
+            from="widget-popular-posts"
+            class="mt-20"
+          >
+            <template #title>最近よく読まれている記事</template>
+          </PostsWidget>
+        </aside>
+      </template>
+    </SiteColumn>
 
     <SiteFooter />
 
@@ -33,30 +41,34 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SiteInner from '../components/layout/SiteInner.vue'
 import SiteHeader from '../components/layout/SiteHeader.vue'
+import SiteColumn from '../components/layout/SiteColumn.vue'
 import SiteMain from '../components/layout/SiteMain.vue'
-import SiteProfile from '../components/layout/SiteProfile.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
 import Ads from '../components/module/Ads.vue'
 import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
+import PostsWidget from '../components/widget/PostsWidget.vue'
+import { Post } from '../types/blog'
 
 export default Vue.extend({
   name: 'Layout',
   components: {
-    SiteInner,
     SiteHeader,
+    SiteColumn,
     SiteMain,
-    SiteProfile,
     SiteFooter,
     Ads,
     Notification,
     AboutWidget,
+    PostsWidget,
   },
   computed: {
     notification() {
       return this.$store.state.notification
+    },
+    popularPosts(): Post[] {
+      return this.$store.state.popularPosts
     },
   },
   watch: {
@@ -77,5 +89,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-style

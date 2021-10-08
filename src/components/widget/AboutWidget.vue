@@ -4,7 +4,7 @@
     <div class="AboutWidget_head">
       <div class="AboutWidget_head-content">
         <p class="AboutWidget_name">kimulaco</p>
-        <p class="AboutWidget_job">Front-end Engineer</p>
+        <p class="AboutWidget_job">Web Front-end Developer</p>
       </div>
       <div class="AboutWidget_icon">
         <img
@@ -18,8 +18,10 @@
       </div>
     </div>
     <div class="AboutWidget_content">
-      <p>フロントエンドエンジニア</p>
-      <p>映画と寿司とピザが好き</p>
+      <p>
+        東京都内の会社で主にWebアプリを開発しています。たまに副業でJAMStackサイトを作ったりもしています。
+      </p>
+      <p>ゲーム、映画、寿司、ピザが好き。</p>
     </div>
     <div class="AboutWidget_link">
       <ul class="AboutWidget_link-list">
@@ -45,17 +47,6 @@
             <span class="AboutWidget_link-text">GitHub</span>
           </a>
         </li>
-        <li class="AboutWidget_link-item">
-          <a
-            href="https://kimulaco.me/"
-            class="AboutWidget_link-anchor -me"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img class="AboutWidget_link-icon" src="/img/icon.png" alt="" />
-            <span class="AboutWidget_link-text">kimulaco.me</span>
-          </a>
-        </li>
       </ul>
     </div>
   </Card>
@@ -69,16 +60,6 @@ export default Vue.extend({
   name: 'AboutWidget',
   components: {
     Card,
-  },
-  props: {
-    tag: {
-      type: String,
-      default: 'div',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
   },
 })
 </script>

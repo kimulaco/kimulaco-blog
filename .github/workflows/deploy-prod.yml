@@ -4,7 +4,9 @@ on:
     branches:
     - 'master'
   repository_dispatch:
-    types: [update_post]
+    types: [cms_build]
+  schedule:
+    - cron: '* 15 * * *'
 env:
   STAGE_ENV: production
   CACHE_VERSION: v1
@@ -16,8 +18,10 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_FUNCTIONS_BASE_URL_PROD: ${{ secrets.NETLIFY_FUNCTIONS_BASE_URL_PROD }}
   GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
   GA_TRACKING_ID_RC: ${{ secrets.GA_TRACKING_ID_RC }}
+  AD_ID: ${{ secrets.AD_ID }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -36,7 +40,7 @@ jobs:
     - run: yarn
     - run: yarn build
     - name: E2E Test
-      uses: cypress-io/github-action@v1.16.1
+      uses: cypress-io/github-action@v2
       with:
         start: yarn start
         wait-on: 'http://localhost:3000'
@@ -46,12 +50,40 @@ jobs:
       with:
         name: E2E Test Videos
         path: test/e2e/videos
-    - run: npx netlify-cli deploy --prod --dir=./dist
+    - run: yarn deploy
     - name: Notify to Slack
-      uses: homoluctus/slatify@master
-      if: always()
+      uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      if: success()
       with:
-        type: ${{ job.status }}
-        job_name: '*Deploy to Production*'
-        channel: ${{ secrets.SLACK_CHANNEL }}
-        url: ${{ secrets.SLACK_WEBHOOK }}
+        text: Success Deploy
+        attachments: |
+          [
+            {
+              "color": "good",
+              "fields": [
+                {
+                  "value": "Success deploy to production"
+                }
+              ]
+            }
+          ]
+    - name: Notify to Slack
+      uses: tokorom/action-slack-incoming-webhook@main
+      env:
+        INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      if: failure()
+      with:
+        text: Success Deploy
+        attachments: |
+          [
+            {
+              "color": "good",
+              "fields": [
+                {
+                  "value": "Failure deploy to production"
+                }
+              ]
+            }
+          ]

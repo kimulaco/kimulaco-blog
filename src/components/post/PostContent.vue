@@ -14,7 +14,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .PostContent {
-  line-height: 1.6;
+  line-height: 1.8;
   word-wrap: break-word;
   @include reset-child-margin();
   a {
@@ -25,6 +25,15 @@ export default Vue.extend({
       @include active() {
         text-decoration: underline;
       }
+    }
+    > code {
+      font-size: 15px;
+      display: inline-block;
+      background: #f1f1f1;
+      padding: 2px 6px;
+      margin: 0 4px;
+      border-radius: 4px;
+      line-height: 1.2;
     }
   }
   strong {

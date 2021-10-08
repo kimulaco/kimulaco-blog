@@ -23,6 +23,8 @@ const {
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
   AD_ID,
+  NETLIFY_FUNCTIONS_BASE_URL_PROD,
+  NETLIFY_FUNCTIONS_BASE_URL_DEV,
 } = process.env
 
 const config: Configuration = {
@@ -31,6 +33,10 @@ const config: Configuration = {
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
     CMS_API_KEY: CMS_API_KEY || '',
+    NETLIFY_FUNCTIONS_BASE_URL:
+      process.env.NODE_ENV === 'production'
+        ? NETLIFY_FUNCTIONS_BASE_URL_PROD
+        : NETLIFY_FUNCTIONS_BASE_URL_DEV,
   },
   head: {
     htmlAttrs: { lang: 'ja' },
@@ -127,12 +133,13 @@ const config: Configuration = {
       release: `${pkg.name}@${pkg.version}-${STAGE_ENV}`,
       environment: NODE_ENV || 'development',
     },
+    tracing: true,
   },
   googleAnalytics: {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     debug: { enabled: false },
   },
-  googleAdsense: {
+  'google-adsense': {
     id: AD_ID,
     tag: 'adsbygoogle',
     pageLevelAds: true,

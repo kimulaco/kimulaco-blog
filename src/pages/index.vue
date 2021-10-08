@@ -3,7 +3,12 @@
     <section>
       <Heading class="mt-0">最近の記事</Heading>
       <div>
-        <PostLink v-for="post in posts" :key="post.id" :post="post" />
+        <PostLink
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+          from="top-new-post"
+        />
       </div>
       <LinkText to="/post/" class="mt-24">全ての記事を見る</LinkText>
     </section>
@@ -38,7 +43,8 @@ export default Vue.extend({
     TagList,
     PostLink,
   },
-  async asyncData(): Promise<LocalData> {
+  async asyncData({ store }): Promise<LocalData> {
+    await store.dispatch('getPopularPosts')
     const { posts }: PostListResponse = await getPostList()
     const { tags }: TagListResponse = await getTagListDetail()
     return {
@@ -46,7 +52,7 @@ export default Vue.extend({
       tags: tags || [],
     }
   },
-  jsonld(): object {
+  jsonld(): any {
     return createJsonldOfWebSite()
   },
 })

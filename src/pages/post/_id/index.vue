@@ -47,6 +47,7 @@
           v-for="post in post.related_posts"
           :key="post.id"
           :post="post"
+          :from="`post-related-${post.id}`"
         />
       </div>
     </aside>
@@ -90,7 +91,8 @@ export default Vue.extend({
     PostLink,
   },
   async asyncData(context: Context): Promise<LocalData> {
-    const { app, params, query, redirect } = context
+    const { app, params, query, redirect, store } = context
+    await store.dispatch('getPopularPosts')
     const draftKey = String(query.draft_key) || ''
     try {
       const post: Post = await getPost(params.id, { draftKey })
@@ -112,7 +114,7 @@ export default Vue.extend({
       }
     }
   },
-  jsonld(): object {
+  jsonld(): any {
     const { post, breadcrumbs } = this as any
     return [createJsonldOfPost(post), createJsonldOfBreadcrumbList(breadcrumbs)]
   },

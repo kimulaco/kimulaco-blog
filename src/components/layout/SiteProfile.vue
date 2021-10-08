@@ -20,7 +20,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .SiteProfile {
-  padding: 24px 0;
+  padding: 32px 0 24px;
 }
 .SiteProfile_inner {
   @include media() {
