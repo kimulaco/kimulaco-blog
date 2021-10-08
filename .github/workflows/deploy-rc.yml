@@ -45,7 +45,7 @@ jobs:
       with:
         name: E2E Test Videos
         path: test/e2e/videos
-    - run: npx netlify deploy --dir=./dist
+    - run: yarn deploy
     - name: Notify to Slack
       uses: tokorom/action-slack-incoming-webhook@main
       env:
