@@ -15,6 +15,7 @@
           <PostsWidget
             v-if="popularPosts.length > 0"
             :posts="popularPosts"
+            from="widget-popular-posts"
             class="mt-20"
           >
             <template #title>最近よく読まれている記事</template>

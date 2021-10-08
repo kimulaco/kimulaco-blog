@@ -47,6 +47,7 @@
           v-for="post in post.related_posts"
           :key="post.id"
           :post="post"
+          :from="`post-related-${post.id}`"
         />
       </div>
     </aside>

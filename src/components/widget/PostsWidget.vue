@@ -7,7 +7,7 @@
         :key="`popular-posts_${post.id}`"
         class="PostsWidget_item"
       >
-        <nuxt-link :to="`/post/${post.id}`" class="PostsWidget_item-link">
+        <nuxt-link :to="createPostPath(post.id)" class="PostsWidget_item-link">
           <span class="PostsWidget_item-title">{{ post.title }}</span>
         </nuxt-link>
       </li>
@@ -31,6 +31,19 @@ export default Vue.extend({
       default() {
         return []
       },
+    },
+    from: {
+      type: String,
+      default: '',
+    },
+  },
+  methods: {
+    createPostPath(postId: string): string {
+      let path = `/post/${postId}/`
+      if (this.from) {
+        path += `?from=${this.from}`
+      }
+      return path
     },
   },
 })

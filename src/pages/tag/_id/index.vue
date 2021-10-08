@@ -3,7 +3,12 @@
     <PageTitle>"{{ tag.name }}"のタグを持つ記事</PageTitle>
 
     <div v-if="posts.length > 0">
-      <PostLink v-for="post in posts" :key="post.id" :post="post" />
+      <PostLink
+        v-for="post in posts"
+        :key="post.id"
+        :post="post"
+        :from="`tag-${tag.id}`"
+      />
     </div>
     <div v-else>
       <p class="mb-32">
