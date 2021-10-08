@@ -12,22 +12,13 @@
         <aside>
           <AboutWidget class="mb-20" />
           <Ads ad-slot="4432810314" />
-
-          <section>
-            <h2>最近よく読まれている記事</h2>
-            <ul>
-              <li
-                v-for="post in popularPosts"
-                :key="`popular-posts_${post.id}`"
-              >
-                <nuxt-link :to="`/post/${post.id}`">
-                  <b>{{ post.title }}</b>
-                  <br />
-                  <span>{{ post.description }}</span>
-                </nuxt-link>
-              </li>
-            </ul>
-          </section>
+          <PostsWidget
+            v-if="popularPosts.length > 0"
+            :posts="popularPosts"
+            class="mt-20"
+          >
+            <template #title>最近よく読まれている記事</template>
+          </PostsWidget>
         </aside>
       </template>
     </SiteColumn>
@@ -56,6 +47,7 @@ import SiteFooter from '../components/layout/SiteFooter.vue'
 import Ads from '../components/module/Ads.vue'
 import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
+import PostsWidget from '../components/widget/PostsWidget.vue'
 import { Post } from '../types/blog'
 
 export default Vue.extend({
@@ -68,6 +60,7 @@ export default Vue.extend({
     Ads,
     Notification,
     AboutWidget,
+    PostsWidget,
   },
   computed: {
     notification() {
