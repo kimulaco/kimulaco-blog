@@ -70,7 +70,6 @@ const config: Configuration = {
     '@nuxt/typescript-build',
   ],
   modules: [
-    '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
     '@nuxtjs/sentry',
     '@nuxtjs/markdownit',
