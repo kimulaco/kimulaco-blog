@@ -3,7 +3,12 @@
     <PageTitle>記事一覧</PageTitle>
 
     <div>
-      <PostLink v-for="post in posts" :key="post.id" :post="post" />
+      <PostLink
+        v-for="post in posts"
+        :key="post.id"
+        :post="post"
+        from="post-list"
+      />
     </div>
   </div>
 </template>
@@ -31,7 +36,8 @@ export default Vue.extend({
     PageTitle,
     PostLink,
   },
-  async asyncData(): Promise<LocalData> {
+  async asyncData({ store }): Promise<LocalData> {
+    await store.dispatch('getPopularPosts')
     const { posts }: PostListResponse = await getPostListAll()
     return {
       posts: posts || [],

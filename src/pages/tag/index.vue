@@ -28,7 +28,8 @@ export default Vue.extend({
     PageTitle,
     TagList,
   },
-  async asyncData(): Promise<LocalData> {
+  async asyncData({ store }): Promise<LocalData> {
+    await store.dispatch('getPopularPosts')
     try {
       const { tags }: TagListResponse = await getTagListDetail()
       return {

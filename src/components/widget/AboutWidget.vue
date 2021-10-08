@@ -61,16 +61,6 @@ export default Vue.extend({
   components: {
     Card,
   },
-  props: {
-    tag: {
-      type: String,
-      default: 'div',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
-  },
 })
 </script>
 

@@ -43,6 +43,7 @@ export type PostListRequestParam = {
   limit?: number | undefined
   page?: number | undefined
   filters?: string | undefined
+  ids?: string | undefined
 }
 
 export type PostListResponse = {

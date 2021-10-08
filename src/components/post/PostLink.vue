@@ -2,7 +2,7 @@
   <section class="PostLink">
     <div class="PostLink_inner">
       <h3 class="PostLink_heading">
-        <nuxt-link :to="`/post/${post.id}/`" class="PostLink_heading-link">
+        <nuxt-link :to="postPath" class="PostLink_heading-link">
           {{ post.title }}
         </nuxt-link>
       </h3>
@@ -20,10 +20,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import Tags from '../module/Tags.vue'
 import Timestamp from '../module/Timestamp.vue'
-import { Tag } from '../../types/blog'
+import { Post, Tag } from '../../types/blog'
 
 export default Vue.extend({
   name: 'PostLink',
@@ -33,8 +33,12 @@ export default Vue.extend({
   },
   props: {
     post: {
-      type: Object,
+      type: Object as PropType<Post>,
       required: true,
+    },
+    from: {
+      type: String,
+      default: '',
     },
   },
   computed: {
@@ -49,6 +53,13 @@ export default Vue.extend({
           name: tag.name,
         }
       })
+    },
+    postPath(): string {
+      let path = `/post/${this.post.id}/`
+      if (this.from) {
+        path += `?from=${this.from}`
+      }
+      return path
     },
   },
 })

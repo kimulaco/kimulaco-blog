@@ -3,7 +3,12 @@
     <PageTitle>"{{ tag.name }}"のタグを持つ記事</PageTitle>
 
     <div v-if="posts.length > 0">
-      <PostLink v-for="post in posts" :key="post.id" :post="post" />
+      <PostLink
+        v-for="post in posts"
+        :key="post.id"
+        :post="post"
+        :from="`tag-${tag.id}`"
+      />
     </div>
     <div v-else>
       <p class="mb-32">
@@ -47,7 +52,8 @@ export default Vue.extend({
     LinkButton,
     PostLink,
   },
-  async asyncData({ params }: Context): Promise<LocalData> {
+  async asyncData({ params, store }: Context): Promise<LocalData> {
+    await store.dispatch('getPopularPosts')
     try {
       const tag: Tag = await getTag(params.id)
       const { posts }: PostListResponse = await getPostListAll({

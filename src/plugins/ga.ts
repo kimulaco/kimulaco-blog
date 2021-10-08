@@ -1,7 +1,7 @@
 import { Context } from '@nuxt/types'
 
 export default ({ app: { $ga } }: Context) => {
-  $ga.eventSync = (...args: string[]) => {
+  $ga.eventSync = (...args: string[]): Promise<void> => {
     return new Promise((resolve) => {
       let isResolved = false
 

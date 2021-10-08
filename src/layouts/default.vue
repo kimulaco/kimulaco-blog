@@ -12,6 +12,14 @@
         <aside>
           <AboutWidget class="mb-20" />
           <Ads ad-slot="4432810314" />
+          <PostsWidget
+            v-if="popularPosts.length > 0"
+            :posts="popularPosts"
+            from="widget-popular-posts"
+            class="mt-20"
+          >
+            <template #title>最近よく読まれている記事</template>
+          </PostsWidget>
         </aside>
       </template>
     </SiteColumn>
@@ -40,6 +48,8 @@ import SiteFooter from '../components/layout/SiteFooter.vue'
 import Ads from '../components/module/Ads.vue'
 import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
+import PostsWidget from '../components/widget/PostsWidget.vue'
+import { Post } from '../types/blog'
 
 export default Vue.extend({
   name: 'Layout',
@@ -51,10 +61,14 @@ export default Vue.extend({
     Ads,
     Notification,
     AboutWidget,
+    PostsWidget,
   },
   computed: {
     notification() {
       return this.$store.state.notification
+    },
+    popularPosts(): Post[] {
+      return this.$store.state.popularPosts
     },
   },
   watch: {

@@ -23,7 +23,20 @@ const {
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
   AD_ID,
+  NETLIFY_FUNCTIONS_BASE_URL_PROD,
+  NETLIFY_FUNCTIONS_BASE_URL_RC,
+  NETLIFY_FUNCTIONS_BASE_URL_DEV,
 } = process.env
+
+let netlifyFunctionsBaseUrl = NETLIFY_FUNCTIONS_BASE_URL_DEV
+
+if (NODE_ENV === 'production') {
+  if (STAGE_ENV === 'production') {
+    netlifyFunctionsBaseUrl = NETLIFY_FUNCTIONS_BASE_URL_PROD
+  } else if (STAGE_ENV === 'rc') {
+    netlifyFunctionsBaseUrl = NETLIFY_FUNCTIONS_BASE_URL_RC
+  }
+}
 
 const config: Configuration = {
   mode: 'universal',
@@ -31,6 +44,7 @@ const config: Configuration = {
   env: {
     CMS_BASE_URL: CMS_BASE_URL || '',
     CMS_API_KEY: CMS_API_KEY || '',
+    NETLIFY_FUNCTIONS_BASE_URL: netlifyFunctionsBaseUrl,
   },
   head: {
     htmlAttrs: { lang: 'ja' },
