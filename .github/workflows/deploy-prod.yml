@@ -6,7 +6,7 @@ on:
   repository_dispatch:
     types: [cms_build]
   schedule:
-    - cron: '0 15 * * * 0'
+    - cron: '0 15 * * 1' # 毎週月曜日のUTC15時(日本時間0時)
 env:
   STAGE_ENV: production
   CACHE_VERSION: v1
