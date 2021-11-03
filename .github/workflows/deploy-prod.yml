@@ -6,7 +6,7 @@ on:
   repository_dispatch:
     types: [cms_build]
   schedule:
-    - cron: '* 15 * * *'
+    - cron: '0 15 * * * 0'
 env:
   STAGE_ENV: production
   CACHE_VERSION: v1
