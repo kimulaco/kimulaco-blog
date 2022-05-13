@@ -11,7 +11,6 @@
       <template v-slot:sub>
         <aside>
           <AboutWidget class="mb-20" />
-          <Ads ad-slot="4432810314" />
           <PostsWidget
             v-if="popularPosts.length > 0"
             :posts="popularPosts"
@@ -45,7 +44,6 @@ import SiteHeader from '../components/layout/SiteHeader.vue'
 import SiteColumn from '../components/layout/SiteColumn.vue'
 import SiteMain from '../components/layout/SiteMain.vue'
 import SiteFooter from '../components/layout/SiteFooter.vue'
-import Ads from '../components/module/Ads.vue'
 import Notification from '../components/module/Notification.vue'
 import AboutWidget from '../components/widget/AboutWidget.vue'
 import PostsWidget from '../components/widget/PostsWidget.vue'
@@ -58,7 +56,6 @@ export default Vue.extend({
     SiteColumn,
     SiteMain,
     SiteFooter,
-    Ads,
     Notification,
     AboutWidget,
     PostsWidget,
