@@ -22,7 +22,6 @@ const {
   SENTRY_DSN,
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
-  AD_ID,
   NETLIFY_FUNCTIONS_BASE_URL_PROD,
   NETLIFY_FUNCTIONS_BASE_URL_RC,
   NETLIFY_FUNCTIONS_BASE_URL_DEV,
@@ -84,7 +83,6 @@ const config: Configuration = {
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/google-adsense',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     '@nuxtjs/feed',
@@ -146,15 +144,6 @@ const config: Configuration = {
   googleAnalytics: {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
     debug: { enabled: false },
-  },
-  'google-adsense': {
-    id: AD_ID,
-    tag: 'adsbygoogle',
-    pageLevelAds: true,
-    analyticsUacct:
-      STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
-    analyticsDomainName: SITE_URL.replace('https://', ''),
-    test: STAGE_ENV !== 'production',
   },
   srcDir: 'src',
   generate: {
