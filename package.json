@@ -74,7 +74,7 @@
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fibers": "^5.0.0",
     "googleapis": "^88.2.0",
     "husky": "^4.3.0",
