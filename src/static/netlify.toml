@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/post/*"
+  to = "https://blog.kimulaco.dev/article/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "https://blog.kimulaco.dev/:splat"
+  status = 301
+  force = true
