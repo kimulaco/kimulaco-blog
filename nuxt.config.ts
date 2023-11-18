@@ -12,14 +12,12 @@ import {
   createMetaData,
 } from './src/utils/blog'
 import { createPostRoutes, createTagRoutes, createFeed } from './scripts/blog'
-import pkg from './package.json'
 
 const {
   NODE_ENV,
   STAGE_ENV,
   CMS_BASE_URL,
   CMS_API_KEY,
-  SENTRY_DSN,
   GA_TRACKING_ID,
   GA_TRACKING_ID_RC,
   NETLIFY_FUNCTIONS_BASE_URL_PROD,
@@ -78,7 +76,6 @@ const config: Configuration = {
   ],
   modules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/sentry',
     '@nuxtjs/markdownit',
     '@nuxtjs/svg-sprite',
     '@nuxtjs/axios',
@@ -130,16 +127,6 @@ const config: Configuration = {
       '@/assets/scss/_mixin.scss',
       '@/assets/scss/_extend.scss',
     ],
-  },
-  sentry: {
-    dsn: SENTRY_DSN || '',
-    publishRelease: STAGE_ENV,
-    disabled: !STAGE_ENV,
-    config: {
-      release: `${pkg.name}@${pkg.version}-${STAGE_ENV}`,
-      environment: NODE_ENV || 'development',
-    },
-    tracing: true,
   },
   googleAnalytics: {
     id: STAGE_ENV === 'production' ? GA_TRACKING_ID : GA_TRACKING_ID_RC,
